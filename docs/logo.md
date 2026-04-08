@@ -1,0 +1,19 @@
+# The jMonkeyEngine Logo
+
+You may use this logo for the purposes of education and when identifying the use of jMonkeyEngine.  This page comes about due to the reoccurring question of the acquisition and use of the jME logo.  It is important to note the distinction in using the logo to represent the use of jMonkeyEngine (allowed and very much appreciated!) as opposed to the endorsement of a product by the jMonkeyEngine community or core team (not allowed).
+
+## Examples
+
+### Good
+
+image:logo/yes.png[yes.png,width="",height=""]
+
+### Bad
+
+image:logo/no.png[no.png,width="",height=""]
+
+## Logos
+
+image:logo/playful-smiling-monkey.png[playful smiling monkey]
+
+image:logo/serious-monkey.png[serious monkey]

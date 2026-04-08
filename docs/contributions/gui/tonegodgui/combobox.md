@@ -1,0 +1,82 @@
+# combobox
+
+## SelectBox & ComboBox
+
+The combo box and select box works exactly like any other combo box or select box:
+
+- They both provides the standard 3 constructors
+- The only difference between the two is the SelectBox’s text field is disabled.
+- The SelectBox still allows for arrow key navigation and enter select, though other key input is disabled.
+
+### Usage is as follows:
+
+```java
+
+ComboBox combo = new ComboBox(
+    screen,
+    "SomeID",
+    new Vector2f(5,5)
+);
+combo.addListItem("Some caption", "Some value");
+combo.addListItem("Some caption", "Some value");
+combo.addListItem("Some caption", "Some value");
+combo.addListItem("Some caption", "Some value");
+combo.addListItem("Some caption", "Some value");
+combo.addListItem("Some caption", "Some value");
+
+```
+
+### Abstract Event Methods:
+
+```java
+
+public void onChange(int selectedIndex, String value);
+
+```
+
+### Hooks:
+
+```java
+
+// Overridable hook for keyboard input events
+public void controlKeyPressHook(KeyInputEvent evt, String text) {  }
+
+```
+
+### Set Selected Index via Code
+
+```java
+
+combo.setSelectedIndex(int index);
+combo.getSelectedIndex();
+
+```
+
+### Methods specific to Combo & Select Boxes:
+
+```java
+
+// Add a list item
+combo.addListItem(String caption, String value);
+// Insert a list item
+combo.insertListItem(int index, String caption, Object value);
+// Remove a list item
+combo.removeListItem(int index);
+combo.removeListItem(String caption);
+combo.removeListItem(Object value);
+
+// Sorting methods
+combo.sortList(); // Sorts drop-down list standard alpha-numeric
+combo.sortListNumeric(); // Sorts drop-down list true numeric
+
+// Drop-down list validation
+combo.validateListSize(); //returns false if null or size 0, else returns true;
+
+// Force drop-down list to hide
+combo.hideDropDownList();
+
+// Retrieve List Items
+combo.getSelectedListItem();
+combo.getListItemByIndex(int index);
+
+```

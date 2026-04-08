@@ -1,0 +1,285 @@
+# jMonkeyEngine 3 Tutorial (7) - Hello Animation
+
+This tutorial shows how to add an animation controller and how to respond to user input by triggering an animation in a loaded model.
+
+![beginner-animation.png](/wiki-assets/docs/tutorials/assets/images/beginner/beginner-animation.png)
+
+:::tip
+To use the example assets in a new jMonkeyEngine SDK project, right-click your project, select "Properties &gt; Libraries &gt; Add Library", and add the "`jme3-test-data`" library.
+:::
+
+## Sample Code
+
+```java
+
+package jme3test.helloworld;
+
+import com.jme3.anim.AnimComposer;
+import com.jme3.anim.tween.Tween;
+import com.jme3.anim.tween.Tweens;
+import com.jme3.anim.tween.action.Action;
+import com.jme3.anim.tween.action.BlendSpace;
+import com.jme3.anim.tween.action.LinearBlendSpace;
+import com.jme3.app.SimpleApplication;
+import com.jme3.input.KeyInput;
+import com.jme3.input.controls.ActionListener;
+import com.jme3.input.controls.KeyTrigger;
+import com.jme3.light.DirectionalLight;
+import com.jme3.math.ColorRGBA;
+import com.jme3.math.Vector3f;
+import com.jme3.scene.Node;
+
+/** Sample 7 - how to load an OgreXML model and play an animation,
+ * using AnimComposer */
+public class HelloAnimation extends SimpleApplication{
+
+    private AnimComposer control;
+    private Action advance;
+
+    Node player;
+    public static void main(String[] args) {
+        HelloAnimation app = new HelloAnimation();
+        app.start();
+    }
+
+    @Override
+    public void simpleInitApp() {
+        viewPort.setBackgroundColor(ColorRGBA.LightGray);
+        initKeys();
+        DirectionalLight dl = new DirectionalLight();
+        dl.setDirection(new Vector3f(-0.1f, -1f, -1).normalizeLocal());
+        rootNode.addLight(dl);
+        player = (Node) assetManager.loadModel("Models/Oto/Oto.mesh.xml");
+        player.setLocalScale(0.5f);
+        rootNode.attachChild(player);
+        control = player.getControl(AnimComposer.class);
+        control.setCurrentAction("stand");
+
+        /* Compose an animation action named "halt"
+        that transitions from "Walk" to "stand" in half a second. */
+        BlendSpace quickBlend = new LinearBlendSpace(0f, 0.5f);
+        Action halt = control.actionBlended("halt", quickBlend, "stand", "Walk");
+        halt.setLength(0.5);
+
+        /* Compose an animation action named "advance"
+        that walks for one cycle, then halts, then invokes onAdvanceDone(). */
+        Action walk = control.action("Walk");
+        Tween doneTween = Tweens.callMethod(this, "onAdvanceDone");
+        advance = control.actionSequence("advance", walk, halt, doneTween);
+    }
+
+    /**
+     * Callback to indicate that the "advance" animation action has completed.
+     */
+    void onAdvanceDone() {
+        /*
+         * Play the "stand" animation action.
+         */
+        control.setCurrentAction("stand");
+    }
+
+    /**
+     * Map the spacebar to the "Walk" input action, and add a listener to initiate
+     * the "advance" animation action each time it's pressed.
+     */
+    private void initKeys() {
+        inputManager.addMapping("Walk", new KeyTrigger(KeyInput.KEY_SPACE));
+
+        ActionListener handler = new ActionListener() {
+            @Override
+            public void onAction(String name, boolean keyPressed, float tpf) {
+                if (keyPressed && control.getCurrentAction() != advance) {
+                    control.setCurrentAction("advance");
+                }
+            }
+        };
+        inputManager.addListener(handler, "Walk");
+    }
+}
+
+```
+
+## Creating and Loading Animated Models
+
+You create animated models with a tool such as Blender. Take some time and learn how to create your own models in these [Blender Animation Tutorials](http://www.blender.org/education-help/tutorials/animation/). For now, download and use a free model, such as the one included here as an example ([Oto Golem](https://github.com/jMonkeyEngine/jmonkeyengine/tree/master/jme3-testdata/src/main/resources/Models/Oto/), and [Ninja](https://github.com/jMonkeyEngine/jmonkeyengine/tree/master/jme3-testdata/src/main/resources/Models/Ninja/)).
+
+Loading an animated model is pretty straight-forward, just as you have learned in the previous chapters. Animated Ogre models come as a set of files: The model is in `Oto.mesh.xml`, and the animation details are in `Oto.skeleton.xml`, plus the usual files for materials and textures. Check that all files of the model are together in the same `Model` subdirectory.
+
+```java
+
+  public void simpleInitApp() {
+    /* Displaying the model requires a light source */
+    DirectionalLight dl = new DirectionalLight();
+    dl.setDirection(new Vector3f(-0.1f, -1f, -1).normalizeLocal());
+    rootNode.addLight(dl);
+    /* load and attach the model as usual */
+    player = assetManager.loadModel("Models/Oto/Oto.mesh.xml");
+    player.setLocalScale(0.5f); // resize
+    rootNode.attachChild(player);
+    ...
+    }
+
+```
+
+Don't forget to add a light source to make the material visible.
+
+## Animation Controller and Channel
+
+After you load the animated model, you register it to the Animation Controller.
+
+- The controller object gives you access to the available animation sequences.
+- The controller can have several channels, each channel can run one animation sequence at a time.
+- To run several sequences, you create several channels, and set them each to their animation.
+
+```java
+
+  private AnimComposer control;
+
+  public void simpleInitApp() {
+    ...
+    /* Load the animation controls, listen to animation events,
+     * create an animation channel, and bring the model in its default position.
+     */
+     control = player.getControl(AnimComposer.class);
+     control.setCurrentAction("stand");
+    ...
+}
+```
+
+This line of code will return NULL if the AnimComposer is not in the main node of your model.
+
+```java
+control = player.getControl(AnimComposer.class);
+```
+
+To check this, **RMB** select your model and click "`Edit in SceneComposer`" if the models file extension is .j3o, or "`View`" if not. You can then see the tree for the model so you can locate the node the control resides in. You can access the subnode with the following code.
+
+```java
+player.getChild("Subnode").getControl(AnimComposer.class);
+```
+
+## Responding to Animation Events
+
+A Tween (part of an action sequence) can call a method on a class, allowing your application code to be informed of the animation state. In this example, you reset the character to a standing position after a `Walk` cycle is done.
+
+```java
+
+public class HelloAnimation extends SimpleApplication
+                         implements AnimEventListener {
+  ...
+
+      @Override
+    public void simpleInitApp() {
+      ...
+      Action walk = control.action("Walk");
+      Tween doneTween = Tweens.callMethod(this, "onAdvanceDone");
+      advance = control.actionSequence("advance", walk, halt, doneTween);
+      ...
+    }
+
+    /**
+     * Callback to indicate that the "advance" animation action has completed.
+     */
+    void onAdvanceDone() {
+        /*
+         * Play the "stand" animation action.
+         */
+        control.setCurrentAction("stand");
+    }
+ ...
+}
+```
+
+## Trigger Animations After User Input
+
+There are ambient animations like animals or trees that you may want to trigger in the main event loop. In other cases, animations are triggered by user interaction, such as key input. You want to play the Walk animation when the player presses a certain key (here the spacebar), at the same time as the avatar performs the walk action and changes its location.
+
+1. Initialize a new input controller (in `simpleInitApp()`).
+  - Write the `initKey()` convenience method and call it from `simpleInitApp()`.
+
+1. Add a key mapping with the name as the action you want to trigger.
+  - Here for example, you map `Walk` to the Spacebar key.
+
+1. Add an input listener for the `Walk` action.
+
+```java
+
+    /**
+     * Map the spacebar to the "Walk" input action, and add a listener to initiate
+     * the "advance" animation action each time it's pressed.
+     */
+    private void initKeys() {
+        inputManager.addMapping("Walk", new KeyTrigger(KeyInput.KEY_SPACE));
+
+        ActionListener handler = new ActionListener() {
+            @Override
+            public void onAction(String name, boolean keyPressed, float tpf) {
+                if (keyPressed && control.getCurrentAction() != advance) {
+                    control.setCurrentAction("advance");
+                }
+            }
+        };
+        inputManager.addListener(handler, "Walk");
+    }
+
+```
+
+- By default, the animation will loop, there is an overloaded `setCurrentAction` method that allows you to set the loop mode.
+- If needed, use Action::setSpeed to set the speed of this animation.
+- Optionally, use AnimComposer::.setTime to Fast-forward or rewind to a certain moment in time of this animation.
+
+## Exercises
+
+### Exercise 1: Two Animations
+
+Make a mouse click trigger another animation sequence!
+
+1. Create a second layer in the controller.
+1. Create a new key trigger mapping and action. (see: [Hello Input](hello_input_system.md))
+
+:::tip
+Do you want to find out what animation sequences are available in the model?
+
+Use:
+
+```java
+for (String anim : control.getAnimClipsNames()) {
+    System.out.println(anim);
+}
+```
+:::
+
+### Exercise 2: Revealing the Skeleton (1)
+
+Open the `skeleton.xml` file in a text editor of your choice. You don't have to be able to read or write these xml files (Blender does that for you) – but it is good to know how skeletons work. There's no magic to it!
+
+- Note how the bones are numbered and named. All names of animated models follow a naming scheme.
+- Note the bone hierarchy that specifies how the bones are connected.
+- Note the list of animations: Each animation has a name, and several tracks. Each track tells individual bones how and when to transform. These animation steps are called keyframes.
+
+### Exercise 3: Revealing the Skeleton (2)
+
+Add the following import statements for the SkeletonDebugger and Material classes:
+
+```java
+
+     import com.jme3.scene.debug.custom.ArmatureDebugAppState;
+     import com.jme3.anim.SkinningControl;
+
+```
+
+Add the following code snippet to `simpleInitApp()` to make the bones (that you just read about) visible!
+
+```java
+
+    ArmatureDebugAppState armatureDebugAppState = new ArmatureDebugAppState();
+    armatureDebugAppState.addArmatureFrom(player.getControl(SkinningControl.class));
+    this.getStateManager().attach(armatureDebugAppState);
+
+```
+
+Can you identify individual bones in the skeleton?
+
+## Conclusion
+
+Now you can load animated models, identify stored animations, and trigger animations by using onAnimCycleDone() and onAnimChange(). You also learned that you can play several animations simultaneously, by starting each in a channel of its own. This could be useful if you ever want to animate the lower and upper part of the characters body independently, for example the legs run, while the arms use a weapon.

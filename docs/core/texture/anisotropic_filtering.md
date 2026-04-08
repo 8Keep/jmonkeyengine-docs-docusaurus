@@ -1,0 +1,50 @@
+# anisotropic_filtering
+
+## Anisotropic Filtering for Textures
+
+Anisotropic filtering is important for desktop games.
+It sharpens textures that are viewed from an oblique angle.
+Anisotropy has a performance impact, but the results look much better.
+
+For example:
+
+![anisotropy_example_mifth_01.jpg](/wiki-assets/docs/core/assets/images/texture/anisotropy_example_mifth_01.jpg)
+
+:::note
+JME supports anisotropic filtering only on desktop platforms,
+:::
+
+      not on mobile devices.
+
+The maximum possible degree of anisotropy depends on the graphics hardware.
+To determine this limit, simply query the renderer:
+
+```java
+Renderer renderer = application.getRenderer();
+int maxDegree = renderer.getLimits().get(Limits.TextureAnisotropy);
+```
+
+By default, anisotropic filtering is disabled.
+To enable it for a specific texture, specify the desired degree of anisotropy
+in the key used to load the texture.
+For instance, to load a texture with 8x anisotropic filtering:
+
+```java
+TextureKey key = new TextureKey(assetPath);
+int degree = 8;
+key.setAnisotropy(degree);
+Texture texture = assetManager.loadTexture(key);
+```
+
+- Specifying `degree = 1` disables anisotropic filtering for the texture.
+- Specifying `degree = 0` (the default) causes the loader
+  to apply JME's global setting.
+
+The global setting defaults to 1, but this can be changed.
+For instance, to set the global default to 4x filtering:
+
+```
+Renderer renderer = application.getRenderer();
+int degree = 4;
+renderer.setDefaultAnisotropicFilter(degree);
+```

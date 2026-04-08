@@ -1,0 +1,79 @@
+:root {
+  --ifm-color-primary: #b66916;
+  --ifm-color-primary-dark: #9f5c14;
+  --ifm-color-primary-darker: #965712;
+  --ifm-color-primary-darkest: #7b470f;
+  --ifm-color-primary-light: #cd7618;
+  --ifm-color-primary-lighter: #d67b1a;
+  --ifm-color-primary-lightest: #ee932c;
+  --ifm-background-color: #fffdf8;
+  --ifm-background-surface-color: #ffffff;
+  --ifm-code-font-size: 92%;
+  --ifm-font-family-base: "Segoe UI", "Helvetica Neue", sans-serif;
+  --ifm-heading-font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  --ifm-link-color: #0f5e7a;
+  --ifm-menu-color-active: #10273a;
+  --ifm-navbar-background-color: rgba(255, 253, 248, 0.9);
+  --ifm-navbar-link-color: #21394b;
+  --ifm-toc-border-color: rgba(16, 39, 58, 0.08);
+  --ifm-footer-background-color: #10273a;
+}
+
+[data-theme='dark'] {
+  --ifm-color-primary: #f0a544;
+  --ifm-color-primary-dark: #ed961f;
+  --ifm-color-primary-darker: #ea8d11;
+  --ifm-color-primary-darkest: #c1710f;
+  --ifm-color-primary-light: #f3b469;
+  --ifm-color-primary-lighter: #f5bc78;
+  --ifm-color-primary-lightest: #f8d2ab;
+  --ifm-background-color: #0f1820;
+  --ifm-background-surface-color: #142432;
+  --ifm-navbar-background-color: rgba(15, 24, 32, 0.88);
+  --ifm-navbar-link-color: #f4eee4;
+  --ifm-link-color: #82d0e8;
+}
+
+.navbar {
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(16, 39, 58, 0.08);
+}
+
+.footer {
+  border-top: 4px solid rgba(240, 165, 68, 0.7);
+}
+
+.theme-doc-sidebar-container {
+  border-right-color: rgba(16, 39, 58, 0.08);
+}
+
+.theme-code-block,
+pre {
+  border: 1px solid rgba(16, 39, 58, 0.08);
+  border-radius: 0.8rem;
+}
+
+.theme-admonition {
+  border-radius: 0.9rem;
+}
+
+.ui-token {
+  background: rgba(182, 105, 22, 0.12);
+  border: 1px solid rgba(182, 105, 22, 0.28);
+  border-radius: 999px;
+  color: #7b470f;
+  display: inline-block;
+  font-size: 0.85em;
+  font-weight: 700;
+  padding: 0.1rem 0.45rem;
+  white-space: nowrap;
+}
+
+.ui-btn {
+  text-transform: none;
+}
+
+table {
+  display: table;
+  width: 100%;
+}

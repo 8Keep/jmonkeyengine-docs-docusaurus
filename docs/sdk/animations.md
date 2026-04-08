@@ -1,0 +1,22 @@
+# jMonkeyEngine SDK: Animations
+
+The SDK allows you to preview animations of converted models, and to some extent modify them in the Scene Explorer.
+
+## How to use it
+
+Once a model is loaded (using "Edit in Scene Composer"), you can find the AnimComposer in the model tree in the Scene Explorer.
+All available animations will be listed, and right clicking on any will give you the option to play, stop and rename them.
+If your model has Anim Channels, you can choose to play them on only that channel.
+
+## Merging animations
+
+You can select several converted models that have AnimComposers and merge their animations to one of them.
+This is useful if you want to add animations to an existing model without converting it from scratch.
+
+  1. Select the models you want to merge in the Projects window using shift+click.
+
+  2. Right click on any of them and select "Merge Animations".
+
+  3. A window will appear asking which model you want to merge them to.
+
+*All animations from the source to the target will be copied, existing ones will be overwritten.*

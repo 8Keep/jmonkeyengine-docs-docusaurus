@@ -1,0 +1,156 @@
+# Zay-ES Beginner Tutorial
+
+In this article we explain the first steps how to work with Zay-ES and what you should know about the background.
+
+If you are new Entity Systems please read the [Entity System Introduction](introduction.md) first.
+
+## Sample Code
+
+```java
+
+import com.simsilica.es.Entity;
+import com.simsilica.es.EntityData;
+import com.simsilica.es.EntityId;
+import com.simsilica.es.base.DefaultEntityData;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        //Creating the EntityData
+        EntityData entityData = new DefaultEntityData();
+
+        //Creates a new EntityId, the id is handled as an object to prevent botching
+        EntityId entityId = entityData.createEntity();
+        //A new TestComponent is added to the Entity
+        entityData.setComponent(entityId, new TestComponent("Hello World"));
+
+        //Get a new Entity Object with TestComponents
+        Entity entity = entityData.getEntity(entityId, TestComponent.class);
+        //Get the Component and display the value
+        TestComponent testComponent = entity.get(TestComponent.class);
+        System.out.println(testComponent.getValue());
+
+        //Overwrite the existing component
+        entity.set(new TestComponent("New Value"));
+        System.out.println(testComponent.getValue());
+
+        //Remove the Entity from the data
+        entityData.removeEntity(entity.getId());
+    }
+}
+
+```
+
+### Description of the sample
+
+## Create a Component Class
+
+You simply create a component by implementing the EntityComponent interface:
+
+```java
+public class TestComponent implements EntityComponent {
+
+    private String value;
+
+    public TestComponent(String value)
+    {
+        this.value=value;
+    }
+
+    public String getValue()
+    {
+        return value;
+    }
+}
+```
+
+But there are some rules you must consider:
+Components only have a constructor and getter.
+It is important that you only store pure data in the components because otherwise you would no longer know where you can find the logic and the approach of a clear software design would get lost.
+Besides an entity can only have one component of the same class.
+
+:::important
+Beginners tend to add large objects like spatials and geometries to a component.
+This is a big mistake because such objects contain logic and in our approach components are data only. Abstract it to a general level or store it completely in the systems.
+:::
+
+:::important
+Never subclass Component classes.
+:::
+
+## Initialize the Entity System
+
+```java
+ EntityData entityData = new DefaultEntityData();
+```
+
+The EntityData is the main class of the entity system.  All the data are stored here.
+
+How the entityData works:
+
+For every component class a new Hashmap is created which contains the entityId as a key and the component as a value. Therefore, if you need to know all entities which own a component of a certain type, the system will search in these Hashmaps for the required entityIds.
+
+## Creating Entitys and adding Components
+
+```java
+//Creates a new EntityId, the id is handled as an object to prevent botching
+EntityId entityId = entityData.createEntity();
+//A new TestComponent is added to the Entity
+entityData.setComponent(entityId, new TestComponent("Hello World"));
+```
+
+EntityIds are a objects which contain a long value. Zay-ES uses this objects to prevent users from writing dirty code.
+
+Every entity has a unique id which is a long.
+Ids are not reused because, if they were, they would not be unique anymore, which would cause a huge penalty.
+
+:::tip
+Often people are scared that they will run out of ids:
+If you create a new entity every nano second, you would need roughly 585 years before it wraps.
+:::
+
+## The Entity Class
+
+```java
+//Get a new Entity Object with TestComponents
+Entity entity = entityData.getEntity(entityId, TestComponent.class);
+//Get the Component and display the value
+TestComponent testComponent = entity.get(TestComponent.class);
+System.out.println(testComponent.getValue());
+```
+
+If you want to work with entities, the EntityData is able to create Entity objects. This objects contains
+all the Components of the classes you are interested in. In this example it is only the TestComponent.class.
+You can have multiple Entity objects for the same entity.
+
+:::important
+The data of this Entity objects will not be updated if other classes change the components for this entity
+:::
+
+## Replacing a component
+
+```java
+
+//Overwrite the existing component
+entity.set(new TestComponent("New Value"));
+System.out.println(testComponent.getValue());
+```
+
+## Delete an entity
+
+```java
+
+//Remove the Entity from the data
+entityData.removeEntity(entity.getId());
+
+```
+
+### Entity Sets
+
+The most important feature of Zay-ES are the Entity Sets.
+It is strongly recommended that you read the [Entity Set tutorial](entityset.md) after reading this article.
+
+:::important
+Read the [tutorial](entityset.md) about entity sets
+:::

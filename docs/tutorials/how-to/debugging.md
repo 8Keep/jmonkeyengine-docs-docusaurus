@@ -1,0 +1,275 @@
+# Debugging
+
+When you deal with complex game engine features like animations or physics it is handy to get feedback from the engine how it interpreted the current state. Is the physical object's collision shape really where you think it is? Is the skeleton of the animated character moving like you think it should? This document shows you how to activate visual debug aides.
+
+What if you just want to quickly write code that loads models and brings them in their start position? You may not want to hunt for a sample model, convert it, add lights, and load materials. Instead you use "`hassle-free`" simple shapes, and a "`hassle-free`" unshaded material or wireframe: No model, no light source, no materials are needed to see them in your test scene.
+
+If you ever have problems with objects appearing in the wrong spot, with the wrong scale, or wrong orientation, simply attach debug shapes to your scene to have a point of reference in 3D space – just like a giant ruler. If your code positions the debug shapes correctly, but models remain invisible when you apply the same code to them, you know that the problem must be either the model (where is its origin coordinate?), or the light (too dark? too bright? missing?), or the model's material (missing?) – and not the positioning code.
+
+Here are some different debug shapes:
+
+![debug-shapes.png](/wiki-assets/docs/tutorials/assets/images/how-to/debug-shapes.png)
+
+## Debug Shapes
+
+### Coordinate Axes
+
+The coordinate axes (com.jme3.scene.debug.Arrow) help you see the cardinal directions (X,Y,Z) from their center point. Scale the arrows to use them as a "`ruler`" for a certain length.
+
+```java
+
+private void attachCoordinateAxes(Vector3f pos) {
+    Arrow arrow = new Arrow(Vector3f.UNIT_X);
+    putShape(arrow, ColorRGBA.Red).setLocalTranslation(pos);
+
+    arrow = new Arrow(Vector3f.UNIT_Y);
+    putShape(arrow, ColorRGBA.Green).setLocalTranslation(pos);
+
+    arrow = new Arrow(Vector3f.UNIT_Z);
+    putShape(arrow, ColorRGBA.Blue).setLocalTranslation(pos);
+}
+
+private Geometry putShape(Mesh shape, ColorRGBA color) {
+    Geometry g = new Geometry("coordinate axis", shape);
+    Material mat = new Material(assetManager, "Common/MatDefs/Misc/Unshaded.j3md");
+    mat.getAdditionalRenderState().setWireframe(true);
+    mat.getAdditionalRenderState().setLineWidth(4);
+    mat.setColor("Color", color);
+    g.setMaterial(mat);
+    rootNode.attachChild(g);
+    return g;
+}
+```
+
+### Wireframe Grid
+
+Use a wireframe grid (com.jme3.scene.debug.Grid) as a ruler or simple floor.
+
+```java
+
+private Geometry attachGrid(Vector3f pos, int size, ColorRGBA color) {
+    Geometry g = new Geometry("wireframe grid", new Grid(size, size, 0.2f));
+    Material mat = new Material(assetManager, "Common/MatDefs/Misc/Unshaded.j3md");
+    mat.getAdditionalRenderState().setWireframe(true);
+    mat.setColor("Color", color);
+    g.setMaterial(mat);
+    g.center().move(pos);
+    rootNode.attachChild(g);
+    return g;
+}
+```
+
+### Wireframe Cube
+
+Use a wireframe cube (com.jme3.scene.debug.WireBox) as a stand-in object to see whether your code scales, positions, or orients, loaded models right.
+
+```java
+
+public Geometry attachWireBox(Vector3f pos, float size, ColorRGBA color) {
+    Geometry g = new Geometry("wireframe cube", new WireBox(size, size, size));
+    Material mat = new Material(assetManager, "Common/MatDefs/Misc/Unshaded.j3md");
+    mat.getAdditionalRenderState().setWireframe(true);
+    mat.setColor("Color", color);
+    g.setMaterial(mat);
+    g.setLocalTranslation(pos);
+    rootNode.attachChild(g);
+    return g;
+}
+```
+
+### Wireframe Sphere
+
+Use a wireframe sphere (com.jme3.scene.debug.WireSphere) as a stand-in object to see whether your code scales, positions, or orients, loaded models right.
+
+```java
+
+private Geometry attachWireSphere(Vector3f pos, float size, ColorRGBA color) {
+    Geometry g = new Geometry("wireframe sphere", new WireSphere(size));
+    Material mat = new Material(assetManager, "Common/MatDefs/Misc/Unshaded.j3md");
+    mat.getAdditionalRenderState().setWireframe(true);
+    mat.setColor("Color", color);
+    g.setMaterial(mat);
+    g.setLocalTranslation(pos);
+    rootNode.attachChild(g);
+    return g;
+}
+```
+
+## Wireframe for Physics
+
+You can display a wireframe of the (usually invisible) collision shape around all physical objects. Use this for debugging when analyzing unexpected behaviour. Does not work with DETACHED physics, please switch to PARALLEL or SEQUENTIAL for debugging.
+
+```java
+//Create the physics space.
+bulletAppState = new BulletAppState();
+bulletAppState.setDebugEnabled(true);
+getStateManager().attach(bulletAppState);
+```
+
+With debugging enabled, colors are used to indicate various types of physical objects:
+
+- A magenta wire mesh indicates an active rigid body.
+- A blue wire mesh indicates a rigid body which is either new or inactive.
+- A yellow wire mesh indicates a ghost.
+- Two green arrows indicate a joint.
+- A pink wire mesh indicates a character.
+
+## Wireframe for Animations
+
+Making the skeleton visible inside animated models can be handy for debugging animations. The `control` object is an AnimControl, `player` is the loaded model.
+
+.AnimControl is known to be in the main node
+```java
+
+SkeletonDebugger skeletonDebug = new SkeletonDebugger("skeleton", control.getSkeleton());
+Material mat = new Material(assetManager, "Common/MatDefs/Misc/Unshaded.j3md");
+mat.setColor("Color", ColorRGBA.Green);
+mat.getAdditionalRenderState().setDepthTest(false);
+skeletonDebug.setMaterial(mat);
+player.attachChild(skeletonDebug);
+```
+
+.AnimControl is nested somewhere
+```java
+private void debugSkeleton(Node player) {
+    player.depthFirstTraversal(new SceneGraphVisitorAdapter() {
+        @Override
+        public void visit(Node node) {
+            if (node.getControl(AnimControl.class) != null) {
+                AnimControl control = node.getControl(AnimControl.class);
+                SkeletonDebugger skeletonDebug = new SkeletonDebugger("skeleton",
+                        control.getSkeleton());
+                Material mat = new Material(getApplication().getAssetManager(),
+                        "Common/MatDefs/Misc/Unshaded.j3md");
+                mat.setColor("Color", ColorRGBA.Green);
+                mat.getAdditionalRenderState().setDepthTest(false);
+                skeletonDebug.setMaterial(mat);
+                player.attachChild(skeletonDebug);
+            }
+        }
+    });
+}
+```
+
+## Example: Toggle Wireframe on Model
+
+We assume that you have loaded a model with a material `mat`.
+
+Then you can add a switch to toggle the model's wireframe on and off, like this:
+
+1. Create a key input trigger that switches between the two materials: E.g. we toggle when the T key is pressed.
+
+```java
+inputManager.addMapping("toggle wireframe", new KeyTrigger(KeyInput.KEY_T));
+inputManager.addListener(actionListener, "toggle wireframe");
+```
+
+1. Now add the toggle action to the action listener.
+
+```java
+
+private ActionListener actionListener = new ActionListener() {
+    @Override
+    public void onAction(String name, boolean pressed, float tpf) {
+        // toggle wireframe
+        if (name.equals("toggle wireframe") && !pressed) {
+            wireframe = !wireframe; // toggle boolean
+            mat.getAdditionalRenderState().setWireframe(wireframe);
+        }
+        // else ... other input tests.
+    }
+};
+```
+
+1. Alternatively, you could traverse over the whole scene and toggle for all Geometry objects in there if you don't want to create a new SceneProcessor.
+
+```java
+
+private ActionListener actionListener = new ActionListener() {
+    boolean wireframe = false;
+
+    @Override
+    public void onAction(String name, boolean pressed, float tpf) {
+        // toggle wireframe
+        if (name.equals("toggle wireframe") && !pressed) {
+            wireframe = !wireframe; // toggle boolean
+            rootNode.depthFirstTraversal(new SceneGraphVisitor() {
+                @Override
+                public void visit(Spatial spatial) {
+                    if (spatial instanceof Geometry) {
+                        ((Geometry) spatial).getMaterial()
+                                .getAdditionalRenderState().setWireframe(wireframe);
+                    }
+                }
+            });
+        }
+        // else ... other input tests.
+    }
+};
+```
+
+:::tip
+To set the line width of wireframe display, use mesh.setLineWidth(lineWidth). Default line width is 1.
+:::
+
+## Example: Toggle Wireframe on the scene
+
+To display the wireframe of the entire scene instead on one material at a time, first create the following Scene Processor.
+
+```java
+public class WireProcessor implements SceneProcessor {
+
+    RenderManager renderManager;
+    Material wireMaterial;
+
+    public WireProcessor(AssetManager assetManager) {
+        wireMaterial = new Material(assetManager, "/Common/MatDefs/Misc/Unshaded.j3md");
+        wireMaterial.setColor("Color", ColorRGBA.Blue);
+        wireMaterial.getAdditionalRenderState().setWireframe(true);
+    }
+
+    @Override
+    public void initialize(RenderManager rm, ViewPort vp) {
+        renderManager = rm;
+    }
+
+    @Override
+    public void reshape(ViewPort vp, int w, int h) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public boolean isInitialized() {
+        return renderManager != null;
+    }
+
+    @Override
+    public void preFrame(float tpf) {
+    }
+
+    @Override
+    public void postQueue(RenderQueue rq) {
+        renderManager.setForcedMaterial(wireMaterial);
+    }
+
+    @Override
+    public void postFrame(FrameBuffer out) {
+        renderManager.setForcedMaterial(null);
+    }
+
+    @Override
+    public void cleanup() {
+        renderManager.setForcedMaterial(null);
+    }
+}
+```
+
+Then attach the scene processor to the &lt;abbr title="Graphical User Interface"&gt;GUI&lt;/abbr&gt; Viewport.
+
+```java
+getViewPort().addProcessor(new WireProcessor());
+```
+
+## See also
+
+- [Spatial](../../core/scene/spatial.md) – if you can't see certain spatials, you can modify the culling behaviour to identify problems (such as inside-out custom meshes)

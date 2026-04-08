@@ -1,0 +1,317 @@
+# Best Practices For jME3 Developers
+
+Every milestone of a game development project is made up of phases: Planning, development, testing, and release. Every milestone involves updates to multi-media assets and to code.
+
+This "best practices" page is a collection of recommendations and expert tips. Feel free to add your own!
+
+## Requirements and Planning
+
+If you are a beginner, you should first [read some](http://www.hobbygamedev.com/digests/?page=free) [articles about](http://gamasutra.com/) [game development](http://www.google.com/search?q=3d+game+development). We cannot cover all general tips here.
+
+### Requirements Gathering
+
+As a quick overview, answer yourself the following questions:
+
+- Motivation
+  - Sum up your game idea in one catchy sentence. If you can't, it's too complicated. +
+Example: "Craft by day, fight by night!"
+  - Who's the target group? Are you making it for your friends or are you trying to attract the masses?
+
+- Game type
+  - Point of view (first- or third-person camera)? What characters does the player control? (if applicable)
+  - Time- or turn-based?
+  - Genre (drama, horror, adventure, mystery, comedy, educational, documentary)?
+  - Setting and background story? (historic, fantasy, anime, futuristic, utopia/dystopia, pirate, zombie, vampire…)?
+
+- Gameplay
+  - What is the start state, what is the end state? (if applicable)
+  - What resources does the player manage? How are resources gained, transformed, spent? +
+Example: points, health, speed, gold, xp, mana.
+  - How does the player interact? Define rules, challenges, game mechanics.
+  - What state is considered winning, and what losing, or is it an open world?
+
+- Multi-media assets
+  - Which media will you need? How will you get this content? +
+Example: models, terrains; materials, textures; noises, music, voices; video, cutscenes; spoken/written dialog; level maps, quests, story; AI scripts.
+
+- Interface
+  - Can you achieve a high degree of input control? (Even minor navigation and interaction glitches make the game unsolvable.)
+  - Decide how to reflect current status, and changes in game states. E.g. health/damage in HUD.
+  - Decide how to reward good moves and discourage bad ones.
+
+### Planning Development Milestones
+
+Use an [issue and bug tracker](http://en.wikipedia.org/wiki/Issue_tracking_system) to outline what features you want and what components are needed.
+
+1. Pre-Alpha Development
+  - Artwork: Test asset loading and saving with mock-ups and stock art.
+  - Lay out the overall application flow, i.e. switching between intro / options / game screen, etc.
+  - Get one typical level working before you can announce the Alpha Release. +
+Example: if the game is a "Jump'n'Run", jumping and running must work.
+
+1. Alpha Release
+1. Pre-Beta Development
+  - Artwork: Replace all mock-ups with first drafts of real media and level maps.
+  - Have your team members review and alpha test it on various systems, track bugs, debug, optimize.
+  - Declare [Feature Freeze](http://en.wikipedia.org/wiki/Feature_freeze) before you announce the Beta Release to prevent a bottomless pit of new bugs.
+
+1. Beta Release
+1. Post-Beta Development
+  - Artwork: Fill in the final media and level maps.
+  - Have external people review and beta test it, make it easy to report bugs.
+  - Fix high-priority bugs, even out the kinks in code and gameplay, don't add new features for now!
+
+1. Gamma Release, Delta Release… = Release Candidates
+  - Think you're done? Make test runs incl. packaging and distribution. (Order form? download?)
+  - Test the heck out of it. Last chance to find and fix a horrible bug.
+
+1. Omega = Final Release
+
+How you name or number these stages is fully up to your team. Development teams use numbered milestones (m1, m2, m3), Greek letters (ex. alpha, beta, gamma, delta), [&quot;major.minor.patch-build&quot; version](http://en.wikipedia.org/wiki/Software_versioning) numbering (ex. "2.7.23-1328"), or combinations thereof.
+
+### Use File Version Control
+
+Whether you work in a team or alone, keeping a version controlled repository of your code will help you roll-back buggy changes, or recover old code that someone deleted and that is now needed again.
+
+- Treat commit messages as messages to your future self. "Made some changes" is _not_ a commit message.
+- The jMonkeyEngine SDK supports Subversion, Mercurial, and Git. +
+If you don't know which to choose, Subversion is a good choice for starters.
+- Set up your own local server, or get free remote hosting space from various open-source dev portals like [SourceForge](http://sourceforge.net/), [GitHub](https://github.com/), [BitBucket](https://bitbucket.org/) (supports private projects), [GitLab](https://about.gitlab.com/) (free private projects)…
+
+## Multi-Media Asset Pipeline
+<table>
+  <thead>
+    <tr>
+      <th>DO</th>
+      <th>DON'T<br /></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Save original models+textures into `assets/Textures`.</td>
+      <td>Don't reference textures or models outside your JME project.<br /></td>
+    </tr>
+    <tr>
+      <td>Save sounds into `assets/Sounds.`</td>
+      <td>Don't reference audio files outside your JME project.<br /></td>
+    </tr>
+    <tr>
+      <td>Create simple, low-polygon models.</td>
+      <td>Don't create high-polygon models, they render too slow to be useful in games.<br /></td>
+    </tr>
+    <tr>
+      <td>Only use Diffuse Map, Normal Map, Glow Map, Specular Map.</td>
+      <td>Don't use unsupported material properties that are not listed in the [Materials Overview](../../core/material/materials_overview.md).<br /></td>
+    </tr>
+    <tr>
+      <td>Use UV texture / texture atlases / baking for each texture map.</td>
+      <td>Don't create models based on multiple separate textures, it will break the model into separate meshes.<br /></td>
+    </tr>
+    <tr>
+      <td>Convert Models to j3o format. Move j3o files into `assets/Models`.</td>
+      <td>Don't reference GLTF/Ogre/OBJ files in your load() code, because these unoptimized files are not packaged into the JAR.<br /></td>
+    </tr>
+  </tbody>
+</table>
+
+Learn details about the [Multi-Media Asset Pipeline](multi-media_asset_pipeline.md) here.
+
+## Development Phase
+
+:::note
+Many game developers dream of creating their very own MMORPG with full-physics, AI, post-rendering effects, multi-player networking, procedurally generated maps, and customizable characters. So why aren't there tons of MMORPGs out there? +
+Even for large experienced game producers, the creation of such a complex game is time-intensive and failure-prone. How familiar are you with multi-threading, persistence, optimization, client-server synchronization, …? Unless your answer is "very!", then start with a single-player desktop game, and work your way up – just as the pros did when they started.
+:::
+
+### Extend SimpleApplication
+
+Every jME3 game is centered around one main class that (directly or indirectly) extends com.jme3.app.[SimpleApplication](../../core/app/simpleapplication.md).
+
+:::important
+Note that although the "SimpleApplication" name might be misleading, all jME3 applications, including very large projects, are based on this class. The name only implies that this class itself is a simple application already. You make it "non-simple" by extending it!
+:::
+
+For your future game releases, you will want to rely on your own framework (based on jME): Your custom framework extends jME's SimpleApplication, and includes your custom methods for loading, saving, and arranging your scenes, your custom navigation methods, your inputs for pausing and switching your custom screens, your custom user interface (options screen, HUD, etc), your custom NPC factory, your custom physics properties, your custom networking synchronization, etc.
+
+:::tip
+Writing and reusing (extending) your own base framework saves you time. When you update your generic base classes, all your games that extend them benefit from improvements to the base (just as all jME-based games benefit of improvements to the jME framework). +
+Also, your own framework gives all your games a common look and feel.
+:::
+
+### Where to Start?
+
+You have a list of features that you want in game, but which one do you implement first? You will keep adding features to a project that grows more and more complex, how can you minimize the amount of rewriting required?
+
+1. Make sure the game's high-level frame (screen switching, network sync, loading/saving) is sound and solid.
+1. Start with implementing the most complex game feature first – the one that imposes most constraints on the structure of your project (for example: multi-player networking, or physics.)
+1. Add only one larger feature at a time. If there are complex interactions (such as networking + physics), start with a small test case (one shared cube) and work your way up. Starting with a whole scene introduces too many extra sources of error.
+1. Implement low-complexity decorations (audio and visual effects) last.
+1. Test for side-effects on existing code after you add a new feature (regression test).
+
+:::tip
+Acknowledge whether you want a feature because it is necessary for gameplay, or simply because "everyone else has it". Your goal should be to bring out the essence of your game idea. Don't water down gameplay by attempting to make it "do everything, but better". Successful high-performance games are the ones where someone made smart decisions what to keep and what to _drop_.
+:::
+
+### The Smart Way to Add Custom Methods and Fields
+
+:::warning
+*Avoid the Anti-Pattern:* Don't design complex role-based classes using Java inheritance, it will result in an unmaintainable mess. +
+Example: You start extending `Node` –&gt; `MyMobileNode` –&gt; `MyNPC`. Then you extend `MyFighterNPC` (defends, attacks) and `MyShopKeeperNPC` (trades) from `MyNPC`. What if you need an NPC that trades and defends itself, but doesn't attack? Do you extend MyShopKeeperNPC and copy and paste the defensive methods from MyFighterNPC? Or do you extend MyFighterNPC and override the attacking methods of its parent? Neither is a clean solution. +
+Wouldn't it be better if behaviours were a separate system, and attributes were separate components that you add to the entity that needs them?
+:::
+
+You write Java classes named `Controls` to implement your Game Entities, and define an Entity's visuals, attributes, and behaviours. In jME, `Spatial`s (`Nodes` or `Geometry`s) are the visual representation of the game entity in the scene graph.
+
+- Game entities have *attributes* – All Entities are neutral _things_, only their attributes define what an entity actually _is_ (a person or a brick). In jME, we call these class fields of Spatials "user data". +
+Example: Players have *class fields* for `id, health, coins, inventory, equipment, profession`.
+- Game entities have *behaviours* – Behaviour systems communicate about the game state and modify attributes. In jME, these game mechanics are implemented in modular `update()` methods that all hook into the main update loop. +
+Example: Players have *methods* such as `walk(), addGold(), getHealth(), pickUpItem(), dropItem(), useItem(), attack()`.
+
+:::tip
+*Follow the Best Practice:* In general, use composition over inheritance and keep what an entity does (behaviour system) separate from what this entity is (attributes).
+
+- Use `[setUserData()](../../core/scene/spatial.md)` to add custom attributes to Spatials.
+- Use [Controls](../../core/scene/control/custom_controls.md) and [Application States](../../core/app/state/application_states.md) to define custom behaviour systems.
+:::
+
+If your game is even more complex, you may want to learn about "real" Entity Systems, which form a quite different programming paradigm from object oriented coding but are scalable to very large proportions. Note however that this topic is very unintuitive to handle for an OOP programmer and you should really decide on a case basis if you really need this or not and gather some experiences before diving head first into a MMO project emoji:smiley[]
+
+- [http://cowboyprogramming.com/2007/01/05/evolve-your-heirachy/](http://cowboyprogramming.com/2007/01/05/evolve-your-heirachy/)
+- [http://www.gamasutra.com/blogs/MeganFox/20101208/88590/Game_Engines_101_The_EntityComponent_Model.php](http://www.gamasutra.com/blogs/MeganFox/20101208/88590/Game_Engines_101_The_EntityComponent_Model.php)
+- [http://gamedev.stackexchange.com/questions/28695/variants-of-entity-component-systems](http://gamedev.stackexchange.com/questions/28695/variants-of-entity-component-systems)
+- [http://t-machine.org/index.php/2012/03/16/entity-systems-what-makes-good-components-good-entities/](http://t-machine.org/index.php/2012/03/16/entity-systems-what-makes-good-components-good-entities/)
+- [http://entity-systems.wikidot.com/](http://entity-systems.wikidot.com/)
+
+### The Smart Way to Access Game Features
+
+[SimpleApplication](../../core/app/simpleapplication.md) gives you access to game features such as a the rootNode, assetManager, guiNode, inputManager, audioManager, physicsSpace, viewPort, and the camera. But what if you need this access also from another class? Don't extend SimpleApplication a second time, and don't pass around tons of object references in constructors! Needing access to application level objects is a sign that this class should be designed as an [AppState](../../core/app/state/application_states.md) (read details there).
+
+An AppState has access to all game features in the SimpleApplication via the `this.app` and `this.stateManager` objects. Examples:
+
+```java
+Spatial sky = SkyFactory.createSky(this.app.getAssetManager(), "sky.dds", false);
+...
+this.app.getRootNode().attachChild( sky );
+```
+
+### The Smart Way to Implement Game Logic
+
+As your SimpleApplication-based game grows more advanced, you find yourself putting more and more interactions in the `simpleUpdate()` loop, and your `simpleInitApp()` methods grows longer and longer. It's a best practice to move blocks of game mechanics into reusable component classes of their own. In jME3, these reusable classes are called `Controls` and `AppStates`.
+
+- Use [AppStates](../../core/app/state/application_states.md) to implement _global game mechanics_.
+  - Each AppState calls its own `initialize()` and `cleanup()` methods when it is attached to or detached from the game.
+  - Each AppState runs its own _thread-safe_ `update()` loop that hooks into the main `simpleUpdate()` loop.
+  - You specify what happens if an AppState is paused/unpaused.
+  - You can use an AppState to switch between sets of AppStates.
+  - An AppState has access to everything in the SimpleApplication (rootNode, AssetManager, StateManager, InputListener, ViewPort, etc).
+
+- Use [Controls](../../core/scene/control/custom_controls.md) to implement the _behaviour of game entities_.
+  - Controls add a type of behaviour (methods and fields) to an individual Spatial (a player, an NPC).
+  - Each Control runs its own _thread-safe_ `controlUpdate()` loop that hooks into the main `simpleUpdate()` loop.
+  - One Spatial can be influenced by several Controls. (!)
+  - Each Spatial needs its own instance of the Control.
+  - A Control only has control over and access to the spatial that it is attached to (and its sub-spatials).
+
+:::note
+A game contains algorithms that do not directly affect spatials (for example, AI pathfinding code that calculates and chooses paths, but does not actually move spatials). You do not need to put such non-spatial code in controls, you can run these things in a new thread. Only the transformation code that actually modifies the spatial must be called from a control, or must be enqueue()ed.
+:::
+
+Controls and AppStates often work together: An AppState can reach up to the application and `get` all Spatials from the rootNode that carry a specific Control, and perform a global action on them. Example: In BulletPhysics, all physical Spatials that carry RigidBodyControls are steered by the overall BulletAppState.
+
+:::tip
+AppStates and Controls are extensions to a SimpleApplication. They are your modular building blocks to build a more complex game. In the ideal case, you move all init/update code into Controls and AppStates, and your simpleInitApp() and simpleUpdate() could end up virtually empty. This powerful and modular approach cleans up your code considerably.
+:::
+
+Read all about [Custom Controls](../../core/scene/control/custom_controls.md) and [Application States](../../core/app/state/application_states.md) here.
+
+### Optimize Application Performance
+
+- [Optimization](optimization.md) – How to avoid wasting cycles
+- [Multithreading](../../core/app/multithreading.md) – Use concurrency for long-running background tasks, but don't manipulate the scene graph from outside the main thread (update loop)!
+- You can add a [Java Profiler](../../sdk/debugging_profiling_testing.md) to the jMonkeyEngine SDK via Tools → Plugins → Available. The profiler presents statistics on the lifecycle of methods and objects. Performance problems may be caused by just a few methods that take long, or are called too often (try to cache values to avoid this). If object creation and garbage collection counts keep increasing, you are looking at a memory leak.
+
+### Don't Mess With Geometric State
+
+*These tips are especially important for users who already know jME2.* Automatic handling of the Geometric State has improved in jME3, and it is now a best practice to _not_ mess with it.
+
+- Do not call `updateGeometricState()` on anything but the root node!
+- Do not override or mess with `updateGeometricState()` at all.
+- Do not use `getLocalTranslation().set()` to move a spatial in jME3, always use `setLocalTranslation()`.
+
+### Maintain Internal Documentation
+
+It's unlikely you will fully document _every_ class you write, we hear you. However, you should at least write meaningful javadoc to provide context for your most crucial methods/parameters.
+
+- What is this? How does it solve its task (input, algorithm used, output, side-effects)?
+- Write down implicit limits (e.g. min/max values) and defaults while you still remember.
+- In which situation do I want to use this, is this part of a larger process? Is this step required, or what are the alternatives?
+
+Treat javadoc as messages to your future self. `genNextVal() generates the next value` and `@param float factor A factor influencing the result` do _not_ count as documentation.
+
+## Debugging and Test Phase
+
+*A [Java Debugger](../../sdk/debugging_profiling_testing.md)* is included in the jMonkeyEngine SDK. It allows you to set a break point in your code near the line of code where an exception happens. Then you step through the execution line by line and watch object and variable states live, to detect where the bug starts.
+
+*Use the [Logger](../how-to/java/logging.md)* to print status messages during the development and debugging phase, instead of System.out.println(). The logger can be switched off with one line of code, whereas commenting out all your `println()`s takes a while.
+
+*Unit Testing ([Java Assertions](https://docs.oracle.com/javase/1.5.0/docs/guide/language/assert.html))* has a different status in 3D graphics development than in other types of software. You cannot write assertions that automatically test whether the rendered image _looks_ correct, or whether interactions are _intuitive_. Still you should [create simple test cases](../../sdk/debugging_profiling_testing.md) for individual game features such as loaders, content generators, effects. Run the test cases now and then to see whether they still work as intended – or whether they are suffering from regressions or side-effects. Keep the test classes in the `test` directory of your project, don't include them in the distribution.
+
+*Quality Assurance (QA)* means repeatedly checking a certain set of features that must work, but that might be unexpectedly broken as a side-effect. Every game has some crazy bugs somewhere – but basic tasks _must work_, no excuse. This includes installing and de-installing; saving and loading; changing options; starting, pausing, quitting; basic actions such as walking, fighting, etc. After every milestone, you go through your QA list again and systematically look for regressions or newly introduced bugs. Check the application _on every supported operating system and hardware_ (!) because not all graphic cards support the same features. If you don't find the obvious bugs, your users will, and carelessness will put them off.
+
+*Alpha and Beta Testing* means that you ask someone to try to install and run your game. It should be a real user situation, where they are left to figure out the installation and gameplay by themselves–you only can include the usual read-me and help docs. Provide the testers with an easy method to report back what problems they encountered, what they liked best, or why they gave up. Evaluate whether reported problems are one-off glitches, or whether they must be fixed for the game to be playable for everyone.
+
+## Release Phase
+
+### Pre-Release To-Do List
+
+- Prepare a web page, a cool slogan, advertisements, etc
+- Verify that all assets are up-to-date and converted to .j3o.
+- Verify that your code loads the optimized .j3o files, and not the original model formats.
+- Prepare licenses of assets that you use for inclusion. (You _did_ obtain permission to use them, right…?)
+- Switch off fine [logging](../how-to/java/logging.md) output.
+- Prepare promotional art: The most awesome screenshots (in thumbnail, square, vertical, horizontal, and fullscreen formats) and video clips. Include name, contact info, slogan, etc., so future customers can find you.
+- Prepare a readme.txt file, or installation guide, or handbook – if applicable.
+- Get a certificate if one is required for your distribution method (see below).
+- Specify a [classification rating](http://en.wikipedia.org/wiki/Video_game_content_rating_system#Comparison) (needed for e.g. app stores).
+
+### Distributing the Executables
+
+The [jMonkeyEngine SDK helps you with deployment](../../sdk/application_deployment.md): You specify your branding and deployment options in the Project Properties dialog, and then choose Clean and Build from the context menu. *If you use another IDE, consult this IDE's documentation.*
+
+Decide whether you want to release your game as WebStart, desktop JAR, mobile APK, or browser Applet – Each has its pros and cons.
+<table>
+  <thead>
+    <tr>
+      <th>Distribution</th>
+      <th>Pros</th>
+      <th>Cons<br /></th>
+      <th>Desktop Launcher +<br />(.EXE, .app, .jar+.sh)</th>
+      <th>This is the standard way of distributing desktop applications. The jMonkeyEngine SDK can be configured to automatically create zipped launchers for each operating system.</th>
+      <th>You need to offer three separate, platform-dependent downloads.<br /></th>
+      <th>Desktop Application +<br />(.JAR)</th>
+      <th>Platform independent desktop application.</th>
+      <th>User must have Java configured to run JARs when they are opened; or user must know how to run JARs from command line; or you must provide a custom JAR wrapper.<br /></th>
+      <th>Web Start +<br />(.JNLP)</th>
+      <th>The user accesses a &lt;abbr title="Uniform Resource Locator"&gt;URL&lt;/abbr&gt;, saves the game as one executable file. Easy process, no installer required. You can allow the game to be played offline.</th>
+      <th>Users need network connection to install the game. Downloading bigger games takes a while as opposed to running them from a CD.<br /></th>
+      <th>Browser Applet +<br />(.&lt;abbr title="HyperText Markup Language"&gt;HTML&lt;/abbr&gt;+.JAR)</th>
+      <th>Easy to access and play game via most web browsers. Userfriendly solution for quick small games.</th>
+      <th>Game only runs in the browser. Game or settings cannot be saved to disk. Some restrictions in default camera navigation (jME cannot capture mouse.)<br /></th>
+      <th>Android +<br />(.APK)</th>
+      <th>Game runs on Android devices.</th>
+      <th>Android devices do not support post-processor effects.<br /></th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+
+Which ever method you choose, a Java-Application works on the main operating systems: Windows, Mac &lt;abbr title="Operating System"&gt;OS&lt;/abbr&gt;, Linux, Android.
+
+The distribution appears in a newly generated `dist` directory inside your project directory. These are the files that you upload or burn to CD to distribute to your customers.
+
+---
+
+See also:
+
+- [gamedev.net: Developing Your Game Concept By Making A Design Document](http://www.gamedev.net/page/resources/_/creative/game-design/developing-your-game-concept-by-making-a-design-document-r3004)

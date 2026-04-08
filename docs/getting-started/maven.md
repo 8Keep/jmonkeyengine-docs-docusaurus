@@ -1,0 +1,139 @@
+# Maven Artifacts
+
+You can build jME3 projects using Maven-compatible build systems.
+
+Artifacts for recent releases are available from the Maven Central Repository:
+
+- link:https://search.maven.org/search?q=org.jmonkeyengine
+
+The group id for all jME3 libraries is `org.jmonkeyengine`.
+
+The following artifacts are available:
+
+- jme3-android - Android platform support
+- jme3-android-native - Native libraries for Android platforms
+- jme3-core - Core functionality needed in all jME3 projects
+- jme3-desktop - Desktop platform support (Windows, Linux, and macOS)
+- jme3-effects - Extra special effects, including water and other post filters
+- jme3-examples - Sample/test/tutorial apps
+- jme3-ios - iOS platform support
+- jme3-jbullet - Physics library using jBullet
+- jme3-jogg - Asset loader for [the Ogg audio format](https://www.xiph.org/ogg/)
+- jme3-lwjgl - Interface to LWJGL v2
+- jme3-lwjgl3 - Interface to LWJGL v3
+- jme3-networking - Networking library (aka SpiderMonkey)
+- jme3-niftygui - NiftyGUI support for jME3
+- jme3-plugins - Extra asset loaders for [glTF](https://www.khronos.org/gltf/), [Ogre](https://www.ogre3d.org/) XML, and jME XML formats
+- jme3-terrain - Terrain library (aka TerraMonkey)
+- jme3-testdata - Assets used in jme3-examples
+- jme3-vr - Support for virtual reality
+
+For a basic desktop application, you need at least:
+
+- jme3-core
+- jme3-desktop
+- jme3-lwjgl OR jme3-lwjgl3
+
+For a basic Android application, you need at least:
+
+- jme3-core
+- jme3-android
+- jme3-android-native
+
+## Gradle
+
+```groovy
+repositories {
+    mavenCentral()
+}
+
+def jme3 = [v:'3.8.1-stable', g:'org.jmonkeyengine']
+dependencies {
+    implementation "${jme3.g}:jme3-core:${jme3.v}"
+    runtimeOnly "${jme3.g}:jme3-desktop:${jme3.v}"
+    runtimeOnly "${jme3.g}:jme3-lwjgl:${jme3.v}"
+}
+```
+
+## Maven
+
+```xml
+  <properties>
+    <jme3_g>org.jmonkeyengine</jme3_g>
+    <jme3_v>3.8.1-stable</jme3_v>
+  </properties>
+
+  <repositories>
+    <repository>
+      <id>mvnrepository</id>
+      <url>https://repo1.maven.org/maven2/</url>
+    </repository>
+  </repositories>
+
+  <dependencies>
+    <dependency>
+      <groupId>${jme3_g}</groupId>
+      <artifactId>jme3-core</artifactId>
+      <version>${jme3_v}</version>
+    </dependency>
+    <dependency>
+      <groupId>${jme3_g}</groupId>
+      <artifactId>jme3-desktop</artifactId>
+      <version>${jme3_v}</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>${jme3_g}</groupId>
+      <artifactId>jme3-lwjgl</artifactId>
+      <version>${jme3_v}</version>
+    </dependency>
+  </dependencies>
+```
+
+## Snapshots
+
+Typically, you will want to develop against the latest stable version of the engine. For testing
+purposes, snapshot builds are generated and updated every time that changes are commited to the
+master branch.
+
+You can add the snapshot repository to your build files, and set the version to the snapshot build:
+
+### Gradle
+
+```groovy
+repositories {
+    mavenCentral()
+    maven {url 'https://s01.oss.sonatype.org/content/repositories/snapshots/'}
+}
+
+/*
+* Gradle defaults to cacheing artifacts for 24 hours. This entry makes sure that
+* you are always using the absolute latest snapshot, but it does mean that the engine
+* gets downloaded on every build.
+*/
+configurations.all {
+   resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+}
+
+def jme3 = [v:'3.8.1-SNAPSHOT', g:'org.jmonkeyengine']
+```
+
+### Maven
+
+```xml
+  <properties>
+    <jme3_g>org.jmonkeyengine</jme3_g>
+    <jme3_v>3.7.0-SNAPSHOT</jme3_v>
+  </properties>
+
+  <repositories>
+    <repository>
+      <id>mvnrepository</id>
+      <url>https://repo1.maven.org/maven2/</url>
+    </repository>
+    <repository>
+      <id>snapshots</id>
+      <url>https://s01.oss.sonatype.org/content/repositories/snapshots/</url>
+    </repository>
+  </repositories>
+```

@@ -1,0 +1,73 @@
+# spinner
+
+## Spinner Class
+
+The Spinner class provides:
+
+- A display area for the current step value
+- An increment button
+- A Decrement button
+- It can be set to cycle (when it reaches highest step value it cycles to index 0, and reversed for decrement.
+
+The Spinner class provides the same 3 common constructors as shown in the [Quick Start Guide](quickstart.md) with the addition of two extra parameters.
+
+- The orientation of the Spinner
+- A boolean flag enabling/disabling Spinner cycling.
+
+The additional parameter are appended to the existing parameter list for all 3 constructors, like so:
+
+```java
+
+/**
+  * Parameters:
+  * Screen screen
+  * String UID
+  * Vector2f position
+  * Spinner.Orientation orientation
+  * boolean cycle
+  */
+Spinner spinner1 = new Spinner(
+    screen,
+    "SomeID",
+    new Vector2f(15, 15),
+    Spinner.Orientation.HORIZONTAL,
+    true
+);
+
+```
+
+### Abstract Event Methods:
+
+```java
+
+public void onChange(int selectedIndex, String value);
+
+```
+
+### Methods specific to the Spinner class:
+
+```java
+
+// Quickly set interval info for both button
+spinner1.setInterval(float callsPerSecond);
+
+// Adding removing list info
+spinner1.addStepValue(String value);
+spinner1.removeStepValue(String value);
+
+// Quickly populate step values with integers/floats
+spinner1.setStepIntegerRange(int min, int max, int inc);
+spinner1.setStepFloatRange(float min, float max, float inc);
+
+// Retrieval of current selected step
+spinner1.getSelectedIndex();
+
+```
+
+You can set the select Spinner's displayed and selected value using:
+
+```java
+
+spinner1.setSelectedIndex(int selectedIndex)
+
+```

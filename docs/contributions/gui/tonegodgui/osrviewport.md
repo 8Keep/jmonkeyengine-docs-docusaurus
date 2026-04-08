@@ -1,0 +1,83 @@
+# osrviewport
+
+## OSRViewPort
+
+The OSRViewPort allows you to create a movable, resizable ViewPort with the ability to control the camera's rotation and zoom features via mouse input.
+
+To initialize the OSRViewPort you can call one of the 3 standard constructors as shown in the [Quick Start Guide](quickstart.md).
+
+*Constructor 1:*
+
+```java
+
+/** Parameters:
+  * Screen screen,
+  * String UID,
+  * Vector2f position
+  */
+
+OSRViewPort vp = new OSRViewPort(screen, "vp", new Vector2f(15, 15));
+
+```
+
+*Constructor 2:*
+
+```java
+
+/** Additional Parameter:
+  * Vector2f dimensions  */
+
+OSRViewPort vp = new OSRViewPort(screen, "vp", new Vector2f(15, 15),
+    new Vector2f(150, 150)
+);
+
+```
+
+*Constructor 3:*
+
+```java
+
+/** Additional Parameters:
+  * Vector4f resizeBorders,
+  * String defaultImg
+  */
+
+OSRViewPort vp = new OSRViewPort(screen, "vp", new Vector2f(15, 15), new Vector2f(150, 150),
+    new Vector4f(0,0,0,0),
+    "imagePathToOverlayImage"
+);
+
+```
+
+Once initialized, you will want to active the OSRBridge for off-screen rendering of your new scene:
+
+```java
+
+vp.setOSRBridge(Node newScene, int renderWidth, int renderHeight);
+
+```
+
+### The ViewPort’s Camera control methods:
+
+```java
+
+vp.setUseCameraControlRotate(boolean rotateEnabled); // enable/disable rotation control
+vp.setUseCameraControlZoom(boolean zoomEnabled); // enable/disable zoom control
+
+vp.setCameraDistance(float distance);
+vp.setCameraHorizonalRotation(float angleInRads);
+vp.setCameraVerticalRotation(float angleInRads);
+vp.setCameraMinDistance(float distance);
+vp.setCameraMaxDistance(float distance);
+vp.setCameraMinVerticalRotation(float angleInRads);
+vp.setCameraMaxVerticalRotation(float angleInRads);
+
+```
+
+### Other methods:
+
+```java
+
+vp.setBackgroundColor(ColorRGBA color); // ViewPort is transparent by default
+
+```
