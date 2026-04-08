@@ -35,7 +35,7 @@ To create a blank scene file do the following:
 
 ## Loading the scene
 
-![jmonkeyplatform-docu-2.png](/wiki-assets/docs/sdk/assets/images/jmonkeyplatform-docu-2.png)
+![jmonkeyplatform-docu-2.png](/wiki-assets/docs/sdk/images/jmonkeyplatform-docu-2.png)
 
 To open a scene
 
@@ -64,7 +64,7 @@ You can add a variety of special objects with the SceneComposer, including light
 
 ## Adding Models to the scene
 
-![jmonkeyplatform-docu-3.png](/wiki-assets/docs/sdk/assets/images/jmonkeyplatform-docu-3.png)
+![jmonkeyplatform-docu-3.png](/wiki-assets/docs/sdk/images/jmonkeyplatform-docu-3.png)
 
 You can directly import 3d models to your scene so that they will be part of your scene file. To be able to import for example an OgreXML file, first export it from your 3D editor to a separate folder in the assets folder of your project (e.g. assets/Models/MyModel/).
 

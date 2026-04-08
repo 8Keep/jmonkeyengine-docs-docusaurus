@@ -35,44 +35,23 @@ path.addWayPoint(new Vector3f(8, -2, 1));
 ```
 
 You can configure the path as follows.
-<table>
-  <thead>
-    <tr>
-      <th>MotionPath Method</th>
-      <th>Usage<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>path.setCycle(true)</td>
-      <td>Sets whether the motion along this path should be closed (true) or open-ended (false).<br /></td>
-    </tr>
-    <tr>
-      <td>path.addWayPoint(vector)</td>
-      <td>Adds individual waypoints to this path. The order is relevant.<br /></td>
-    </tr>
-    <tr>
-      <td>path.removeWayPoint(vector) +<br />removeWayPoint(index)</td>
-      <td>Removes a way point from this path. You can specify the point that you want to remove as vector or as integer index.<br /></td>
-    </tr>
-    <tr>
-      <td>path.setCurveTension(0.83f)</td>
-      <td>Sets the tension of the curve (Catmull-Rom Spline). A value of 0.0f results in a straight linear line, 1.0 a very round curve.<br /></td>
-    </tr>
-    <tr>
-      <td>path.getNbWayPoints()</td>
-      <td>Returns the number of waypoints in this path.<br /></td>
-    </tr>
-    <tr>
-      <td>path.enableDebugShape(assetManager,rootNode)</td>
-      <td>Shows a line that visualizes the path. Use this during development and for debugging so you see what you are doing.<br /></td>
-    </tr>
-    <tr>
-      <td>path.disableDebugShape()</td>
-      <td>Hides the line that visualizes the path. Use this for the release build.<br /></td>
-    </tr>
-  </tbody>
-</table>
+| MotionPath Method |
+| --- |
+| Usage<br /> |
+| path.setCycle(true) |
+| Sets whether the motion along this path should be closed (true) or open-ended (false).<br /> |
+| path.addWayPoint(vector) |
+| Adds individual waypoints to this path. The order is relevant.<br /> |
+| path.removeWayPoint(vector)<br />removeWayPoint(index) |
+| Removes a way point from this path. You can specify the point that you want to remove as vector or as integer index.<br /> |
+| path.setCurveTension(0.83f) |
+| Sets the tension of the curve (Catmull-Rom Spline). A value of 0.0f results in a straight linear line, 1.0 a very round curve.<br /> |
+| path.getNbWayPoints() |
+| Returns the number of waypoints in this path.<br /> |
+| path.enableDebugShape(assetManager,rootNode) |
+| Shows a line that visualizes the path. Use this during development and for debugging so you see what you are doing.<br /> |
+| path.disableDebugShape() |
+| Hides the line that visualizes the path. Use this for the release build.<br /> |
 
 ## MotionPathListener
 

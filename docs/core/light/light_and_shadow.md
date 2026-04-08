@@ -95,7 +95,7 @@ rootNode.addLight(al);
 ```
 
 :::tip
-You can increase the brightness of a light source gradually by multiplying the light color to values greater than 1.0f. +
+You can increase the brightness of a light source gradually by multiplying the light color to values greater than 1.0f.
 Example: `mylight.setColor(ColorRGBA.White.mult(1.3f));`
 :::
 
@@ -121,37 +121,22 @@ For each type of non-ambient light source, JME3 implements two ways to simulate 
 - a shadow renderer (which you apply to a viewport) and
 - a shadow filter (which you can add to a viewport's filter post-processor).
 
-<table>
-  <thead>
-    <tr>
-      <th>light source class</th>
-      <th>shadow renderer class</th>
-      <th>shadow filter class<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>DirectionalLight</td>
-      <td>DirectionalLightShadowRenderer</td>
-      <td>DirectionalLightShadowFilter<br /></td>
-    </tr>
-    <tr>
-      <td>PointLight</td>
-      <td>PointLightShadowRenderer</td>
-      <td>PointLightShadowFilter<br /></td>
-    </tr>
-    <tr>
-      <td>SpotLight</td>
-      <td>SpotLightShadowRenderer</td>
-      <td>SpotLightShadowFilter<br /></td>
-    </tr>
-    <tr>
-      <td>AmbientLight</td>
-      <td>(not applicable)</td>
-      <td>(not applicable)<br /></td>
-    </tr>
-  </tbody>
-</table>
+| light source class |
+| --- |
+| shadow renderer class |
+| shadow filter class<br /> |
+| DirectionalLight |
+| DirectionalLightShadowRenderer |
+| DirectionalLightShadowFilter<br /> |
+| PointLight |
+| PointLightShadowRenderer |
+| PointLightShadowFilter<br /> |
+| SpotLight |
+| SpotLightShadowRenderer |
+| SpotLightShadowFilter<br /> |
+| AmbientLight |
+| (not applicable) |
+| (not applicable)<br /> |
 
 You only need one shadow simulation per light source:  if you use shadow rendering, you won't need a shadow filter and vice versa.  Which way is more efficient depends partly on the complexity of your scene. All six shadow simulation classes have similar interfaces, so once you know how to use one, you can easily figure out the rest.
 

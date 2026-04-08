@@ -6,14 +6,14 @@ You may use this logo for the purposes of education and when identifying the use
 
 ### Good
 
-image:logo/yes.png[yes.png,width="",height=""]
+![yes.png](/wiki-assets/docs/ROOT/assets/images/logo/yes.png)
 
 ### Bad
 
-image:logo/no.png[no.png,width="",height=""]
+![no.png](/wiki-assets/docs/ROOT/assets/images/logo/no.png)
 
 ## Logos
 
-image:logo/playful-smiling-monkey.png[playful smiling monkey]
+![playful smiling monkey](/wiki-assets/docs/ROOT/assets/images/logo/playful-smiling-monkey.png)
 
-image:logo/serious-monkey.png[serious monkey]
+![serious monkey](/wiki-assets/docs/ROOT/assets/images/logo/serious-monkey.png)

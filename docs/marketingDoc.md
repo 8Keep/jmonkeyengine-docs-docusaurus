@@ -64,7 +64,7 @@ Higher priority is given to direct requests, so you should still make requests w
 
 Help us extend our reach by following and interacting with our pages; we will follow back and interact with your content too. By interacting with each other's content, we can all mutually benefit and gain more reach from the algorithm to get more eyes on our games and projects. 
 
-image:marketing/marketingApes.jpg[marketingApes.jpg,width="",height=""]
+![marketingApes.jpg](/wiki-assets/docs/ROOT/assets/images/marketing/marketingApes.jpg)
 
 ### What is posted to each platform?
 

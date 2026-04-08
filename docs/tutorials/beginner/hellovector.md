@@ -1,6 +1,6 @@
 # hellovector
 
-image:beginner/hellovectorsumm2.png[hellovectorsumm2.png,width="",height=""]
+![hellovectorsumm2.png](/wiki-assets/docs/tutorials/assets/images/beginner/hellovectorsumm2.png)
 
 ```java
 

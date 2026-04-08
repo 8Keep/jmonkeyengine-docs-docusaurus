@@ -11,10 +11,10 @@ You can run a search across the whole scene graph and search for individual Spat
 
 *Example 2:*
 
-1. You created a mostly static scene in the jMonkeyEngine SDK and exported it as .j3o file. +
+1. You created a mostly static scene in the jMonkeyEngine SDK and exported it as .j3o file.
 The scene also contains interactive objects, for example a particle emitter, spatials with user data, or spatials with custom controls.
 1. You load the .j3o scene using the assetManager.
-1. You want to interact with one of the loaded interactive scene elements in your Java code. +
+1. You want to interact with one of the loaded interactive scene elements in your Java code.
 For example, you want to call `emitAllParticles()` on the particle emitter. Or you want to find all NPC's Geometries with a custom CivilianControl, and call the CivilianControl method that makes them start acting their role.
 
 In this case, you can use a SceneGraphVisitorAdapter to identify and access the Spatials in question.

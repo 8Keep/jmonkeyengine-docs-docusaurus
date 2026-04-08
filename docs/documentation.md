@@ -22,38 +22,68 @@ Before installing, check the [license](bsd_license.md), [logo](logo.md), [featur
   <thead>
     <tr>
       <th></th>
-      <th>Recommended</th>
-      <th>Optional</th>
-      <th>Optional<br /></th>
     </tr>
   </thead>
   <tbody>
     <tr>
+      <td>Recommended</td>
+    </tr>
+    <tr>
+      <td>Optional</td>
+    </tr>
+    <tr>
+      <td>Optional<br /></td>
+    </tr>
+    <tr>
       <td>You want to…</td>
+    </tr>
+    <tr>
       <td>Get started with jMonkeyEngine</td>
+    </tr>
+    <tr>
       <td>Use jMonkeyEngine in another IDE</td>
+    </tr>
+    <tr>
       <td>Build custom engine from sources<br /></td>
     </tr>
     <tr>
       <td>Then download…</td>
-      <td>[jMonkeyEngine SDK](https://github.com/jMonkeyEngine/sdk/releases)</td>
-      <td>[Binaries](https://github.com/jMonkeyEngine/jmonkeyengine/releases)</td>
-      <td>[Engine Sources](https://github.com/jMonkeyEngine/jmonkeyengine)<br /></td>
+    </tr>
+    <tr>
+      <td><a href="https://github.com/jMonkeyEngine/sdk/releases">jMonkeyEngine SDK</a></td>
+    </tr>
+    <tr>
+      <td><a href="https://github.com/jMonkeyEngine/jmonkeyengine/releases">Binaries</a></td>
+    </tr>
+    <tr>
+      <td><a href="https://github.com/jMonkeyEngine/jmonkeyengine">Engine Sources</a><br /></td>
     </tr>
     <tr>
       <td>You receive…</td>
+    </tr>
+    <tr>
       <td>SDK, binaries, javadoc, sources</td>
+    </tr>
+    <tr>
       <td>Binaries, javadoc, sources</td>
+    </tr>
+    <tr>
       <td>Sources<br /></td>
     </tr>
     <tr>
       <td>Learn more here…</td>
-      <td><br />* [Using the SDK](sdk/sdk.md)<br />* [Project Creation](sdk/project_creation.md)</td>
-      <td><br />* [Setting up jME3 with Maven and Gradle compatible IDEs](getting-started/maven.md)<br />* [Setting up JME3 in the NetBeans IDE](getting-started/setting_up_netbeans_and_jme3.md)<br />* [Setting up JME3 in the Eclipse IDE](getting-started/setting_up_jme3_in_eclipse.md)</td>
-      <td><br />* [Building JME3 from the Sources](getting-started/build_from_sources.md)<br />* [Building JME3 from the sources with NetBeans](getting-started/build_jme3_sources_with_netbeans.md)<br />* [Setting up JME3 on the commandline](getting-started/simpleapplication_from_the_commandline.md)<br /></td>
     </tr>
     <tr>
-      <td colspan="4">[Learn about the source structure](getting-started/jme3_source_structure.md)<br /></td>
+      <td><br />* <a href="sdk/sdk.md">Using the SDK</a><br />* <a href="sdk/project_creation.md">Project Creation</a></td>
+    </tr>
+    <tr>
+      <td><br />* <a href="getting-started/maven.md">Setting up jME3 with Maven and Gradle compatible IDEs</a><br />* <a href="getting-started/setting_up_netbeans_and_jme3.md">Setting up JME3 in the NetBeans IDE</a><br />* <a href="getting-started/setting_up_jme3_in_eclipse.md">Setting up JME3 in the Eclipse IDE</a></td>
+    </tr>
+    <tr>
+      <td><br />* <a href="getting-started/build_from_sources.md">Building JME3 from the Sources</a><br />* <a href="getting-started/build_jme3_sources_with_netbeans.md">Building JME3 from the sources with NetBeans</a><br />* <a href="getting-started/simpleapplication_from_the_commandline.md">Setting up JME3 on the commandline</a><br /></td>
+    </tr>
+    <tr>
+      <td colspan="4"><a href="getting-started/jme3_source_structure.md">Learn about the source structure</a><br /></td>
     </tr>
   </tbody>
 </table>
@@ -63,20 +93,11 @@ Before installing, check the [license](bsd_license.md), [logo](logo.md), [featur
 ## Create
 
 After downloading and installing, [bookmark this page](documentation.md), and start writing your first game!
-<table>
-  <thead>
-    <tr>
-      <th>Tutorials</th>
-      <th>Other Documentation<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>[jME3 beginner tutorials](tutorials/beginner/beginner.md)</td>
-      <td>[Answers to Frequently Asked Questions](tutorials/concepts/faq.md)<br /></td>
-    </tr>
-  </tbody>
-</table>
+| Tutorials |
+| --- |
+| Other Documentation<br /> |
+| [jME3 beginner tutorials](tutorials/beginner/beginner.md) |
+| [Answers to Frequently Asked Questions](tutorials/concepts/faq.md)<br /> |
 
 The wiki is designed to be read in the order the links are presented in the navigation menu (left side of page). The topics increase in difficulty the further you progress. You will find links to the next topic at the bottom of every page as well as a Table of Contents, located on the right, to make navigating inside a topic easier.
 

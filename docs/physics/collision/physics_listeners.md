@@ -30,28 +30,15 @@ getPhysicsSpace().add(ghost);
 
 ```
 
-<table>
-  <thead>
-    <tr>
-      <th>Ghost methods</th>
-      <th>Usage<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>getOverlappingObjects()</td>
-      <td>Returns the List of objects that are currently colliding (overlapping) with the ghost.<br /></td>
-    </tr>
-    <tr>
-      <td>getOverlappingCount()</td>
-      <td>Returns the number of currently colliding objects.<br /></td>
-    </tr>
-    <tr>
-      <td>getOverlapping(i)</td>
-      <td>Get PhysicsCollisionObject number i.<br /></td>
-    </tr>
-  </tbody>
-</table>
+| Ghost methods |
+| --- |
+| Usage<br /> |
+| getOverlappingObjects() |
+| Returns the List of objects that are currently colliding (overlapping) with the ghost.<br /> |
+| getOverlappingCount() |
+| Returns the number of currently colliding objects.<br /> |
+| getOverlapping(i) |
+| Get PhysicsCollisionObject number i.<br /> |
 
 ## Physics Tick Listener
 
@@ -146,40 +133,21 @@ Note that after the collision() method ends, the PhysicsCollisionEvent is cleare
 ### Reading Details From a PhysicsCollisionEvent
 
 The PhysicsCollisionEvent `event` gives you access to detailed information about the collision. You already know the event objects can identify which nodes collided, but it even knows how hard they collided:
-<table>
-  <thead>
-    <tr>
-      <th>Method</th>
-      <th>Purpose<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>getObjectA() +<br />getObjectB()</td>
-      <td>The two participants in the collision. You cannot know in advance whether some node will be recorded as A or B, you always have to consider both cases.<br /></td>
-    </tr>
-    <tr>
-      <td>getAppliedImpulse()</td>
-      <td>A float value representing the collision impulse<br /></td>
-    </tr>
-    <tr>
-      <td>getAppliedImpulseLateral1()</td>
-      <td>A float value representing the lateral collision impulse<br /></td>
-    </tr>
-    <tr>
-      <td>getAppliedImpulseLateral2()</td>
-      <td>A float value representing the lateral collision impulse<br /></td>
-    </tr>
-    <tr>
-      <td>getCombinedFriction()</td>
-      <td>A float value representing the collision friction<br /></td>
-    </tr>
-    <tr>
-      <td>getCombinedRestitution()</td>
-      <td>A float value representing the collision restitution (bounciness)<br /></td>
-    </tr>
-  </tbody>
-</table>
+| Method |
+| --- |
+| Purpose<br /> |
+| getObjectA()<br />getObjectB() |
+| The two participants in the collision. You cannot know in advance whether some node will be recorded as A or B, you always have to consider both cases.<br /> |
+| getAppliedImpulse() |
+| A float value representing the collision impulse<br /> |
+| getAppliedImpulseLateral1() |
+| A float value representing the lateral collision impulse<br /> |
+| getAppliedImpulseLateral2() |
+| A float value representing the lateral collision impulse<br /> |
+| getCombinedFriction() |
+| A float value representing the collision friction<br /> |
+| getCombinedRestitution() |
+| A float value representing the collision restitution (bounciness)<br /> |
 
 Note that after the collision method has been called the object is not valid anymore so you should copy any data you want to keep into local variables.
 

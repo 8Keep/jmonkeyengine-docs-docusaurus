@@ -7,7 +7,7 @@ Localizing an application can mean several things:
 - At minimum you translate all messages and dialogs in the user interface to your target languages.
 - You should also translate the "`read me`", help, and other documentation.
 - Also translating web content related to the application makes sure international users find out about your localized game.
-- If you go the whole way of internationalization, you also "`translate`" metaphors in icons or symbols used. +
+- If you go the whole way of internationalization, you also "`translate`" metaphors in icons or symbols used.
 E.g. For localizations to right-to-left languages, you must also adjust the whole flow of the UI (order of menus and buttons).
 
 There are tools that assist you with localizing Java Swing GUIs. jME3 applications do not typically have a Swing &lt;abbr title="Graphical User Interface"&gt;GUI&lt;/abbr&gt;, so those tools are not of much help. Just stick to the normal Java rules about using Bundle Properties:

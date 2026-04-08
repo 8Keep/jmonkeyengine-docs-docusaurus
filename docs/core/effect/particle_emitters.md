@@ -7,10 +7,10 @@ Creating an effect involves some trial and error to get the settings _just right
 Use the [Scene Explorer](../../sdk/scene_explorer.md) in the [SDK](../../sdk/sdk.md) to design and preview effects.
 :::
 
-image:effect/explosion-5.png[explosion-5.png,width="150",height="100"]
-image:effect/particle.png[particle.png,width="150",height="100"]
-image:tutorials:beginner/beginner-effect-fire.png[beginner-effect-fire.png,width="150",height="100"]
-image:effect/butterfly-particle-emitter.png[butterfly-particle-emitter.png,width="150",height="100"]
+![explosion-5.png](/wiki-assets/docs/core/assets/images/effect/explosion-5.png)
+![particle.png](/wiki-assets/docs/core/assets/images/effect/particle.png)
+![beginner-effect-fire.png](/wiki-assets/docs/tutorials/assets/images/beginner/beginner-effect-fire.png)
+![butterfly-particle-emitter.png](/wiki-assets/docs/core/assets/images/effect/butterfly-particle-emitter.png)
 
 ## Create an Emitter
 
@@ -48,82 +48,27 @@ Choose one of the following mesh shapes
 ## Configure Parameters
 
 Not all of these parameters are required for all kinds of effects. If you don't specify one of them, a default value will be used.
-<table>
-  <thead>
-    <tr>
-      <th>Parameter</th>
-      <th>Method</th>
-      <th>Default</th>
-      <th>Description<br /></th>
-      <th>number</th>
-      <th>`setNumParticles()`</th>
-      <th></th>
-      <th>The maximum number of particles visible at the same time. Specified by user in constructor.<br /></th>
-      <th>emission rate</th>
-      <th>`setParticlesPerSec()`</th>
-      <th>20</th>
-      <th>Density of the effect, how many new particles are emitted per second. +<br />Set to zero to control the start/end of the effect. +<br />Set to a number for a constantly running effect.<br /></th>
-      <th>size</th>
-      <th>`setStartSize()`, `setEndSize()`</th>
-      <th>0.2f, 2f</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>The radius of the scaled sprite image. Set both to same value for constant size effect. +<br />Set to different values for shrink/grow effect.<br /></td>
-      <td>color</td>
-      <td>`setStartColor()`, `setEndColor()`</td>
-      <td>gray</td>
-      <td>Controls how the opaque (non-black) parts of the texture are colorized. +<br />Set both to the same color for single-colored effects (e.g. fog, debris). +<br />Set both to different colors for a gradient effect (e.g. fire).<br /></td>
-      <td>direction/velocity</td>
-      <td>`getParticleInfluencer(). setInitialVelocity(initialVelocity)`</td>
-      <td>Vector3f(0,0,0)</td>
-      <td>A vector specifying the initial direction and speed of particles. The longer the vector, the faster.<br /></td>
-      <td>fanning out</td>
-      <td>`getParticleInfluencer().setVelocityVariation(variation)`</td>
-      <td>0.2f</td>
-      <td>How much the direction (`setInitialVelocity()`) can vary among particles. Use a value between 1 and 0 to create a directed swarm-like cloud of particles. +<br />1 = Maximum variation, particles emit in random 360° directions (e.g. explosion, butterflies). +<br />0.5f = particles are emitted within 180° of the initial direction. +<br />0 = No variation, particles fly in a straight line in direction of start velocity (e.g. lasergun blasts).<br /></td>
-      <td>direction +<br />(pick one)</td>
-      <td>`setFacingVelocity()`</td>
-    </tr>
-    <tr>
-      <td>false</td>
-      <td>true = Flying particles pitch in the direction they're flying (e.g. missiles). +<br />false = Particles keep flying rotated the way they started (e.g. debris).<br /></td>
-      <td>direction +<br />(pick one)</td>
-      <td>`setFaceNormal()`</td>
-      <td>Vector3f.NAN</td>
-      <td>Vector3f = Flying particles face in the given direction (e.g. horizontal shockwave faces up = Vector3f.UNIT_Y). +<br />Vector3f.NAN = Flying particles face the camera.<br /></td>
-      <td>lifetime</td>
-      <td>`setLowLife()`, `setHighLife()`</td>
-      <td>3f, 7f</td>
-      <td>The time period before a particle fades is set to a random value between minimum and maximum; minimum must be smaller than maximum. A minimum &lt; 1f makes the effect more busy, a higher minimum looks more steady. Use a maximum &lt; 1f for short bursts, and higher maxima for long lasting swarms or smoke. Set maximum and minimum to similar values to create an evenly spaced effect (e.g. fountain), set the to very different values to create a distorted effect (e.g. fire with individual long flames).<br /></td>
-      <td>spinning</td>
-      <td>`setRotateSpeed()`</td>
-      <td>0f</td>
-      <td>0 = Flying particles don't spin while flying (e.g. smoke, insects, controlled projectiles). +<br />&gt; 0 = How fast particle spins while flying (e.g. debris, shuriken, missiles out of control).<br /></td>
-      <td>rotation</td>
-    </tr>
-    <tr>
-      <td>`setRandomAngle()`</td>
-      <td>false</td>
-      <td>true = The particle sprite is rotated at a random angle when it is emitted (e.g. explosion, debris). +<br />false = Particles fly straight like you drew them in the sprite texture (e.g. insects).<br /></td>
-      <td>gravity</td>
-      <td>`setGravity()`</td>
-      <td>Vector3f(0.0f,0.1f,0.0f)</td>
-      <td>Particles fall in the direction of the vector (e.g. debris, sparks). +<br />(0,0,0) = Particles keep flying in start direction (e.g. flames, zero-gravity explosion.)<br /></td>
-      <td>start area</td>
-      <td>`setShape(new EmitterSphereShape( Vector3f.ZERO, 2f));`</td>
-      <td>EmitterPointShape()</td>
-      <td>By default, particles are emitted from the emitters location (a point). You can increase the emitter shape to occupy a sphere, so that the start point of new particles can be anywhere inside the sphere, which makes the effect a bit more irregular.<br /></td>
-    </tr>
-  </tbody>
-</table>
+| Parameter | Method | Default | Description<br /> |
+| --- | --- | --- | --- |
+| number | `setNumParticles()` |  | The maximum number of particles visible at the same time. Specified by user in constructor.<br /> |
+| emission rate | `setParticlesPerSec()` | 20 | Density of the effect, how many new particles are emitted per second.<br />Set to zero to control the start/end of the effect.<br />Set to a number for a constantly running effect.<br /> |
+| size | `setStartSize()`, `setEndSize()` | 0.2f, 2f | The radius of the scaled sprite image. Set both to same value for constant size effect.<br />Set to different values for shrink/grow effect.<br /> |
+| color | `setStartColor()`, `setEndColor()` | gray | Controls how the opaque (non-black) parts of the texture are colorized.<br />Set both to the same color for single-colored effects (e.g. fog, debris).<br />Set both to different colors for a gradient effect (e.g. fire).<br /> |
+| direction/velocity | `getParticleInfluencer(). setInitialVelocity(initialVelocity)` | Vector3f(0,0,0) | A vector specifying the initial direction and speed of particles. The longer the vector, the faster.<br /> |
+| fanning out | `getParticleInfluencer().setVelocityVariation(variation)` | 0.2f | How much the direction (`setInitialVelocity()`) can vary among particles. Use a value between 1 and 0 to create a directed swarm-like cloud of particles.<br />1 = Maximum variation, particles emit in random 360° directions (e.g. explosion, butterflies).<br />0.5f = particles are emitted within 180° of the initial direction.<br />0 = No variation, particles fly in a straight line in direction of start velocity (e.g. lasergun blasts).<br /> |
+| direction<br />(pick one) | `setFacingVelocity()` | false | true = Flying particles pitch in the direction they're flying (e.g. missiles).<br />false = Particles keep flying rotated the way they started (e.g. debris).<br /> |
+| direction<br />(pick one) | `setFaceNormal()` | Vector3f.NAN | Vector3f = Flying particles face in the given direction (e.g. horizontal shockwave faces up = Vector3f.UNIT_Y).<br />Vector3f.NAN = Flying particles face the camera.<br /> |
+| lifetime | `setLowLife()`, `setHighLife()` | 3f, 7f | The time period before a particle fades is set to a random value between minimum and maximum; minimum must be smaller than maximum. A minimum &lt; 1f makes the effect more busy, a higher minimum looks more steady. Use a maximum &lt; 1f for short bursts, and higher maxima for long lasting swarms or smoke. Set maximum and minimum to similar values to create an evenly spaced effect (e.g. fountain), set the to very different values to create a distorted effect (e.g. fire with individual long flames).<br /> |
+| spinning | `setRotateSpeed()` | 0f | 0 = Flying particles don't spin while flying (e.g. smoke, insects, controlled projectiles).<br />&gt; 0 = How fast particle spins while flying (e.g. debris, shuriken, missiles out of control).<br /> |
+| rotation | `setRandomAngle()` | false | true = The particle sprite is rotated at a random angle when it is emitted (e.g. explosion, debris).<br />false = Particles fly straight like you drew them in the sprite texture (e.g. insects).<br /> |
+| gravity | `setGravity()` | Vector3f(0.0f,0.1f,0.0f) | Particles fall in the direction of the vector (e.g. debris, sparks).<br />(0,0,0) = Particles keep flying in start direction (e.g. flames, zero-gravity explosion.)<br /> |
+| start area | `setShape(new EmitterSphereShape( Vector3f.ZERO, 2f));` | EmitterPointShape() | By default, particles are emitted from the emitters location (a point). You can increase the emitter shape to occupy a sphere, so that the start point of new particles can be anywhere inside the sphere, which makes the effect a bit more irregular.<br /> |
 
 Build up your effect by specifying one parameter after the other. If you change several parameters at the same time, it's difficult to tell which of the values caused which outcome.
 
 ## Create an Effect Material
 
-image:tutorials:beginner/flash.png[flash.png,width="128",height="128"]
+![flash.png](/wiki-assets/docs/tutorials/assets/images/beginner/flash.png)
 
 Use the common Particle.j3md Material Definition and a texture to specify the shape of the particles. The shape is defined by the texture you provide and can be anything – debris, flames, smoke, mosquitoes, leaves, butterflies… be creative.
 
@@ -152,57 +97,34 @@ The effect texture can be one image, or contain a sprite animation – a series 
 The Material is used together with grayscale texture: The black parts will be transparent and the white parts will be opaque (colored).
 The following effect textures are available by default from `test-data.jar`. You can also load your own textures from your assets directory.
 
-<table>
-  <thead>
-    <tr>
-      <th>Texture Path</th>
-      <th>Dimension</th>
-      <th>Preview<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Effects/Explosion/Debris.png</td>
-      <td>3*3</td>
-      <td>image:tutorials:beginner/Debris.png[Debris.png,width="32",height="32"]<br /></td>
-    </tr>
-    <tr>
-      <td>Effects/Explosion/flame.png</td>
-      <td>2*2</td>
-      <td>image:tutorials:beginner/flame.png[flame.png,width="32",height="32"]<br /></td>
-    </tr>
-    <tr>
-      <td>Effects/Explosion/flash.png</td>
-      <td>2*2</td>
-      <td>image:tutorials:beginner/flash.png[flash.png,width="32",height="32"]<br /></td>
-    </tr>
-    <tr>
-      <td>Effects/Explosion/roundspark.png</td>
-      <td>1*1</td>
-      <td>image:tutorials:beginner/roundspark.png[roundspark.png,width="32",height="32"]<br /></td>
-    </tr>
-    <tr>
-      <td>Effects/Explosion/shockwave.png</td>
-      <td>1*1</td>
-      <td>image:tutorials:beginner/shockwave.png[shockwave.png,width="32",height="32"]<br /></td>
-    </tr>
-    <tr>
-      <td>Effects/Explosion/smoketrail.png</td>
-      <td>1*3</td>
-      <td>image:tutorials:beginner/smoketrail.png[smoketrail.png,width="32",height="32"]<br /></td>
-    </tr>
-    <tr>
-      <td>Effects/Explosion/spark.png</td>
-      <td>1*1</td>
-      <td>image:tutorials:beginner/spark.png[spark.png,width="32",height="32"]<br /></td>
-    </tr>
-    <tr>
-      <td>Effects/Smoke/Smoke.png</td>
-      <td>1*15</td>
-      <td>image:tutorials:beginner/Smoke.png[Smoke.png,width="96",height="32"]<br /></td>
-    </tr>
-  </tbody>
-</table>
+| Texture Path |
+| --- |
+| Dimension |
+| Preview<br /> |
+| Effects/Explosion/Debris.png |
+| 3*3 |
+| ![Debris.png](/wiki-assets/docs/tutorials/assets/images/beginner/Debris.png)<br /> |
+| Effects/Explosion/flame.png |
+| 2*2 |
+| ![flame.png](/wiki-assets/docs/tutorials/assets/images/beginner/flame.png)<br /> |
+| Effects/Explosion/flash.png |
+| 2*2 |
+| ![flash.png](/wiki-assets/docs/tutorials/assets/images/beginner/flash.png)<br /> |
+| Effects/Explosion/roundspark.png |
+| 1*1 |
+| ![roundspark.png](/wiki-assets/docs/tutorials/assets/images/beginner/roundspark.png)<br /> |
+| Effects/Explosion/shockwave.png |
+| 1*1 |
+| ![shockwave.png](/wiki-assets/docs/tutorials/assets/images/beginner/shockwave.png)<br /> |
+| Effects/Explosion/smoketrail.png |
+| 1*3 |
+| ![smoketrail.png](/wiki-assets/docs/tutorials/assets/images/beginner/smoketrail.png)<br /> |
+| Effects/Explosion/spark.png |
+| 1*1 |
+| ![spark.png](/wiki-assets/docs/tutorials/assets/images/beginner/spark.png)<br /> |
+| Effects/Smoke/Smoke.png |
+| 1*15 |
+| ![Smoke.png](/wiki-assets/docs/tutorials/assets/images/beginner/Smoke.png)<br /> |
 
 :::tip
 Use the `setStartColor()`/`setEndColor()` settings described above to colorize the white and gray parts of textures.

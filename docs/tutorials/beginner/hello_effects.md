@@ -136,9 +136,9 @@ Setting emitter textures works just as you have already learned in previous chap
 ```
 
 1. Create a material and load the texture.
-1. Tell the Emitter into how many animation steps (x*y) the texture is divided. +
+1. Tell the Emitter into how many animation steps (x*y) the texture is divided.
 The debris texture has 3x3 frames.
-1. Optionally, tell the Emitter whether the animation steps are to be at random, or in order. +
+1. Optionally, tell the Emitter whether the animation steps are to be at random, or in order.
 For the debris, the frames play at random.
 
 As you see in the debris example, texture animations improve effects because each "`flame`" or "`piece`" of debris now looks different. Also think of electric or magic effects, where you can create very interesting animations by using an ordered morphing series of lightning bolts; or flying leaves or snow flakes, for instance.
@@ -149,57 +149,34 @@ The fire material is created the same way, just using "`Effects/Explosion/flame.
 
 The following particle textures are included in `test-data.jar`. You can copy and use them in your own effects.
 
-<table>
-  <thead>
-    <tr>
-      <th>Texture Path</th>
-      <th>Dimension</th>
-      <th>Preview<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Effects/Explosion/Debris.png</td>
-      <td>3*3</td>
-      <td>image:tutorials:beginner/Debris.png[Debris.png,width="32",height="32"]<br /></td>
-    </tr>
-    <tr>
-      <td>Effects/Explosion/flame.png</td>
-      <td>2*2</td>
-      <td>image:tutorials:beginner/flame.png[flame.png,width="32",height="32"]<br /></td>
-    </tr>
-    <tr>
-      <td>Effects/Explosion/flash.png</td>
-      <td>2*2</td>
-      <td>image:tutorials:beginner/flash.png[flash.png,width="32",height="32"]<br /></td>
-    </tr>
-    <tr>
-      <td>Effects/Explosion/roundspark.png</td>
-      <td>1*1</td>
-      <td>image:tutorials:beginner/roundspark.png[roundspark.png,width="32",height="32"]<br /></td>
-    </tr>
-    <tr>
-      <td>Effects/Explosion/shockwave.png</td>
-      <td>1*1</td>
-      <td>image:tutorials:beginner/shockwave.png[shockwave.png,width="32",height="32"]<br /></td>
-    </tr>
-    <tr>
-      <td>Effects/Explosion/smoketrail.png</td>
-      <td>1*3</td>
-      <td>image:tutorials:beginner/smoketrail.png[smoketrail.png,width="32",height="32"]<br /></td>
-    </tr>
-    <tr>
-      <td>Effects/Explosion/spark.png</td>
-      <td>1*1</td>
-      <td>image:tutorials:beginner/spark.png[spark.png,width="32",height="32"]<br /></td>
-    </tr>
-    <tr>
-      <td>Effects/Smoke/Smoke.png</td>
-      <td>1*15</td>
-      <td>image:tutorials:beginner/Smoke.png[Smoke.png,width="96",height="32"]<br /></td>
-    </tr>
-  </tbody>
-</table>
+| Texture Path |
+| --- |
+| Dimension |
+| Preview<br /> |
+| Effects/Explosion/Debris.png |
+| 3*3 |
+| ![Debris.png](/wiki-assets/docs/tutorials/assets/images/beginner/Debris.png)<br /> |
+| Effects/Explosion/flame.png |
+| 2*2 |
+| ![flame.png](/wiki-assets/docs/tutorials/assets/images/beginner/flame.png)<br /> |
+| Effects/Explosion/flash.png |
+| 2*2 |
+| ![flash.png](/wiki-assets/docs/tutorials/assets/images/beginner/flash.png)<br /> |
+| Effects/Explosion/roundspark.png |
+| 1*1 |
+| ![roundspark.png](/wiki-assets/docs/tutorials/assets/images/beginner/roundspark.png)<br /> |
+| Effects/Explosion/shockwave.png |
+| 1*1 |
+| ![shockwave.png](/wiki-assets/docs/tutorials/assets/images/beginner/shockwave.png)<br /> |
+| Effects/Explosion/smoketrail.png |
+| 1*3 |
+| ![smoketrail.png](/wiki-assets/docs/tutorials/assets/images/beginner/smoketrail.png)<br /> |
+| Effects/Explosion/spark.png |
+| 1*1 |
+| ![spark.png](/wiki-assets/docs/tutorials/assets/images/beginner/spark.png)<br /> |
+| Effects/Smoke/Smoke.png |
+| 1*15 |
+| ![Smoke.png](/wiki-assets/docs/tutorials/assets/images/beginner/Smoke.png)<br /> |
 
 Copy them into your `assets/Effects` directory to use them.
 
@@ -229,7 +206,7 @@ Compare the texture with the resulting effect.
 
 - Black parts of the image become fully transparent.
 - White/gray parts of the image are translucent and get colorized.
-- You set the color using `setStartColor()` and `setEndColor()`. +
+- You set the color using `setStartColor()` and `setEndColor()`.
 For fire, it's a gradient from yellow to red.
 - By default, the animation is played in order and loops.
 
@@ -252,58 +229,18 @@ emitter.setShape(new EmitterPointShape(Vector3f.ZERO));
 ```
 
 You create different effects by changing the emitter parameters:
-<table>
-  <thead>
-    <tr>
-      <th>Parameter</th>
-      <th>Method</th>
-      <th>Default</th>
-      <th>Description<br /></th>
-      <th>number</th>
-      <th>`setNumParticles()`</th>
-      <th>N/A</th>
-      <th>The maximum number of particles visible at the same time. Value is specified by user in constructor. This influences the density and length of the "`trail`".<br /></th>
-      <th>velocity</th>
-      <th>`getParticleInfluencer().setInitialVelocity()`</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Vector3f.ZERO</td>
-      <td>Specify a vector how fast particles move and in which start direction.<br /></td>
-      <td>direction</td>
-      <td>`getParticleInfluencer().setVelocityVariation()` +<br />`setFacingVelocity()` +<br />`setRandomAngle()` +<br />`setFaceNormal()` +<br />`setRotateSpeed()`</td>
-      <td>0.2f +<br />false +<br />false +<br />Vector3f.NAN +<br />0.0f</td>
-      <td>Optional accessors that control in which direction particles face while flying.<br /></td>
-      <td>lifetime</td>
-      <td>`setLowLife()` +<br />`setHighLife()`</td>
-      <td>3f +<br />7f</td>
-      <td>Minimum and maximum time period before particles fade.<br /></td>
-    </tr>
-    <tr>
-      <td>emission rate</td>
-      <td>`setParticlesPerSec()`</td>
-      <td>20</td>
-      <td>How many new particles are emitted per second.<br /></td>
-      <td>color</td>
-      <td>`setStartColor()` +<br />`setEndColor()`</td>
-      <td>gray</td>
-      <td>Set to the same colors, or to two different colors for a gradient effect.<br /></td>
-      <td>size</td>
-      <td>`setStartSize()` +<br />`setEndSize()`</td>
-    </tr>
-    <tr>
-      <td>0.2f +<br />2f</td>
-      <td>Set to two different values for shrink/grow effect, or to same size for constant effect.<br /></td>
-      <td>gravity</td>
-      <td>`setGravity()`</td>
-      <td>0,1,0</td>
-      <td>Whether particles fall down (positive) or fly up (negative). Set to 0f for a zero-g effect where particles keep flying.<br /></td>
-    </tr>
-  </tbody>
-</table>
+| Parameter | Method | Default | Description<br /> |
+| --- | --- | --- | --- |
+| number | `setNumParticles()` | N/A | The maximum number of particles visible at the same time. Value is specified by user in constructor. This influences the density and length of the "`trail`".<br /> |
+| velocity | `getParticleInfluencer().setInitialVelocity()` | Vector3f.ZERO | Specify a vector how fast particles move and in which start direction.<br /> |
+| direction | `getParticleInfluencer().setVelocityVariation()`<br />`setFacingVelocity()`<br />`setRandomAngle()`<br />`setFaceNormal()`<br />`setRotateSpeed()` | 0.2f<br />false<br />false<br />Vector3f.NAN<br />0.0f | Optional accessors that control in which direction particles face while flying.<br /> |
+| lifetime | `setLowLife()`<br />`setHighLife()` | 3f<br />7f | Minimum and maximum time period before particles fade.<br /> |
+| emission rate | `setParticlesPerSec()` | 20 | How many new particles are emitted per second.<br /> |
+| color | `setStartColor()`<br />`setEndColor()` | gray | Set to the same colors, or to two different colors for a gradient effect.<br /> |
+| size | `setStartSize()`<br />`setEndSize()` | 0.2f<br />2f | Set to two different values for shrink/grow effect, or to same size for constant effect.<br /> |
+| gravity | `setGravity()` | 0,1,0 | Whether particles fall down (positive) or fly up (negative). Set to 0f for a zero-g effect where particles keep flying.<br /> |
 
-You can find details about [effect parameters](../../core/effect/particle_emitters.md#configureparameters) here.
+You can find details about [effect parameters](../../core/effect/particle_emitters.md#configure-parameters) here.
 Add and modify one parameter at a time, and try different values until you get the effect you want.
 
 :::tip

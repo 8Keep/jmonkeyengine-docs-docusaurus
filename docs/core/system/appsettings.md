@@ -65,35 +65,35 @@ System.out.println(settings);
       <td>Settings Property</td>
       <td>Description</td>
       <td>Default<br /></td>
-      <td>setRenderer(AppSettings.LWJGL_OPENGL1) +<br />setRenderer(AppSettings.LWJGL_OPENGL2) +<br />setRenderer(AppSettings.LWJGL_OPENGL3)</td>
-      <td>Switch Video Renderer to OpenGL 1.1, OpenGL 2, or OpenGL 3.3. If your graphic card does not support all OpenGL2 features (`UnsupportedOperationException: GLSL and OpenGL2 is required for the LWJGL renderer`), then you can force your SimpleApplication to use OpenGL1 compatibility. (Then you still can't use special OpenGL2 features, but at least the error goes away and you can continue with the rest.)</td>
+      <td>setRenderer(AppSettings.LWJGL_OPENGL1)<br />setRenderer(AppSettings.LWJGL_OPENGL2)<br />setRenderer(AppSettings.LWJGL_OPENGL3)</td>
+      <td>Switch Video Renderer to OpenGL 1.1, OpenGL 2, or OpenGL 3.3. If your graphic card does not support all OpenGL2 features (<code>UnsupportedOperationException: GLSL and OpenGL2 is required for the LWJGL renderer</code>), then you can force your SimpleApplication to use OpenGL1 compatibility. (Then you still can't use special OpenGL2 features, but at least the error goes away and you can continue with the rest.)</td>
       <td>OpenGL 2<br /></td>
       <td>setBitsPerPixel(32)</td>
-      <td>Set the color depth. +<br />1 bpp = black and white, 2 bpp = gray, +<br />4 bpp = 16 colors, 8 bpp = 256 colors, 24 or 32 bpp = "`truecolor`".</td>
+      <td>Set the color depth.<br />1 bpp = black and white, 2 bpp = gray,<br />4 bpp = 16 colors, 8 bpp = 256 colors, 24 or 32 bpp = "<code>truecolor</code>".</td>
       <td>24<br /></td>
       <td>setFrameRate(60)</td>
       <td>How often per second the engine should try to refresh the frame. For the release, usually 60 fps. Can be lower (30) if you need to free up the CPU for other applications. No use setting it to a higher value than the screen frequency! If the framerate goes below 30 fps, viewers start to notice choppiness or flickering.</td>
       <td>-1 (unlimited)<br /></td>
       <td>setFullscreen(true)</td>
-      <td>Set this to true to make the game window fill the whole screen; you need to provide a key that calls app.stop() to exit the fullscreen view gracefully (default: escape). +<br />Set this to false to play the game in a normal window of its own.</td>
+      <td>Set this to true to make the game window fill the whole screen; you need to provide a key that calls app.stop() to exit the fullscreen view gracefully (default: escape).<br />Set this to false to play the game in a normal window of its own.</td>
       <td>False (windowed)<br /></td>
-      <td>setHeight(480), setWidth(640) +<br />setResolution(640,480)</td>
+      <td>setHeight(480), setWidth(640)<br />setResolution(640,480)</td>
       <td>Two equivalent ways of setting the display resolution.</td>
       <td>640x480 pixels<br /></td>
       <td>setSamples(4)</td>
-      <td>Set multisampling to 0 to switch antialiasing off (harder edges, faster.) +<br />Set multisampling to 2 or 4 to activate antialiasing (softer edges, may be slower.) +<br />Depending on your graphic card, you may be able to set multisampling to higher values such as 8, 16, or 32 samples.</td>
+      <td>Set multisampling to 0 to switch antialiasing off (harder edges, faster.)<br />Set multisampling to 2 or 4 to activate antialiasing (softer edges, may be slower.)<br />Depending on your graphic card, you may be able to set multisampling to higher values such as 8, 16, or 32 samples.</td>
       <td>0<br /></td>
-      <td>setVSync(true) +<br />setFrequency(60)</td>
-      <td>Set vertical syncing to true to time the frame buffer to coincide with the refresh frequency of the screen. VSync prevents ugly page tearing artefacts, but is a bit slower; recommened for release build. +<br />Set VSync to false to deactivate vertical syncing (faster, but possible page tearing artifacts); can remain deactivated during development or for slower PCs.</td>
-      <td>false +<br />60 fps<br /></td>
+      <td>setVSync(true)<br />setFrequency(60)</td>
+      <td>Set vertical syncing to true to time the frame buffer to coincide with the refresh frequency of the screen. VSync prevents ugly page tearing artefacts, but is a bit slower; recommened for release build.<br />Set VSync to false to deactivate vertical syncing (faster, but possible page tearing artifacts); can remain deactivated during development or for slower PCs.</td>
+      <td>false<br />60 fps<br /></td>
       <td>setStencilBits(8)</td>
-      <td>Set the number of stencil bits. +<br />This value is only relevant when the stencil buffer is being used. Specify 8 to indicate an 8-bit stencil buffer, specify 0 to disable the stencil buffer.</td>
+      <td>Set the number of stencil bits.<br />This value is only relevant when the stencil buffer is being used. Specify 8 to indicate an 8-bit stencil buffer, specify 0 to disable the stencil buffer.</td>
       <td>0 (disabled)<br /></td>
       <td>setDepthBits(16)</td>
-      <td>Sets the number of depth bits to use. +<br />The number of depth bits specifies the precision of the depth buffer. To increase precision, specify 32 bits. To decrease precision, specify 16 bits. On some platforms 24 bits might not be supported, in that case, specify 16 bits. +<br />See [Z-buffering](https://en.wikipedia.org/wiki/Z-buffering) for a more in depth explanation.</td>
+      <td>Sets the number of depth bits to use.<br />The number of depth bits specifies the precision of the depth buffer. To increase precision, specify 32 bits. To decrease precision, specify 16 bits. On some platforms 24 bits might not be supported, in that case, specify 16 bits.<br />See <a href="https://en.wikipedia.org/wiki/Z-buffering">Z-buffering</a> for a more in depth explanation.</td>
       <td>24<br /></td>
       <td>setGammaCorrection(true)</td>
-      <td>Enables Gamma Correction. +<br />If you’re starting a new project, use it, period. And don’t allow the player to turn it off. +<br />See [Gamma Correction or sRGB pipeline](jme3_srgbpipeline.md)</td>
+      <td>Enables Gamma Correction.<br />If you’re starting a new project, use it, period. And don’t allow the player to turn it off.<br />See <a href="jme3_srgbpipeline.md">Gamma Correction or sRGB pipeline</a></td>
       <td>false<br /></td>
     </tr>
   </tbody>
@@ -135,7 +135,7 @@ System.out.println(settings);
       <td>Switch Audio Renderer. Currently there is only one option.</td>
       <td>OpenAL<br /></td>
       <td>setStereo3D(true)</td>
-      <td>Enable 3D stereo. This feature requires hardware support from the GPU driver. See [Quad Buffering](http://en.wikipedia.org/wiki/Quad_buffering). Currently, your everyday user's hardware does not support this, so you can ignore it for now.</td>
+      <td>Enable 3D stereo. This feature requires hardware support from the GPU driver. See <a href="http://en.wikipedia.org/wiki/Quad_buffering">Quad Buffering</a>. Currently, your everyday user's hardware does not support this, so you can ignore it for now.</td>
       <td>false<br /></td>
     </tr>
   </tbody>
@@ -151,12 +151,12 @@ System.out.println(settings);
       <td>Default<br /></td>
       <td>setTitle("My Game")</td>
       <td>This string will be visible in the titlebar, unless the window is fullscreen.</td>
-      <td>"`jMonkey Engine 3.x-stable`"<br /></td>
-      <td>setIcons(new BufferedImage[]&#123; +<br />ImageIO.read(new File(" ")), …&#125;);</td>
+      <td>"<code>jMonkey Engine 3.x-stable</code>"<br /></td>
+      <td>setIcons(new BufferedImage[]&#123;<br />ImageIO.read(new File(" ")), …&#125;);</td>
       <td>This specifies the little application icon in the titlebar of the application (unused in MacOS?). You should specify the icon in various sizes (256,128,32,16) to look good on various operating systems. Note: This is not the application icon on the desktop.</td>
       <td>null<br /></td>
       <td>setSettingsDialogImage("Interface/mysplashscreen.png")</td>
-      <td>A custom splashscreen image in the `assets/Interface` directory which is displayed when the settings dialog is shown.</td>
+      <td>A custom splashscreen image in the <code>assets/Interface</code> directory which is displayed when the settings dialog is shown.</td>
       <td>"/com/jme3/app/Monkey.png"<br /></td>
     </tr>
   </tbody>
@@ -167,24 +167,12 @@ You can use `app.setShowSettings(true);` and `setSettingsDialogImage("Interface/
 :::
 
 ## Toggling and Activating Settings
-<table>
-  <thead>
-    <tr>
-      <th>SimpleApplication method</th>
-      <th>Description<br /></th>
-      <th>app.setShowSettings(boolean)</th>
-      <th>Activate or deactivate the default settings screen before start()ing the game. If you let users use this screen, you do not need to modify the settings object. Note: Most developers implement their own custom settings screen, but the default one is useful during the alpha stages.<br /></th>
-      <th>app.setSettings(settings)</th>
-      <th>After you have modified the properties on the settings object, you apply it to your application. Note that the settings are not automatically reloaded while the game is running.<br /></th>
-      <th>app.start()</th>
-      <th>Every game calls start() in the beginning to initialize the game and apply the settings. Modify and set your settings before calling start().<br /></th>
-      <th>app.restart()</th>
-      <th>Restart()ing a running game restarts the game context and applies the updated settings object. (This does not restart or reinitialize the whole game.)<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-  </tbody>
-</table>
+| SimpleApplication method | Description<br /> |
+| --- | --- |
+| app.setShowSettings(boolean) | Activate or deactivate the default settings screen before start()ing the game. If you let users use this screen, you do not need to modify the settings object. Note: Most developers implement their own custom settings screen, but the default one is useful during the alpha stages.<br /> |
+| app.setSettings(settings) | After you have modified the properties on the settings object, you apply it to your application. Note that the settings are not automatically reloaded while the game is running.<br /> |
+| app.start() | Every game calls start() in the beginning to initialize the game and apply the settings. Modify and set your settings before calling start().<br /> |
+| app.restart() | Restart()ing a running game restarts the game context and applies the updated settings object. (This does not restart or reinitialize the whole game.)<br /> |
 
 ## Saving and Loading Settings
 
@@ -211,9 +199,9 @@ Provide the unique name of your jME3 application as the String argument. For exa
 
 ```
 
-- On Windows, the preferences are saved under the following registry key: +
+- On Windows, the preferences are saved under the following registry key:
 `HKEY_CURRENT_USER\Software\JavaSoft\Prefs\com\foo\mycoolgame3`
-- On Linux, the preferences are saved in an XML file under: +
+- On Linux, the preferences are saved in an XML file under:
 `$HOME/.java/.userPrefs/com/foo/mycoolgame3`
-- On Mac &lt;abbr title="Operating System"&gt;OS&lt;/abbr&gt; X, the preferences are saved as XML file under: +
+- On Mac &lt;abbr title="Operating System"&gt;OS&lt;/abbr&gt; X, the preferences are saved as XML file under:
 `$HOME/Library/Preferences/com.foo.mycoolgame3.plist`

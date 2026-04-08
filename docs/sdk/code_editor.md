@@ -10,11 +10,11 @@ Since the jMonkeyEngine SDK is based on the NetBeans IDE and the NetBeans Platfo
 
 While typing Java code in the source code editor, you will see popups that help you to write more quickly by completing keywords, and generating code snippets. Additionally, they will let you see the javadoc for the classes you are working with.
 
-![netbeans_code_completion.png](/wiki-assets/docs/sdk/assets/images/netbeans_code_completion.png)
+![netbeans_code_completion.png](/wiki-assets/docs/sdk/images/netbeans_code_completion.png)
 
 *Code Completion*
 
-- Complete keyword / method / variable: `Ctrl+Space` +
+- Complete keyword / method / variable: `Ctrl+Space`
 Alternatively you can also use `Ctrl+\ `
   - Customize Code Completion options: "Tools &gt; Options &gt; Editor &gt; Code Completion"
 
@@ -34,7 +34,7 @@ Alternatively you can also use `Ctrl+\ `
 
 ## Semantic and Syntactic Coloring
 
-![jmonkeyplatform-docu-5.png](/wiki-assets/docs/sdk/assets/images/jmonkeyplatform-docu-5.png)
+![jmonkeyplatform-docu-5.png](/wiki-assets/docs/sdk/images/jmonkeyplatform-docu-5.png)
 
 The text color in the editor gives you important hints how the compiler will interpret what you typed, even before you compiled it.
 
@@ -83,7 +83,7 @@ When the JavaDoc does not deliver enough information, you can have a look at the
 
 ## Palette
 
-![jmonkeyplatform-docu-4.png](/wiki-assets/docs/sdk/assets/images/jmonkeyplatform-docu-4.png)
+![jmonkeyplatform-docu-4.png](/wiki-assets/docs/sdk/images/jmonkeyplatform-docu-4.png)
 
 Choose "Windows &gt; Palette" to open the context-sensitive Palette. The jMonkeyEngine SDK provides you with jme3 code snippets here that you can drag and drop into your source files.
 

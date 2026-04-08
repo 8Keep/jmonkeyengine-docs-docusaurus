@@ -27,7 +27,7 @@ Change into the OGF-Server directory and run the server:
 - On Windows: Run startServer.bat
 - On Linux and MacOS X: Run `java -jar lib/Server-1.0.jar` in the Terminal.
 
-The server is now running and ready to accept connections. +
+The server is now running and ready to accept connections.
 *Note:* In the alpha release, the server runs on localhost. In the final release, you will be able to configure the host!
 
 ## Running the client
@@ -72,7 +72,7 @@ The chat window shows a list of all users logged in to the server. Logged-in use
 
 ## Connecting to a Game
 
-Q: I want to gather players using the OGF client to connect to the game server. How do I start my multiplayer game? +
+Q: I want to gather players using the OGF client to connect to the game server. How do I start my multiplayer game?
 A: The following sample code demos the typical use case: [OGFClientStartup.java](https://code.google.com/archive/p/open-game-finder/source/browse/OGF/TRUNK/Client/src/main/java/com/ractoc/opengamefinder/client/OGFClientStartup.java)
 
 In a JME3 Application's init method:

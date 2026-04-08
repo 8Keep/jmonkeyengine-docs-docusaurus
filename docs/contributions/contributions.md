@@ -3,7 +3,7 @@
 The following list contains additional content for jMonkeyEngine 3 contributed by users. They are, as is the engine itself, open-source - Feel free to download and use them for your projects. :)
 
 :::tip
-To install a jMonkeyEngine SDK plugin, go to `"Tools &gt; Plugins&gt;Available Plugins"`. +
+To install a jMonkeyEngine SDK plugin, go to `"Tools &gt; Plugins&gt;Available Plugins"`.
 (Currently only jME 3.0 stable SDK, jME 3.1+ does not yet support plugins)
 :::
 
@@ -17,78 +17,19 @@ can easily incorporate pre-built libraries from public Maven repositories.
 follow these links to determine the version ID of the latest release.
 "Name" entries link to relevant documentation, if any.
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Purpose</th>
-      <th>Maintainer(s)</th>
-      <th>Maven repository URL +<br />GroupID:ArtifactID</th>
-      <th>Source code<br /></th>
-      <th>[jME-TTF](https://1337atr.weebly.com/jttf.html)</th>
-      <th>Render TrueType fonts</th>
-      <th>(none)</th>
-      <th>\https://repo1.maven.org/maven2 +<br />&#123;url-mcentral&#125;q=g:com.github.stephengold%20AND%20a:jme-ttf[com.github.stephengold:jme-ttf]</th>
-      <th>&#123;url-github&#125;/ATryder/jME-TTF[GitHub]<br /><br /></th>
-      <th>&#123;url-github&#125;/stephengold/Heart#readme[Heart]</th>
-      <th>General-purpose toolkit</th>
-      <th>&#123;url-forum-user&#125;/sgold[sgold]</th>
-      <th>\https://repo1.maven.org/maven2 +<br />&#123;url-mcentral&#125;q=g:com.github.stephengold%20AND%20a:Heart[com.github.stephengold:Heart]</th>
-      <th>&#123;url-github&#125;/stephengold/Heart[GitHub]<br /></th>
-      <th>&#123;url-github&#125;/stephengold/jme3-utilities#readme[Jme3-utilities-nifty]</th>
-      <th>Graphical user interface</th>
-      <th>&#123;url-forum-user&#125;/sgold[sgold]</th>
-      <th>\https://repo1.maven.org/maven2 +<br />&#123;url-mcentral&#125;q=g:com.github.stephengold%20AND%20a:jme3-utilities-nifty[com.github.stephengold:jme3-utilities-nifty]</th>
-      <th>&#123;url-github&#125;/stephengold/jme3-utilities/tree/master/nifty[GitHub]<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>&#123;url-github&#125;/stephengold/jme3-utilities#readme[Jme3-utilities-ui]</td>
-      <td>Modal hotkeys and help screens</td>
-      <td>&#123;url-forum-user&#125;/sgold[sgold]</td>
-      <td>\https://repo1.maven.org/maven2 +<br />&#123;url-mcentral&#125;q=g:com.github.stephengold%20AND%20a:jme3-utilities-ui[com.github.stephengold:jme3-utilities-ui]</td>
-      <td>&#123;url-github&#125;/stephengold/jme3-utilities/tree/master/ui[GitHub]<br /></td>
-      <td>[Minie](https://stephengold.github.io/Minie/minie/overview.html)</td>
-      <td>3-D physics simulation</td>
-      <td>&#123;url-forum-user&#125;/sgold[sgold]</td>
-      <td>\https://repo1.maven.org/maven2 +<br />&#123;url-mcentral&#125;q=g:com.github.stephengold%20AND%20a:Minie[com.github.stephengold:Minie]</td>
-      <td>&#123;url-github&#125;/stephengold/Minie[GitHub]<br /></td>
-      <td>&#123;url-github&#125;/stephengold/SkyControl#readme[SkyControl]</td>
-      <td>Sky simulation</td>
-      <td>&#123;url-forum-user&#125;/sgold[sgold]</td>
-      <td>\https://repo1.maven.org/maven2 +<br />&#123;url-mcentral&#125;q=g:com.github.stephengold%20AND%20a:SkyControl[com.github.stephengold:SkyControl]</td>
-      <td>&#123;url-github&#125;/stephengold/SkyControl[GitHub]<br /></td>
-      <td>&#123;url-github&#125;/stephengold/Wes#readme[Wes]</td>
-      <td>Animation editing and retargeting</td>
-      <td>&#123;url-forum-user&#125;/sgold[sgold]</td>
-      <td>\https://repo1.maven.org/maven2 +<br />&#123;url-mcentral&#125;q=g:com.github.stephengold%20AND%20a:Wes[com.github.stephengold:Wes]</td>
-      <td>&#123;url-github&#125;/stephengold/Wes[GitHub]<br /><br /></td>
-    </tr>
-    <tr>
-      <td>&#123;url-github&#125;/riccardobl/jme3-bullet-vhacd#readme[V-HACD Collision Shape Factory]</td>
-      <td>Decompose meshes into convex collision shapes</td>
-      <td>&#123;url-forum-user&#125;/RiccardoBlb[RiccardoBlb]</td>
-      <td>\https://jitpack.io +<br />&#123;url-jitpack&#125;/#riccardobl/jme3-bullet-vhacd[com.github.riccardobl:jme3-bullet-vhacd]</td>
-      <td>&#123;url-github&#125;/riccardobl/jme3-bullet-vhacd[GitHub]<br /></td>
-      <td>&#123;url-github&#125;/riccardobl/jme-igui#readme[jme-IGUI]</td>
-      <td>Immediate graphical user interface</td>
-      <td>&#123;url-forum-user&#125;/RiccardoBlb[RiccardoBlb]</td>
-      <td>\https://jitpack.io +<br />&#123;url-jitpack&#125;/#riccardobl/jme-igui[com.github.riccardobl:jme-igui]</td>
-      <td>&#123;url-github&#125;/riccardobl/jme-igui[GitHub]<br /><br /></td>
-      <td>[ToneGod GUI](gui/tonegodgui/tonegodgui.md)</td>
-      <td>Native graphical user interface</td>
-      <td>(none)</td>
-      <td>\https://repo1.maven.org/maven2 +<br />&#123;url-mcentral&#125;q=g:com.github.stephengold%20AND%20a:tonegodgui[com.github.stephengold:tonegodgui]</td>
-      <td>&#123;url-github&#125;/stephengold/tonegodgui[GitHub]<br /></td>
-      <td>&#123;url-github&#125;/jack-bradshaw/monorepo/tree/main/java/io/jackbradshaw/kmonkey[KMonkey]</td>
-      <td>Support for Kotlin Coroutines</td>
-      <td>&#123;url-forum-user&#125;/jackbradshaw[jackbradshaw]</td>
-      <td>\https://repo1.maven.org/maven2 +<br />&#123;url-mcentral&#125;q=g:io.jackbradshaw:kmonkey[io.jackbradshaw:kmonkey]</td>
-      <td>&#123;url-github&#125;/jack-bradshaw/monorepo/tree/main/java/io/jackbradshaw/kmonkey[GitHub]<br /><br /></td>
-    </tr>
-  </tbody>
-</table>
+| Name | Purpose | Maintainer(s) | Maven repository URL<br />GroupID:ArtifactID | Source code<br /> |
+| --- | --- | --- | --- | --- |
+| [jME-TTF](https://1337atr.weebly.com/jttf.html) | Render TrueType fonts | (none) | \https://repo1.maven.org/maven2<br />[com.github.stephengold:jme-ttf](https://search.maven.org/search?q=g:com.github.stephengold%20AND%20a:jme-ttf) | [GitHub](https://github.com/ATryder/jME-TTF)<br /><br /> |
+| [Heart](https://github.com/stephengold/Heart#readme) | General-purpose toolkit | [sgold](https://hub.jmonkeyengine.org/u/sgold) | \https://repo1.maven.org/maven2<br />[com.github.stephengold:Heart](https://search.maven.org/search?q=g:com.github.stephengold%20AND%20a:Heart) | [GitHub](https://github.com/stephengold/Heart)<br /> |
+| [Jme3-utilities-nifty](https://github.com/stephengold/jme3-utilities#readme) | Graphical user interface | [sgold](https://hub.jmonkeyengine.org/u/sgold) | \https://repo1.maven.org/maven2<br />[com.github.stephengold:jme3-utilities-nifty](https://search.maven.org/search?q=g:com.github.stephengold%20AND%20a:jme3-utilities-nifty) | [GitHub](https://github.com/stephengold/jme3-utilities/tree/master/nifty)<br /> |
+| [Jme3-utilities-ui](https://github.com/stephengold/jme3-utilities#readme) | Modal hotkeys and help screens | [sgold](https://hub.jmonkeyengine.org/u/sgold) | \https://repo1.maven.org/maven2<br />[com.github.stephengold:jme3-utilities-ui](https://search.maven.org/search?q=g:com.github.stephengold%20AND%20a:jme3-utilities-ui) | [GitHub](https://github.com/stephengold/jme3-utilities/tree/master/ui)<br /> |
+| [Minie](https://stephengold.github.io/Minie/minie/overview.html) | 3-D physics simulation | [sgold](https://hub.jmonkeyengine.org/u/sgold) | \https://repo1.maven.org/maven2<br />[com.github.stephengold:Minie](https://search.maven.org/search?q=g:com.github.stephengold%20AND%20a:Minie) | [GitHub](https://github.com/stephengold/Minie)<br /> |
+| [SkyControl](https://github.com/stephengold/SkyControl#readme) | Sky simulation | [sgold](https://hub.jmonkeyengine.org/u/sgold) | \https://repo1.maven.org/maven2<br />[com.github.stephengold:SkyControl](https://search.maven.org/search?q=g:com.github.stephengold%20AND%20a:SkyControl) | [GitHub](https://github.com/stephengold/SkyControl)<br /> |
+| [Wes](https://github.com/stephengold/Wes#readme) | Animation editing and retargeting | [sgold](https://hub.jmonkeyengine.org/u/sgold) | \https://repo1.maven.org/maven2<br />[com.github.stephengold:Wes](https://search.maven.org/search?q=g:com.github.stephengold%20AND%20a:Wes) | [GitHub](https://github.com/stephengold/Wes)<br /><br /> |
+| [V-HACD Collision Shape Factory](https://github.com/riccardobl/jme3-bullet-vhacd#readme) | Decompose meshes into convex collision shapes | [RiccardoBlb](https://hub.jmonkeyengine.org/u/RiccardoBlb) | \https://jitpack.io<br />[com.github.riccardobl:jme3-bullet-vhacd](https://jitpack.io/#riccardobl/jme3-bullet-vhacd) | [GitHub](https://github.com/riccardobl/jme3-bullet-vhacd)<br /> |
+| [jme-IGUI](https://github.com/riccardobl/jme-igui#readme) | Immediate graphical user interface | [RiccardoBlb](https://hub.jmonkeyengine.org/u/RiccardoBlb) | \https://jitpack.io<br />[com.github.riccardobl:jme-igui](https://jitpack.io/#riccardobl/jme-igui) | [GitHub](https://github.com/riccardobl/jme-igui)<br /><br /> |
+| [ToneGod GUI](gui/tonegodgui/tonegodgui.md) | Native graphical user interface | (none) | \https://repo1.maven.org/maven2<br />[com.github.stephengold:tonegodgui](https://search.maven.org/search?q=g:com.github.stephengold%20AND%20a:tonegodgui) | [GitHub](https://github.com/stephengold/tonegodgui)<br /> |
+| [KMonkey](https://github.com/jack-bradshaw/monorepo/tree/main/java/io/jackbradshaw/kmonkey) | Support for Kotlin Coroutines | [jackbradshaw](https://hub.jmonkeyengine.org/u/jackbradshaw) | \https://repo1.maven.org/maven2<br />[io.jackbradshaw:kmonkey](https://search.maven.org/search?q=g:io.jackbradshaw:kmonkey) | [GitHub](https://github.com/jack-bradshaw/monorepo/tree/main/java/io/jackbradshaw/kmonkey)<br /><br /> |
 
 ## Github Repo
 
@@ -122,28 +63,15 @@ These contributions are developed by jMonkeyEngine users and aren't officially s
 
 A fairly complete set of painting tools for editing jME3 Images from code.
 
-<table>
-  <thead>
-    <tr>
-      <th>*Contact person*</th>
-      <th>&#123;url-forum-user&#125;/zarch/activity[zarch]<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>*Documentation*</td>
-      <td>[Forum Post, full javadoc in plugin](https://hub.jmonkeyengine.org/t/image-painter-plugin-available/24255)<br /></td>
-    </tr>
-    <tr>
-      <td>*Available as SDK plugin*</td>
-      <td>Yes<br /></td>
-    </tr>
-    <tr>
-      <td>*Work in progress*</td>
-      <td>No<br /></td>
-    </tr>
-  </tbody>
-</table>
+| *Contact person* |
+| --- |
+| [zarch](https://hub.jmonkeyengine.org/u/zarch/activity)<br /> |
+| *Documentation* |
+| [Forum Post, full javadoc in plugin](https://hub.jmonkeyengine.org/t/image-painter-plugin-available/24255)<br /> |
+| *Available as SDK plugin* |
+| Yes<br /> |
+| *Work in progress* |
+| No<br /> |
 
 ### ParticleController
 
@@ -151,58 +79,32 @@ A fairly complete set of painting tools for editing jME3 Images from code.
 
 Next Generation Particle Emitters.
 
-<table>
-  <thead>
-    <tr>
-      <th>*Contact person*</th>
-      <th>&#123;url-forum-user&#125;/zarch/activity[zarch]<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>*Documentation*</td>
-      <td>[Wiki Page](effect/particles/particles.md)<br /></td>
-    </tr>
-    <tr>
-      <td>*Available as SDK plugin*</td>
-      <td>No<br /></td>
-    </tr>
-    <tr>
-      <td>*Work in progress*</td>
-      <td>No<br /></td>
-    </tr>
-  </tbody>
-</table>
+| *Contact person* |
+| --- |
+| [zarch](https://hub.jmonkeyengine.org/u/zarch/activity)<br /> |
+| *Documentation* |
+| [Wiki Page](effect/particles/particles.md)<br /> |
+| *Available as SDK plugin* |
+| No<br /> |
+| *Work in progress* |
+| No<br /> |
 
 ### Shaderblow
 
 [.right.text-left]
-![glass-shader.png](/wiki-assets/docs/sdk/assets/images/plugin/glass-shader.png)
+![glass-shader.png](/wiki-assets/docs/sdk/images/plugin/glass-shader.png)
 
 The "`Shaderblow`" library contains various shader effects, e.g. refraction, particles, forceshields, grayscale and much more.
 
-<table>
-  <thead>
-    <tr>
-      <th>*Contact person*</th>
-      <th>&#123;url-forum-user&#125;/mifth/activity[mifth]<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>*Documentation*</td>
-      <td>[Wiki Page](../sdk/plugin/shaderblow.md)<br /></td>
-    </tr>
-    <tr>
-      <td>*Available as SDK plugin*</td>
-      <td>Yes<br /></td>
-    </tr>
-    <tr>
-      <td>*Work in progress*</td>
-      <td>Yes<br /></td>
-    </tr>
-  </tbody>
-</table>
+| *Contact person* |
+| --- |
+| [mifth](https://hub.jmonkeyengine.org/u/mifth/activity)<br /> |
+| *Documentation* |
+| [Wiki Page](../sdk/plugin/shaderblow.md)<br /> |
+| *Available as SDK plugin* |
+| Yes<br /> |
+| *Work in progress* |
+| Yes<br /> |
 
 ### Zay-ES Entity System
 
@@ -211,28 +113,15 @@ The "`Shaderblow`" library contains various shader effects, e.g. refraction, par
 
 A self-contained thread-capable entity system.
 
-<table>
-  <thead>
-    <tr>
-      <th>*Contact person*</th>
-      <th>&#123;url-forum-user&#125;/pspeed/activity[Paul Speed (pspeed)]<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>*Documentation*</td>
-      <td>[Wiki Page](es/entitysystem/entitysystem.md)<br /></td>
-    </tr>
-    <tr>
-      <td>*Available as SDK plugin*</td>
-      <td>Yes<br /></td>
-    </tr>
-    <tr>
-      <td>*Work in progress*</td>
-      <td>Seems fairly complete<br /></td>
-    </tr>
-  </tbody>
-</table>
+| *Contact person* |
+| --- |
+| [Paul Speed (pspeed)](https://hub.jmonkeyengine.org/u/pspeed/activity)<br /> |
+| *Documentation* |
+| [Wiki Page](es/entitysystem/entitysystem.md)<br /> |
+| *Available as SDK plugin* |
+| Yes<br /> |
+| *Work in progress* |
+| Seems fairly complete<br /> |
 
 ### Lemur Gui Library
 [.right.text-left]
@@ -240,32 +129,17 @@ A self-contained thread-capable entity system.
 
 Lemur is GUI toolkit for making user interfaces in jMonkeyEngine applications. It supports standard 2D UIs as well as fully 3D UIs. The modular design allows an application to use all or some of it as needed or even to build a completely new custom GUI library on top.
 
-<table>
-  <thead>
-    <tr>
-      <th>*Contact person*</th>
-      <th>&#123;url-forum-user&#125;/pspeed/activity[Paul Speed (pspeed)]<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>*Documentation*</td>
-      <td>[Wiki Page](https://github.com/jMonkeyEngine-Contributions/Lemur/wiki)<br /></td>
-    </tr>
-    <tr>
-      <td>*Forum Topic*</td>
-      <td>[Lemur](https://hub.jmonkeyengine.org/c/user-code-projects/lemur/46)<br /></td>
-    </tr>
-    <tr>
-      <td>*Available as SDK plugin*</td>
-      <td>No<br /></td>
-    </tr>
-    <tr>
-      <td>*Work in progress*</td>
-      <td>Complete library, well maintained and documented with examples.</td>
-    </tr>
-  </tbody>
-</table>
+| *Contact person* |
+| --- |
+| [Paul Speed (pspeed)](https://hub.jmonkeyengine.org/u/pspeed/activity)<br /> |
+| *Documentation* |
+| [Wiki Page](https://github.com/jMonkeyEngine-Contributions/Lemur/wiki)<br /> |
+| *Forum Topic* |
+| [Lemur](https://hub.jmonkeyengine.org/c/user-code-projects/lemur/46)<br /> |
+| *Available as SDK plugin* |
+| No<br /> |
+| *Work in progress* |
+| Complete library, well maintained and documented with examples. |
 
 ### tonegodGUI
 
@@ -274,82 +148,43 @@ Lemur is GUI toolkit for making user interfaces in jMonkeyEngine applications. I
 
 A Native &lt;abbr title="Graphical User Interface"&gt;GUI&lt;/abbr&gt; Library for JME3
 
-<table>
-  <thead>
-    <tr>
-      <th>*Contact person*</th>
-      <th>&#123;url-forum-user&#125;/t0neg0d/activity[t0neg0d]<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>*Documentation*</td>
-      <td>[Wiki Page](gui/tonegodgui/tonegodgui.md)<br /></td>
-    </tr>
-    <tr>
-      <td>*Available as SDK plugin*</td>
-      <td>Yes<br /></td>
-    </tr>
-    <tr>
-      <td>*Work in progress*</td>
-      <td>Abandoned but there is a fork of the project that has been updated and can be found on &#123;url-github&#125;/stephengold/tonegodgui[GitHub].<br /></td>
-    </tr>
-  </tbody>
-</table>
+| *Contact person* |
+| --- |
+| [t0neg0d](https://hub.jmonkeyengine.org/u/t0neg0d/activity)<br /> |
+| *Documentation* |
+| [Wiki Page](gui/tonegodgui/tonegodgui.md)<br /> |
+| *Available as SDK plugin* |
+| Yes<br /> |
+| *Work in progress* |
+| Abandoned but there is a fork of the project that has been updated and can be found on [GitHub](https://github.com/stephengold/tonegodgui).<br /> |
 
 ### Immediate graphical user interface
 
 IGUI is a minimalistic immediate gui for jMonkeyEngine. It is built around Picture and BitmapText classes.
 
-<table>
-  <thead>
-    <tr>
-      <th>*Contact person*</th>
-      <th>&#123;url-forum-user&#125;/RiccardoBlb[RiccardoBlb]<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>*Documentation*</td>
-      <td>&#123;url-github&#125;/riccardobl/jme-igui#readme[jme-IGUI]<br /></td>
-    </tr>
-    <tr>
-      <td>*Available as SDK plugin*</td>
-      <td>No<br /></td>
-    </tr>
-    <tr>
-      <td>*Work in progress*</td>
-      <td>Yes<br /></td>
-    </tr>
-  </tbody>
-</table>
+| *Contact person* |
+| --- |
+| [RiccardoBlb](https://hub.jmonkeyengine.org/u/RiccardoBlb)<br /> |
+| *Documentation* |
+| [jme-IGUI](https://github.com/riccardobl/jme-igui#readme)<br /> |
+| *Available as SDK plugin* |
+| No<br /> |
+| *Work in progress* |
+| Yes<br /> |
 
 ### Tamarin OpenXR
 
 Tamarin provides OpenXR functionality to enable jMonkey applications to run on VR headsets. It provides full support for the headset, controller actions, haptic feedback and a sample set of vr hands.
 
-<table>
-  <thead>
-    <tr>
-      <th>*Contact person*</th>
-      <th>&#123;url-forum-user&#125;/richtea[richtea]<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>*Documentation*</td>
-      <td>&#123;url-github&#125;/oneMillionWorlds/Tamarin/wiki[Tamarin wiki]<br /></td>
-    </tr>
-    <tr>
-      <td>*Available as SDK plugin*</td>
-      <td>No<br /></td>
-    </tr>
-    <tr>
-      <td>*Work in progress*</td>
-      <td>No (Actively maintained and improved)<br /></td>
-    </tr>
-  </tbody>
-</table>
+| *Contact person* |
+| --- |
+| [richtea](https://hub.jmonkeyengine.org/u/richtea)<br /> |
+| *Documentation* |
+| [Tamarin wiki](https://github.com/oneMillionWorlds/Tamarin/wiki)<br /> |
+| *Available as SDK plugin* |
+| No<br /> |
+| *Work in progress* |
+| No (Actively maintained and improved)<br /> |
 
 ## Assets packs
 

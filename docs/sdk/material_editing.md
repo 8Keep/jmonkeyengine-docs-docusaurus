@@ -10,7 +10,7 @@ The jMonkeyEngine uses a special Material format, which comes in .j3m files. You
 ## Creating .j3m Materials
 
 [float.right]
-![material-editor.png](/wiki-assets/docs/sdk/assets/images/material-editor.png)
+![material-editor.png](/wiki-assets/docs/sdk/images/material-editor.png)
 
 To create new .j3m files in the jMonkeyEngine SDK:
 
@@ -48,7 +48,7 @@ You can modify the source code of the j3m file in the "`source`" tab of the Mate
 ## Using .j3m Materials
 
 [float.right]
-![applymaterial.jpg](/wiki-assets/docs/sdk/assets/images/applymaterial.jpg)
+![applymaterial.jpg](/wiki-assets/docs/sdk/images/applymaterial.jpg)
 
 When the material is ready and saved into your projects assets directory, you can assign the .j3m to a Geometry.
 

@@ -26,7 +26,7 @@ Learn to add a Nifty &lt;abbr title="Graphical User Interface"&gt;GUI&lt;/abbr&g
 
 ## Must Know: Nifty GUI Concepts
 
-image:gui/nifty-screen-layer-panel.png[nifty-screen-layer-panel.png,width="",height=""]
+![nifty-screen-layer-panel.png](/wiki-assets/docs/core/assets/images/gui/nifty-screen-layer-panel.png)
 
 Nifty GUIs are made up of the following *elements*:
 
@@ -55,7 +55,7 @@ Nifty GUIs are made up of the following *elements*:
   - [TestNiftyToMesh.java](https://github.com/jMonkeyEngine/jmonkeyengine/blob/master/jme3-examples/src/main/java/jme3test/niftygui/TestNiftyToMesh.java) - Can be found in [jme3 tests](../../sdk/sample_code.md#the-jme3tests-project-template) also.
 
 - jME3-ready version of the Nifty &lt;abbr title="Graphical User Interface"&gt;GUI&lt;/abbr&gt; 1.3 demo (sample code, Java)
-  - [niftyguidemo.zip](&#123;attachmentsdir&#125;/niftyguidemo.zip)
+  - [niftyguidemo.zip](/wiki-assets/docs/core/assets/attachments/niftyguidemo.zip)
 
 - Find more sample code in the [nifty-examples](https://github.com/nifty-gui/nifty-gui/tree/1.4/nifty-examples/src/main/java/de/lessvoid/nifty/examples) repositories.
   - [Running The Nifty Examples](https://github.com/nifty-gui/nifty-gui/wiki/Examples)

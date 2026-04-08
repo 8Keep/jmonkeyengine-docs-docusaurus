@@ -16,7 +16,7 @@ The jMonkeyEngine SDK contains a Test Project with lots of sample code and asset
 1. In the New Project Wizard, select `JME3 Tests` from the `JME3` category. Click `**Next**`.
 1. Specify a location, e.g. create a jMonkeyProjects directory in your home directory. Click `**Finish**`.
 
-This default project template creates a project called `JmeTests`. It contains all test classes and examples from the jme3 source repository. Feel free to modify the code samples and experiment! In the unlikely event that you should break the project, emoji:smiley[] you can always recreate all packaged samples by creating another project from the New Project wizard's `JME3 Tests` template.
+This default project template creates a project called `JmeTests`. It contains all test classes and examples from the jme3 source repository. Feel free to modify the code samples and experiment! In the unlikely event that you should break the project, `smiley` you can always recreate all packaged samples by creating another project from the New Project wizard's `JME3 Tests` template.
 
 If you're using the 3.1.0-Stable+ version of the SDK, you will need to set the `Source/Binary Format` from the `Project Properties` window to Java 1.7 or later.
 
@@ -52,7 +52,7 @@ The project's assetManager now has access to sample files from the `jme3-test-da
 
 ## AssetPacks
 
-![assetpackbrowser-300x166.jpg](/wiki-assets/docs/sdk/assets/images/assetpackbrowser-300x166.jpg)
+![assetpackbrowser-300x166.jpg](/wiki-assets/docs/sdk/images/assetpackbrowser-300x166.jpg)
 
 If you need sample 3D models, don't miss the opportunity to download our community-provided [Asset Packs](asset_packs.md)!
 

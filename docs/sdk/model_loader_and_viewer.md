@@ -12,7 +12,7 @@ Also, see this [demo video](http://www.youtube.com/watch?v=nL7woH40i5c) on impor
 
 ## Using the model files directly
 
-![jmonkeyplatform-docu-2.png](/wiki-assets/docs/sdk/assets/images/jmonkeyplatform-docu-2.png)
+![jmonkeyplatform-docu-2.png](/wiki-assets/docs/sdk/images/jmonkeyplatform-docu-2.png)
 
 1. Create a separate folder for each model in the `assets` folder of your project.
 1. Export the model created in Blender *to the `asset` folder of your project*,

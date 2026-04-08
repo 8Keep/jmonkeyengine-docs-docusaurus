@@ -13,29 +13,29 @@ For this tutorial I used 3D Studio Max 2012 and OgreMax 2.4.3 free edition
 - Create a new file
 - Select the "`Create`" tab &gt; "`Geometry`" &gt; "`Cylinder`"
 
-image:how-to/modeling/3dsmax/3dsmax-0.png[3dsmax-0.png,width="",height=""]
+![3dsmax-0.png](/wiki-assets/docs/tutorials/assets/images/how-to/modeling/3dsmax/3dsmax-0.png)
 
 - Draw a cylinder, lets say with 8 height segments (must be enough for a smooth deformation)
 - Also check "`Generate Mapping Coords`".
 
-image:how-to/modeling/3dsmax/3dsmax-1.png[3dsmax-1.png,width="",height=""]
+![3dsmax-1.png](/wiki-assets/docs/tutorials/assets/images/how-to/modeling/3dsmax/3dsmax-1.png)
 
 - Click "`Create`" tab &gt; "`Systems`" &gt; "`Bones`"
 
-image:how-to/modeling/3dsmax/3dsmax-2.png[3dsmax-2.png,width="",height=""]
+![3dsmax-2.png](/wiki-assets/docs/tutorials/assets/images/how-to/modeling/3dsmax/3dsmax-2.png)
 
 - Add some bones in the center of the cylinder
 
-image:how-to/modeling/3dsmax/3dsmax-3.png[3dsmax-3.png,width="",height=""]
+![3dsmax-3.png](/wiki-assets/docs/tutorials/assets/images/how-to/modeling/3dsmax/3dsmax-3.png)
 
 - Select the cylinder, right click it and click "`Convert To`": &gt; "`Convert to Editable Mesh`" to prevent issues with OgreMax
 - Click the "`Modify`" tab &gt; "`Modifier List`" and add the "`Skin`" modifier
 
-image:how-to/modeling/3dsmax/3dsmax-4.png[3dsmax-4.png,width="",height=""]
+![3dsmax-4.png](/wiki-assets/docs/tutorials/assets/images/how-to/modeling/3dsmax/3dsmax-4.png)
 
 - Beneath "`Bones:`" click "`Add`" and select all of your bones
 
-image:how-to/modeling/3dsmax/3dsmax-5.png[3dsmax-5.png,width="",height=""]
+![3dsmax-5.png](/wiki-assets/docs/tutorials/assets/images/how-to/modeling/3dsmax/3dsmax-5.png)
 
 - You may also edit the envelopes, but for a small test the default settings are ok
 
@@ -44,12 +44,12 @@ image:how-to/modeling/3dsmax/3dsmax-5.png[3dsmax-5.png,width="",height=""]
 - Select the cylinder, and click "`Display`" tab &gt; "`Freeze Selected`" so it is easier to select the bones during animation
 - Select the two top bones and enable the "`Auto Key`" mode
 
-image:how-to/modeling/3dsmax/3dsmax-6.png[3dsmax-6.png,width="",height=""]
+![3dsmax-6.png](/wiki-assets/docs/tutorials/assets/images/how-to/modeling/3dsmax/3dsmax-6.png)
 
 - The first key frame will be created automatically. Move the animation track slider to frame 5
 - Move the selected bones a bit. The cylinder mesh will be deformed. Because you are in the "`Auto Key`" mode, a key frame will be created
 
-image:how-to/modeling/3dsmax/3dsmax-7.png[3dsmax-7.png,width="",height=""]
+![3dsmax-7.png](/wiki-assets/docs/tutorials/assets/images/how-to/modeling/3dsmax/3dsmax-7.png)
 
 - Create some additional key frames. You may also select more bones and move or rotate them. I’ve created 25 frames and the last key frame equals the first, so the animation is loopable
 - After creating the animation, disable the "`Auto Key`" mode
@@ -59,11 +59,11 @@ image:how-to/modeling/3dsmax/3dsmax-7.png[3dsmax-7.png,width="",height=""]
 - Open the "`OgreMax Scene Settings`" dialog from the menu
 - In the "`Meshes`" tab, enable "`Export XML Files`" and disable "`Export Binary Files`" as well as "`Export Vertex Colors`"
 
-image:how-to/modeling/3dsmax/3dsmax-8.png[3dsmax-8.png,width="",height=""]
+![3dsmax-8.png](/wiki-assets/docs/tutorials/assets/images/how-to/modeling/3dsmax/3dsmax-8.png)
 
 - Click the "`Environment`" tab and uncheck "`Export Environment Settings`". Otherwise the JME importer will throw a NullPointerException
 
-image:how-to/modeling/3dsmax/3dsmax-9.png[3dsmax-9.png,width="",height=""]
+![3dsmax-9.png](/wiki-assets/docs/tutorials/assets/images/how-to/modeling/3dsmax/3dsmax-9.png)
 
 - If you have textured your model, you may also check "`Copy Bitmaps to Export Directory`" in the "`Bitmaps`" tab
 - Unfreeze the cylinder by clicking "`Display`" tab &gt; "`Unfreeze All`" and select it
@@ -72,11 +72,11 @@ image:how-to/modeling/3dsmax/3dsmax-9.png[3dsmax-9.png,width="",height=""]
 - Below "`Mesh Animations`" hit the "`Add…`" button
 - Assign a name to the track, maybe "`wobble`". The track type must be "`Skin`". Set the right "`Start/End Frames`" for your animation
 
-image:how-to/modeling/3dsmax/3dsmax-10.png[3dsmax-10.png,width="",height=""]
+![3dsmax-10.png](/wiki-assets/docs/tutorials/assets/images/how-to/modeling/3dsmax/3dsmax-10.png)
 
 - Hit ok and you will see the animation in the table. You may add additional animations by selecting other frame ranges, if desired
 
-image:how-to/modeling/3dsmax/3dsmax-11.png[3dsmax-11.png,width="",height=""]
+![3dsmax-11.png](/wiki-assets/docs/tutorials/assets/images/how-to/modeling/3dsmax/3dsmax-11.png)
 
 ### Export and Import
 
@@ -194,7 +194,7 @@ public class TestOgreMaxImport extends SimpleApplication {
 
 You will see your worms strange movements. Have fun!
 
-image:how-to/modeling/3dsmax/3dsmax-12.png[3dsmax-12.png,width="",height=""]
+![3dsmax-12.png](/wiki-assets/docs/tutorials/assets/images/how-to/modeling/3dsmax/3dsmax-12.png)
 
 #### 3ds Max Biped Animation to JME3
 
@@ -207,11 +207,11 @@ I will not tell you in detail how to model a character. There I many good tutori
 - You may create a biped before you start modeling, so it is quite easier to fit the proportions of the biped.
 - After creating a model and a biped I got something like that:
 
-image:how-to/modeling/3dsmax/1.png[1.png,width="",height=""]
+![1.png](/wiki-assets/docs/tutorials/assets/images/how-to/modeling/3dsmax/1.png)
 
 - I added the "`Meshsmooth`" modifier with 2 iterations and got this result:
 
-image:how-to/modeling/3dsmax/3dsmax_biped_2.png[3dsmax_biped_2.png,width="",height=""]
+![3dsmax_biped_2.png](/wiki-assets/docs/tutorials/assets/images/how-to/modeling/3dsmax/3dsmax_biped_2.png)
 
 - After smoothing your mesh you could correct vertices with the "`Edit Mesh`" modifier. Finally you add the "`Physique`" modifier.
 - Now you can edit your envelopes to fit your model.
@@ -221,7 +221,7 @@ image:how-to/modeling/3dsmax/3dsmax_biped_2.png[3dsmax_biped_2.png,width="",heig
 - Select the chest of your biped, choose "`Motion`" (1) tab &gt; "`Foot Step Mode`" (2) &gt; "`Create Multiple Footsteps`" (3)
 - You need to select the "`In Place Mode`" (4), so the character moves in place without changing its location.
 
-image:how-to/modeling/3dsmax/3dsmax_biped_3_1.png[3dsmax_biped_3_1.png,width="",height=""]
+![3dsmax_biped_3_1.png](/wiki-assets/docs/tutorials/assets/images/how-to/modeling/3dsmax/3dsmax_biped_3_1.png)
 
 - You can now play a bit with the settings, I adjusted "`Actual Stride Length`" and "`Actual Stride Height`".
 - For the "`Number`" of Footsteps 6 will be sufficient because the animation is cycled later.
@@ -237,7 +237,7 @@ image:how-to/modeling/3dsmax/3dsmax_biped_3_1.png[3dsmax_biped_3_1.png,width="",
 - Open the "`Mesh Animations`" tab and select type "`Skeleton`", "`Export Skeleton`" : "`Yes`"
 - Below "`Mesh Animations`" hit the "`Add…`" button
 
-image:how-to/modeling/3dsmax/3dsmax_biped_4.png[3dsmax_biped_4.png,width="",height=""]
+![3dsmax_biped_4.png](/wiki-assets/docs/tutorials/assets/images/how-to/modeling/3dsmax/3dsmax_biped_4.png)
 
 - Enter a name for the track, e.g. "`walk`".
 - Assure the track type is set to "`Physique`".
@@ -246,7 +246,7 @@ image:how-to/modeling/3dsmax/3dsmax_biped_4.png[3dsmax_biped_4.png,width="",heig
 - *Note:* It could be useful to create also a track "`start_run`", that blends between the stand and walk animation. I would use frame 0-47 for that.
 - Because you have a smooth model with a lot of polygons, it may be useful to create [levels of detail (LOD)](../../../../core/scene/mesh.md). When the camera is farther away, a low-poly mesh of your character will be rendered.
 
-image:how-to/modeling/3dsmax/3dsmax_biped_5.png[3dsmax_biped_5.png,width="",height=""]
+![3dsmax_biped_5.png](/wiki-assets/docs/tutorials/assets/images/how-to/modeling/3dsmax/3dsmax_biped_5.png)
 
 - Open the "`Mesh LOD`" tab in object settings.
 - It will suffice to select the "`Automatic`" setting, but if your animation starts to look weird, you can create them by hand.
@@ -259,7 +259,7 @@ image:how-to/modeling/3dsmax/3dsmax_biped_5.png[3dsmax_biped_5.png,width="",heig
 - Before you export you need to do a little fix, because your model is not really located where you see it. JME will get into a lot of trouble, if you don't change that.
 - Assure to save the max file. Sometimes OgreMax crashes the whole application during export. If you want to change the animation after export, you should reload this file because fixing the location changes something I can't really figure out.
 
-image:how-to/modeling/3dsmax/3dsmax_biped_6.png[3dsmax_biped_6.png,width="",height=""]
+![3dsmax_biped_6.png](/wiki-assets/docs/tutorials/assets/images/how-to/modeling/3dsmax/3dsmax_biped_6.png)
 
 - Right click the "`Select`" and Move tool in the upper toolbar. A dialog will pop up.
 - Set the X and Y location to 0 and close the dialog.
@@ -413,8 +413,8 @@ public class TestOgreMaxImport extends SimpleApplication {
 
 After starting the class, you can see a nice smooth walk animation (if it's not smooth, you need to adjust your track frames):
 
-image:how-to/modeling/3dsmax/3dsmax_biped_7.png[3dsmax_biped_7.png,width="",height=""]
+![3dsmax_biped_7.png](/wiki-assets/docs/tutorials/assets/images/how-to/modeling/3dsmax/3dsmax_biped_7.png)
 
 As you can see, the LOD is working:
 
-image:how-to/modeling/3dsmax/3dsmax_biped_8.png[3dsmax_biped_8.png,width="",height=""]
+![3dsmax_biped_8.png](/wiki-assets/docs/tutorials/assets/images/how-to/modeling/3dsmax/3dsmax_biped_8.png)

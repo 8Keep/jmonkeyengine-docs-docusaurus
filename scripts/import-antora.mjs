@@ -11,6 +11,20 @@ const staticOutDir = path.join(repoRoot, 'static', 'wiki-assets');
 const reportPath = path.join(repoRoot, 'planning', 'conversion-report.md');
 const sidebarsPath = path.join(repoRoot, 'sidebars.ts');
 const JAVADOC_URL = 'https://javadoc.jmonkeyengine.org';
+const COMMON_ATTRS = {
+  orgname: 'jMonkeyEngine',
+  'link-javadoc': JAVADOC_URL,
+};
+const ANCHOR_ALIASES = new Map([
+  ['orces-moving-dynamic-objects', 'forces-moving-dynamic-objects'],
+  ['usingandroidspecificfunctions', 'using-android-specific-functions'],
+  ['configureparameters', 'configure-parameters'],
+  ['how-do-i-switch-between-third-person-and-first-person-view', 'how-do-i-switch-between-third-person-and-first-person-view-'],
+  ['usefullinks', 'useful-links'],
+]);
+const XREF_OVERRIDES = new Map([
+  ['concepts/faq.adoc -> core:gui/nifty_gui_java_interaction.adoc#useful_links', 'core:shader/jme3_shaders.adoc#useful-links'],
+]);
 
 const SOURCE_COMPONENTS = [
   {name: 'docs', prefix: '', sourceDir: path.join(sourceRoot, 'docs')},
@@ -21,6 +35,7 @@ const report = {
   unresolvedXrefs: [],
   unresolvedIncludes: [],
   unsupportedLines: [],
+  unresolvedAttributes: [],
 };
 
 const pages = [];
@@ -87,7 +102,7 @@ async function copyAssets() {
     const modules = await listDir(modulesDir);
     for (const moduleName of modules) {
       const moduleDir = path.join(modulesDir, moduleName);
-      for (const section of ['assets', 'resources']) {
+      for (const section of ['assets', 'resources', 'images']) {
         const sectionDir = path.join(moduleDir, section);
         if (!(await exists(sectionDir))) {
           continue;
@@ -103,7 +118,10 @@ async function writePages() {
   for (const page of pages) {
     const raw = await fs.readFile(page.sourceFile, 'utf8');
     const expanded = await expandIncludes(raw, page);
-    const converted = convertDocument(expanded, page);
+    const converted = convertDocument(expanded, {
+      ...page,
+      attrs: buildPageAttrs(expanded, page),
+    });
     const destination = path.join(docsOutDir, page.outputRel);
     await ensureDir(path.dirname(destination));
     await fs.writeFile(destination, converted);
@@ -153,6 +171,7 @@ async function writeReport() {
     `- Unresolved xrefs: ${report.unresolvedXrefs.length}`,
     `- Unresolved includes: ${report.unresolvedIncludes.length}`,
     `- Unsupported lines: ${report.unsupportedLines.length}`,
+    `- Unresolved attributes: ${report.unresolvedAttributes.length}`,
     '',
     '## Unresolved Xrefs',
     '',
@@ -165,6 +184,10 @@ async function writeReport() {
     '## Unsupported Lines',
     '',
     ...listSection(report.unsupportedLines),
+    '',
+    '## Unresolved Attributes',
+    '',
+    ...listSection(report.unresolvedAttributes),
     '',
   ];
   await fs.writeFile(reportPath, lines.join('\n'));
@@ -371,8 +394,12 @@ function parseLines(lines, page) {
 }
 
 function transformInline(line, page) {
-  let result = line;
+  let result = substituteAttributes(line, page);
   result = result.replace(/^\s*image::([^\[]+)\[(.*?)\]\s*$/, (_match, target, attrs) => {
+    const alt = extractBracketText(attrs) || path.basename(target);
+    return `![${escapeBrackets(alt)}](${resolveAssetUrl(target, page)})`;
+  });
+  result = result.replace(/image:([^\[]+)\[(.*?)\]/g, (_match, target, attrs) => {
     const alt = extractBracketText(attrs) || path.basename(target);
     return `![${escapeBrackets(alt)}](${resolveAssetUrl(target, page)})`;
   });
@@ -380,13 +407,14 @@ function transformInline(line, page) {
     const url = `https://www.youtube.com/watch?v=${target}`;
     return `[Video](${url})`;
   });
-  result = result.replace(/\{link-javadoc\}/g, JAVADOC_URL);
-  result = result.replace(/\{orgname\}/g, 'jMonkeyEngine');
   result = result.replace(/\+\+\+(.+?)\+\+\+/g, '$1');
+  result = result.replace(/(?<!\+)\+\+([^+]+)\+\+(?!\+)/g, '$1');
   result = result.replace(/pass:\[(.*?)\]/g, '$1');
+  result = result.replace(/\[small\]#(.*?)#/g, '$1');
   result = result.replace(/menu:([^\[]+)\[([^\]]+)\]/g, (_match, head, tail) => `"${head} > ${tail}"`);
   result = result.replace(/btn:\[([^\]]+)\]/g, '**$1**');
   result = result.replace(/kbd:\[([^\]]+)\]/g, '`$1`');
+  result = result.replace(/(?:icon|emoji):([A-Za-z0-9_-]+)\[([^\]]*)\]/g, (_match, name, attrs) => renderMacroToken(name, attrs));
   result = result.replace(/xref:([^\[]+)\[([^\]]*)\]/g, (_match, target, label) => convertXref(target, label, page));
   result = result.replace(/<<([^,>]+),\s*([^>]+)>>/g, (_match, target, label) => convertXref(target, label, page));
   result = result.replace(/<<([^>]+)>>/g, (_match, target) => convertXref(target, '', page));
@@ -409,7 +437,8 @@ function convertLink(target, label, page) {
 }
 
 function convertXref(rawTarget, label, page) {
-  const normalized = rawTarget.replace('#.adoc', '.adoc').trim();
+  const overrideKey = `${page.relPath} -> ${rawTarget.trim()}`;
+  const normalized = (XREF_OVERRIDES.get(overrideKey) ?? rawTarget).replace('#.adoc', '.adoc').trim();
   const [targetPath, anchor = ''] = normalized.split('#');
   if (targetPath.startsWith('http://') || targetPath.startsWith('https://')) {
     return `[${escapeBrackets(label || targetPath)}](${normalized})`;
@@ -466,6 +495,10 @@ function resolvePageTarget(targetPath, currentPage) {
 }
 
 function resolveAssetUrl(target, page, options = {}) {
+  const normalizedTarget = substituteAttributes(target, page);
+  if (normalizedTarget !== target) {
+    return resolveAssetUrl(normalizedTarget, page, options);
+  }
   if (/^(https?:)?\/\//.test(target)) {
     return target;
   }
@@ -474,7 +507,11 @@ function resolveAssetUrl(target, page, options = {}) {
   }
 
   let moduleName = page.module;
-  let cleaned = target.replace(/^attachment\$/, '').replace(/^image\$/, '');
+  let cleaned = target
+    .replace(/^attachment\$\//, '')
+    .replace(/^attachment\$/, '')
+    .replace(/^image\$\//, '')
+    .replace(/^image\$/, '');
   if (/^[a-zA-Z0-9_-]+:/.test(cleaned) && !cleaned.startsWith('http')) {
     const colonIndex = cleaned.indexOf(':');
     moduleName = cleaned.slice(0, colonIndex).replace(/^docs-/, '');
@@ -484,9 +521,11 @@ function resolveAssetUrl(target, page, options = {}) {
     `/wiki-assets/${page.component}/${moduleName}/assets/images/${cleaned}`,
     `/wiki-assets/${page.component}/${moduleName}/assets/attachments/${cleaned}`,
     `/wiki-assets/${page.component}/${moduleName}/resources/${cleaned}`,
+    `/wiki-assets/${page.component}/${moduleName}/images/${cleaned}`,
     `/wiki-assets/docs/${moduleName}/assets/images/${cleaned}`,
     `/wiki-assets/docs/${moduleName}/assets/attachments/${cleaned}`,
     `/wiki-assets/docs/${moduleName}/resources/${cleaned}`,
+    `/wiki-assets/docs/${moduleName}/images/${cleaned}`,
   ];
 
   for (const candidate of assetCandidates) {
@@ -500,8 +539,13 @@ function resolveAssetUrl(target, page, options = {}) {
 }
 
 function renderTable(attributesLine, tableLines, page) {
-  const colCountMatch = attributesLine.match(/cols="(\d+)/);
-  const colCount = colCountMatch ? Number(colCountMatch[1]) : null;
+  const colsMatch = attributesLine.match(/cols="([^"]+)"/);
+  const colCount = colsMatch
+    ? colsMatch[1]
+        .split(',')
+        .map((part) => part.trim())
+        .filter(Boolean).length
+    : null;
   const hasHeader = attributesLine.includes('options="header"');
   const cells = [];
   let current = null;
@@ -544,6 +588,10 @@ function renderTable(attributesLine, tableLines, page) {
     rows.push(row);
   }
 
+  if (hasHeader && rows.every((entry) => entry.length === targetCols && entry.every((cell) => cell.colspan === 1))) {
+    return renderMarkdownTable(rows);
+  }
+
   const parts = ['<table>'];
   const bodyRows = [...rows];
   if (hasHeader && bodyRows.length > 0) {
@@ -572,7 +620,25 @@ function renderTable(attributesLine, tableLines, page) {
 function renderCell(cell, tag, indentLevel) {
   const attrs = cell.colspan > 1 ? ` colspan="${cell.colspan}"` : '';
   const indent = '  '.repeat(indentLevel);
-  return `${indent}<${tag}${attrs}>${cell.content.join('<br />')}</${tag}>`;
+  const html = cell.content.map(markdownToHtmlInline).join('<br />');
+  return `${indent}<${tag}${attrs}>${html}</${tag}>`;
+}
+
+function renderMarkdownTable(rows) {
+  const [header, ...bodyRows] = rows;
+  const lines = [
+    `| ${header.map(renderMarkdownTableCell).join(' | ')} |`,
+    `| ${header.map(() => '---').join(' | ')} |`,
+    ...bodyRows.map((row) => `| ${row.map(renderMarkdownTableCell).join(' | ')} |`),
+  ];
+  return lines.join('\n');
+}
+
+function renderMarkdownTableCell(cell) {
+  return cell.content
+    .join('<br />')
+    .replace(/\|/g, '\\|')
+    .replace(/\n/g, ' ');
 }
 
 function collectDelimitedBlock(lines, startIndex, delimiter) {
@@ -727,11 +793,66 @@ function extractBracketText(attrs) {
 }
 
 function slugifyAnchor(value) {
-  return value
+  const slug = value
     .toLowerCase()
     .replace(/[^a-z0-9\s-]/g, '')
     .trim()
     .replace(/\s+/g, '-');
+  return ANCHOR_ALIASES.get(slug) ?? slug;
+}
+
+function parseAttributes(input) {
+  const attrs = {};
+  for (const rawLine of input.replaceAll('\r\n', '\n').split('\n')) {
+    const match = rawLine.match(/^:([a-z0-9_-]+):\s*(.*?)\s*$/i);
+    if (!match) {
+      continue;
+    }
+    attrs[match[1]] = match[2];
+  }
+  return attrs;
+}
+
+function buildPageAttrs(input, page) {
+  return {
+    ...COMMON_ATTRS,
+    attachmentsdir: 'attachment$',
+    imagesdir: 'image$',
+    pagecomponent: page.component,
+    pagename: page.relNoExt,
+    ...parseAttributes(input),
+  };
+}
+
+function substituteAttributes(value, page) {
+  return value.replace(/\{([a-z0-9_-]+)\}/gi, (match, attrName) => {
+    const replacement = page.attrs?.[attrName];
+    if (replacement == null || replacement === '') {
+      if (!report.unresolvedAttributes.includes(`${page.relPath} -> ${match}`)) {
+        report.unresolvedAttributes.push(`${page.relPath} -> ${match}`);
+      }
+      return match;
+    }
+    return replacement.includes('{') ? substituteAttributes(replacement, page) : replacement;
+  });
+}
+
+function renderMacroToken(name, attrs) {
+  const size = attrs
+    .split(',')
+    .map((part) => part.trim())
+    .find((part) => /^\d+x|lg|fw$/i.test(part));
+  return `\`${name}${size ? ` ${size}` : ''}\``;
+}
+
+function markdownToHtmlInline(value) {
+  return value
+    .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img alt="$1" src="$2" />')
+    .replace(/(?<!!)\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>')
+    .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+    .replace(/`([^`]+)`/g, '<code>$1</code>')
+    .replace(/\s\+\s*$/g, '')
+    .replace(/\s*\+\s*<br \/>/g, '<br />');
 }
 
 function listSection(items) {
@@ -812,6 +933,7 @@ function sanitizeInline(value) {
     /<iframe\b[^>]*\bsrc=([^ >]+)[^>]*><\/iframe>/g,
     (_match, url) => `[Embedded content](${url})`,
   );
+  result = result.replace(/\s\+\s*$/g, '');
   result = result.replace(/[{}]/g, (char) => (char === '{' ? '&#123;' : '&#125;'));
   result = result.replace(/</g, '&lt;').replace(/>/g, '&gt;');
   return result;

@@ -16,11 +16,12 @@ const config: Config = {
   organizationName: '8Keep',
   projectName: 'jmonkeyengine-docs-docusaurus',
 
-  onBrokenLinks: 'warn',
+  onBrokenLinks: 'throw',
+  onBrokenAnchors: 'throw',
   markdown: {
     hooks: {
-      onBrokenMarkdownLinks: 'warn',
-      onBrokenMarkdownImages: 'warn',
+      onBrokenMarkdownLinks: 'throw',
+      onBrokenMarkdownImages: 'throw',
     },
   },
 
@@ -49,9 +50,9 @@ const config: Config = {
   themeConfig: {
     image: 'img/docusaurus-social-card.jpg',
     colorMode: {
-      defaultMode: 'light',
+      defaultMode: 'dark',
       disableSwitch: false,
-      respectPrefersColorScheme: true,
+      respectPrefersColorScheme: false,
     },
     navbar: {
       title: 'jMonkeyEngine Docs',

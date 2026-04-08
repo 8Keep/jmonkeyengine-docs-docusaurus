@@ -71,9 +71,9 @@ When an exception happens in the SDK, a small warning sign appears in the lower 
 
 You can install another JDK for use with the jMonkey SDK. You then have to specify the location manually.
 
-1. Go to your jMonkeyEngine SDK installation directory. +
+1. Go to your jMonkeyEngine SDK installation directory.
 Mac users right-click jMonkeyApplication.app (which actually is a directory) in the Finder and select "`Show package contents`".
-1. Navigate to the `etc` directory. +
+1. Navigate to the `etc` directory.
 Mac users navigate to `Contents/Resources/jmonkeyplatform/etc/`.
 1. Open the file `jmonkeyplatform.conf` in a text editor.
 1. Change the following line and enter the path to the JDK:

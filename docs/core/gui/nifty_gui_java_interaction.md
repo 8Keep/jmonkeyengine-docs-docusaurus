@@ -156,14 +156,14 @@ This is how you respond to an &lt;abbr title="Graphical User Interface"&gt;GUI&l
 
 1. Add `visibleToMouse="true"` to the parent element!
 1. Embed the `&lt;interact /&gt;` element into the parent element.
-1. Specify the Java methods that you want to call when the users performs certain actions, such as clicking. +
+1. Specify the Java methods that you want to call when the users performs certain actions, such as clicking.
 Example: `&lt;interact onClick="startGame(hud)" /&gt;`
 
 Or this is how you respond to an &lt;abbr title="Graphical User Interface"&gt;GUI&lt;/abbr&gt; interaction such as clicks in Java GUIs:
 
 1. Add `visibleToMouse(true);` to the parent element!
 1. Embed one of the `interact…()` elements into the parent element.
-1. Specify the Java method that you want to call after the interaction. +
+1. Specify the Java method that you want to call after the interaction.
 Example: `interactOnClick("startGame(hud)");`
 
 In the following example, we call the `startGame()` method when the player clicks the Start button, and `quitGame()` when the player clicks the Quit button.

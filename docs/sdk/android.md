@@ -13,7 +13,7 @@ The android support is in constant enhancement so if you have questions or sugge
   1. It's recommended to choose another destination folder.
   1. Start the SDK Manager and install the default selected 13 packages (accept licenses)
 
-image:android_sdk_manager.png[android_sdk_manager.png,width="",height=""]
+![android_sdk_manager.png](/wiki-assets/docs/sdk/images/android_sdk_manager.png)
 
 - (Optional) Install NBAndroid in the jMonkeyEngine SDK:
   1. Go to Tools→Plugins→Available Plugins.
@@ -60,13 +60,13 @@ Mobile deployment is a "`one-click`" option next to Desktop/WebStart/Applet depl
 
 1. Open an existing JME3 project, or create a new JME3 project.
 1. Right-click the project node in the Projects Window and open the Properties.
-1. In the Application&gt;Android Properties, enable Android Deployment, and select an Android target. E.g. `Android 4.2.2` +
+1. In the Application&gt;Android Properties, enable Android Deployment, and select an Android target. E.g. `Android 4.2.2`
 This creates a "`mobile`" folder in your projects directory. This folder contains a complete android project with correct settings to run the application using the AndroidHarness.
 1. (Restart the jMonkeyEngine)
-1. A Mobile Files node appears in the Project window. +
+1. A Mobile Files node appears in the Project window.
 It lets you edit the MainActivity.java, the AndroidManifest.xml, and build.properties.
 
-image:nvyyd.png[nvyyd.png,width="",height=""]
+![nvyyd.png](/wiki-assets/docs/sdk/images/nvyyd.png)
 
 The Android deployment option creates a separate sub-project for android and makes the main project and associated libraries available to the sub-project as libraries. The sub-project can be edited using NBAndroid (see below) or using Eclipse or any other IDE that supports standard android projects. Normally you do not need to edit the android project files. Exceptions are described further below. _The libraries are first added to the android sub-project when the main project is built for the first time._
 
@@ -76,7 +76,7 @@ Open your game project in the jMonkeyEngine SDK.
 
 *Building*
 
-Right-click the project node to build your project. +
+Right-click the project node to build your project.
 An APK file is created in the "`dist`" folder.
 
 *Running*
@@ -136,7 +136,7 @@ As described above, you should always try to design your application as platform
 
 Since the main project is not configured to access the android api directly, you have to install NBAndroid (see above) to be able to edit the created android project in the SDK. After installing, click the "`open`" project button and navigate to the "`mobile`" folder inside the main project folder (it should show up with an android "`a`" icon) and open it.
 
-![android_access.png](/wiki-assets/docs/sdk/assets/images/android_access.png)
+![android_access.png](/wiki-assets/docs/sdk/images/android_access.png)
 
 Although you will use android specific api, using a camera is not exactly android specific and so you should try to design this part of the application as platform independent as possible as well. As an example, if you want to use the phones camera as an image input stream for a texture, you can create e.g. the AppState that manages the image and makes it available to the application inside the main project (no android code is needed). Then in the android part of the code you make a connection to the camera and update the image in the AppState. This also allows you to easily support cameras on other platforms in the same way or fallback to something else in case the platform doesn't support a camera.
 
@@ -144,12 +144,12 @@ Note that you have to build the whole project once to make (new) classes in the 
 
 ## Signing an APK
 
-When you have a mobile project in the "`important files`" section you have an "`Android Properties`" file. +
-There are 2 entries in this file : +
-key.store=path/to/your/keystore/on/your/drive/mykeystore.keystore +
+When you have a mobile project in the "`important files`" section you have an "`Android Properties`" file.
+There are 2 entries in this file :
+key.store=path/to/your/keystore/on/your/drive/mykeystore.keystore
 key.alias=mykeystorealias
 
-If those entries are filled, the apk will be signed during the build. +
+If those entries are filled, the apk will be signed during the build.
 You’ll be prompted when building to enter the password (twice). It will generate a signed apk in the dist folder of your project.
 
 ## More Info

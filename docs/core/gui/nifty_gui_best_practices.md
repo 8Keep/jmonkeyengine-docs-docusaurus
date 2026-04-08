@@ -51,9 +51,9 @@ The [Nifty class](http://nifty-gui.sourceforge.net/projects/1.4.2/nifty/nifty/ap
 
 Screens, layers, and panels…
 
-- … can have an RGBA background color. +
+- … can have an RGBA background color.
 You can use temporary colors during the design phase to highlight which container is which.
-- … can be transparent. +
+- … can be transparent.
 In the finished &lt;abbr title="Graphical User Interface"&gt;GUI&lt;/abbr&gt;, screens, layers, and panels are typically transparent; the visible elements are the images, text fields, and controls, inside the panels.
 
 :::tip

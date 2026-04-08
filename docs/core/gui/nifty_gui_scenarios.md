@@ -115,32 +115,17 @@ public class TestNiftyGui extends SimpleApplication {
 ```
 
 ## Know Your Variables
-<table>
-  <thead>
-    <tr>
-      <th>Variable</th>
-      <th>Description<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>$&#123;CALL.myMethod()&#125;</td>
-      <td>Calls a method in the current ScreenController and gets the method's return String. The method can also be void and have a side effect, e.g. play a sound etc.<br /></td>
-    </tr>
-    <tr>
-      <td>$&#123;ENV.HOME&#125;</td>
-      <td>Returns the path to user's home directory.<br /></td>
-    </tr>
-    <tr>
-      <td>$&#123;ENV.key&#125;</td>
-      <td>Looks up `key` in the environment variables. Use it like Java's System.getEnv("key").<br /></td>
-    </tr>
-    <tr>
-      <td>$&#123;PROP.key&#125;</td>
-      <td>looks up `key` in the Nifty properties. Use Nifty.setGlobalproperties(properties) and Nifty.getGlobalproperties("key"). Or SystemGetProperties(key);<br /></td>
-    </tr>
-  </tbody>
-</table>
+| Variable |
+| --- |
+| Description<br /> |
+| $&#123;CALL.myMethod()&#125; |
+| Calls a method in the current ScreenController and gets the method's return String. The method can also be void and have a side effect, e.g. play a sound etc.<br /> |
+| $&#123;ENV.HOME&#125; |
+| Returns the path to user's home directory.<br /> |
+| $&#123;ENV.key&#125; |
+| Looks up `key` in the environment variables. Use it like Java's System.getEnv("key").<br /> |
+| $&#123;PROP.key&#125; |
+| looks up `key` in the Nifty properties. Use Nifty.setGlobalproperties(properties) and Nifty.getGlobalproperties("key"). Or SystemGetProperties(key);<br /> |
 
 See also: [Nifty GUI - the Manual: XML GUI (Special XML Markup)](https://github.com/nifty-gui/nifty-gui/raw/1.4/nifty-core/manual/nifty-gui-the-manual-1.3.2.pdf)
 

@@ -14,7 +14,7 @@ Since JAR files are platform independent, your customers can play your jMonkeyEn
 
 ## Branding
 
-![jmonkey-branding.png](/wiki-assets/docs/sdk/assets/images/jmonkey-branding.png)
+![jmonkey-branding.png](/wiki-assets/docs/sdk/images/jmonkey-branding.png)
 
 Make your game unique and recognizable:
 
@@ -23,7 +23,7 @@ Make your game unique and recognizable:
 1. Open the "Properties &gt; Application" section. Here you configure your branding:
   1. Title: Enter the game's name
   1. Vendor: Enter your name (the development team)
-  1. Description: Write one line why your game is the coolest ever emoji:wink[]
+  1. Description: Write one line why your game is the coolest ever `wink`
   1. Homepage: Enter your web &lt;abbr title="Uniform Resource Locator"&gt;URL&lt;/abbr&gt;, so your fans can find you
   1. Splashscreen: Browse to a cool screenshot that will be displayed while the game loads.
 1. Click OK.
@@ -35,7 +35,7 @@ TODO: where does this info actually show up?
 
 ## Creating the Distributable
 
-![deploy_android.png](/wiki-assets/docs/sdk/assets/images/deploy_android.png)
+![deploy_android.png](/wiki-assets/docs/sdk/images/deploy_android.png)
 
 When you run the build script provided by the jMonkeyEngine SDK, it automatically compiles your classes, libraries, and assets. It creates a `dist` directory in your project directory which contains the executable JAR and a directory with libraries.
 
@@ -50,8 +50,8 @@ The JAR file is the most common deployment method for Java desktop applications.
 1. **RMB** click your project and open the "`Project Properties`".
 1. In the "Application &gt; Web Start" category, make sure the box "`Enable Web Start`" is not checked. Click **OK**.
 1. **RMB** click your project and "`Clean and Build`".
-1. If the build succeeds you see a line similar to  +
-`Building jar: /home/joe/jMonkeyPlatform/MySuperTestGame/dist/MySuperTestGame.jar` +
+1. If the build succeeds you see a line similar to 
+`Building jar: /home/joe/jMonkeyPlatform/MySuperTestGame/dist/MySuperTestGame.jar`
 this means the executable JAR has been generated successfully in your project directory.
 1. Zip up the `dist` directory and distribute it to your users. Make sure to keep the `lib` directory in it!
 
@@ -148,11 +148,11 @@ To remove unused libraries:
 
 1. **RMB** click your project and select "`Properties`"
 1. Select "`Libraries`" on the left
-1. Select the "`jme3-libraries`" entry and press "`remove`". +
+1. Select the "`jme3-libraries`" entry and press "`remove`".
 This library package contains *all* libraries for jME3 and is quite large.
 1. Press the "`Add Library`" button
 1. Select the "`jme3-libraries-lwjgl-minimum`" library
-1. Add other jME3 libraries in the same way depending which features you use: +
+1. Add other jME3 libraries in the same way depending which features you use:
 jme3-libraries-gui, jme3-libraries-physics, jme3-libraries-video, etc.
 1. Click **OK**.
 1. Clean, Build and Run the project and make sure you have not missed anything.

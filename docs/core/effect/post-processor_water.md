@@ -31,9 +31,9 @@ Now we have the rendered scene in a texture, and we can reconstruct the position
 
 These are test cases in the jME3 repository:
 
-- [TestPostWater.java](&#123;uri-jmonkeyengine&#125;jme3-examples/src/main/java/jme3test/water/TestPostWater.java) (ocean island)
-- [TestPostWaterLake.java](&#123;uri-jmonkeyengine&#125;jme3-examples/src/main/java/jme3test/water/TestPostWaterLake.java) (calm and muddy water pond)
-- [TestMultiPostWater.java](&#123;uri-jmonkeyengine&#125;jme3-examples/src/main/java/jme3test/water/TestMultiPostWater.java) (several ponds of different sizes at different heights etc)
+- [TestPostWater.java](https://github.com/jMonkeyEngine/jmonkeyengine/tree/master/jme3-examples/src/main/java/jme3test/water/TestPostWater.java) (ocean island)
+- [TestPostWaterLake.java](https://github.com/jMonkeyEngine/jmonkeyengine/tree/master/jme3-examples/src/main/java/jme3test/water/TestPostWaterLake.java) (calm and muddy water pond)
+- [TestMultiPostWater.java](https://github.com/jMonkeyEngine/jmonkeyengine/tree/master/jme3-examples/src/main/java/jme3test/water/TestMultiPostWater.java) (several ponds of different sizes at different heights etc)
 
 ### Using the Water Filter
 
@@ -88,210 +88,117 @@ public void simpleUpdate(float tpf) {
 
 All these effects are optional. Every setter also has a getter.
 
-<table>
-  <thead>
-    <tr>
-      <th>Water method example</th>
-      <th>Effects: Waves</th>
-      <th>Default<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>water.setWaterHeight(-6);</td>
-      <td>Use this waterheight method for causing waves.</td>
-      <td>0.0f<br /></td>
-    </tr>
-    <tr>
-      <td>water.setMaxAmplitude(0.3f);</td>
-      <td>How high the highest waves are.</td>
-      <td>1.0f<br /></td>
-    </tr>
-    <tr>
-      <td>water.setWaveScale(0.008f);</td>
-      <td>Sets the scale factor of the waves height map. The smaller the value, the bigger the waves!</td>
-      <td>0.005f<br /></td>
-    </tr>
-    <tr>
-      <td>water.setWindDirection(new Vector2f(0,1))</td>
-      <td>Sets the wind direction, which is the direction where the waves move</td>
-      <td>Vector2f(0.0f, -1.0f)<br /></td>
-    </tr>
-    <tr>
-      <td>water.setSpeed(0.7f);</td>
-      <td>How fast the waves move. Set it to 0.0f for still water.</td>
-      <td>1.0f<br /></td>
-    </tr>
-    <tr>
-      <td>water.setHeightTexture( (Texture2D) +<br />manager.loadTexture("Textures/waveheight.png") )</td>
-      <td>This height map describes the shape of the waves</td>
-      <td>"Common/MatDefs/Water/Textures/heightmap.jpg"<br /></td>
-    </tr>
-    <tr>
-      <td>water.setNormalTexture( (Texture2D) +<br />manager.loadTexture("Textures/wavenormals.png") )</td>
-      <td>This normal map describes the shape of the waves</td>
-      <td>"Common/MatDefs/Water/Textures/gradient_map.jpg"<br /></td>
-    </tr>
-    <tr>
-      <td>water.setUseRipples(false);</td>
-      <td>Switches the ripples effect on or off.</td>
-      <td>true<br /></td>
-    </tr>
-    <tr>
-      <td>water.setNormalScale(0.5f)</td>
-      <td>Sets the normal scaling factors to apply to the normal map. The higher the value, the more small ripples will be visible on the waves.</td>
-      <td>1.0f<br /></td>
-    </tr>
-  </tbody>
-</table>
+| Water method example |
+| --- |
+| Effects: Waves |
+| Default<br /> |
+| water.setWaterHeight(-6); |
+| Use this waterheight method for causing waves. |
+| 0.0f<br /> |
+| water.setMaxAmplitude(0.3f); |
+| How high the highest waves are. |
+| 1.0f<br /> |
+| water.setWaveScale(0.008f); |
+| Sets the scale factor of the waves height map. The smaller the value, the bigger the waves! |
+| 0.005f<br /> |
+| water.setWindDirection(new Vector2f(0,1)) |
+| Sets the wind direction, which is the direction where the waves move |
+| Vector2f(0.0f, -1.0f)<br /> |
+| water.setSpeed(0.7f); |
+| How fast the waves move. Set it to 0.0f for still water. |
+| 1.0f<br /> |
+| water.setHeightTexture( (Texture2D)<br />manager.loadTexture("Textures/waveheight.png") ) |
+| This height map describes the shape of the waves |
+| "Common/MatDefs/Water/Textures/heightmap.jpg"<br /> |
+| water.setNormalTexture( (Texture2D)<br />manager.loadTexture("Textures/wavenormals.png") ) |
+| This normal map describes the shape of the waves |
+| "Common/MatDefs/Water/Textures/gradient_map.jpg"<br /> |
+| water.setUseRipples(false); |
+| Switches the ripples effect on or off. |
+| true<br /> |
+| water.setNormalScale(0.5f) |
+| Sets the normal scaling factors to apply to the normal map. The higher the value, the more small ripples will be visible on the waves. |
+| 1.0f<br /> |
 
-<table>
-  <thead>
-    <tr>
-      <th>Water method example</th>
-      <th>Effects: Color</th>
-      <th>Default<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>water.setLightDirection(new Vector3f(-0.37f,-0.50f,-0.78f))</td>
-      <td>Usually you set this to the same as the light source's direction. Use this to set the light direction if the sun is moving.</td>
-      <td>Value given to WaterFilter() constructor.<br /></td>
-    </tr>
-    <tr>
-      <td>water.setLightColor(ColorRGBA.White)</td>
-      <td>Usually you set this to the same as the light source's color.</td>
-      <td>RGBA.White<br /></td>
-    </tr>
-    <tr>
-      <td>water.setWaterColor(ColorRGBA.Brown.mult(2.0f));</td>
-      <td>Sets the main water color.</td>
-      <td>greenish blue +<br />ColorRGBA(0.0f,0.5f,0.5f,1.0f)<br /></td>
-    </tr>
-    <tr>
-      <td>water.setDeepWaterColor(ColorRGBA.Brown);</td>
-      <td>Sets the deep water color.</td>
-      <td>dark blue +<br />ColorRGBA(0.0f, 0.0f,0.2f,1.0f)<br /></td>
-    </tr>
-    <tr>
-      <td>water.setWaterTransparency(0.2f);</td>
-      <td>Sets how fast colors fade out. use this to control how clear (e.g. 0.05f) or muddy (0.2f) water is.</td>
-      <td>0.1f<br /></td>
-    </tr>
-    <tr>
-      <td>water.setColorExtinction(new Vector3f(10f,20f,30f));</td>
-      <td>Sets At what depth the refraction color extincts. The three values are RGB (red, green, blue) in this order. Play with these parameters to "`muddy`" the water.</td>
-      <td>Vector3f(5f,20f,30f)<br /></td>
-    </tr>
-  </tbody>
-</table>
+| Water method example |
+| --- |
+| Effects: Color |
+| Default<br /> |
+| water.setLightDirection(new Vector3f(-0.37f,-0.50f,-0.78f)) |
+| Usually you set this to the same as the light source's direction. Use this to set the light direction if the sun is moving. |
+| Value given to WaterFilter() constructor.<br /> |
+| water.setLightColor(ColorRGBA.White) |
+| Usually you set this to the same as the light source's color. |
+| RGBA.White<br /> |
+| water.setWaterColor(ColorRGBA.Brown.mult(2.0f)); |
+| Sets the main water color. |
+| greenish blue<br />ColorRGBA(0.0f,0.5f,0.5f,1.0f)<br /> |
+| water.setDeepWaterColor(ColorRGBA.Brown); |
+| Sets the deep water color. |
+| dark blue<br />ColorRGBA(0.0f, 0.0f,0.2f,1.0f)<br /> |
+| water.setWaterTransparency(0.2f); |
+| Sets how fast colors fade out. use this to control how clear (e.g. 0.05f) or muddy (0.2f) water is. |
+| 0.1f<br /> |
+| water.setColorExtinction(new Vector3f(10f,20f,30f)); |
+| Sets At what depth the refraction color extincts. The three values are RGB (red, green, blue) in this order. Play with these parameters to "`muddy`" the water. |
+| Vector3f(5f,20f,30f)<br /> |
 
-<table>
-  <thead>
-    <tr>
-      <th>Water method example</th>
-      <th>Effects: Shore</th>
-      <th>Default<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>water.setCenter(Vector3f.ZERO); +<br />water.setRadius(260);</td>
-      <td>Limit the water filter to a hemisphere with the given center and radius. Use this for lakes and smaller bodies of water. Skip this for oceans.</td>
-      <td>unused<br /></td>
-    </tr>
-    <tr>
-      <td>water.setShoreHardness(1.0f);</td>
-      <td>Sets how soft the transition between shore and water should be. High values mean a harder transition between shore and water.</td>
-      <td>0.1f<br /></td>
-    </tr>
-    <tr>
-      <td>water.setUseHQShoreline(false);</td>
-      <td>Renders shoreline with better quality ?</td>
-      <td>true<br /></td>
-    </tr>
-  </tbody>
-</table>
+| Water method example |
+| --- |
+| Effects: Shore |
+| Default<br /> |
+| water.setCenter(Vector3f.ZERO);<br />water.setRadius(260); |
+| Limit the water filter to a hemisphere with the given center and radius. Use this for lakes and smaller bodies of water. Skip this for oceans. |
+| unused<br /> |
+| water.setShoreHardness(1.0f); |
+| Sets how soft the transition between shore and water should be. High values mean a harder transition between shore and water. |
+| 0.1f<br /> |
+| water.setUseHQShoreline(false); |
+| Renders shoreline with better quality ? |
+| true<br /> |
 
-<table>
-  <thead>
-    <tr>
-      <th>Water method example</th>
-      <th>Effects: Foam</th>
-      <th>Default<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>water.setUseFoam(false);</td>
-      <td>Switches the white foam on or off</td>
-      <td>true<br /></td>
-    </tr>
-    <tr>
-      <td>water.setFoamHardness(0.5f)</td>
-      <td>Sets how much the foam will blend with the shore to avoid a hard edged water plane.</td>
-      <td>1.0f<br /></td>
-    </tr>
-    <tr>
-      <td>water.setFoamExistence(new Vector3f(0.5f,5f,1.0f))</td>
-      <td>The three values describe what depth foam starts to fade out, at what depth it is completely invisible, at what height foam for waves appears (+ waterHeight).</td>
-      <td>Vector3f(0.45f,4.35f,1.0f)<br /></td>
-    </tr>
-    <tr>
-      <td>water.setFoamTexture( (Texture2D) +<br />manager.loadTexture("Textures/foam.png") )</td>
-      <td>This foam texture will be used with WrapMode.Repeat</td>
-      <td>"Common/MatDefs/Water/Textures/foam.jpg"<br /></td>
-    </tr>
-  </tbody>
-</table>
+| Water method example |
+| --- |
+| Effects: Foam |
+| Default<br /> |
+| water.setUseFoam(false); |
+| Switches the white foam on or off |
+| true<br /> |
+| water.setFoamHardness(0.5f) |
+| Sets how much the foam will blend with the shore to avoid a hard edged water plane. |
+| 1.0f<br /> |
+| water.setFoamExistence(new Vector3f(0.5f,5f,1.0f)) |
+| The three values describe what depth foam starts to fade out, at what depth it is completely invisible, at what height foam for waves appears (+ waterHeight). |
+| Vector3f(0.45f,4.35f,1.0f)<br /> |
+| water.setFoamTexture( (Texture2D)<br />manager.loadTexture("Textures/foam.png") ) |
+| This foam texture will be used with WrapMode.Repeat |
+| "Common/MatDefs/Water/Textures/foam.jpg"<br /> |
 
-<table>
-  <thead>
-    <tr>
-      <th>Water method example</th>
-      <th>Effects: Light</th>
-      <th>Default<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>water.setSunScale(1f);</td>
-      <td>Sets how big the sun should appear in the light's specular effect on the water.</td>
-      <td>3.0f<br /></td>
-    </tr>
-    <tr>
-      <td>water.setUseSpecular(false)</td>
-      <td>Switches specular effect on or off</td>
-      <td>true<br /></td>
-    </tr>
-    <tr>
-      <td>water.setShininess(0.8f)</td>
-      <td>Sets the shininess of the water reflections</td>
-      <td>0.7f<br /></td>
-    </tr>
-    <tr>
-      <td>water.setUseRefraction(true)</td>
-      <td>Switches the refraction effect on or off.</td>
-      <td>true<br /></td>
-    </tr>
-    <tr>
-      <td>water.setRefractionConstant(0.2f);</td>
-      <td>The lower the value, the less reflection can be seen on water. This is a constant related to the index of refraction (IOR) used to compute the fresnel term.</td>
-      <td>0.3f<br /></td>
-    </tr>
-    <tr>
-      <td>water.setRefractionStrength(-0.1)</td>
-      <td>This value modifies the current Fresnel term. If you want to weaken reflections use bigger value. If you want to emphasize them, use a value smaller than 0.</td>
-      <td>0.0f<br /></td>
-    </tr>
-    <tr>
-      <td>water.setReflectionMapSize(256)</td>
-      <td>Sets the size of the reflection map. The higher, the better the quality, but the slower the effect.</td>
-      <td>512<br /></td>
-    </tr>
-  </tbody>
-</table>
+| Water method example |
+| --- |
+| Effects: Light |
+| Default<br /> |
+| water.setSunScale(1f); |
+| Sets how big the sun should appear in the light's specular effect on the water. |
+| 3.0f<br /> |
+| water.setUseSpecular(false) |
+| Switches specular effect on or off |
+| true<br /> |
+| water.setShininess(0.8f) |
+| Sets the shininess of the water reflections |
+| 0.7f<br /> |
+| water.setUseRefraction(true) |
+| Switches the refraction effect on or off. |
+| true<br /> |
+| water.setRefractionConstant(0.2f); |
+| The lower the value, the less reflection can be seen on water. This is a constant related to the index of refraction (IOR) used to compute the fresnel term. |
+| 0.3f<br /> |
+| water.setRefractionStrength(-0.1) |
+| This value modifies the current Fresnel term. If you want to weaken reflections use bigger value. If you want to emphasize them, use a value smaller than 0. |
+| 0.0f<br /> |
+| water.setReflectionMapSize(256) |
+| Sets the size of the reflection map. The higher, the better the quality, but the slower the effect. |
+| 512<br /> |
 
 ### Sound Effects
 
@@ -311,5 +218,5 @@ See also: [audio](../audio/audio.md).
 
 See also:
 
-- [JME3's Water Post-Process Effect](&#123;uri-forum&#125;t/monkeys-at-the-beach/15000) by Nehon
+- [JME3's Water Post-Process Effect](https://hub.jmonkeyengine.org/t/monkeys-at-the-beach/15000) by Nehon
 - [Simple water](water.md)

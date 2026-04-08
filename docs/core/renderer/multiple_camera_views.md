@@ -86,7 +86,7 @@ Here is the outline for how you create the three other cams and viewPorts ([Full
 1. (Optionally) Move the cameras in the scene and rotate them so they face what you want to see.
 1. Create a ViewPort for each camera
 1. Reset the camera's enabled statuses
-1. Attach the Node to be displayed to this ViewPort. +
+1. Attach the Node to be displayed to this ViewPort.
 The camera doesn't have to look at the rootNode, but that is the most common use case.
 
 Here is the abstract code sample for camera `n`:

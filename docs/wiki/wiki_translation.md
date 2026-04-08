@@ -45,7 +45,7 @@ This topic applies to both Git and the Atom Editor. You must do this before you 
   1. Enter a unique name for your repository.
 1. After your repository has been created, you will need to add a new "`gh-pages`" [branch](https://help.github.com/articles/creating-and-deleting-branches-within-your-repository/).
   1. This will automatically setup your repository for compiling "`gh-pages`".
-  1. After creating the "`gh-pages`" branch, from your repositories main page, click the icon:cog[]  **Settings** link and scroll down to the "`GitHub Pages`" panel for more configuration options and to see your sites new URL.
+  1. After creating the "`gh-pages`" branch, from your repositories main page, click the `cog`  **Settings** link and scroll down to the "`GitHub Pages`" panel for more configuration options and to see your sites new URL.
 
 :::note
 There are two URLs you will need for configuration.
@@ -86,7 +86,7 @@ You will need to copy this token into someplace you trust. It'll never be shown 
 You can’t see your project on the list? Click on the Sync account button (top right) and it should be OK.
 :::
 
-1. Click the icon:cog[]  cog to go to the settings tab and configure it.
+1. Click the `cog`  cog to go to the settings tab and configure it.
   1. Check some options on General:
     1. check the Build only if .travis.yml is present option.
     1. Check the Build pushed options.

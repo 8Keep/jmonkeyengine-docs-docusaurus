@@ -6,7 +6,7 @@ Project is hosted here: [https://github.com/jMonkeyEngine-Contributions/shaderbl
 
 - [The ShaderBlow Wiki](../../sdk/plugin/shaderblow.md)
 
-ScreenShot: image:sdk:plugin/shaderblow_intro_01.jpg[shaderblow_intro_01.jpg,width="",height=""]
+ScreenShot: ![shaderblow_intro_01.jpg](/wiki-assets/docs/sdk/images/plugin/shaderblow_intro_01.jpg)
 
 ---
 

@@ -13,7 +13,7 @@ You can "`draw`" the &lt;abbr title="Graphical User Interface"&gt;GUI&lt;/abbr&g
 Sample project
 
 - *Original Source Code:* [/nifty-examples/src/main/java/de/lessvoid/nifty/examples/defaultcontrols/](https://github.com/nifty-gui/nifty-gui/tree/1.4/nifty-examples/src/main/java/de/lessvoid/nifty/examples/defaultcontrols).
-- *Download demo project:* [niftyguidemo.zip](&#123;attachmentsdir&#125;/niftyguidemo.zip) (jme3-ready) +
+- *Download demo project:* [niftyguidemo.zip](/wiki-assets/docs/core/assets/attachments/niftyguidemo.zip) (jme3-ready)
 The full demo ZIP is based on `de.lessvoid.nifty.examples.controls.ControlsDemo.java`.
   1. The demo is a SimpleApplication-based game (use e.g. the BasicGame template in the jMonkeyEngine SDK).
   1. Copy images and sound files into your project's `assets/Interface/` directory. (In this example, I copied them from `nifty-default-controls-examples/trunk/src/main/resources/` to `assets/Interface/`).
@@ -800,36 +800,19 @@ public class Screen extends BaseAppState {
 ## Nifty Java Settings
 
 Before initializing the nifty screens, you set up properties and register media.
-<table>
-  <thead>
-    <tr>
-      <th>Nifty Method</th>
-      <th>Description<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>registerSound("mysound", "Interface/abc.wav");</td>
-      <td><br /></td>
-    </tr>
-    <tr>
-      <td>registerMusic("mymusic", "Interface/xyz.ogg");</td>
-      <td><br /></td>
-    </tr>
-    <tr>
-      <td>registerMouseCursor("mypointer", "Interface/abc.png", 5, 4);</td>
-      <td><br /></td>
-    </tr>
-    <tr>
-      <td>registerEffect(?);</td>
-      <td>?<br /></td>
-    </tr>
-    <tr>
-      <td>setDebugOptionPanelColors(true);</td>
-      <td>Highlight all panels, makes it easier to arrange them.<br /></td>
-    </tr>
-  </tbody>
-</table>
+| Nifty Method |
+| --- |
+| Description<br /> |
+| registerSound("mysound", "Interface/abc.wav"); |
+| <br /> |
+| registerMusic("mymusic", "Interface/xyz.ogg"); |
+| <br /> |
+| registerMouseCursor("mypointer", "Interface/abc.png", 5, 4); |
+| <br /> |
+| registerEffect(?); |
+| ?<br /> |
+| setDebugOptionPanelColors(true); |
+| Highlight all panels, makes it easier to arrange them.<br /> |
 
 Example:
 

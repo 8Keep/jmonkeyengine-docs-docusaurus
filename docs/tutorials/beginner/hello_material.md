@@ -128,7 +128,7 @@ For a partially translucent/transparent texture, you need:
 
 - A Texture with alpha channel
 - A Texture with blend mode of `BlendMode.Alpha`
-- A Geometry in the `Bucket.Transparent` render bucket. +
+- A Geometry in the `Bucket.Transparent` render bucket.
 This bucket ensures that the transparent object is drawn on top of objects behind it, and they show up correctly under the transparent parts.
 
 ```java
@@ -248,23 +248,10 @@ To deactivate Shininess, do not set `Shininess` to 0, but instead set the `Specu
 ## Default Material Definitions
 
 As you have seen, you can find the following default materials in `jme/core-data/Common/MatDefs/…`.
-<table>
-  <thead>
-    <tr>
-      <th>Default Definition</th>
-      <th>Usage</th>
-      <th>Parameters<br /></th>
-      <th>`Misc/Unshaded.j3md`</th>
-      <th>Colored: Use with mat.setColor() and ColorRGBA. +<br />Textured: Use with mat.setTexture() and Texture.</th>
-      <th>Color : Color +<br />ColorMap : Texture2D<br /></th>
-      <th>`Light/Lighting.j3md`</th>
-      <th>Use with shiny Textures, Bump- and NormalMaps textures. +<br />Requires a light source.</th>
-      <th>Ambient, Diffuse, Specular : Color +<br />DiffuseMap, NormalMap, SpecularMap : Texture2D +<br />Shininess : Float<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-  </tbody>
-</table>
+| Default Definition | Usage | Parameters<br /> |
+| --- | --- | --- |
+| `Misc/Unshaded.j3md` | Colored: Use with mat.setColor() and ColorRGBA.<br />Textured: Use with mat.setTexture() and Texture. | Color : Color<br />ColorMap : Texture2D<br /> |
+| `Light/Lighting.j3md` | Use with shiny Textures, Bump- and NormalMaps textures.<br />Requires a light source. | Ambient, Diffuse, Specular : Color<br />DiffuseMap, NormalMap, SpecularMap : Texture2D<br />Shininess : Float<br /> |
 
 For a game, you create custom Materials based on these existing MaterialDefintions – as you have just seen in the example with the shiny rock's material.
 

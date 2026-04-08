@@ -4,7 +4,7 @@ AssetPacks are a way to package jME3 compatible assets (like models, textures, s
 
 ## The AssetPack Browser
 
-![assetpackbrowser-300x166.jpg](/wiki-assets/docs/sdk/assets/images/assetpackbrowser-300x166.jpg)
+![assetpackbrowser-300x166.jpg](/wiki-assets/docs/sdk/images/assetpackbrowser-300x166.jpg)
 
 ### Browsing Assets
 
@@ -42,7 +42,7 @@ You can access and change the project properties by right-clicking the project a
 
 ### Add Your Own Assets
 
-![assetpackimport-300x222.jpg](/wiki-assets/docs/sdk/assets/images/assetpackimport-300x222.jpg)
+![assetpackimport-300x222.jpg](/wiki-assets/docs/sdk/images/assetpackimport-300x222.jpg)
 
 To add new assets to your AssetPack do the following:
 
@@ -61,7 +61,7 @@ On the "`Add Files`" page you define the path of the files in the AssetPack. The
 
 With the "`add files`" button you can open a file browser to select files from your harddisk that will be copied into the `assets/` folder of the AssetPack project. With the "`add existing`" button you can add a file that's already in your AssetPack assets folder to a new asset item. This way you can reuse e.g. textures for asset items or make items for an existing collection of asset files that you copied to the projects assets folder.
 
-![assetpackimport2-300x179.jpg](/wiki-assets/docs/sdk/assets/images/assetpackimport2-300x179.jpg)
+![assetpackimport2-300x179.jpg](/wiki-assets/docs/sdk/images/assetpackimport2-300x179.jpg)
 
 You can specify a specific material to be used for the single mesh/scene files, just select it in the dropdown below the mesh or scene file. If you don't select a material file here, the first found material file is used or none if none is found.
 
@@ -82,7 +82,7 @@ Supported formats for models (main files) are:
 
 ### AssetPack Publishing
 
-image:assetpackdownload-263x300.jpg[assetpackdownload-263x300.jpg,width="",height=""]
+![assetpackdownload-263x300.jpg](/wiki-assets/docs/sdk/images/assetpackdownload-263x300.jpg)
 
 You can publish your AssetPacks either as a zip file or directly to jmonkeyengine.org, using your website user name and login. *This means other jMonkeyEngine SDK users can download your AssetPacks and install them to their local database right off the AssetPack online packages browser.*
 

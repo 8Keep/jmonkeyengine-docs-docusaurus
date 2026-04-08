@@ -20,7 +20,7 @@ Features:
 
 ScreenShot:
 
-image:[https://i.imgur.com/uFRw4.jpg](https://i.imgur.com/uFRw4.jpg)
+![https://i.imgur.com/uFRw4.jpg](https://i.imgur.com/uFRw4.jpg)
 
 Video:
 

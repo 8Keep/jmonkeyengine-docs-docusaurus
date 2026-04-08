@@ -17,7 +17,7 @@ If you are not a member, you fork the repository into your GitHub account and is
 To fork the Wiki repository into your GitHub Account:
 
 1. Navigate to [https://github.com/jMonkeyEngine/wiki](https://github.com/jMonkeyEngine/wiki).
-1. In the menu at the top of the page, select the icon:code-fork[]*Fork* button.
+1. In the menu at the top of the page, select the `code-fork`*Fork* button.
 
 ## Downloading the Sources
 
@@ -29,8 +29,8 @@ To fork the Wiki repository into your GitHub Account:
   1. Enter "`asciidoc`" in the search box and press the **Packages** button.
 
 .Add these packages:
-    - *language-asciidoc* +
-    - *asciidoc-preview* +
+    - *language-asciidoc*
+    - *asciidoc-preview*
     - *autocomplete-asciidoc*
 
 :::tip

@@ -129,7 +129,7 @@ Note that you should not register every single folder containing a texture as th
 
 ### How do I Create 3-D models, textures, sounds?
 
-Follow our best practices for the [multi-media asset pipeline](multi-media_asset_pipeline.md). +
+Follow our best practices for the [multi-media asset pipeline](multi-media_asset_pipeline.md).
 You create 3-D models in a 3-D mesh editor, for example Blender, and export it in one of the 3D model [Supported External File Types](../../getting-started/features.md#supported-external-file-types) such as GLTF (animated objects, scenes) or Wavefront OBJ format (static objects, scenes).
 You create textures in a graphic editor, for example Gimp, and export them as PNG or JPG.
 You create sounds in an audio editor, for example, Audacity, and export them as WAVE or OGG.
@@ -592,7 +592,7 @@ Verify that you include a controls definition file link in your XML: This is the
 
 ### Is there Java Doc for Nifty GUI?
 
-[Nifty GUI 1.3 Java docs](../../core/gui/nifty_gui_java_interaction.md#usefullinks)
+[Nifty GUI 1.3 Java docs](../../core/shader/jme3_shaders.md#useful-links)
 
 ## I want to create an environment with sounds, effects, and landscapes
 
@@ -701,7 +701,7 @@ In your game, add
 settings.setRenderer(AppSettings.LWJGL_OPENGL1)
 ```
 
-to the [AppSettings](../../core/system/appsettings.md) (see details there). +
+to the [AppSettings](../../core/system/appsettings.md) (see details there).
 For the jMonkeyEngine SDK itself, choose Options &gt; OpenGL, and check OpenGL1.
 
 ### How do I optimize the heck out of the Scene Graph?

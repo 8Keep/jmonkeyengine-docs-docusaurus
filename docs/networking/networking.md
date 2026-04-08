@@ -13,22 +13,13 @@ The SpiderMonkey &lt;abbr title="Application Programming Interface"&gt;API&lt;/a
 
 The SpiderMonkey &lt;abbr title="Application Programming Interface"&gt;API&lt;/abbr&gt; assists you in creating a Server, Clients, and Messages. Once a Server instance is created and started, the Server accepts remote connections from Clients, and you can send and receive Messages. Client objects represent the client-side of the client-server connection.  Within the Server, these Client objects are referred to as HostedConnections. HostedConnections can hold application-defined client-specific session attributes that the server-side listeners and services can use to track player information, etc.
 
-<table>
-  <thead>
-    <tr>
-      <th>Seen from the Client</th>
-      <th></th>
-      <th>Seen from the Server<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>com.jme3.network.Client</td>
-      <td>==</td>
-      <td>com.jme3.network.HostedConnection<br /></td>
-    </tr>
-  </tbody>
-</table>
+| Seen from the Client |
+| --- |
+|  |
+| Seen from the Server<br /> |
+| com.jme3.network.Client |
+| == |
+| com.jme3.network.HostedConnection<br /> |
 
 You can register several types of listeners to be notified of changes.
 
@@ -112,49 +103,25 @@ When you run this client, it connects to the server.
 
 The server refers to a connected client as com.jme3.network.HostedConnection objects. The server can get info about clients as follows:
 
-<table>
-  <thead>
-    <tr>
-      <th>Accessor</th>
-      <th>Purpose<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>myServer.getConnections()</td>
-      <td>Server gets a collection of all connected HostedConnection objects (all connected clients).<br /></td>
-    </tr>
-    <tr>
-      <td>myServer.getConnections().size()</td>
-      <td>Server gets the number of all connected HostedConnection objects (number of clients).<br /></td>
-    </tr>
-    <tr>
-      <td>myServer.getConnection(0)</td>
-      <td>Server gets the first (0), second (1), etc, connected HostedConnection object (one client).<br /></td>
-    </tr>
-  </tbody>
-</table>
+| Accessor |
+| --- |
+| Purpose<br /> |
+| myServer.getConnections() |
+| Server gets a collection of all connected HostedConnection objects (all connected clients).<br /> |
+| myServer.getConnections().size() |
+| Server gets the number of all connected HostedConnection objects (number of clients).<br /> |
+| myServer.getConnection(0) |
+| Server gets the first (0), second (1), etc, connected HostedConnection object (one client).<br /> |
 
 Your game can define its own game data based on whatever criteria you want, typically these include player ID and state. If the server needs to look up player/client-specific information, you can store this information directly on the HostedConnection object. The following examples read and write a custom Java object `MyState` in the HostedConnection object `conn`:
 
-<table>
-  <thead>
-    <tr>
-      <th>Accessor</th>
-      <th>Purpose<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>conn.setAttribute( "MyState", new MyState());</td>
-      <td>Server can change an attribute of the HostedConnection.<br /></td>
-    </tr>
-    <tr>
-      <td>MyState state = conn.getAttribute("MyState");</td>
-      <td>Server can read an attribute of the HostedConnection.<br /></td>
-    </tr>
-  </tbody>
-</table>
+| Accessor |
+| --- |
+| Purpose<br /> |
+| conn.setAttribute( "MyState", new MyState()); |
+| Server can change an attribute of the HostedConnection.<br /> |
+| MyState state = conn.getAttribute("MyState"); |
+| Server can read an attribute of the HostedConnection.<br /> |
 
 ## Messaging
 
@@ -365,24 +332,13 @@ The com.jme3.network.ClientStateListener notifies the Client when the Client has
 The ClientStateListener when it receives a network exception applies the default close action. This just stops the client and you'll have to build around it so your application knows what to do. If you need more control when a network exception happens and the client closes, you may want to investigate in a ErrorListener.
 :::
 
-<table>
-  <thead>
-    <tr>
-      <th>ClientStateListener interface method</th>
-      <th>Purpose<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>public void clientConnected(Client c)&#123;&#125;</td>
-      <td>Implement here what happens as soon as this client has fully connected to the server.<br /></td>
-    </tr>
-    <tr>
-      <td>public void clientDisconnected(Client c, DisconnectInfo info)&#123;&#125;</td>
-      <td>Implement here what happens after the server kicks this client. For example, display the DisconnectInfo to the user.<br /></td>
-    </tr>
-  </tbody>
-</table>
+| ClientStateListener interface method |
+| --- |
+| Purpose<br /> |
+| public void clientConnected(Client c)&#123;&#125; |
+| Implement here what happens as soon as this client has fully connected to the server.<br /> |
+| public void clientDisconnected(Client c, DisconnectInfo info)&#123;&#125; |
+| Implement here what happens after the server kicks this client. For example, display the DisconnectInfo to the user.<br /> |
 
 First implement the ClientStateListener interface in the Client class. Then register it to myClient in MyGameClient's simpleInitApp() method:
 
@@ -393,24 +349,13 @@ myClient.addClientStateListener(this);
 ### ConnectionListener
 
 The com.jme3.network.ConnectionListener notifies the Server whenever new HostedConnections (clients) come and go.  The listener notifies the server after the Client connection is fully established (including any internal handshaking).
-<table>
-  <thead>
-    <tr>
-      <th>ConnectionListener interface method</th>
-      <th>Purpose<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>public void connectionAdded(Server s, HostedConnection c)&#123;&#125;</td>
-      <td>Implement here what happens after a new HostedConnection has joined the Server.<br /></td>
-    </tr>
-    <tr>
-      <td>public void connectionRemoved(Server s, HostedConnection c)&#123;&#125;</td>
-      <td>Implement here what happens after a HostedConnection has left. E.g. a player has quit the game and the server removes his character.<br /></td>
-    </tr>
-  </tbody>
-</table>
+| ConnectionListener interface method |
+| --- |
+| Purpose<br /> |
+| public void connectionAdded(Server s, HostedConnection c)&#123;&#125; |
+| Implement here what happens after a new HostedConnection has joined the Server.<br /> |
+| public void connectionRemoved(Server s, HostedConnection c)&#123;&#125; |
+| Implement here what happens after a HostedConnection has left. E.g. a player has quit the game and the server removes his character.<br /> |
 
 First implement the ConnectionListener interface in the Server class. Then register it to myServer in MyGameServer's simpleInitApp() method.
 
@@ -427,20 +372,11 @@ If you intend on using the default network mechanics, *don't* use this!
 If you do override this, make sure you add a mechanic that can close the client otherwise your client will get stuck open and cause errors.
 :::
 
-<table>
-  <thead>
-    <tr>
-      <th>ErrorListener interface method</th>
-      <th>Purpose<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>public void handleError(Client c, Throwable t)&#123;&#125;</td>
-      <td>Implement here what happens after a exception affects the network .<br /></td>
-    </tr>
-  </tbody>
-</table>
+| ErrorListener interface method |
+| --- |
+| Purpose<br /> |
+| public void handleError(Client c, Throwable t)&#123;&#125; |
+| Implement here what happens after a exception affects the network .<br /> |
 
 :::tip
 This interface was built for the client and server, but the code has never been put on the server to handle this listener.

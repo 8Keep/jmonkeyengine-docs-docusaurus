@@ -36,7 +36,7 @@ style_map.xml consists of a list of xml documents containing varied styles for v
 
 Might as well start with something interesting as all control constructors follow the same format. Let go with a window and then we’ll add a button to it.
 
-*Constructor 1:* +
+*Constructor 1:*
 Here are the three constructor choices for creating the window:
 
 ```java
@@ -54,7 +54,7 @@ screen.addElement(win);
 
 And… boom! You have a fancy new resizable, movable window as part of you’re UI. Now, let’s take a look at the two additional constructors.
 
-*Constructor 2:* +
+*Constructor 2:*
 The second adds a 4th parameter to specify the windows dimensions, like such:
 
 ```java
@@ -69,7 +69,7 @@ screen.addElement(win);
 
 ```
 
-*Constructor 3:* +
+*Constructor 3:*
 The third option adds 2 more parameters and looks like this:
 
 ```java
@@ -152,7 +152,7 @@ win.addChild(makeWindow);
 For layout purposes, it is suggested that you add all child Elements to a control PRIOR to adding the control to the screen… so, create a window, add a button, add window to screen.
 :::
 
-*A Bit More Info:* +
+*A Bit More Info:*
 All controls are based on the Element class which has access to all default behaviors. Behaviors can be enabled disabled on ANY control or primitive Element.
 
 ## A Few of the Common Behaviors:

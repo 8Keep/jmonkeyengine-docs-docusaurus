@@ -84,14 +84,14 @@ Copy and paste this text into your Atom Editor "File &gt; Snippets..." page to a
     'body': 'include::ROOT:partial$$&#123;1:partial-filename&#125;.adoc[$&#123;2:line=&#125;$&#123;3:tag=&#125;$&#123;4:tags=&#125;]'
   'Module inline image':
     'prefix': 'imgMI'
-    'body': 'image:$&#123;1:module&#125;:$&#123;2:target-resource-filename.ext&#125;[$&#123;3:&#125;]'
+    'body': '![$&#123;3:&#125;](/wiki-assets/docs-wiki/ROOT/assets/images/$&#123;1:module&#125;:$&#123;2:target-resource-filename.ext&#125;)'
   'Module block image':
     'prefix': 'imgMB'
-    'body': 'image::$&#123;1:module&#125;:$&#123;2:target-resource-filename.ext&#125;[$&#123;3:&#125;]'
+    'body': '![$&#123;3:&#125;](/wiki-assets/docs-wiki/ROOT/assets/images/:$&#123;1:module&#125;:$&#123;2:target-resource-filename.ext&#125;)'
   'ROOT inline image':
     'prefix': 'imgRI'
-    'body': 'image:ROOT:$&#123;1:target-resource-filename.ext&#125;[$&#123;2:&#125;]'
+    'body': '![$&#123;2:&#125;](/wiki-assets/docs-wiki/ROOT/assets/images/$&#123;1:target-resource-filename.ext&#125;)'
   'ROOT block image':
     'prefix': 'imgRB'
-    'body': 'image::ROOT:$&#123;1:target-resource-filename.ext&#125;[$&#123;2:&#125;]'
+    'body': '![$&#123;2:&#125;](/wiki-assets/docs-wiki/ROOT/assets/images/:ROOT:$&#123;1:target-resource-filename.ext&#125;)'
 ```

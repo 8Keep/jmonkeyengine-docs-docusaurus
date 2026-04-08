@@ -82,7 +82,7 @@ Since rendering is automatic, initialization and updating are the two most impor
 - The `simpleInitApp()` method is the application's "`first breath`".
   - Here you load and create game data (once).
 
-- The `simpleUpdate()` method is the application's "`heartbeat`" (the time unit is called `ticks`). +
+- The `simpleUpdate()` method is the application's "`heartbeat`" (the time unit is called `ticks`).
 Here you change their properties to update the game state (repeatedly).
 
 :::tip
@@ -107,7 +107,7 @@ Here are some fun things to try:
 Look back at the [Hello Node](hello_node.md) tutorial if you do not remember the transformation methods for scaling, translating, and rotating.
 
 :::important
-[Some proposed solutions](solutions.md#hello-update-loop) +
+[Some proposed solutions](solutions.md#hello-update-loop)
 *Be sure to try to solve them for yourself first!*
 :::
 

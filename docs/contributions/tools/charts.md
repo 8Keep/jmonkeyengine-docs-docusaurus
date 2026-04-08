@@ -9,7 +9,7 @@ This tutorial assumes that you know:
 - About the [Navigation package](navigation.md).
 - How to create a [3D landscape](../../tutorials/beginner/hello_terrain.md) using image-based heightmaps.
 
-image:tools/mercator_grid_3d_small.png[mercator_grid_3d_small.png,width="",height=""]
+![mercator_grid_3d_small.png](/wiki-assets/docs/contributions/assets/images/tools/mercator_grid_3d_small.png)
 
 You will learn that how to account for distortions that arise when mapping of one coordinate system into (i.e. when converting longitude/latitude into JME's World Units), how to construct a tile tree and how to render a dynamic mercator grid.
 
@@ -29,7 +29,7 @@ applyDefaultTexture();
 
 ```
 
-image:tools/globe.png[A 256x256 mercator projection of planet earth.,width="",height=""]
+![A 256x256 mercator projection of planet earth.](/wiki-assets/docs/contributions/assets/images/tools/globe.png)
 
 In essence, 3D chart visualization is achieved by converting the polygons composing planet earth's landmass into float matrices whereby each value within the matrix represents a specific terrain height. For example, given a terrain of 100 x 100 world units, we construct a heightmap by creating a 100 x 100 matrix. Each cell within the matrix corresponds to a terrain coordinate; each cell’s value to that coordinate’s desired height. But you already knew that, so where's the tricky part? Well, when visualizing a chart an accurate projection requires a translation of latitude/longitude coordinates into their equivalent world unit (x,y,z) counterparts. This translation however is not a straight forward mapping of one coordinate system into the other due to the distortion arising from projecting an oblate spheroid onto a flat surface (see my previous wiki article [here](navigation.md)). This means that if one would adhere to a linear scale, the Mercator projection would distort the size and shape of objects as the object distances itself from the equator, eventually resulting in infinite scaling as the pole is reached. So the first task at hand, is to construct accurate 2D projections of planet earth which we can then use as heightmaps. We can achieve this using the jme3.tools.navigation package and co-ordinate sets available at [noaa.gov](https://maps.ngdc.noaa.gov/viewers/geophysics/).
 
@@ -334,7 +334,7 @@ Paint ( graphics context ):
 
 ```
 
-image:tools/heightmap_modelling.png[Summarizing process of visualizing a chart. From left to right: We draw the coordinates downloaded from noaa.gov. Ideally, each polygon should be filled in a light colour, whilst the surrounding ocean remains dark. JME uses these images to create an internal representation of the terrain (a float matrix).,width="",height=""]
+![Summarizing process of visualizing a chart. From left to right: We draw the coordinates downloaded from noaa.gov. Ideally](/wiki-assets/docs/contributions/assets/images/tools/heightmap_modelling.png)
 *Above:* Summarizing process of visualizing a chart. From left to right: We draw the coordinates downloaded from noaa.gov. Ideally, each polygon should be filled in a light colour, whilst the surrounding ocean remains dark. JME uses these images to create an internal representation of the terrain (a float matrix).
 
 The heightmaps produced by the `TileGenerator` are essentially arrays containing float values ranging from 0 to 255. For convenience and efficiency, JME treats these arrays as Portable Network Graphic (PNG) images (again, see the Hello Terrain tutorial). This allows us to store each tile as an image, meaning that each tile will only need to be constructed once. Essentially what the tile generator therefore does is draw a greyscale image of each tile whereby dark colours (i.e. low values from 0 - 50) are valleys and high values (200 - 255) become mountains or hills. In order to maintain scale, these values are scaled by dividing the seabed’s maximum height (in meters) by the meters per pixel of the current chart.
@@ -368,8 +368,8 @@ Each heightmap is rendered depending on which ID the user selects (where each no
 
 The Tile Tree’s contents is stored in assets/Heightmaps, and each directory level is composed of one descriptor file, one heightmap (in the form of a PNG image) and one alphamap (also in the form of a PNG image). The descriptor files end in a.desc filename extension and contain the geo-coordinate centre of the tile as well as the resolution of the node that they are representing (as always, the resolution is represented in minutes per pixel (mpp)). A descriptor file’s sole purpose is to allow the re-construction of the tile tree upon application initialization. Specifically, this is achieved by the ChartModel object which instantiates the TileTree, passing a reference to _assets/Heightmaps_, which `TileTree` then recursively scans, constructing the tree by interpreting the descriptor files. It is worth noting that all files per level should be named according to the heightmap tile that it represents. That is, if your level represents a chart of Ireland and your heightmap is named Ireland.png then your descriptor file should be named _Ireland.desc_, while your alphamap should be named _Ireland.png.Alphamap.png_.
 
-image:tools/slide1.jpg[The Tile Tree,width="",height=""]
-image:tools/slide2.jpg[Looking inside a node...,width="",height=""]
+![The Tile Tree](/wiki-assets/docs/contributions/assets/images/tools/slide1.jpg)
+![Looking inside a node...](/wiki-assets/docs/contributions/assets/images/tools/slide2.jpg)
 *Above:* A look inside the "`Ireland`" node. We can see the heightmap, descriptor file and alphamap.
 
 ```java
@@ -799,4 +799,4 @@ public void createGrid(double longitudeLevel, float increment) {
 
 ```
 
-image:tools/screen_shot_2011-12-18_at_13.12.01.png[screen_shot_2011-12-18_at_13.12.01.png,width="",height=""]
+![screen_shot_2011-12-18_at_13.12.01.png](/wiki-assets/docs/contributions/assets/images/tools/screen_shot_2011-12-18_at_13.12.01.png)

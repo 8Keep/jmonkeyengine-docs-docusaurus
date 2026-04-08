@@ -23,24 +23,13 @@ stateManager.attach(bulletAppState);
 ```
 
 Now the physics update happens in parallel to render(), that is, after the user's changes in the update() call have been applied. During update() the physics update loop pauses. This way the loop logic is still maintained: the user can set and change values in physics and scenegraph objects before render() and physicsUpdate() are called in parallel. This allows you to use physics methods in update() as if it was single-threaded.
-<table>
-  <thead>
-    <tr>
-      <th>PARALLEL</th>
-      <th>SEQUENTIAL<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>1. update(), 2. render() and physics update().</td>
-      <td>1. update(), 2. render(), 3. physics update().<br /></td>
-    </tr>
-    <tr>
-      <td>Physics Debug View is rendered inaccurately (out of sync)</td>
-      <td>Physics Debug View is rendered accurately.<br /></td>
-    </tr>
-  </tbody>
-</table>
+| PARALLEL |
+| --- |
+| SEQUENTIAL<br /> |
+| 1. update(), 2. render() and physics update(). |
+| 1. update(), 2. render(), 3. physics update().<br /> |
+| Physics Debug View is rendered inaccurately (out of sync) |
+| Physics Debug View is rendered accurately.<br /> |
 
 :::tip
 You can add more physics spaces by using multiple PARALLEL bulletAppStates. You would do that if you have sets physical objects that never collide (for example, underground boulders and flying cannon balls above ground), so you put those into separate physics spaces, which improves performances (less collisions to check!).

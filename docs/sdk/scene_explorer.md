@@ -1,6 +1,6 @@
 # jMonkeyEngine SDK: Scene Explorer
 
-![jmonkeyplatform-sceneexplorer-add.jpg](/wiki-assets/docs/sdk/assets/images/jmonkeyplatform-sceneexplorer-add.jpg)
+![jmonkeyplatform-sceneexplorer-add.jpg](/wiki-assets/docs/sdk/images/jmonkeyplatform-sceneexplorer-add.jpg)
 
 ## About the SceneExplorer window
 

@@ -1,7 +1,8 @@
 .page {
   background:
-    radial-gradient(circle at top, rgba(239, 168, 51, 0.2), transparent 32rem),
-    linear-gradient(180deg, #f8f4ea 0%, #f0ecdf 42%, #ffffff 100%);
+    radial-gradient(circle at top, rgba(255, 178, 62, 0.18), transparent 24rem),
+    radial-gradient(circle at 80% 0, rgba(192, 115, 2, 0.12), transparent 20rem),
+    linear-gradient(180deg, #171717 0%, #111111 38%, #151515 100%);
   min-height: 100%;
 }
 
@@ -10,12 +11,29 @@
 }
 
 .heroInner {
+  background: linear-gradient(180deg, rgba(28, 28, 28, 0.92) 0%, rgba(20, 20, 20, 0.96) 100%);
+  border: 1px solid rgba(255, 178, 62, 0.16);
+  border-radius: 1.6rem;
+  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.32);
   margin: 0 auto;
   max-width: 60rem;
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.heroInner::after {
+  background: linear-gradient(90deg, rgba(255, 178, 62, 0), rgba(255, 178, 62, 0.26), rgba(255, 178, 62, 0));
+  content: "";
+  height: 1px;
+  left: 2.5rem;
+  position: absolute;
+  right: 2.5rem;
+  top: 0;
 }
 
 .eyebrow {
-  color: #9b5d10;
+  color: #ffb23e;
   font-size: 0.9rem;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -24,7 +42,7 @@
 }
 
 .hero h1 {
-  color: #10273a;
+  color: #f2ece1;
   font-size: clamp(2.8rem, 6vw, 4.8rem);
   letter-spacing: -0.04em;
   line-height: 0.95;
@@ -33,7 +51,7 @@
 }
 
 .lede {
-  color: #2b4354;
+  color: #b4b0a9;
   font-size: 1.1rem;
   line-height: 1.7;
   margin-bottom: 2rem;
@@ -56,26 +74,31 @@
 }
 
 .card {
-  background: rgba(255, 255, 255, 0.92);
-  border: 1px solid rgba(16, 39, 58, 0.08);
+  background: linear-gradient(180deg, rgba(31, 31, 31, 0.96) 0%, rgba(24, 24, 24, 0.96) 100%);
+  border: 1px solid rgba(255, 178, 62, 0.12);
   border-radius: 1.2rem;
+  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.24);
   padding: 1.5rem;
 }
 
 .card h2 {
-  color: #10273a;
+  color: #f2ece1;
   font-size: 1.2rem;
   margin-bottom: 0.75rem;
 }
 
 .card p {
-  color: #4b6171;
+  color: #aaaaaa;
   margin: 0;
 }
 
 @media (max-width: 640px) {
   .hero {
     padding-top: 3.5rem;
+  }
+
+  .heroInner {
+    padding: 1.75rem;
   }
 
   .actions {

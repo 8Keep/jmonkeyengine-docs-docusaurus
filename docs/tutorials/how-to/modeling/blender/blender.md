@@ -55,7 +55,7 @@ Make sure your armature's location, rotation and scale is applied (see "`Model C
 :::note
 When you parent your mesh to the armature, Blender automatically adds the `Armature` modifier to the mesh.
 
-image:how-to/modeling/blender/blender-make-armature.png[blender-make-armature.png,width="",height=""]
+![blender-make-armature.png](/wiki-assets/docs/tutorials/assets/images/how-to/modeling/blender/blender-make-armature.png)
 :::
 
 Voila, your model should move when you move the bones in pose mode.
@@ -322,7 +322,7 @@ The goal of this tutorial is to explain briefly how to bake light map in blender
 ### Blender modeling + texturing
 
 - create a mesh in blender and unwrap it to create uvs
-  - image:how-to/modeling/blender/1.jpg[1.jpg,width="600",height=""]
+  - ![1.jpg](/wiki-assets/docs/tutorials/assets/images/how-to/modeling/blender/1.jpg)
 
 - In the mesh tab you can see the sets of Uvs, it will create the first one.
   - You can assign w/e texture on it, I used the built in checker of blender for the example.
@@ -331,15 +331,15 @@ The goal of this tutorial is to explain briefly how to bake light map in blender
 - In the 3D view in edit mode select all your mesh vertices and hit 'U'/LightMap pack then ok it will unfold the mesh for light map.
 - Create a new image, go to the render tab an all at the end check the "`Bake`" section and select shadows. Then click bake.
 - If all went ok it will create a light map like this.
-  - image:how-to/modeling/blender/2.jpg[2.jpg,width="600",height=""]
+  - ![2.jpg](/wiki-assets/docs/tutorials/assets/images/how-to/modeling/blender/2.jpg)
 
 - Go to the material tab, create a new one for your model and go to the Texture Tab.
 - Create 2 textures one for the color map, and one for the light map.
 - In the Mapping section be sure to select coordinates : UV and select the good set of coordinates.
-  - image:how-to/modeling/blender/3.jpg[3.jpg,width="600",height=""]
+  - ![3.jpg](/wiki-assets/docs/tutorials/assets/images/how-to/modeling/blender/3.jpg)
 
 - Then the light map
-  - image:how-to/modeling/blender/4.jpg[4.jpg,width="600",height=""]
+  - ![4.jpg](/wiki-assets/docs/tutorials/assets/images/how-to/modeling/blender/4.jpg)
 
 ## Importing the model in the SDK and creating the appropriate material
 
@@ -348,10 +348,10 @@ Once this is done, export your model with one of the 3D model [Supported Externa
 - Create material for it using the lighting definition.
 - Add the colorMap in the diffuse map slot and the lightMap in the light map slot.
 - Make sure you check "`SeparateTexCoords`"
-  - image:how-to/modeling/blender/5.jpg[5.jpg,width="600",height=""]
+  - ![5.jpg](/wiki-assets/docs/tutorials/assets/images/how-to/modeling/blender/5.jpg)
 
 - It should roughly result in something like that :
-  - image:how-to/modeling/blender/6.jpg[6.jpg,width="600",height=""]
+  - ![6.jpg](/wiki-assets/docs/tutorials/assets/images/how-to/modeling/blender/6.jpg)
 
 ## Modelling racing tracks and cars
 
@@ -365,11 +365,11 @@ Follow the link below to a pdf tutorial by rhymez where I guide you on how you c
 
 ## SkyBox baking
 
-There are several ways to create static images to use for a sky in your game. This will describe the concepts used in blender and create an ugly sky emoji:smiley[]. Check the links below for other ways and prettier skies.
+There are several ways to create static images to use for a sky in your game. This will describe the concepts used in blender and create an ugly sky `smiley`. Check the links below for other ways and prettier skies.
 
 A sky box is a texture mapped cube, it can also, loosely, be called en EnvMap or a CubeMap. The camera is inside the cube and the clever thing that jME does is to draw the sky so it is always behind whatever else is in your scene. Imagine the monkey is the camera in the picture.
 
-- image:how-to/modeling/blender/skybox-concept.png[skybox-concept.png,width="",height=""]
+- ![skybox-concept.png](/wiki-assets/docs/tutorials/assets/images/how-to/modeling/blender/skybox-concept.png)
 
 But a real sky is not a box around our heads, it is more like a sphere. So if we put any old image in the sky it will look strange and might even look like a box. This is not what we want. The trick is to distort the image so that it will _look_ like a sphere even if it in fact is a picture pasted on a box. Luckily blender can do that tricky distortion for us.
 
@@ -378,24 +378,24 @@ The screenshots are from Blender 2.63 but the equivalent operations have been in
 So let's get started
 
 - Fire up blender and you'll see something like this.
-  - image:how-to/modeling/blender/start-screen2.png[start-screen2.png,width="",height=""]
+  - ![start-screen2.png](/wiki-assets/docs/tutorials/assets/images/how-to/modeling/blender/start-screen2.png)
 
 - The cube in the start scene is perfect for us. What we'll do is have Blender render the scene onto that cube. The resulting image is what we'll use for our sky box. So our jME sky will look like we stood inside the blender box and looked out on the scene in blender.
 - Start by selecting the box and set its material to shadeless.
-  - image:how-to/modeling/blender/shadeless.png[shadeless.png,width="",height=""]
+  - ![shadeless.png](/wiki-assets/docs/tutorials/assets/images/how-to/modeling/blender/shadeless.png)
 
 - Now we will create a texture for the box. Make sure the texture is an `Environment Map`, that the `Viewpoint Object` is set to the cube. The resolution is how large the resulting image will be. More pixels makes the sky look better but comes at the cost of texture memory. You'll have to trim the resolution to what works in your application.
-  - image:how-to/modeling/blender/texture.png[texture.png,width="",height=""]
+  - ![texture.png](/wiki-assets/docs/tutorials/assets/images/how-to/modeling/blender/texture.png)
 
 - Next up is the fun part, create the sky scene in blender. You can do whatever fits your application, include models for a city landscape, set up a texture mapped sphere in blender with a nice photographed sky, whatever you can think will make a good sky. I am not so creative so I created this scene:
-  - image:how-to/modeling/blender/scene.png[scene.png,width="",height=""]
+  - ![scene.png](/wiki-assets/docs/tutorials/assets/images/how-to/modeling/blender/scene.png)
 
 - Now render the scene (press F12). It doesn't actually matter where the camera is in blender but you might see something similar to this:
-  - image:how-to/modeling/blender/render.png[render.png,width="",height=""]
+  - ![render.png](/wiki-assets/docs/tutorials/assets/images/how-to/modeling/blender/render.png)
 
 - You can see that Blender has actually drawn the scene onto the cube. This is exactly what we want. Now to save the image.
 - Select the texture of the cube and select save environment map.
-  - image:how-to/modeling/blender/saveenvmap.png[saveenvmap.png,width="",height=""]
+  - ![saveenvmap.png](/wiki-assets/docs/tutorials/assets/images/how-to/modeling/blender/saveenvmap.png)
 
 - That is it for Blender. Open the saved image in some image editor (I use the Gimp from [http://www.gimp.org](http://www.gimp.org) here).
 
@@ -404,7 +404,7 @@ The SDK also contains an image editor, right-click the image and select "`edit`"
 :::
 
 - You will notice that Blender has taken the 6 sides of the cube and pasted together into one image (3x2). So now we need to cut it up again into 6 separate images. In gimp I usually set the guides to where I want to cut and then go into Filters→Web→Slice and let gimp cut it up for me.
-  - image:how-to/modeling/blender/post-slice.png[post-slice.png,width="",height=""]
+  - ![post-slice.png](/wiki-assets/docs/tutorials/assets/images/how-to/modeling/blender/post-slice.png)
 
 - Next up is to move the image files into your assets directory and create the sky in jME. You can do that in the Scene Composer by right clicking the scene node, select `Add Spatial` and then select `Skybox`.
 

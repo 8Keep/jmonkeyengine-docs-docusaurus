@@ -3,8 +3,8 @@
 - IDE stands for Integrated Development Environment. It's a software tool for developers.
 - NetBeans IDE, Eclipse, IntelliJ are examples of development environments (=IDEs) for developers who are writing Java applications.
 - Java is a programming language.
-  - "`Java Beans`" is just a funny way of naming a certain type of data object that you can write in Java. +
-(Java = coffee… coffee beans, get it? No, developers aren’t very funny.) +
+  - "`Java Beans`" is just a funny way of naming a certain type of data object that you can write in Java.
+(Java = coffee… coffee beans, get it? No, developers aren’t very funny.)
 _Java Beans have nothing to do with this topic or NetBeans!_
 
 - jMonkeyEngine is a game engine written in Java. You use it by putting a JAR library on the class path, and calling its &lt;abbr title="Application Programming Interface"&gt;API&lt;/abbr&gt; from your Java code.
@@ -14,7 +14,7 @@ _Java Beans have nothing to do with this topic or NetBeans!_
 The writing of the game (the actual game development) is still up to you, the person using these tools. There is an expectation that you, the person using these tools, already know how to program in Java.
 :::
 
-![jme3-jmonkeyplatform.png](/wiki-assets/docs/sdk/assets/images/jme3-jmonkeyplatform.png)
+![jme3-jmonkeyplatform.png](/wiki-assets/docs/sdk/images/jme3-jmonkeyplatform.png)
 
 ## The Past: A World Without IDEs
 
@@ -77,7 +77,7 @@ The jMonkeyEngine SDK is the same as NetBeans IDE, plus
 - The Projects, SceneComposer, and SceneExplorer windows let you convert, preview, and arrange 3D models before you load them in your Java code.
 - And more…
 
-![jmonkeyplatform-docu-1.png](/wiki-assets/docs/sdk/assets/images/jmonkeyplatform-docu-1.png)
+![jmonkeyplatform-docu-1.png](/wiki-assets/docs/sdk/images/jmonkeyplatform-docu-1.png)
 
 You see how such a unique IDE can speed up your development process drastically, it's worth giving it a try!
 

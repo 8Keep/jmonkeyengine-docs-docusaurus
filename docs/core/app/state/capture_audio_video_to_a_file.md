@@ -513,11 +513,11 @@ public class Advanced extends SimpleApplication {
 
 ```
 
-image:[https://youtu.be/oCEfK0yhDrY,width="400",height=""](https://youtu.be/oCEfK0yhDrY)
+![https://youtu.be/oCEfK0yhDrY](https://youtu.be/oCEfK0yhDrY)
 
 ### Using Advanced features to Record from more than one perspective at once
 
-image:[https://youtu.be/WIJt9aRGusc,width="400",height=""](https://youtu.be/WIJt9aRGusc)
+![https://youtu.be/WIJt9aRGusc](https://youtu.be/WIJt9aRGusc)
 
 ## More Information
 

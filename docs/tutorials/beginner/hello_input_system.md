@@ -112,9 +112,9 @@ First you register each mapping name with its trigger(s). Remember the following
 
 Have a look at the code:
 
-1. You register the mapping named "`Rotate`" to the Spacebar key trigger. +
+1. You register the mapping named "`Rotate`" to the Spacebar key trigger.
 `new KeyTrigger(KeyInput.KEY_SPACE)`).
-1. In the same line, you also register "`Rotate`" to an alternative mouse click trigger. +
+1. In the same line, you also register "`Rotate`" to an alternative mouse click trigger.
 `new MouseButtonTrigger(MouseInput.BUTTON_LEFT)`
 1. You map the `Pause`, `Left`, `Right` mappings to the P, J, K keys, respectively.
 
@@ -264,44 +264,23 @@ It's very common that you want an action to be only triggered once, in the momen
 ## Table of Triggers
 
 You can find the list of input constants in the files `src/core/com/jme3/input/KeyInput.java`, `JoyInput.java`, and `MouseInput.java`. Here is an overview of the most common triggers constants:
-<table>
-  <thead>
-    <tr>
-      <th>Trigger</th>
-      <th>Code<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Mouse button: Left Click</td>
-      <td>MouseButtonTrigger(MouseInput.BUTTON_LEFT)<br /></td>
-    </tr>
-    <tr>
-      <td>Mouse button: Right Click</td>
-      <td>MouseButtonTrigger(MouseInput.BUTTON_RIGHT)<br /></td>
-    </tr>
-    <tr>
-      <td>Keyboard: Characters and Numbers</td>
-      <td>KeyTrigger(KeyInput.KEY_X)<br /></td>
-    </tr>
-    <tr>
-      <td>Keyboard: Spacebar</td>
-      <td>KeyTrigger(KeyInput.KEY_SPACE)<br /></td>
-    </tr>
-    <tr>
-      <td>Keyboard: Return, Enter</td>
-      <td>KeyTrigger(KeyInput.KEY_RETURN), +<br />KeyTrigger(KeyInput.KEY_NUMPADENTER)<br /></td>
-    </tr>
-    <tr>
-      <td>Keyboard: Escape</td>
-      <td>KeyTrigger(KeyInput.KEY_ESCAPE)<br /></td>
-    </tr>
-    <tr>
-      <td>Keyboard: Arrows</td>
-      <td>KeyTrigger(KeyInput.KEY_UP), +<br />KeyTrigger(KeyInput.KEY_DOWN) +<br />KeyTrigger(KeyInput.KEY_LEFT), +<br />KeyTrigger(KeyInput.KEY_RIGHT)<br /></td>
-    </tr>
-  </tbody>
-</table>
+| Trigger |
+| --- |
+| Code<br /> |
+| Mouse button: Left Click |
+| MouseButtonTrigger(MouseInput.BUTTON_LEFT)<br /> |
+| Mouse button: Right Click |
+| MouseButtonTrigger(MouseInput.BUTTON_RIGHT)<br /> |
+| Keyboard: Characters and Numbers |
+| KeyTrigger(KeyInput.KEY_X)<br /> |
+| Keyboard: Spacebar |
+| KeyTrigger(KeyInput.KEY_SPACE)<br /> |
+| Keyboard: Return, Enter |
+| KeyTrigger(KeyInput.KEY_RETURN),<br />KeyTrigger(KeyInput.KEY_NUMPADENTER)<br /> |
+| Keyboard: Escape |
+| KeyTrigger(KeyInput.KEY_ESCAPE)<br /> |
+| Keyboard: Arrows |
+| KeyTrigger(KeyInput.KEY_UP),<br />KeyTrigger(KeyInput.KEY_DOWN)<br />KeyTrigger(KeyInput.KEY_LEFT),<br />KeyTrigger(KeyInput.KEY_RIGHT)<br /> |
 
 :::tip
 If you don't recall an input constant during development, you benefit from an IDE's code completion functionality: Place the caret after e.g. `KeyInput.|` and trigger code completion to select possible input identifiers.
@@ -349,11 +328,11 @@ inputManager.addMapping("Pause",  new KeyTrigger(usersPauseKey));
 1. Switch off the flyCam and override the WASD keys.
 
 :::tip
-Use [flyCam.setEnabled(false);](../concepts/faq.md#how-do-i-switch-between-third-person-and-first-person-view)
+Use [flyCam.setEnabled(false);](../concepts/faq.md#how-do-i-switch-between-third-person-and-first-person-view-)
 :::
 
 :::important
-[Some proposed solutions](solutions.md#hello-input) +
+[Some proposed solutions](solutions.md#hello-input)
 *Be sure to try to solve them for yourself first!*
 :::
 

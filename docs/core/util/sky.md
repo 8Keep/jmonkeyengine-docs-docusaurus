@@ -29,9 +29,9 @@ As the sky texture we use the sample BrightSky.dds file from jme3test-test-data.
 
 How to create a sky textures?
 
-- There are many tools out there that generate cube and sphere maps. +
+- There are many tools out there that generate cube and sphere maps.
 Examples for landscape texture generators are Terragen or Bryce.
-- The actual texture size does not matter, as long as you add the Sky Geometry to the Sky bucket: Everything in the sky bucket will always be infinitely far away behind everything else, and never intersect with your scene. +
+- The actual texture size does not matter, as long as you add the Sky Geometry to the Sky bucket: Everything in the sky bucket will always be infinitely far away behind everything else, and never intersect with your scene.
 Of course the higher the resolution, the better it will look. On the other hand, if the graphic is too big, it will slow the game down.
 - A box or sphere map is the simplest solution. But you can use any Node as sky, even complex sets of geometries and quads with animated clouds, blinking stars, city skylines, etc.
 - JME3 supports cube maps in PNG, JPG, or (compressed) DDS format.

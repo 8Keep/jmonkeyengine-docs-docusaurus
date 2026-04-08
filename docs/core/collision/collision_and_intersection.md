@@ -11,71 +11,37 @@ Non-physical collision detection is interesting because it uses less computing r
 The interface com.jme3.collision.Collidable declares one method that returns how many collisions were found between two Collidables: `collideWith(Collidable other, CollisionResults results)`.
 
 - A `com.jme3.collision.CollisionResults` object is an ArrayList of comparable `com.jme3.collision.CollisionResult` objects.
-- You can iterate over the CollisionResults to identify the other parties involved in the collision. +
+- You can iterate over the CollisionResults to identify the other parties involved in the collision.
 Note that jME counts _all_ collisions, this means a ray intersecting a box will be counted as two hits, one on the front where the ray enters, and one on the back where the ray exits.
 
-<table>
-  <thead>
-    <tr>
-      <th>CollisionResults Method</th>
-      <th>Usage<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>size()</td>
-      <td>Returns the number of CollisionResult objects.<br /></td>
-    </tr>
-    <tr>
-      <td>getClosestCollision()</td>
-      <td>Returns the CollisionResult with the lowest distance.<br /></td>
-    </tr>
-    <tr>
-      <td>getFarthestCollision()</td>
-      <td>Returns the CollisionResult with the farthest distance.<br /></td>
-    </tr>
-    <tr>
-      <td>getCollision(i)</td>
-      <td>Returns the CollisionResult at index i.<br /></td>
-    </tr>
-  </tbody>
-</table>
+| CollisionResults Method |
+| --- |
+| Usage<br /> |
+| size() |
+| Returns the number of CollisionResult objects.<br /> |
+| getClosestCollision() |
+| Returns the CollisionResult with the lowest distance.<br /> |
+| getFarthestCollision() |
+| Returns the CollisionResult with the farthest distance.<br /> |
+| getCollision(i) |
+| Returns the CollisionResult at index i.<br /> |
 
 A CollisionResult object contains information about the second party of the collision event.
-<table>
-  <thead>
-    <tr>
-      <th>CollisionResult Method</th>
-      <th>Usage<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>getContactPoint()</td>
-      <td>Returns the contact point coordinate on the second party, as Vector3f.<br /></td>
-    </tr>
-    <tr>
-      <td>getContactNormal()</td>
-      <td>Returns the Normal vector at the contact point, as Vector3f.<br /></td>
-    </tr>
-    <tr>
-      <td>getDistance()</td>
-      <td>Returns the distance between the Collidable and the second party, as float.<br /></td>
-    </tr>
-    <tr>
-      <td>getGeometry()</td>
-      <td>Returns the Geometry of the second party.<br /></td>
-    </tr>
-    <tr>
-      <td>getTriangle(t)</td>
-      <td>Binds t to the triangle t on the second party's mesh that was hit.<br /></td>
-    </tr>
-    <tr>
-      <td>getTriangleIndex()</td>
-      <td>Returns the index of the triangle on the second party's mesh that was hit.<br /></td>
-    </tr>
-  </tbody>
-</table>
+| CollisionResult Method |
+| --- |
+| Usage<br /> |
+| getContactPoint() |
+| Returns the contact point coordinate on the second party, as Vector3f.<br /> |
+| getContactNormal() |
+| Returns the Normal vector at the contact point, as Vector3f.<br /> |
+| getDistance() |
+| Returns the distance between the Collidable and the second party, as float.<br /> |
+| getGeometry() |
+| Returns the Geometry of the second party.<br /> |
+| getTriangle(t) |
+| Binds t to the triangle t on the second party's mesh that was hit.<br /> |
+| getTriangleIndex() |
+| Returns the index of the triangle on the second party's mesh that was hit.<br /> |
 
 ### Code Sample
 

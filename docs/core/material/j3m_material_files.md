@@ -58,126 +58,79 @@ In the jMonkeyEngine SDK, open "Windows &gt; Palette" and drag the `JME Material
 
 Make sure to get the paths to the textures (.png, .jpg) and material definitions (.j3md) right.
 
-- The paths to the built-in .j3md files are relative to jME3's Core Data directory. Just copy the path stated in the Material table. +
+- The paths to the built-in .j3md files are relative to jME3's Core Data directory. Just copy the path stated in the Material table.
 `Common/MatDefs/Misc/Unshaded.j3md` is resolved to `jme3/src/src/core-data/Common/MatDefs/Misc/Unshaded.j3md`.
-- The paths to your textures are relative to your project's assets directory. +
+- The paths to your textures are relative to your project's assets directory.
 `Textures/bump_rock_normal.png` is resolved to `MyGame/src/assets/Textures/bump_rock_normal.png`
 
 ### Data Types
 
 All data types (except Color) are specified in com.jme3.shader.VarType.
 "`Color`" is specified as Vector4 in J3MLoader.java.
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>jME Java class</th>
-      <th>.j3m file syntax<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Float</td>
-      <td>(basic Java type)</td>
-      <td>a float (e.g. 0.72) , no comma or parentheses<br /></td>
-    </tr>
-    <tr>
-      <td>Vector2</td>
-      <td>`com.jme3.math.Vector2f`</td>
-      <td>Two floats, no comma or parentheses<br /></td>
-    </tr>
-    <tr>
-      <td>Vector3</td>
-      <td>`com.jme3.math.Vector3f`</td>
-      <td>Three floats, no comma or parentheses<br /></td>
-    </tr>
-    <tr>
-      <td>Vector4</td>
-      <td>`com.jme3.math.Vector4f`</td>
-      <td>Four floats, no comma or parentheses<br /></td>
-    </tr>
-    <tr>
-      <td>Texture2D</td>
-      <td>`com.jme3.texture.Texture2D`</td>
-      <td>Path to texture in `assets` directory, no quotation marks<br /></td>
-    </tr>
-    <tr>
-      <td>Texture3D</td>
-      <td>`com.jme3.texture.Texture3D`</td>
-      <td>Same as texture 2D except it is interpreted as a 3D texture<br /></td>
-    </tr>
-    <tr>
-      <td>TextureCubeMap</td>
-      <td>`com.jme3.texture.TextureCubeMap`</td>
-      <td>Same as texture 2D except it is interpreted as a cubemap texture<br /></td>
-    </tr>
-    <tr>
-      <td>Boolean</td>
-      <td>(basic Java type)</td>
-      <td>`true` or `false`<br /></td>
-    </tr>
-    <tr>
-      <td>Int</td>
-      <td>(basic Java type)</td>
-      <td>Integer number, no comma or parentheses<br /></td>
-    </tr>
-    <tr>
-      <td>Color</td>
-      <td>`com.jme3.math.ColorRGBA`</td>
-      <td>Four floats, no comma or parentheses<br /></td>
-    </tr>
-    <tr>
-      <td>FloatArray</td>
-      <td></td>
-      <td>(Currently not supported in J3M)<br /></td>
-    </tr>
-    <tr>
-      <td>Vector2Array</td>
-      <td></td>
-      <td>(Currently not supported in J3M)<br /></td>
-    </tr>
-    <tr>
-      <td>Vector3Array</td>
-      <td></td>
-      <td>(Currently not supported in J3M)<br /></td>
-    </tr>
-    <tr>
-      <td>Vector4Array</td>
-      <td></td>
-      <td>(Currently not supported in J3M)<br /></td>
-    </tr>
-    <tr>
-      <td>Matrix3</td>
-      <td></td>
-      <td>(Currently not supported in J3M)<br /></td>
-    </tr>
-    <tr>
-      <td>Matrix4</td>
-      <td></td>
-      <td>(Currently not supported in J3M)<br /></td>
-    </tr>
-    <tr>
-      <td>Matrix3Array</td>
-      <td></td>
-      <td>(Currently not supported in J3M)<br /></td>
-    </tr>
-    <tr>
-      <td>Matrix4Array</td>
-      <td></td>
-      <td>(Currently not supported in J3M)<br /></td>
-    </tr>
-    <tr>
-      <td>TextureBuffer</td>
-      <td></td>
-      <td>(Currently not supported in J3M)<br /></td>
-    </tr>
-    <tr>
-      <td>TextureArray</td>
-      <td></td>
-      <td>(Currently not supported in J3M)<br /></td>
-    </tr>
-  </tbody>
-</table>
+| Name |
+| --- |
+| jME Java class |
+| .j3m file syntax<br /> |
+| Float |
+| (basic Java type) |
+| a float (e.g. 0.72) , no comma or parentheses<br /> |
+| Vector2 |
+| `com.jme3.math.Vector2f` |
+| Two floats, no comma or parentheses<br /> |
+| Vector3 |
+| `com.jme3.math.Vector3f` |
+| Three floats, no comma or parentheses<br /> |
+| Vector4 |
+| `com.jme3.math.Vector4f` |
+| Four floats, no comma or parentheses<br /> |
+| Texture2D |
+| `com.jme3.texture.Texture2D` |
+| Path to texture in `assets` directory, no quotation marks<br /> |
+| Texture3D |
+| `com.jme3.texture.Texture3D` |
+| Same as texture 2D except it is interpreted as a 3D texture<br /> |
+| TextureCubeMap |
+| `com.jme3.texture.TextureCubeMap` |
+| Same as texture 2D except it is interpreted as a cubemap texture<br /> |
+| Boolean |
+| (basic Java type) |
+| `true` or `false`<br /> |
+| Int |
+| (basic Java type) |
+| Integer number, no comma or parentheses<br /> |
+| Color |
+| `com.jme3.math.ColorRGBA` |
+| Four floats, no comma or parentheses<br /> |
+| FloatArray |
+|  |
+| (Currently not supported in J3M)<br /> |
+| Vector2Array |
+|  |
+| (Currently not supported in J3M)<br /> |
+| Vector3Array |
+|  |
+| (Currently not supported in J3M)<br /> |
+| Vector4Array |
+|  |
+| (Currently not supported in J3M)<br /> |
+| Matrix3 |
+|  |
+| (Currently not supported in J3M)<br /> |
+| Matrix4 |
+|  |
+| (Currently not supported in J3M)<br /> |
+| Matrix3Array |
+|  |
+| (Currently not supported in J3M)<br /> |
+| Matrix4Array |
+|  |
+| (Currently not supported in J3M)<br /> |
+| TextureBuffer |
+|  |
+| (Currently not supported in J3M)<br /> |
+| TextureArray |
+|  |
+| (Currently not supported in J3M)<br /> |
 
 ### Flip and Repeat Syntax
 
@@ -192,57 +145,34 @@ All data types (except Color) are specified in com.jme3.shader.VarType.
 - Enum - values depend on the enum
 
 See the [RenderState](https://javadoc.jmonkeyengine.org/com/jme3/material/RenderState.html) javadoc for a detailed explanation of render states.
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Purpose<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>[Wireframe](https://javadoc.jmonkeyengine.org/com/jme3/material/RenderState.html#setWireframe-boolean-)</td>
-      <td>(Boolean)</td>
-      <td>Enable wireframe rendering mode<br /></td>
-    </tr>
-    <tr>
-      <td>[FaceCull](https://javadoc.jmonkeyengine.org/com/jme3/material/RenderState.html#setFaceCullMode-com.jme3.material.RenderState.FaceCullMode-)</td>
-      <td>(Enum: FaceCullMode)</td>
-      <td>Set face culling mode (Off, Front, Back, FrontAndBack)<br /></td>
-    </tr>
-    <tr>
-      <td>[DepthWrite](https://javadoc.jmonkeyengine.org/com/jme3/material/RenderState.html#setDepthWrite-boolean-)</td>
-      <td>(Boolean)</td>
-      <td>Enable writing depth to the depth buffer<br /></td>
-    </tr>
-    <tr>
-      <td>[DepthTest](https://javadoc.jmonkeyengine.org/com/jme3/material/RenderState.html#setDepthTest-boolean-)</td>
-      <td>(Boolean)</td>
-      <td>Enable depth testing<br /></td>
-    </tr>
-    <tr>
-      <td>[Blend](https://javadoc.jmonkeyengine.org/com/jme3/material/RenderState.html#setBlendMode-com.jme3.material.RenderState.BlendMode-)</td>
-      <td>(Enum: BlendMode)</td>
-      <td>Set the blending mode<br /></td>
-    </tr>
-    <tr>
-      <td>[AlphaDiscardThreshold](https://javadoc.jmonkeyengine.org/com/jme3/material/Material.html#setFloat-java.lang.String-float-)</td>
-      <td>(Float)</td>
-      <td>Set the alpha testing alpha falloff value (if set, it will enable alpha testing) +<br />mat.setFloat("AlphaDiscardThreshold", 2f);<br /></td>
-    </tr>
-    <tr>
-      <td>[PolyOffset](https://javadoc.jmonkeyengine.org/com/jme3/material/RenderState.html#setPolyOffset-float-float-)</td>
-      <td>(Float, Float)</td>
-      <td>Set the polygon offset factor and units<br /></td>
-    </tr>
-    <tr>
-      <td>[ColorWrite](https://javadoc.jmonkeyengine.org/com/jme3/material/RenderState.html#setColorWrite-boolean-)</td>
-      <td>(Boolean)</td>
-      <td>Enable color writing<br /></td>
-    </tr>
-  </tbody>
-</table>
+| Name |
+| --- |
+| Type |
+| Purpose<br /> |
+| [Wireframe](https://javadoc.jmonkeyengine.org/com/jme3/material/RenderState.html#setWireframe-boolean-) |
+| (Boolean) |
+| Enable wireframe rendering mode<br /> |
+| [FaceCull](https://javadoc.jmonkeyengine.org/com/jme3/material/RenderState.html#setFaceCullMode-com.jme3.material.RenderState.FaceCullMode-) |
+| (Enum: FaceCullMode) |
+| Set face culling mode (Off, Front, Back, FrontAndBack)<br /> |
+| [DepthWrite](https://javadoc.jmonkeyengine.org/com/jme3/material/RenderState.html#setDepthWrite-boolean-) |
+| (Boolean) |
+| Enable writing depth to the depth buffer<br /> |
+| [DepthTest](https://javadoc.jmonkeyengine.org/com/jme3/material/RenderState.html#setDepthTest-boolean-) |
+| (Boolean) |
+| Enable depth testing<br /> |
+| [Blend](https://javadoc.jmonkeyengine.org/com/jme3/material/RenderState.html#setBlendMode-com.jme3.material.RenderState.BlendMode-) |
+| (Enum: BlendMode) |
+| Set the blending mode<br /> |
+| [AlphaDiscardThreshold](https://javadoc.jmonkeyengine.org/com/jme3/material/Material.html#setFloat-java.lang.String-float-) |
+| (Float) |
+| Set the alpha testing alpha falloff value (if set, it will enable alpha testing)<br />mat.setFloat("AlphaDiscardThreshold", 2f);<br /> |
+| [PolyOffset](https://javadoc.jmonkeyengine.org/com/jme3/material/RenderState.html#setPolyOffset-float-float-) |
+| (Float, Float) |
+| Set the polygon offset factor and units<br /> |
+| [ColorWrite](https://javadoc.jmonkeyengine.org/com/jme3/material/RenderState.html#setColorWrite-boolean-) |
+| (Boolean) |
+| Enable color writing<br /> |
 
 ## Examples
 

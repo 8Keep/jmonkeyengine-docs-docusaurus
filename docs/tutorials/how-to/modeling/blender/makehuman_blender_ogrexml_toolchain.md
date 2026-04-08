@@ -37,7 +37,7 @@ Public domain seed project with some preset characters and animations:
 
 1. Choose basic skeleton from Pose/Animate tab if you are not already using either of the presets.
 1. Export to blender exchange format from `"Files &gt; Export"` tab.
-  - Choose `"Mesh Format &gt; Blender exchange"` +
+  - Choose `"Mesh Format &gt; Blender exchange"`
 [%interactive]
     - [x] Options
     - [x] Feet on Ground
@@ -55,7 +55,7 @@ Public domain seed project with some preset characters and animations:
 1. Make sure that your scene objects in Blender do not have any spaces or special characters in their names. Rename them if they do.
 1. Arrange all your animations in single NLA track after each other without overlaps or touching in the timeline.
 1. Unlink any animations linked directly to your character armature or mesh.
-1. Export using `"Blender &gt; File&gt;Export Ogre3D"` (scene and mesh) and tick the following options: +
+1. Export using `"Blender &gt; File&gt;Export Ogre3D"` (scene and mesh) and tick the following options:
 [%interactive]
   - [x] copy shader programs
   - [x] Export Scen

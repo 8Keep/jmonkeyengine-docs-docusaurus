@@ -126,36 +126,19 @@ You start every JME3 game from the main() method, as every standard Java applica
 The `app.start();` line opens the application window. Let's learn how you put something into this window (the scene) next.
 
 ### Understanding the Terminology
-<table>
-  <thead>
-    <tr>
-      <th>What you want to do</th>
-      <th>How you say that in JME3 terminology<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>You want to create a cube.</td>
-      <td>I create a Geometry with a 1x1x1 Box shape.<br /></td>
-    </tr>
-    <tr>
-      <td>You want to use a blue color.</td>
-      <td>I create a Material with a blue Color property.<br /></td>
-    </tr>
-    <tr>
-      <td>You want to colorize the cube blue.</td>
-      <td>I set the Material of the Box Geometry.<br /></td>
-    </tr>
-    <tr>
-      <td>You want to add the cube to the scene.</td>
-      <td>I attach the Box Geometry to the rootNode.<br /></td>
-    </tr>
-    <tr>
-      <td>You want the cube to appear in the center.</td>
-      <td>I create the Box at the origin = at `Vector3f.ZERO`.<br /></td>
-    </tr>
-  </tbody>
-</table>
+| What you want to do |
+| --- |
+| How you say that in JME3 terminology<br /> |
+| You want to create a cube. |
+| I create a Geometry with a 1x1x1 Box shape.<br /> |
+| You want to use a blue color. |
+| I create a Material with a blue Color property.<br /> |
+| You want to colorize the cube blue. |
+| I set the Material of the Box Geometry.<br /> |
+| You want to add the cube to the scene. |
+| I attach the Box Geometry to the rootNode.<br /> |
+| You want the cube to appear in the center. |
+| I create the Box at the origin = at `Vector3f.ZERO`.<br /> |
 
 If you are unfamiliar with the vocabulary, read more about [the Scene Graph](../concepts/the_scene_graph.md) here.
 

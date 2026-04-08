@@ -5,7 +5,7 @@ Place audio files in the `assets/Sound/` directory of your project. jME3 support
 ## Audio Terminology
 
 - *Streaming:* There are two ways to load audio data: Short audio files are to be stored entirely in memory (prebuffered), while long audio files, such as music, are streamed from the hard drive as it is played.
-- *Looping:* You can play a sound either once and then stop, or repeatedly (continuously) in a loop. +
+- *Looping:* You can play a sound either once and then stop, or repeatedly (continuously) in a loop.
 You cannot loop streamed sounds.
 - *Instance:* If you play the same audio twice, the playing is queued up and jME plays one after the other. If you play instances of sounds, several instances of the same sound can play at the same time.
 
@@ -26,28 +26,15 @@ AudioNode music = new AudioNode(assetManager, "Sound/music.wav", DataType.Stream
 
 ## Getting AudioNode Properties
 
-<table>
-  <thead>
-    <tr>
-      <th>AudioNode Method</th>
-      <th>Usage<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>getStatus()</td>
-      <td>Returns either AudioSource.Status.Playing, AudioSource.Status.Stopped, or AudioSource.Status.Paused.<br /></td>
-    </tr>
-    <tr>
-      <td>getVolume()</td>
-      <td>Returns the volume.<br /></td>
-    </tr>
-    <tr>
-      <td>getPitch()</td>
-      <td>Returns the pitch.<br /></td>
-    </tr>
-  </tbody>
-</table>
+| AudioNode Method |
+| --- |
+| Usage<br /> |
+| getStatus() |
+| Returns either AudioSource.Status.Playing, AudioSource.Status.Stopped, or AudioSource.Status.Paused.<br /> |
+| getVolume() |
+| Returns the volume.<br /> |
+| getPitch() |
+| Returns the pitch.<br /> |
 
 :::note
 There are other obvious getters to poll the status of all corresponding setters listed here.
@@ -55,82 +42,41 @@ There are other obvious getters to poll the status of all corresponding setters 
 
 ## Setting AudioNode Properties
 
-<table>
-  <thead>
-    <tr>
-      <th>AudioNode Method</th>
-      <th>Usage<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>setTimeOffset(0.5f)</td>
-      <td>Play the sound starting at a 0.5 second offset from the beginning. Default is 0.<br /></td>
-    </tr>
-    <tr>
-      <td>setPitch(1)</td>
-      <td>Makes the sound play in a higher or lower pitch. Default is 1. 2 is twice as high, .5f is half as high.<br /></td>
-    </tr>
-    <tr>
-      <td>setVolume(1)</td>
-      <td>Sets the volume gain. 1 is the default volume, 2 is twice as loud, etc. 0 is silent/mute.<br /></td>
-    </tr>
-    <tr>
-      <td>setRefDistance(50f)</td>
-      <td>The reference distance controls how far a sound can still be heard at 50% of its original volume (_this is assuming an exponential fall-off!_). A sound with a high RefDist can be heard loud over wide distances; a sound with a low refDist can only be heard when the listener is close by. Default is 10 world units.<br /></td>
-    </tr>
-    <tr>
-      <td>setMaxDistance(100f)</td>
-      <td>The 'maximum attenuation distance' specifies how far from the source the sound stops growing more quiet (sounds in nature don't do that). Set this to a smaller value to keep the sound loud even at a distance; set this to higher value to let the sound fade out quickly. Default is 20 world units.<br /></td>
-    </tr>
-    <tr>
-      <td>setLooping(false)</td>
-      <td>Configures the sound so that, if it is played, it plays once and stops. No looping is the default.<br /></td>
-    </tr>
-  </tbody>
-</table>
+| AudioNode Method |
+| --- |
+| Usage<br /> |
+| setTimeOffset(0.5f) |
+| Play the sound starting at a 0.5 second offset from the beginning. Default is 0.<br /> |
+| setPitch(1) |
+| Makes the sound play in a higher or lower pitch. Default is 1. 2 is twice as high, .5f is half as high.<br /> |
+| setVolume(1) |
+| Sets the volume gain. 1 is the default volume, 2 is twice as loud, etc. 0 is silent/mute.<br /> |
+| setRefDistance(50f) |
+| The reference distance controls how far a sound can still be heard at 50% of its original volume (_this is assuming an exponential fall-off!_). A sound with a high RefDist can be heard loud over wide distances; a sound with a low refDist can only be heard when the listener is close by. Default is 10 world units.<br /> |
+| setMaxDistance(100f) |
+| The 'maximum attenuation distance' specifies how far from the source the sound stops growing more quiet (sounds in nature don't do that). Set this to a smaller value to keep the sound loud even at a distance; set this to higher value to let the sound fade out quickly. Default is 20 world units.<br /> |
+| setLooping(false) |
+| Configures the sound so that, if it is played, it plays once and stops. No looping is the default.<br /> |
 
 ### Looping & Ambient Sounds
 
-<table>
-  <thead>
-    <tr>
-      <th>AudioNode Method</th>
-      <th>Usage<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>setPositional(false) +<br />setDirectional(false)</td>
-      <td>All 3D effects switched off. This sound is global and plays in headspace (it appears to come from everywhere). Good for environmental ambient sounds and background music.<br /></td>
-    </tr>
-    <tr>
-      <td>setLooping(true)</td>
-      <td>Configures the sound to be a loop: After the sound plays, it repeats from the beginning, until you call stop() or pause(). Good for music and ambient background noises. +<br />*Before 3.1-alpha2, Looping does not work on streamed sounds.*<br /></td>
-    </tr>
-  </tbody>
-</table>
+| AudioNode Method |
+| --- |
+| Usage<br /> |
+| setPositional(false)<br />setDirectional(false) |
+| All 3D effects switched off. This sound is global and plays in headspace (it appears to come from everywhere). Good for environmental ambient sounds and background music.<br /> |
+| setLooping(true) |
+| Configures the sound to be a loop: After the sound plays, it repeats from the beginning, until you call stop() or pause(). Good for music and ambient background noises.<br />*Before 3.1-alpha2, Looping does not work on streamed sounds.*<br /> |
 
 ### Positional 3D Sounds
 
-<table>
-  <thead>
-    <tr>
-      <th>AudioNode Method</th>
-      <th>Usage<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>setPositional(true) +<br />setLocalTranslation(…)</td>
-      <td>Activates 3D audio: The sound appears to come from a certain position, where it is loudest. Position the AudioNode in the 3D scene, or move it with mobile players or NPCs.<br /></td>
-    </tr>
-    <tr>
-      <td>setReverbEnabled(true)</td>
-      <td>Reverb is a 3D echo effect that only makes sense with positional AudioNodes. Use Audio Environments to make scenes sound as if they were "`outdoors`", or "`indoors`" in a large or small room, etc. The reverb effect is defined by the `com.jme3.audio.Environment` that the `audioRenderer` is in. See "`Setting Audio Environment Properties`" below.<br /></td>
-    </tr>
-  </tbody>
-</table>
+| AudioNode Method |
+| --- |
+| Usage<br /> |
+| setPositional(true)<br />setLocalTranslation(…) |
+| Activates 3D audio: The sound appears to come from a certain position, where it is loudest. Position the AudioNode in the 3D scene, or move it with mobile players or NPCs.<br /> |
+| setReverbEnabled(true) |
+| Reverb is a 3D echo effect that only makes sense with positional AudioNodes. Use Audio Environments to make scenes sound as if they were "`outdoors`", or "`indoors`" in a large or small room, etc. The reverb effect is defined by the `com.jme3.audio.Environment` that the `audioRenderer` is in. See "`Setting Audio Environment Properties`" below.<br /> |
 
 :::important
 Positional 3D sounds require an `AudioListener` object in the scene (representing the player's ears).
@@ -138,24 +84,13 @@ Positional 3D sounds require an `AudioListener` object in the scene (representin
 
 ### Directional 3D Sounds
 
-<table>
-  <thead>
-    <tr>
-      <th>AudioNode Method</th>
-      <th>Usage<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>setDirectional(true) +<br />setDirection(…)</td>
-      <td>Activates 3D audio: This sound can only be heard from a certain direction. Specify the direction and angle in the 3D scene if you have setDirectional() true. Use this to restrict noises that should not be heard, for example, through a wall.<br /></td>
-    </tr>
-    <tr>
-      <td>setInnerAngle() +<br />setOuterAngle()</td>
-      <td>Set the angle in degrees for the directional audio. The angle is relative to the direction. Note: By default, both angles are 360° and the sound can be heard from all directions!<br /></td>
-    </tr>
-  </tbody>
-</table>
+| AudioNode Method |
+| --- |
+| Usage<br /> |
+| setDirectional(true)<br />setDirection(…) |
+| Activates 3D audio: This sound can only be heard from a certain direction. Specify the direction and angle in the 3D scene if you have setDirectional() true. Use this to restrict noises that should not be heard, for example, through a wall.<br /> |
+| setInnerAngle()<br />setOuterAngle() |
+| Set the angle in degrees for the directional audio. The angle is relative to the direction. Note: By default, both angles are 360° and the sound can be heard from all directions!<br /> |
 
 :::important
 Directional 3D sounds require an AudioListener object in the scene (representing the player's ears).
@@ -206,90 +141,73 @@ The default AudioListener object `listener` in `SimpleApplication` is the user's
 
 Optionally, You can choose from the following environmental presets from `com.jme3.audio.Environment`. This presets influence subtle echo effects (reverb) that evoke associations of different environments in your users. That is, it makes you scene sound "`indoors`" or "`outdoors`" etc. You use Audio Environments together with `setReverbEnabled(true)` on positional AudioNodes (see above).
 
-<table>
-  <thead>
-    <tr>
-      <th>Environment</th>
-      <th>density</th>
-      <th>diffusion</th>
-      <th>gain</th>
-      <th>gainHf</th>
-      <th>decayTime</th>
-      <th>decayHf</th>
-      <th>reflGain</th>
-      <th>reflDelay</th>
-      <th>lateGain</th>
-      <th>lateDelay<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Garage</td>
-      <td>1.00f</td>
-      <td>1.0f</td>
-      <td>1.0f</td>
-      <td>1.00f</td>
-      <td>0.90f</td>
-      <td>0.5f</td>
-      <td>0.751f</td>
-      <td>0.0039f</td>
-      <td>0.661f</td>
-      <td>0.0137f<br /></td>
-    </tr>
-    <tr>
-      <td>Dungeon</td>
-      <td>0.75f</td>
-      <td>1.0f</td>
-      <td>1.0f</td>
-      <td>0.75f</td>
-      <td>1.60f</td>
-      <td>1.0f</td>
-      <td>0.950f</td>
-      <td>0.0026f</td>
-      <td>0.930f</td>
-      <td>0.0103f<br /></td>
-    </tr>
-    <tr>
-      <td>Cavern</td>
-      <td>0.50f</td>
-      <td>1.0f</td>
-      <td>1.0f</td>
-      <td>0.50f</td>
-      <td>2.25f</td>
-      <td>1.0f</td>
-      <td>0.908f</td>
-      <td>0.0103f</td>
-      <td>0.930f</td>
-      <td>0.0410f<br /></td>
-    </tr>
-    <tr>
-      <td>AcousticLab</td>
-      <td>0.50f</td>
-      <td>1.0f</td>
-      <td>1.0f</td>
-      <td>1.00f</td>
-      <td>0.28f</td>
-      <td>1.0f</td>
-      <td>0.870f</td>
-      <td>0.0020f</td>
-      <td>0.810f</td>
-      <td>0.0080f<br /></td>
-    </tr>
-    <tr>
-      <td>Closet</td>
-      <td>1.00f</td>
-      <td>1.0f</td>
-      <td>1.0f</td>
-      <td>1.00f</td>
-      <td>0.15f</td>
-      <td>1.0f</td>
-      <td>0.600f</td>
-      <td>0.0025f</td>
-      <td>0.500f</td>
-      <td>0.0006f<br /></td>
-    </tr>
-  </tbody>
-</table>
+| Environment |
+| --- |
+| density |
+| diffusion |
+| gain |
+| gainHf |
+| decayTime |
+| decayHf |
+| reflGain |
+| reflDelay |
+| lateGain |
+| lateDelay<br /> |
+| Garage |
+| 1.00f |
+| 1.0f |
+| 1.0f |
+| 1.00f |
+| 0.90f |
+| 0.5f |
+| 0.751f |
+| 0.0039f |
+| 0.661f |
+| 0.0137f<br /> |
+| Dungeon |
+| 0.75f |
+| 1.0f |
+| 1.0f |
+| 0.75f |
+| 1.60f |
+| 1.0f |
+| 0.950f |
+| 0.0026f |
+| 0.930f |
+| 0.0103f<br /> |
+| Cavern |
+| 0.50f |
+| 1.0f |
+| 1.0f |
+| 0.50f |
+| 2.25f |
+| 1.0f |
+| 0.908f |
+| 0.0103f |
+| 0.930f |
+| 0.0410f<br /> |
+| AcousticLab |
+| 0.50f |
+| 1.0f |
+| 1.0f |
+| 1.00f |
+| 0.28f |
+| 1.0f |
+| 0.870f |
+| 0.0020f |
+| 0.810f |
+| 0.0080f<br /> |
+| Closet |
+| 1.00f |
+| 1.0f |
+| 1.0f |
+| 1.00f |
+| 0.15f |
+| 1.0f |
+| 0.600f |
+| 0.0025f |
+| 0.500f |
+| 0.0006f<br /> |
 
 1. Activate a Environment preset
   - Either use a default, e.g. make your scene sounds like a dungeon environment:

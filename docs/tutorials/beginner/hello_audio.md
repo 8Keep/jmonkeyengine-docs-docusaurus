@@ -250,28 +250,15 @@ AudioNode audio_nature = new AudioNode(assetManager, "Sound/Environment/Nature.o
 Typically, you stream long sounds, and buffer short sounds.
 
 ## Play() or PlayInstance()?
-<table>
-  <thead>
-    <tr>
-      <th>audio.play()</th>
-      <th>audio.playInstance()<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Plays buffered sounds.</td>
-      <td>Plays buffered sounds.<br /></td>
-    </tr>
-    <tr>
-      <td>Plays streamed sounds.</td>
-      <td>Cannot play streamed sounds.<br /></td>
-    </tr>
-    <tr>
-      <td>The same sound cannot play twice at the same time.</td>
-      <td>The same sounds can play multiple times and overlap.<br /></td>
-    </tr>
-  </tbody>
-</table>
+| audio.play() |
+| --- |
+| audio.playInstance()<br /> |
+| Plays buffered sounds. |
+| Plays buffered sounds.<br /> |
+| Plays streamed sounds. |
+| Cannot play streamed sounds.<br /> |
+| The same sound cannot play twice at the same time. |
+| The same sounds can play multiple times and overlap.<br /> |
 
 ## Your Ear in the Scene
 

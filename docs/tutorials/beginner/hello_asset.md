@@ -255,22 +255,11 @@ If your executable throws a "`Cannot locate resource`" runtime exception, check 
 :::
 
 ### Loading Models and Scenes
-<table>
-  <thead>
-    <tr>
-      <th>Task?</th>
-      <th>Solution!<br /></th>
-      <th>Load model W/ materials.</th>
-      <th>Use the asset manager's `loadModel()` method and attach the Spatial to the rootNode.<br /><br />[source,java]<br />----<br />Spatial elephant = assetManager.loadModel("Models/Elephant/Elephant.mesh.xml");<br />rootNode.attachChild(elephant);<br />----<br /><br />[source,java]<br />----<br />Spatial elephant = assetManager.loadModel("Models/Elephant/Elephant.j3o");<br />rootNode.attachChild(elephant);<br />----<br /></th>
-      <th>Load model W/O materials.</th>
-      <th>If you have a model without materials, you have to give it a material to make it visible.<br /><br />[source,java]<br />----<br />Spatial teapot = assetManager.loadModel("Models/Teapot/Teapot.j3o");<br />Material mat = new Material(assetManager, "Common/MatDefs/Misc/ShowNormals.j3md"); // default material<br />teapot.setMaterial(mat);<br />rootNode.attachChild(teapot);<br />----<br /></th>
-      <th>Load a scene.</th>
-      <th>You load scenes just like you load models:<br /><br />[source,java]<br />----<br />Spatial scene = assetManager.loadModel("Scenes/town/main.scene");<br />rootNode.attachChild(scene);<br />----<br /><br />[source,java]<br />----<br />Spatial scene = assetManager.loadModel("Scenes/town/main.j3o");<br />rootNode.attachChild(scene);<br />----</th>
-    </tr>
-  </thead>
-  <tbody>
-  </tbody>
-</table>
+| Task? | Solution!<br /> |
+| --- | --- |
+| Load model W/ materials. | Use the asset manager's `loadModel()` method and attach the Spatial to the rootNode.<br /><br />[source,java]<br />----<br />Spatial elephant = assetManager.loadModel("Models/Elephant/Elephant.mesh.xml");<br />rootNode.attachChild(elephant);<br />----<br /><br />[source,java]<br />----<br />Spatial elephant = assetManager.loadModel("Models/Elephant/Elephant.j3o");<br />rootNode.attachChild(elephant);<br />----<br /> |
+| Load model W/O materials. | If you have a model without materials, you have to give it a material to make it visible.<br /><br />[source,java]<br />----<br />Spatial teapot = assetManager.loadModel("Models/Teapot/Teapot.j3o");<br />Material mat = new Material(assetManager, "Common/MatDefs/Misc/ShowNormals.j3md"); // default material<br />teapot.setMaterial(mat);<br />rootNode.attachChild(teapot);<br />----<br /> |
+| Load a scene. | You load scenes just like you load models:<br /><br />[source,java]<br />----<br />Spatial scene = assetManager.loadModel("Scenes/town/main.scene");<br />rootNode.attachChild(scene);<br />----<br /><br />[source,java]<br />----<br />Spatial scene = assetManager.loadModel("Scenes/town/main.j3o");<br />rootNode.attachChild(scene);<br />---- |
 
 ## Exercise - How to Load Assets
 
@@ -303,10 +292,10 @@ Use the following method to load models from a zip file:
     rootNode.attachChild(gameLevel);
 ```
 
-The loadModel() method now searches this zip directly for the files to load. +
+The loadModel() method now searches this zip directly for the files to load.
 (This means, do not write `loadModel(town.zip/main.scene)` or similar!)
 
-1. Clean, build and run the project. +
+1. Clean, build and run the project.
 You should now see the Ninja+wall+teapot standing in a town.
 
 :::tip
@@ -329,7 +318,7 @@ Earlier in this tutorial, you loaded scenes and models from the asset directory.
 
 Note that the path is relative to the `assets/…` directory.
 
-1. Clean, build and run the project. +
+1. Clean, build and run the project.
 Again, you should see the Ninja+wall+teapot standing in a town.
 
 Here is a third method you must know, loading a scene/model from a .j3o file:
@@ -349,7 +338,7 @@ Here is a third method you must know, loading a scene/model from a .j3o file:
 
 Again, note that the path is relative to the `assets/…` directory.
 
-1. Clean, Build and run the project. +
+1. Clean, Build and run the project.
 Again, you should see the Ninja+wall+teapot standing in a town.
 
 ## Conclusion

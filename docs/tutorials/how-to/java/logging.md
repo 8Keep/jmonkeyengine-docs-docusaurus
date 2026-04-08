@@ -23,9 +23,9 @@ To print comments like a pro, you use the following logger syntax.
 private static final Logger LOGGER = Logger.getLogger(HelloWorld.class.getName());
 ```
 
-1. Declare the info that you want to include in the message. The variables (here `a, b, c`) can be any printable Java object. +
+1. Declare the info that you want to include in the message. The variables (here `a, b, c`) can be any printable Java object.
 Example: `Vector3f a = cam.getLocation();`
-1. Put the variables in a new `Object` array. Refer to the variables as `++&#123;0&#125;,&#123;1&#125;,&#123;2&#125;++` etc in the message string. Variables are numbered in the order you put them into the `Object` array.
+1. Put the variables in a new `Object` array. Refer to the variables as `&#123;0&#125;,&#123;1&#125;,&#123;2&#125;` etc in the message string. Variables are numbered in the order you put them into the `Object` array.
 1. Add the logger line and specify the log level:
   - Usecase 1: During debugging, a developer uses a warning to remind himself of a bug:
 

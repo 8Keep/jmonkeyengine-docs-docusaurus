@@ -8,72 +8,36 @@ You can build jME using the included build.xml script: `ant clean; ant jar; ant 
 When building the sources in a project created with another IDE,  include every folder under `src` in the project as its own separate source root.
 
 ### Core
-<table>
-  <thead>
-    <tr>
-      <th>Source Package</th>
-      <th>Description<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>src/core</td>
-      <td>The main package. Must always be included, as all other packages depend on it.<br /></td>
-    </tr>
-    <tr>
-      <td>src/core-effects</td>
-      <td>Core effects like Water, PSSM etc.<br /></td>
-    </tr>
-    <tr>
-      <td>src/core-data</td>
-      <td>Basic material definitions, shaders and fonts that are needed by most jME3 applications.<br /></td>
-    </tr>
-    <tr>
-      <td>src/core-plugins</td>
-      <td>Important asset plugins, such as .j3o model loader, .obj loader, font loader, basic image loaders.<br /></td>
-    </tr>
-    <tr>
-      <td>src/desktop</td>
-      <td>Must be included if deploying on desktop, applet or web start. *Exclude Android*<br /></td>
-    </tr>
-    <tr>
-      <td>src/android</td>
-      <td>Must be included if deploying on the Android platform. *Exclude Desktop*<br /></td>
-    </tr>
-    <tr>
-      <td>src/lwjgl</td>
-      <td>LWJGL OpenGL display implementation. *Exclude Android*<br /></td>
-    </tr>
-  </tbody>
-</table>
+| Source Package |
+| --- |
+| Description<br /> |
+| src/core |
+| The main package. Must always be included, as all other packages depend on it.<br /> |
+| src/core-effects |
+| Core effects like Water, PSSM etc.<br /> |
+| src/core-data |
+| Basic material definitions, shaders and fonts that are needed by most jME3 applications.<br /> |
+| src/core-plugins |
+| Important asset plugins, such as .j3o model loader, .obj loader, font loader, basic image loaders.<br /> |
+| src/desktop |
+| Must be included if deploying on desktop, applet or web start. *Exclude Android*<br /> |
+| src/android |
+| Must be included if deploying on the Android platform. *Exclude Desktop*<br /> |
+| src/lwjgl |
+| LWJGL OpenGL display implementation. *Exclude Android*<br /> |
 
 ### Physics
-<table>
-  <thead>
-    <tr>
-      <th>Source Package</th>
-      <th>Description<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>+*+ src/jbullet</td>
-      <td>Game Physics Engine, based on the jBullet framework. Desktop only. *Exclude Bullet*<br /></td>
-    </tr>
-    <tr>
-      <td>+*+ src/bullet</td>
-      <td>Game Physics Engine, based on the native Bullet framework. Needs jme3-bullet-native or jme3-bullet-native-android (beta) *Exclude jBullet*<br /></td>
-    </tr>
-    <tr>
-      <td>src/bullet-native</td>
-      <td>Native Bullet implementation C++ classes. *Exclude jBullet*<br /></td>
-    </tr>
-    <tr>
-      <td>src/jme3-bullet-native-android</td>
-      <td>Native libraries needed for bullet (not jbullet) on android.<br /></td>
-    </tr>
-  </tbody>
-</table>
+| Source Package |
+| --- |
+| Description<br /> |
+| +*+ src/jbullet |
+| Game Physics Engine, based on the jBullet framework. Desktop only. *Exclude Bullet*<br /> |
+| +*+ src/bullet |
+| Game Physics Engine, based on the native Bullet framework. Needs jme3-bullet-native or jme3-bullet-native-android (beta) *Exclude jBullet*<br /> |
+| src/bullet-native |
+| Native Bullet implementation C++ classes. *Exclude jBullet*<br /> |
+| src/jme3-bullet-native-android |
+| Native libraries needed for bullet (not jbullet) on android.<br /> |
 
 :::note
 +*+ Only one of the physics libraries can be used at a time as they replace each other.
@@ -89,72 +53,36 @@ or
 :::
 
 ### Plugins and Extra packages
-<table>
-  <thead>
-    <tr>
-      <th>Source Package</th>
-      <th>Description<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>src/ogre</td>
-      <td>Ogre3D model and scene loader. Supports skeletal and vertex animation, scene loading, and materials.<br /></td>
-    </tr>
-    <tr>
-      <td>src/xml</td>
-      <td>Provides an XML im/exporter.<br /></td>
-    </tr>
-    <tr>
-      <td>src/jogg</td>
-      <td>OGG/Vorbis loader to play .ogg sound files.<br /></td>
-    </tr>
-    <tr>
-      <td>src/niftygui</td>
-      <td>Support for custom Graphical User Interfaces.<br /></td>
-    </tr>
-    <tr>
-      <td>src/blender</td>
-      <td>Blender model importer<br /></td>
-    </tr>
-    <tr>
-      <td>src/networking</td>
-      <td>SpiderMonkey networking package<br /></td>
-    </tr>
-    <tr>
-      <td>src/terrain</td>
-      <td>Terrain generation tools<br /></td>
-    </tr>
-    <tr>
-      <td>src/vr</td>
-      <td>Virtual reality</td>
-    </tr>
-  </tbody>
-</table>
+| Source Package |
+| --- |
+| Description<br /> |
+| src/ogre |
+| Ogre3D model and scene loader. Supports skeletal and vertex animation, scene loading, and materials.<br /> |
+| src/xml |
+| Provides an XML im/exporter.<br /> |
+| src/jogg |
+| OGG/Vorbis loader to play .ogg sound files.<br /> |
+| src/niftygui |
+| Support for custom Graphical User Interfaces.<br /> |
+| src/blender |
+| Blender model importer<br /> |
+| src/networking |
+| SpiderMonkey networking package<br /> |
+| src/terrain |
+| Terrain generation tools<br /> |
+| src/vr |
+| Virtual reality |
 
 ### Tests, Games and Tools
-<table>
-  <thead>
-    <tr>
-      <th>Source Package</th>
-      <th>Description<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>src/test</td>
-      <td>Small sample Applications that demo individual jME3 features. jme3_test-data.jar<br /></td>
-    </tr>
-    <tr>
-      <td>src/test-data</td>
-      <td>Data assets (jme3_test-data.jar) required by jme3_test samples.<br /></td>
-    </tr>
-    <tr>
-      <td>src/tools</td>
-      <td>Tools and programs that help you use jme3.<br /></td>
-    </tr>
-  </tbody>
-</table>
+| Source Package |
+| --- |
+| Description<br /> |
+| src/test |
+| Small sample Applications that demo individual jME3 features. jme3_test-data.jar<br /> |
+| src/test-data |
+| Data assets (jme3_test-data.jar) required by jme3_test samples.<br /> |
+| src/tools |
+| Tools and programs that help you use jme3.<br /> |
 
 ## Structure of lib directory
 
@@ -191,82 +119,49 @@ The jME3-*natives*.jar bundles contain the native libraries, those are necessary
 ## Structure of jMonkeyEngine3 JARs
 
 After the build is complete (in the `dist` directory), you see that the jMonkeyEngine library is split up over several JAR files. This allows for better separation of the parts for different operating systems, projects etc.
-<table>
-  <thead>
-    <tr>
-      <th>JAR file</th>
-      <th>Purpose</th>
-      <th>External Dependence<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>dist/lib/jME3-core.jar</td>
-      <td>Platform-independent core libraries (math, animation, scenegraph, Wavefront OBJ model support, etc)</td>
-      <td>None<br /></td>
-    </tr>
-    <tr>
-      <td>dist/lib/jME3-effects.jar</td>
-      <td>Core jME3 effects (Water, SSAO etc)</td>
-      <td>None<br /></td>
-    </tr>
-    <tr>
-      <td>dist/lib/jME3-desktop.jar</td>
-      <td>Desktop PC only jME3 libraries</td>
-      <td>None<br /></td>
-    </tr>
-    <tr>
-      <td>dist/lib/jME3-plugins.jar</td>
-      <td>Basic import plugins (OgreXML models and j3o XML)</td>
-      <td>None<br /></td>
-    </tr>
-    <tr>
-      <td>dist/lib/jME3-blender.jar</td>
-      <td>Blender model import plugin (Desktop only)</td>
-      <td>None<br /></td>
-    </tr>
-    <tr>
-      <td>dist/lib/jME3-networking.jar</td>
-      <td>"`Spidermonkey`" networking library</td>
-      <td>None<br /></td>
-    </tr>
-    <tr>
-      <td>dist/lib/jME3-jogg.jar</td>
-      <td>J-OGG audio plugin</td>
-      <td>j-ogg-vorbisd.jar, j-ogg-oggd.jar<br /></td>
-    </tr>
-    <tr>
-      <td>dist/lib/jME3-terrain.jar</td>
-      <td>Terrain system</td>
-      <td>None<br /></td>
-    </tr>
-    <tr>
-      <td>dist/lib/jME3-jbullet.jar</td>
-      <td>jBullet physics</td>
-      <td>jbullet.jar, vecmath.jar, stack-alloc.jar, asm-all-3.1.jar<br /></td>
-    </tr>
-    <tr>
-      <td>dist/lib/jME3-bullet.jar</td>
-      <td>Bullet physics (only jBullet *or* Bullet can be used)</td>
-      <td>jME3-bullet-natives.jar<br /></td>
-    </tr>
-    <tr>
-      <td>dist/lib/jME3-niftygui.jar</td>
-      <td>NiftyGUI support</td>
-      <td>nifty.jar, nifty-default-controls.jar, eventbus.jar, xmlpull-xpp3.jar<br /></td>
-    </tr>
-    <tr>
-      <td>dist/lib/jME3-lwjgl.jar</td>
-      <td>LWJGL Desktop Renderer</td>
-      <td>lwjgl.jar, jME3-lwjgl-natives.jar, jinput.jar<br /></td>
-    </tr>
-    <tr>
-      <td>dist/lib/jME3-android.jar</td>
-      <td>Android Renderer</td>
-      <td>Android system<br /></td>
-    </tr>
-  </tbody>
-</table>
+| JAR file |
+| --- |
+| Purpose |
+| External Dependence<br /> |
+| dist/lib/jME3-core.jar |
+| Platform-independent core libraries (math, animation, scenegraph, Wavefront OBJ model support, etc) |
+| None<br /> |
+| dist/lib/jME3-effects.jar |
+| Core jME3 effects (Water, SSAO etc) |
+| None<br /> |
+| dist/lib/jME3-desktop.jar |
+| Desktop PC only jME3 libraries |
+| None<br /> |
+| dist/lib/jME3-plugins.jar |
+| Basic import plugins (OgreXML models and j3o XML) |
+| None<br /> |
+| dist/lib/jME3-blender.jar |
+| Blender model import plugin (Desktop only) |
+| None<br /> |
+| dist/lib/jME3-networking.jar |
+| "`Spidermonkey`" networking library |
+| None<br /> |
+| dist/lib/jME3-jogg.jar |
+| J-OGG audio plugin |
+| j-ogg-vorbisd.jar, j-ogg-oggd.jar<br /> |
+| dist/lib/jME3-terrain.jar |
+| Terrain system |
+| None<br /> |
+| dist/lib/jME3-jbullet.jar |
+| jBullet physics |
+| jbullet.jar, vecmath.jar, stack-alloc.jar, asm-all-3.1.jar<br /> |
+| dist/lib/jME3-bullet.jar |
+| Bullet physics (only jBullet *or* Bullet can be used) |
+| jME3-bullet-natives.jar<br /> |
+| dist/lib/jME3-niftygui.jar |
+| NiftyGUI support |
+| nifty.jar, nifty-default-controls.jar, eventbus.jar, xmlpull-xpp3.jar<br /> |
+| dist/lib/jME3-lwjgl.jar |
+| LWJGL Desktop Renderer |
+| lwjgl.jar, jME3-lwjgl-natives.jar, jinput.jar<br /> |
+| dist/lib/jME3-android.jar |
+| Android Renderer |
+| Android system<br /> |
 
 Optional:
 
@@ -279,36 +174,21 @@ Optional:
 For details see the [javadoc](https://javadoc.jmonkeyengine.org).
 
 ## Data File Types
-<table>
-  <thead>
-    <tr>
-      <th>Path</th>
-      <th>File types</th>
-      <th>purpose<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>/Common/MatDefs/*/</td>
-      <td>.glsllib</td>
-      <td>Standard ShaderLibs<br /></td>
-    </tr>
-    <tr>
-      <td>/Common/MatDefs/*/</td>
-      <td>.j3md</td>
-      <td>Standard Material Definitions<br /></td>
-    </tr>
-    <tr>
-      <td>/Common/Materials/*/</td>
-      <td>.j3m</td>
-      <td>Standard Material<br /></td>
-    </tr>
-    <tr>
-      <td>/Interface/Fonts/</td>
-      <td>.fnt + .png</td>
-      <td>Standard Fonts<br /></td>
-    </tr>
-  </tbody>
-</table>
+| Path |
+| --- |
+| File types |
+| purpose<br /> |
+| /Common/MatDefs/*/ |
+| .glsllib |
+| Standard ShaderLibs<br /> |
+| /Common/MatDefs/*/ |
+| .j3md |
+| Standard Material Definitions<br /> |
+| /Common/Materials/*/ |
+| .j3m |
+| Standard Material<br /> |
+| /Interface/Fonts/ |
+| .fnt + .png |
+| Standard Fonts<br /> |
 
 See also: Supported Formats.

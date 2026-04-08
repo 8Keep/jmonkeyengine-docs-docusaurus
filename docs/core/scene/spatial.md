@@ -17,28 +17,36 @@ In your Java code, a Spatial is either an instance of `com.jme3.scene.Node` or a
     <tr>
       <th></th>
       <th colspan="2">com.jme3.scene.Spatial<br /></th>
-      <th>Purpose:</th>
-      <th colspan="2">A Spatial is an abstract data structure that stores user data and transformations (= translation, rotation, scale) of elements of the 3D scene graph. Spatials can be saved and loaded using the [Asset Manager](../asset/asset_manager.md).<br /></th>
-      <th></th>
-      <th>com.jme3.scene.Geometry</th>
-      <th>com.jme3.scene.Node<br /></th>
-      <th>Visibility:</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>A Geometry represents a *visible* 3D object in the scene graph.</td>
-      <td>A Node is an *invisible "`handle`"* for a group of Spatials in the scene graph.<br /></td>
       <td>Purpose:</td>
-      <td>Use Geometries to represent an object's *look*: Every Geometry contains a polygon mesh and a material, specifying its shape, color, texture, and opacity/transparency. +<br />You attach Geometries to Nodes.</td>
-      <td>Use Nodes to *structure and group* Geometries and other Nodes. Every Node is attached to one parent node, and each node can have zero or more children (Nodes or Geometries) attached to itself. +<br />*When you transform (move, rotate, etc) a parent node, all its children are transformed (moved, rotated, etc).*<br /></td>
-      <td>Content:</td>
-      <td>Transformations; custom user data; +<br />mesh and material;</td>
-      <td>Transformations; custom user data; +<br />no mesh, no material.<br /></td>
-      <td>Examples:</td>
-      <td>Box, sphere, player, building, terrain, vehicle, missiles, NPCs, etc…</td>
+      <td colspan="2">A Spatial is an abstract data structure that stores user data and transformations (= translation, rotation, scale) of elements of the 3D scene graph. Spatials can be saved and loaded using the <a href="../asset/asset_manager.md">Asset Manager</a>.<br /></td>
     </tr>
     <tr>
+      <td></td>
+      <td>com.jme3.scene.Geometry</td>
+      <td>com.jme3.scene.Node<br /></td>
+    </tr>
+    <tr>
+      <td>Visibility:</td>
+      <td>A Geometry represents a *visible* 3D object in the scene graph.</td>
+      <td>A Node is an *invisible "<code>handle</code>"* for a group of Spatials in the scene graph.<br /></td>
+    </tr>
+    <tr>
+      <td>Purpose:</td>
+      <td>Use Geometries to represent an object's *look*: Every Geometry contains a polygon mesh and a material, specifying its shape, color, texture, and opacity/transparency.<br />You attach Geometries to Nodes.</td>
+      <td>Use Nodes to *structure and group* Geometries and other Nodes. Every Node is attached to one parent node, and each node can have zero or more children (Nodes or Geometries) attached to itself.<br />*When you transform (move, rotate, etc) a parent node, all its children are transformed (moved, rotated, etc).*<br /></td>
+    </tr>
+    <tr>
+      <td>Content:</td>
+      <td>Transformations; custom user data;<br />mesh and material;</td>
+      <td>Transformations; custom user data;<br />no mesh, no material.<br /></td>
+    </tr>
+    <tr>
+      <td>Examples:</td>
+      <td>Box, sphere, player, building, terrain, vehicle, missiles, NPCs, etc…</td>
       <td>rootNode, guiNode, audioNode, a custom grouping node such as vehicleNode or shipNode with passengers attached, etc.<br /></td>
     </tr>
   </tbody>

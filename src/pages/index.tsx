@@ -6,15 +6,15 @@ import styles from './index.module.css';
 const highlights = [
   {
     title: 'Imported Structure',
-    body: 'The current Antora wiki structure is mirrored into Docusaurus docs, sidebars, and static assets.',
+    body: 'The current Antora wiki structure is mirrored into Docusaurus docs, sidebars, and static assets with stable routes.',
   },
   {
     title: 'Migration Tooling',
-    body: 'Importer scripts generate Markdown pages, copy assets, and produce a report for unresolved Antora syntax.',
+    body: 'Importer scripts generate Markdown pages, copy assets, and fail the build when broken links or anchors slip in.',
   },
   {
-    title: 'jMonkeyEngine Theme',
-    body: 'The first pass sets the brand colors, doc chrome, and homepage while leaving room for deeper theme work.',
+    title: 'Forum-Inspired Theme',
+    body: 'The visual system now follows the dark hub.jmonkeyengine.org palette instead of the earlier light placeholder theme.',
   },
 ];
 
@@ -31,7 +31,7 @@ export default function Home(): JSX.Element {
             <p className={styles.lede}>
               This repo is an experimental migration from the Antora-based wiki to a
               Docusaurus site with generated Markdown content, GitHub Pages deployment,
-              and a jMonkeyEngine visual identity.
+              and a visual system tuned to the jMonkeyEngine forum palette.
             </p>
             <div className={styles.actions}>
               <Link className="button button--primary button--lg" to="/docs/documentation">

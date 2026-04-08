@@ -55,64 +55,33 @@ rootNode.attachChild(playerNode); // add wrapper to root
 
 This table doesn't contain all of the methods of the BetterCharacterControl class, just the commonly used ones. For a full list, see the [java doc](https://javadoc.jmonkeyengine.org/com/jme3/bullet/control/BetterCharacterControl.html).
 
-<table>
-  <thead>
-    <tr>
-      <th>BetterCharacterControl Method</th>
-      <th>Property<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>warp(new Vector3f(0,10,10)</td>
-      <td>Move the character somewhere. Note the character also takes the location of any spatial its being attached to at the moment it is attached.<br /></td>
-    </tr>
-    <tr>
-      <td>jump()</td>
-      <td>Makes the character jump with the set jump force.<br /></td>
-    </tr>
-    <tr>
-      <td>setJumpForce(new Vector3f(0,5f,0)</td>
-      <td>Set the jump force as a Vector3f. The jump force is local to the characters coordinate system, which normally is always z-forward (in world coordinates, parent coordinates when set to applyLocalPhysics)<br /></td>
-    </tr>
-    <tr>
-      <td>isOnGround()</td>
-      <td>Check if the character is on the ground. This is determined by a ray test in the center of the character and might return false even if the character is not falling yet.<br /></td>
-    </tr>
-    <tr>
-      <td>setDucked(true)</td>
-      <td>Toggle character ducking. When ducked the characters capsule collision shape height will be multiplied by duckedFactor to make the capsule smaller. When unducking, the character will check with a ray test if it can in fact unduck and only do so when its possible. You can check the state of the unducking by checking isDucked().<br /></td>
-    </tr>
-    <tr>
-      <td>setDuckedFactor(2.0f)</td>
-      <td>The factor by which the height should be multiplied when ducking.<br /></td>
-    </tr>
-    <tr>
-      <td>setWalkDirection(new Vector3f(0f,0f,0.1f))</td>
-      <td>Sets the walk direction of the character. This parameter is frame rate independent and the character will move continuously in the direction given by the vector with the speed given by the vector length in m/s.<br /></td>
-    </tr>
-    <tr>
-      <td>setViewDirection(new Vector3f(0f,0f,0.1f))</td>
-      <td>Sets the view direction for the character. Note this only defines the rotation of the spatial in the local x/z plane of the character.<br /></td>
-    </tr>
-    <tr>
-      <td>resetForward(new Vector3f(0f,0f,0.1f))</td>
-      <td>Realign the local forward vector to given direction vector, if null is supplied Vector3f.UNIT_Z is used. Input vector has to be perpendicular to current gravity vector. This normally only needs to be called when the gravity direction changed continuously and the local forward vector is off due to drift. E.g. after walking around on a sphere "planet" for a while and then going back to a y-up coordinate system the local z-forward might not be 100% aligned with Z axis.<br /></td>
-    </tr>
-    <tr>
-      <td>setGravity(new Vector3f(0,-1f,0))</td>
-      <td>Set the gravity for this character. Note that this also realigns the local coordinate system of the character so that continuous changes in gravity direction are possible while maintaining a sensible control over the character. Only takes effect if the individual physics object has already been added to the PhysicsSpace, otherwise it adopts the PhysicsSpace gravity.<br /></td>
-    </tr>
-    <tr>
-      <td>setPhysicsDamping(0.9f)</td>
-      <td>Sets how much the physics forces in the local x/z plane should be dampened. 0 = no dampening, 1 = no external force, default = 0.9<br /></td>
-    </tr>
-    <tr>
-      <td>setHeightPercent(float percent)</td>
-      <td>This actually sets a new collision shape to the character to change the height of the capsule.<br /></td>
-    </tr>
-  </tbody>
-</table>
+| BetterCharacterControl Method |
+| --- |
+| Property<br /> |
+| warp(new Vector3f(0,10,10) |
+| Move the character somewhere. Note the character also takes the location of any spatial its being attached to at the moment it is attached.<br /> |
+| jump() |
+| Makes the character jump with the set jump force.<br /> |
+| setJumpForce(new Vector3f(0,5f,0) |
+| Set the jump force as a Vector3f. The jump force is local to the characters coordinate system, which normally is always z-forward (in world coordinates, parent coordinates when set to applyLocalPhysics)<br /> |
+| isOnGround() |
+| Check if the character is on the ground. This is determined by a ray test in the center of the character and might return false even if the character is not falling yet.<br /> |
+| setDucked(true) |
+| Toggle character ducking. When ducked the characters capsule collision shape height will be multiplied by duckedFactor to make the capsule smaller. When unducking, the character will check with a ray test if it can in fact unduck and only do so when its possible. You can check the state of the unducking by checking isDucked().<br /> |
+| setDuckedFactor(2.0f) |
+| The factor by which the height should be multiplied when ducking.<br /> |
+| setWalkDirection(new Vector3f(0f,0f,0.1f)) |
+| Sets the walk direction of the character. This parameter is frame rate independent and the character will move continuously in the direction given by the vector with the speed given by the vector length in m/s.<br /> |
+| setViewDirection(new Vector3f(0f,0f,0.1f)) |
+| Sets the view direction for the character. Note this only defines the rotation of the spatial in the local x/z plane of the character.<br /> |
+| resetForward(new Vector3f(0f,0f,0.1f)) |
+| Realign the local forward vector to given direction vector, if null is supplied Vector3f.UNIT_Z is used. Input vector has to be perpendicular to current gravity vector. This normally only needs to be called when the gravity direction changed continuously and the local forward vector is off due to drift. E.g. after walking around on a sphere "planet" for a while and then going back to a y-up coordinate system the local z-forward might not be 100% aligned with Z axis.<br /> |
+| setGravity(new Vector3f(0,-1f,0)) |
+| Set the gravity for this character. Note that this also realigns the local coordinate system of the character so that continuous changes in gravity direction are possible while maintaining a sensible control over the character. Only takes effect if the individual physics object has already been added to the PhysicsSpace, otherwise it adopts the PhysicsSpace gravity.<br /> |
+| setPhysicsDamping(0.9f) |
+| Sets how much the physics forces in the local x/z plane should be dampened. 0 = no dampening, 1 = no external force, default = 0.9<br /> |
+| setHeightPercent(float percent) |
+| This actually sets a new collision shape to the character to change the height of the capsule.<br /> |
 
 ## Character Control
 
@@ -137,40 +106,21 @@ The BulletPhysics CharacterControl only collides with "`real`" PhysicsControls (
 :::
 
 A CharacterControl is a special kinematic object with restricted movement. CharacterControls have a fixed "`upward`" axis, this means they do not topple over when walking over an obstacle (as opposed to RigidBodyControls), which simulates a being's ability to balance upright. A CharacterControl can jump and fall along its upward axis, and it can scale steps of a certain height/steepness.
-<table>
-  <thead>
-    <tr>
-      <th>CharacterControl Method</th>
-      <th>Property<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>setUpAxis(1)</td>
-      <td>Fixed upward axis. Values: 0 = X axis , 1 = Y axis , 2 = Z axis. +<br />Default: 1, because for characters and vehicles, up is typically along the Y axis.<br /></td>
-    </tr>
-    <tr>
-      <td>setJumpSpeed(10f)</td>
-      <td>Jump speed (movement along upward-axis)<br /></td>
-    </tr>
-    <tr>
-      <td>setFallSpeed(20f)</td>
-      <td>Fall speed (movement opposite to upward-axis)<br /></td>
-    </tr>
-    <tr>
-      <td>setMaxSlope(1.5f)</td>
-      <td>How steep the slopes and steps are that the character can climb without considering them an obstacle. Higher obstacles need to be jumped. Vertical height in world units.<br /></td>
-    </tr>
-    <tr>
-      <td>setGravity(1f)</td>
-      <td>The intensity of gravity for this CharacterControl'ed entity. Tip: To change the direction of gravity for a character, modify the up axis.<br /></td>
-    </tr>
-    <tr>
-      <td>setWalkDirection(new Vector3f(0f,0f,0.1f))</td>
-      <td>(CharacterControl only) Make a physical character walk continuously while checking for floors and walls as solid obstacles. This should probably be called "`setPositionIncrementPerSimulatorStep`". This argument is neither a direction nor a velocity, but the amount to increment the position each physics tick: vector length = accuracy*speed in m/s. +<br />Use `setWalkDirection(Vector3f.ZERO)` to stop a directional motion.<br /></td>
-    </tr>
-  </tbody>
-</table>
+| CharacterControl Method |
+| --- |
+| Property<br /> |
+| setUpAxis(1) |
+| Fixed upward axis. Values: 0 = X axis , 1 = Y axis , 2 = Z axis.<br />Default: 1, because for characters and vehicles, up is typically along the Y axis.<br /> |
+| setJumpSpeed(10f) |
+| Jump speed (movement along upward-axis)<br /> |
+| setFallSpeed(20f) |
+| Fall speed (movement opposite to upward-axis)<br /> |
+| setMaxSlope(1.5f) |
+| How steep the slopes and steps are that the character can climb without considering them an obstacle. Higher obstacles need to be jumped. Vertical height in world units.<br /> |
+| setGravity(1f) |
+| The intensity of gravity for this CharacterControl'ed entity. Tip: To change the direction of gravity for a character, modify the up axis.<br /> |
+| setWalkDirection(new Vector3f(0f,0f,0.1f)) |
+| (CharacterControl only) Make a physical character walk continuously while checking for floors and walls as solid obstacles. This should probably be called "`setPositionIncrementPerSimulatorStep`". This argument is neither a direction nor a velocity, but the amount to increment the position each physics tick: vector length = accuracy*speed in m/s.<br />Use `setWalkDirection(Vector3f.ZERO)` to stop a directional motion.<br /> |
 
 For best practices on how to use `setWalkDirection()`, see the Navigation Inputs example below.
 

@@ -74,52 +74,27 @@ text.setType(TextField.Type type);
 
 ```
 
-<table>
-  <thead>
-    <tr>
-      <th>Rule</th>
-      <th>Description<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Type.DEFAULT</td>
-      <td>Accept all characters<br /></td>
-    </tr>
-    <tr>
-      <td>Type.ALPHA</td>
-      <td>Accept only lower case, uppercase alpha character + spacebar<br /></td>
-    </tr>
-    <tr>
-      <td>Type.ALPHA_NOSPACE</td>
-      <td>Accept only lower case, uppercase alpha character - no spacebar<br /></td>
-    </tr>
-    <tr>
-      <td>Type.NUMERIC</td>
-      <td>Accept only numeric values + decimal<br /></td>
-    </tr>
-    <tr>
-      <td>Type.ALPHANUMERIC</td>
-      <td>Apply both ALPHA and NUMERIC rules<br /></td>
-    </tr>
-    <tr>
-      <td>Type.ALPHANUMERIC_NOSPACE</td>
-      <td>Apply both ALPHA_NOSPACE and NUMERIC rules<br /></td>
-    </tr>
-    <tr>
-      <td>Type.EXCLUDE_SPECIAL</td>
-      <td>Exclude all spacial characters<br /></td>
-    </tr>
-    <tr>
-      <td>Type.EXCLUDE_CUSTOM</td>
-      <td>Exclude all user defined character (see below)<br /></td>
-    </tr>
-    <tr>
-      <td>Type.INCLUDE_CUSTOM</td>
-      <td>Accept only user defined characters (see below)<br /></td>
-    </tr>
-  </tbody>
-</table>
+| Rule |
+| --- |
+| Description<br /> |
+| Type.DEFAULT |
+| Accept all characters<br /> |
+| Type.ALPHA |
+| Accept only lower case, uppercase alpha character + spacebar<br /> |
+| Type.ALPHA_NOSPACE |
+| Accept only lower case, uppercase alpha character - no spacebar<br /> |
+| Type.NUMERIC |
+| Accept only numeric values + decimal<br /> |
+| Type.ALPHANUMERIC |
+| Apply both ALPHA and NUMERIC rules<br /> |
+| Type.ALPHANUMERIC_NOSPACE |
+| Apply both ALPHA_NOSPACE and NUMERIC rules<br /> |
+| Type.EXCLUDE_SPECIAL |
+| Exclude all spacial characters<br /> |
+| Type.EXCLUDE_CUSTOM |
+| Exclude all user defined character (see below)<br /> |
+| Type.INCLUDE_CUSTOM |
+| Accept only user defined characters (see below)<br /> |
 
 To define a custom validation for Type.EXCLUDE_CUSTOM or Type.INCLUDE_CUSTOM, use the following method:
 

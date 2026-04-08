@@ -2,7 +2,7 @@
 
 Mouse picking means that the user clicks an object in the scene to select it, or to interact with it otherwise. Games use picking to implement aiming and shooting, casting spells, picking up objects, selecting targets, dragging and moving objects, etc. Mouse picking can be done using fixed crosshairs, or using the mouse pointer.
 
-image:input/mouse-picking.png[mouse-picking.png,width="",height=""]
+![mouse-picking.png](/wiki-assets/docs/core/assets/images/input/mouse-picking.png)
 
 See [Input Handling](input_handling.md) for details on how to define the necessary input triggers, input mappings, and input listeners.
 

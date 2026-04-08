@@ -26,162 +26,83 @@ The VertexBuffer contains a particular type of geometry data used by Meshes. Eve
 
 Here is the list of [VertexBuffer](https://javadoc.jmonkeyengine.org/com/jme3/scene/VertexBuffer.Type.html) types.
 
-<table>
-  <thead>
-    <tr>
-      <th>Vertex Buffer Type</th>
-      <th>Description<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Type.Position</td>
-      <td>Position of the vertex (3 floats)<br /></td>
-    </tr>
-    <tr>
-      <td>Type.Index</td>
-      <td>Specifies the index buffer, must contain integer data.<br /></td>
-    </tr>
-    <tr>
-      <td>Type.TexCoord</td>
-      <td>Texture coordinate<br /></td>
-    </tr>
-    <tr>
-      <td>Type.TexCoord2</td>
-      <td>Texture coordinate #2<br /></td>
-    </tr>
-    <tr>
-      <td>Type.Normal</td>
-      <td>Normal vector, normalized.<br /></td>
-    </tr>
-    <tr>
-      <td>Type.Tangent</td>
-      <td>Tangent vector, normalized.<br /></td>
-    </tr>
-    <tr>
-      <td>Type.Binormal</td>
-      <td>Binormal vector, normalized.<br /></td>
-    </tr>
-    <tr>
-      <td>Type.Color</td>
-      <td>Color and Alpha (4 floats)<br /></td>
-    </tr>
-    <tr>
-      <td>Type.Size</td>
-      <td>The size of the point when using point buffers.<br /></td>
-    </tr>
-    <tr>
-      <td>Type.InterleavedData</td>
-      <td>Specifies the source data for various vertex buffers when interleaving is used.<br /></td>
-    </tr>
-    <tr>
-      <td>Type.BindPosePosition</td>
-      <td>Initial vertex position, used with animation.<br /></td>
-    </tr>
-    <tr>
-      <td>Type.BindPoseNormal</td>
-      <td>Initial vertex normals, used with animation<br /></td>
-    </tr>
-    <tr>
-      <td>Type.BoneWeight</td>
-      <td>Bone weights, used with animation<br /></td>
-    </tr>
-    <tr>
-      <td>Type.BoneIndex</td>
-      <td>Bone indices, used with animation<br /></td>
-    </tr>
-  </tbody>
-</table>
+| Vertex Buffer Type |
+| --- |
+| Description<br /> |
+| Type.Position |
+| Position of the vertex (3 floats)<br /> |
+| Type.Index |
+| Specifies the index buffer, must contain integer data.<br /> |
+| Type.TexCoord |
+| Texture coordinate<br /> |
+| Type.TexCoord2 |
+| Texture coordinate #2<br /> |
+| Type.Normal |
+| Normal vector, normalized.<br /> |
+| Type.Tangent |
+| Tangent vector, normalized.<br /> |
+| Type.Binormal |
+| Binormal vector, normalized.<br /> |
+| Type.Color |
+| Color and Alpha (4 floats)<br /> |
+| Type.Size |
+| The size of the point when using point buffers.<br /> |
+| Type.InterleavedData |
+| Specifies the source data for various vertex buffers when interleaving is used.<br /> |
+| Type.BindPosePosition |
+| Initial vertex position, used with animation.<br /> |
+| Type.BindPoseNormal |
+| Initial vertex normals, used with animation<br /> |
+| Type.BoneWeight |
+| Bone weights, used with animation<br /> |
+| Type.BoneIndex |
+| Bone indices, used with animation<br /> |
 
 ### Mesh Properties
 
 Some Mesh properties from the [Mesh](https://javadoc.jmonkeyengine.org/com/jme3/scene/Mesh.html) class.
 
-<table>
-  <thead>
-    <tr>
-      <th>Mesh method</th>
-      <th>Description<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>setBound(boundingVolume)</td>
-      <td>if you need to specify a custom optimized bounding volume<br /></td>
-    </tr>
-    <tr>
-      <td>setStatic()</td>
-      <td>Locks the mesh so you cannot modify it anymore, thus optimizing its data (faster).<br /></td>
-    </tr>
-    <tr>
-      <td>setDynamic()</td>
-      <td>Unlocks the mesh so you can modified it, but this will un-optimize the data (slower).<br /></td>
-    </tr>
-    <tr>
-      <td>setMode(Mesh.Mode.Points)</td>
-      <td>Used to set mesh rendering modes, see below.<br /></td>
-    </tr>
-    <tr>
-      <td>getId()</td>
-      <td>returns the Mesh ID, default value is -1<br /></td>
-    </tr>
-    <tr>
-      <td>getTriangle(int,tri)</td>
-      <td>returns data of triangle number `int` into variable `tri`<br /></td>
-    </tr>
-    <tr>
-      <td>scaleTextureCoordinates(Vector2f)</td>
-      <td>How the texture will be stretched over the whole mesh.<br /></td>
-    </tr>
-  </tbody>
-</table>
+| Mesh method |
+| --- |
+| Description<br /> |
+| setBound(boundingVolume) |
+| if you need to specify a custom optimized bounding volume<br /> |
+| setStatic() |
+| Locks the mesh so you cannot modify it anymore, thus optimizing its data (faster).<br /> |
+| setDynamic() |
+| Unlocks the mesh so you can modified it, but this will un-optimize the data (slower).<br /> |
+| setMode(Mesh.Mode.Points) |
+| Used to set mesh rendering modes, see below.<br /> |
+| getId() |
+| returns the Mesh ID, default value is -1<br /> |
+| getTriangle(int,tri) |
+| returns data of triangle number `int` into variable `tri`<br /> |
+| scaleTextureCoordinates(Vector2f) |
+| How the texture will be stretched over the whole mesh.<br /> |
 
 ### Mesh Rendering Modes
 
 Here is the list of [Mesh rendering modes](https://javadoc.jmonkeyengine.org/com/jme3/scene/Mesh.Mode.html).
 
-<table>
-  <thead>
-    <tr>
-      <th>Mesh Mode</th>
-      <th>Description<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Mesh.Mode.Points</td>
-      <td>Show only corner points (vertices) of mesh<br /></td>
-    </tr>
-    <tr>
-      <td>Mesh.Mode.Lines</td>
-      <td>Show lines (edges) of mesh<br /></td>
-    </tr>
-    <tr>
-      <td>Mesh.Mode.LineLoop</td>
-      <td>?<br /></td>
-    </tr>
-    <tr>
-      <td>Mesh.Mode.LineStrip</td>
-      <td>?<br /></td>
-    </tr>
-    <tr>
-      <td>Mesh.Mode.Triangles</td>
-      <td>?<br /></td>
-    </tr>
-    <tr>
-      <td>Mesh.Mode.TriangleStrip</td>
-      <td>?<br /></td>
-    </tr>
-    <tr>
-      <td>Mesh.Mode.TriangleFan</td>
-      <td>?<br /></td>
-    </tr>
-    <tr>
-      <td>Mesh.Mode.Hybrid</td>
-      <td>?<br /></td>
-    </tr>
-  </tbody>
-</table>
+| Mesh Mode |
+| --- |
+| Description<br /> |
+| Mesh.Mode.Points |
+| Show only corner points (vertices) of mesh<br /> |
+| Mesh.Mode.Lines |
+| Show lines (edges) of mesh<br /> |
+| Mesh.Mode.LineLoop |
+| ?<br /> |
+| Mesh.Mode.LineStrip |
+| ?<br /> |
+| Mesh.Mode.Triangles |
+| ?<br /> |
+| Mesh.Mode.TriangleStrip |
+| ?<br /> |
+| Mesh.Mode.TriangleFan |
+| ?<br /> |
+| Mesh.Mode.Hybrid |
+| ?<br /> |
 
 ### Level of Detail
 

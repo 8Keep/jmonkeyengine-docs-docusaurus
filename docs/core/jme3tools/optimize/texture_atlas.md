@@ -5,7 +5,7 @@ The `jme3tools.optimize.TextureAtlas` allows combining multiple textures into on
 `jme3tools.optimize.GeometryBatchFactory`, in contrast, only works if the geometries have only one material with textures.
 
 1. Create a TextureAtlas.
-1. Add textures to texture atlas, each texture goes onto one map (e.g. `DiffuseMap`). +
+1. Add textures to texture atlas, each texture goes onto one map (e.g. `DiffuseMap`).
   The image data is stored in a byte array for each named texture map.
 1. Later, you retrieve each map by name as a Texture, and use it in materials.
 
@@ -15,49 +15,22 @@ The `jme3tools.optimize.TextureAtlas` allows combining multiple textures into on
 
 ## API
 
-<table>
-  <thead>
-    <tr>
-      <th>TextureAtlas method</th>
-      <th>Usage<br /></th>
-      <th>addGeometry(g)</th>
-      <th>Add this geometry's DiffuseMap (or ColorMap), NormalMap, and SpecularMap to the atlas (if they exist). The DiffuseMap will automatically be the master map.<br /></th>
-      <th>addTexture(t, mapname)</th>
-      <th>Add a texture to the named master map.<br /></th>
-      <th>addTexture(t1,mapName,t2)</th>
-      <th>Add a texture t1 to the named secondary map, and make the location of texture t1 correspond to texture t2 on the master map. t2 can be Texture object or the String name of the texture.<br /></th>
-      <th>applyCoords(g)</th>
-      <th>Applies the texture coordinates to the geometries mesh. Short for the default, `applyCoords(geom, 0, geom.getMesh()`.<br /></th>
-      <th>applyCoords(g,offset,mesh)</th>
-      <th>Applies the texture coordinates at the given texture coord buffer offset to the mesh, if the DiffuseMap or ColorMap of the input geometry g exist in the atlas. The mesh can be `g.getMesh()`. Target buffer offset is between 0 and buffer.size().<br /></th>
-      <th>getAtlasTile(texture)</th>
-      <th>Get the `TextureAtlasTile` for the given Texture. The TextureAtlasTile objects contains info about this texture. such as size and location in the atlas.<br /></th>
-      <th>getAtlasTexture(mapName)</th>
-      <th>Creates a new atlas texture from the added textures for the given map name.<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-  </tbody>
-</table>
+| TextureAtlas method | Usage<br /> |
+| --- | --- |
+| addGeometry(g) | Add this geometry's DiffuseMap (or ColorMap), NormalMap, and SpecularMap to the atlas (if they exist). The DiffuseMap will automatically be the master map.<br /> |
+| addTexture(t, mapname) | Add a texture to the named master map.<br /> |
+| addTexture(t1,mapName,t2) | Add a texture t1 to the named secondary map, and make the location of texture t1 correspond to texture t2 on the master map. t2 can be Texture object or the String name of the texture.<br /> |
+| applyCoords(g) | Applies the texture coordinates to the geometries mesh. Short for the default, `applyCoords(geom, 0, geom.getMesh()`.<br /> |
+| applyCoords(g,offset,mesh) | Applies the texture coordinates at the given texture coord buffer offset to the mesh, if the DiffuseMap or ColorMap of the input geometry g exist in the atlas. The mesh can be `g.getMesh()`. Target buffer offset is between 0 and buffer.size().<br /> |
+| getAtlasTile(texture) | Get the `TextureAtlasTile` for the given Texture. The TextureAtlasTile objects contains info about this texture. such as size and location in the atlas.<br /> |
+| getAtlasTexture(mapName) | Creates a new atlas texture from the added textures for the given map name.<br /> |
 
-<table>
-  <thead>
-    <tr>
-      <th>TextureAtlasTile method</th>
-      <th>Usage<br /></th>
-      <th>getHeight(), getWidth()</th>
-      <th>Gets the size of the texture.<br /></th>
-      <th>getX(), getY()</th>
-      <th>Gets the x and y coordinate inside the texture atlas where this texture can be found<br /></th>
-      <th>transformTextureCoords(inBuf,offset,outBuf)</th>
-      <th>Transforms the texture coordinates in a buffer from their original 0-1 values to the new values fitting to the location of the tile on the atlas texture.<br /></th>
-      <th>getLocation(l)</th>
-      <th>Get the transformed texture coordinate for a given input location.<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-  </tbody>
-</table>
+| TextureAtlasTile method | Usage<br /> |
+| --- | --- |
+| getHeight(), getWidth() | Gets the size of the texture.<br /> |
+| getX(), getY() | Gets the x and y coordinate inside the texture atlas where this texture can be found<br /> |
+| transformTextureCoords(inBuf,offset,outBuf) | Transforms the texture coordinates in a buffer from their original 0-1 values to the new values fitting to the location of the tile on the atlas texture.<br /> |
+| getLocation(l) | Get the transformed texture coordinate for a given input location.<br /> |
 
 ## Primary and Secondary Maps
 

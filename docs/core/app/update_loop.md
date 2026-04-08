@@ -21,7 +21,7 @@ To let you see the main update loop in context, understand that the SimpleApplic
 
   1. Repeat loop.
 
-- *Quit* – If user requests `exit()`, execute `cleanup()` and `destroy()`. +
+- *Quit* – If user requests `exit()`, execute `cleanup()` and `destroy()`.
 The jME window closes and the loop ends.
 
 ## Usage
@@ -30,7 +30,7 @@ In a trivial [SimpleApplication](simpleapplication.md) (such as a [Hello World t
 
 It's a best practice to modularize your game mechanics and spread out initialization and update loop code over several Java objects:
 
-- Move modular code blocks from the `simpleInitApp()` method into [AppStates](state/application_states.md). Attach AppStates to initialize custom subsets of "`one`" dungeon, and detach it when the player exits this "`dungeon`". +
+- Move modular code blocks from the `simpleInitApp()` method into [AppStates](state/application_states.md). Attach AppStates to initialize custom subsets of "`one`" dungeon, and detach it when the player exits this "`dungeon`".
 Examples: Weather/sky audio and visuals, physics collision shapes, sub-rootnodes of individual dungeons including dungeon NPCs, etc.
-- Move modular code blocks from the `simpleUpdate()` method into the update loops of [Custom Controls](../scene/control/custom_controls.md) to control individual entity behavior (NPCs), and into the update method of [AppStates](state/application_states.md) to control world events. +
+- Move modular code blocks from the `simpleUpdate()` method into the update loops of [Custom Controls](../scene/control/custom_controls.md) to control individual entity behavior (NPCs), and into the update method of [AppStates](state/application_states.md) to control world events.
 Examples: Weather behaviour, light behaviour, physics behaviour, individual NPC behaviour, trap behaviour, etc.

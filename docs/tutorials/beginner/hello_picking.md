@@ -325,7 +325,7 @@ Modify the code sample to solve these exercises:
 
 ### Exercise 1: Magic Spell
 
-Change the color of the closest clicked target! +
+Change the color of the closest clicked target!
 Here are some tips:
 
 1. Go to the line where the closest target is identified, and add your changes after that.
@@ -354,7 +354,7 @@ Change the code as follows to simulate the player picking up objects into the in
   - Position the nodes: The bottom left corner of the HUD is (0f,0f), and the top right corner is at (settings.getWidth(),settings.getHeight()).
 
 :::important
-[Some proposed solutions](solutions.md#hello-picking) +
+[Some proposed solutions](solutions.md#hello-picking)
 *Be sure to try to solve them for yourself first!*
 :::
 

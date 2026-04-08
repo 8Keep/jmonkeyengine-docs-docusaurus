@@ -28,10 +28,10 @@ You can! This is what AppStates are there for. An AppState class is subset of (o
 
 Each AppState lets you define what happens to it in the following situations:
 
-- *The AppState is initialized:* You load and initialize game data, InputHandlers, AppStates and Controls and attach nodes. +
+- *The AppState is initialized:* You load and initialize game data, InputHandlers, AppStates and Controls and attach nodes.
 The AppState executes its own simpleInitApp() method when it is attached, so to speak.
 - *The AppState has been enabled (unpaused):* This toggles a boolean isEnabled() to true. Here you attach nodes and listeners that should become active while it's running.
-- *While the AppState is running/paused:* You can poll isEnabled() to define paused and unpaused game behaviour in the update() loop. In update(), you poll and modify the game state, modify the scene graph, and trigger events. Test if `!isEnabled()`, and write code that skips the running sections of this AppState's `update()` loop. +
+- *While the AppState is running/paused:* You can poll isEnabled() to define paused and unpaused game behaviour in the update() loop. In update(), you poll and modify the game state, modify the scene graph, and trigger events. Test if `!isEnabled()`, and write code that skips the running sections of this AppState's `update()` loop.
 Each AppState has its own update loop, which hooks into the main simpleUpdate() loop (callback).
 - *The AppState has been disabled (paused):* This toggles a boolean isEnabled() to false. Here you switch all objects to their specific "`paused`" behaviour.
 - *The AppState is cleaned up:* Here you decide what happens when the AppState is detached. Save this AppState's game state, unregister Controls and InputHandlers, detach related AppStates, detach nodes from the rootNode, etc.
@@ -68,34 +68,17 @@ JME3 comes with a BulletAppState that implements Physical behaviour (using the j
 ## AppState
 
 The AppState interface lets you initialize sets of objects, and hook a set of continuously executing code into the main loop.
-<table>
-  <thead>
-    <tr>
-      <th>AppState Method</th>
-      <th>Usage<br /></th>
-      <th>initialize(asm,app)</th>
-      <th>When this AppState is added to the game, the RenderThread initializes the AppState and then calls this method. You can modify the scene graph from here (e.g. attach nodes). To get access to the main app, call:<br />[source,java]<br />----<br />super.initialize(stateManager, app);<br />this.app = (SimpleApplication) app;<br />----<br /><br /></th>
-      <th>cleanup()</th>
-      <th>This method is executed after you remove the AppState from the game. Here you implement clean-up code for when this state is detached. You can modify the scene graph from here (e.g. detach nodes).<br /></th>
-      <th>update(float tpf)</th>
-      <th>Here you implement the behaviour that you want to hook into the simpleUpdate() loop while this state is attached to the game. You can modify the scene graph from here.<br /></th>
-      <th>isInitialized()</th>
-      <th>Your implementations of this interface should return the correct respective boolean value. (See AbstractAppState)<br /></th>
-      <th>setEnabled(true) +<br />setEnabled(false)</th>
-      <th>Temporarily enables or disables an AppState. (See AbstractAppState)<br /></th>
-      <th>isEnabled()</th>
-      <th>Test whether AppState is enabled or disabled. Your implementation should consider the boolean. (See AbstractAppState)<br /></th>
-      <th>stateAttached(asm) +<br />stateDetached(asm)</th>
-      <th>The AppState knows when it is attached to, or detached from, the AppStateManager, and triggers these two methods. Don't modify the scene graph from here! (Typically not used.)<br /></th>
-      <th>render(RenderManager rm)</th>
-      <th>Renders the state, plus your optional customizations. (Typically not used.)<br /></th>
-      <th>postRender()</th>
-      <th>Called after all rendering commands are flushed, including your optional customizations. (Typically not used.)<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-  </tbody>
-</table>
+| AppState Method | Usage<br /> |
+| --- | --- |
+| initialize(asm,app) | When this AppState is added to the game, the RenderThread initializes the AppState and then calls this method. You can modify the scene graph from here (e.g. attach nodes). To get access to the main app, call:<br />[source,java]<br />----<br />super.initialize(stateManager, app);<br />this.app = (SimpleApplication) app;<br />----<br /><br /> |
+| cleanup() | This method is executed after you remove the AppState from the game. Here you implement clean-up code for when this state is detached. You can modify the scene graph from here (e.g. detach nodes).<br /> |
+| update(float tpf) | Here you implement the behaviour that you want to hook into the simpleUpdate() loop while this state is attached to the game. You can modify the scene graph from here.<br /> |
+| isInitialized() | Your implementations of this interface should return the correct respective boolean value. (See AbstractAppState)<br /> |
+| setEnabled(true)<br />setEnabled(false) | Temporarily enables or disables an AppState. (See AbstractAppState)<br /> |
+| isEnabled() | Test whether AppState is enabled or disabled. Your implementation should consider the boolean. (See AbstractAppState)<br /> |
+| stateAttached(asm)<br />stateDetached(asm) | The AppState knows when it is attached to, or detached from, the AppStateManager, and triggers these two methods. Don't modify the scene graph from here! (Typically not used.)<br /> |
+| render(RenderManager rm) | Renders the state, plus your optional customizations. (Typically not used.)<br /> |
+| postRender() | Called after all rendering commands are flushed, including your optional customizations. (Typically not used.)<br /> |
 
 ## AbstractAppState
 
@@ -219,24 +202,13 @@ You define what an AppState does when Paused or Unpaused, in the `setEnabled()` 
 ## AppStateManager
 
 The com.jme3.app.state.AppStateManager holds the list of AppStates for an application. AppStateManager ensures that active AppStates can modify the scene graph, and that the update() loops of active AppStates is executed. There is one AppStateManager per application. You typically attach several AppStates to one AppStateManager, but the same state can only be attached once.
-<table>
-  <thead>
-    <tr>
-      <th>AppStateManager Method</th>
-      <th>Usage<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>hasState(myState)</td>
-      <td>Is AppState object 'myState' attached?<br /></td>
-    </tr>
-    <tr>
-      <td>getState(MyAppState.class)</td>
-      <td>Returns the first attached state that is an instance of a subclass of `MyAppState.class`.<br /></td>
-    </tr>
-  </tbody>
-</table>
+| AppStateManager Method |
+| --- |
+| Usage<br /> |
+| hasState(myState) |
+| Is AppState object 'myState' attached?<br /> |
+| getState(MyAppState.class) |
+| Returns the first attached state that is an instance of a subclass of `MyAppState.class`.<br /> |
 
 The AppStateManager's `render(), postRender(), cleanup()` methods are internal, ignore them, users never call them directly.
 

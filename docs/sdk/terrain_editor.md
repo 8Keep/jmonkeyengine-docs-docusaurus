@@ -8,10 +8,10 @@ Terrain controls are the same as the Scene Composer, you rotate the camera with 
 
 ## Creating Terrain
 
-To create terrain, first select the `Scene` directory under your `Project Assets` folder, right click and select `"New &gt; Other&gt;Scene&gt;Empty jme3 Scene"`. This will generate an empty scene in that directory. Right click this new file and then select `Edit Terrain`. This will open the new file in the `TerrainEditor` and display your scenes file structure in the `SceneExplorer` located at the bottom left window of the SDK. In the `SceneExplorer` window, select a node (usually your root node) in your scene. +
-image:sdk-terrain-tut-selectnode.png[sdk-terrain-tut-selectnode.png,width="",height=""] +
-Then click the add terrain button. +
-image:sdk-terrain-tut-addterrain.png[sdk-terrain-tut-addterrain.png,width="",height=""] +
+To create terrain, first select the `Scene` directory under your `Project Assets` folder, right click and select `"New &gt; Other&gt;Scene&gt;Empty jme3 Scene"`. This will generate an empty scene in that directory. Right click this new file and then select `Edit Terrain`. This will open the new file in the `TerrainEditor` and display your scenes file structure in the `SceneExplorer` located at the bottom left window of the SDK. In the `SceneExplorer` window, select a node (usually your root node) in your scene.
+![sdk-terrain-tut-selectnode.png](/wiki-assets/docs/sdk/images/sdk-terrain-tut-selectnode.png)
+Then click the add terrain button.
+![sdk-terrain-tut-addterrain.png](/wiki-assets/docs/sdk/images/sdk-terrain-tut-addterrain.png)
 This will pop up the `Create Terrain` wizard that will walk you through the steps for creating terrain. Make sure you decide now how large you want your terrain to be and how detailed you want the textures to be as you cannot change it later on!
 
 In order to see the terrain, you will need to add light to your scene. To do this, right-click the root node in the `SceneExplorer` window and select `"Add &gt; Light&gt;Directional Light"`. Alternatively, you can create your terrain and press the **Toggle cam light** button located in the menu at the top of the open terrain window. You will need to add a light to your scene by code in the `simpleinitApp()` method later so you can see the terrain.
@@ -31,8 +31,8 @@ This step determines how large the alpha blend images are for your terrain.  The
 
 ## Modifying Terrain
 
-Right now there are two terrain modification tools: raise and lower terrain. +
-image:sdk-terrain-raise-lower.png[sdk-terrain-raise-lower.png,width="",height=""] +
+Right now there are two terrain modification tools: raise and lower terrain.
+![sdk-terrain-raise-lower.png](/wiki-assets/docs/sdk/images/sdk-terrain-raise-lower.png)
 There are two sliders that affect how these tools operate:
 
 - Radius: how big the brush is
@@ -54,18 +54,18 @@ There are two sliders that affect how the paint tool operates:
 
 Adds a new texture layer to the terrain. The will be drawn over top of the other texture layers listed above it in the list.
 
-image:sdk-terrain-addtexture.png[sdk-terrain-addtexture.png,width="",height=""]
+![sdk-terrain-addtexture.png](/wiki-assets/docs/sdk/images/sdk-terrain-addtexture.png)
 
 ### Changing the diffuse texture
 
 Click on the diffuse texture image in the texture table. This will pop up a window with the available textures in your assets directory.
 
-image:sdk-terrain-editdiffuse.png[sdk-terrain-editdiffuse.png,width="",height=""]
+![sdk-terrain-editdiffuse.png](/wiki-assets/docs/sdk/images/sdk-terrain-editdiffuse.png)
 
 ### Adding a normal map to the texture layer
 
-When you add a texture layer, by default it does not add a normal map for you. To add one, click on the button next to the diffuse texture for that texture layer. This will pop up the texture browser. Select a texture and hit Ok, and you are done. +
-image:sdk-terrain-addnormaltexture.png[sdk-terrain-addnormaltexture.png,width="",height=""]
+When you add a texture layer, by default it does not add a normal map for you. To add one, click on the button next to the diffuse texture for that texture layer. This will pop up the texture browser. Select a texture and hit Ok, and you are done.
+![sdk-terrain-addnormaltexture.png](/wiki-assets/docs/sdk/images/sdk-terrain-addnormaltexture.png)
 
 ### Removing a normal map from the texture layer
 
@@ -73,8 +73,8 @@ To remove a normal map from the texture layer, hit the normal map button for tha
 
 ### Changing the texture scale
 
-The field in the table to the right of the diffuse and normal textures for your texture layer is the scale. Changing that value changes the scale of the texture. +
-image:sdk-terrain-texturescale.png[sdk-terrain-texturescale.png,width="",height=""] +
+The field in the table to the right of the diffuse and normal textures for your texture layer is the scale. Changing that value changes the scale of the texture.
+![sdk-terrain-texturescale.png](/wiki-assets/docs/sdk/images/sdk-terrain-texturescale.png)
 You will notice that the scale changes when you switch between Tri-Planar and normal texture mapping. Tri-planar mapping does not use the texture coordinates of the geometry, but real world coordinates. And because of this, in order for the texture to look the same when you switch between the two texture mapping methods, the terrain editor will automatically convert the scales for you.
 Essentially if your scale in normal texture coordinates is 16, then for tri-planar gets converted like this: 1/terrainSize/16
 

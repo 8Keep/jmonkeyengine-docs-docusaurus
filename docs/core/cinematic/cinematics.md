@@ -6,9 +6,9 @@ Internally, Cinematics are implemented as [AppStates](../app/state/application_s
 
 Short overview of the cinematic process:
 
-1. Plan the script of your movie. +
+1. Plan the script of your movie.
 Write down a timeline (e.g. on paper) of which character should be at which spot at which time.
-1. Attach the scene objects that you want to remote-control to one Node. +
+1. Attach the scene objects that you want to remote-control to one Node.
 This Node can be the rootNode, or a Node that is attached to the rootNode.
 1. Create a Cinematic object for this movie scene. The Cinematic will contain and manage the movie script.
 1. For each line in your script (for each keyframe in your timeline), add a CinematicEvent to the Cinematic.
@@ -43,52 +43,27 @@ stateManager.attach(cinematic);
 1. Attach the Cinematic to the SimpleApplication's stateManager.
 1. Play, stop and pause the Cinematic from your code.
 
-<table>
-  <thead>
-    <tr>
-      <th>Method</th>
-      <th>Usage<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>cinematic.play()</td>
-      <td>Starts playing the cinematic from the start, or from where it was paused.<br /></td>
-    </tr>
-    <tr>
-      <td>cinematic.stop()</td>
-      <td>Stops playing the cinematic and rewinds it.<br /></td>
-    </tr>
-    <tr>
-      <td>cinematic.pause()</td>
-      <td>Pauses the cinematic.<br /></td>
-    </tr>
-  </tbody>
-</table>
+| Method |
+| --- |
+| Usage<br /> |
+| cinematic.play() |
+| Starts playing the cinematic from the start, or from where it was paused.<br /> |
+| cinematic.stop() |
+| Stops playing the cinematic and rewinds it.<br /> |
+| cinematic.pause() |
+| Pauses the cinematic.<br /> |
 
 ## Events(CinematicEvents)
 
 Just like a movie script consists of lines with instructions to the actors, each Cinematic consists of a series of events.
 
 Here is the list of available CinematicEvents that you use as events. Each track remote-controls scene objects in a different way:
-<table>
-  <thead>
-    <tr>
-      <th>Events(CinematicEvents)</th>
-      <th>Description<br /></th>
-      <th>MotionEvent</th>
-      <th>Use a MotionEvent to move a Spatial non-linearly over time. A MotionEvent is based on a list of waypoints in a MotionPath. The curve goes through each waypoint, and you can adjust the tension of the curve to modify the roundedness of the path. This is the motion interpolation you are going to use in most cases.<br /></th>
-      <th>SoundEvent</th>
-      <th>Use a SoundEvent to play a [sound](../audio/audio.md) at a given time for the given duration.<br /></th>
-      <th>GuiEvent</th>
-      <th>Displays a [Nifty GUI](../gui/nifty_gui.md) at a given time for the given duration. Use it to display subtitles or HUD elements. Bind the Nifty &lt;abbr title="Graphical User Interface"&gt;GUI&lt;/abbr&gt; XML to the cinematic using `cinematic.bindUi("path/to/nifty/file.xml");`<br /></th>
-      <th>AnimationEvent</th>
-      <th>Use this to start playing a model [animation](../animation/animation.md) at a given time (a character walking animation for example)<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-  </tbody>
-</table>
+| Events(CinematicEvents) | Description<br /> |
+| --- | --- |
+| MotionEvent | Use a MotionEvent to move a Spatial non-linearly over time. A MotionEvent is based on a list of waypoints in a MotionPath. The curve goes through each waypoint, and you can adjust the tension of the curve to modify the roundedness of the path. This is the motion interpolation you are going to use in most cases.<br /> |
+| SoundEvent | Use a SoundEvent to play a [sound](../audio/audio.md) at a given time for the given duration.<br /> |
+| GuiEvent | Displays a [Nifty GUI](../gui/nifty_gui.md) at a given time for the given duration. Use it to display subtitles or HUD elements. Bind the Nifty &lt;abbr title="Graphical User Interface"&gt;GUI&lt;/abbr&gt; XML to the cinematic using `cinematic.bindUi("path/to/nifty/file.xml");`<br /> |
+| AnimationEvent | Use this to start playing a model [animation](../animation/animation.md) at a given time (a character walking animation for example)<br /> |
 
 You can add custom events by extending AbstractCinematicEvent.
 
@@ -112,48 +87,25 @@ To create a MotionEvent, do the following:
 1. Configure your MotionEvent (see below).
 1. Add the MotionEvent to a Cinematic.
 
-<table>
-  <thead>
-    <tr>
-      <th>MotionEvent configuration method</th>
-      <th>Usage<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>event.setLoopMode(LoopMode.Loop)</td>
-      <td>Sets whether the animation along this path should loop (LoopMode.Loop) or play only once (LoopMode.DontLoop).<br /></td>
-    </tr>
-    <tr>
-      <td>event.setDirectionType(MotionEvent.Direction.None)</td>
-      <td>Sets the direction behavior type of the controlled node. Direction.None deactivates this feature. You can choose from the following options: LookAt, Path, PathAndRotation, Rotation.<br /></td>
-    </tr>
-    <tr>
-      <td>event.setDirectionType(MotionEvent.Direction.LookAt)</td>
-      <td>The spatial turns (rotates) to keep facing a certain point while moving. Specify the point with the `setLookAt()` method.<br /></td>
-    </tr>
-    <tr>
-      <td>event.setDirectionType(MotionEvent.Direction.Path)</td>
-      <td>The spatial always faces in the direction of the path while moving.<br /></td>
-    </tr>
-    <tr>
-      <td>event.setDirectionType(MotionEvent.Direction.PathAndRotation)</td>
-      <td>The spatial faces the direction of the path, plus an added rotation. Use together with the `setRotation()` method.<br /></td>
-    </tr>
-    <tr>
-      <td>event.setDirectionType(MotionEvent.Direction.Rotation)</td>
-      <td>The spatial spins (rotates) while moving. You describe the spin by a custom quaternion. Use together with the `setRotation()` method.<br /></td>
-    </tr>
-    <tr>
-      <td>event.setLookAt(teapot.getWorldTranslation(), Vector3f.UNIT_Y)</td>
-      <td>The spatial always faces towards this location. Use together with `MotionEvent.Direction.LookAt`.<br /></td>
-    </tr>
-    <tr>
-      <td>event.setRotation(quaternion)</td>
-      <td>Sets the rotation. Use together with `MotionEvent.Direction.Rotation` or `MotionEvent.Direction.PathAndRotation`.<br /></td>
-    </tr>
-  </tbody>
-</table>
+| MotionEvent configuration method |
+| --- |
+| Usage<br /> |
+| event.setLoopMode(LoopMode.Loop) |
+| Sets whether the animation along this path should loop (LoopMode.Loop) or play only once (LoopMode.DontLoop).<br /> |
+| event.setDirectionType(MotionEvent.Direction.None) |
+| Sets the direction behavior type of the controlled node. Direction.None deactivates this feature. You can choose from the following options: LookAt, Path, PathAndRotation, Rotation.<br /> |
+| event.setDirectionType(MotionEvent.Direction.LookAt) |
+| The spatial turns (rotates) to keep facing a certain point while moving. Specify the point with the `setLookAt()` method.<br /> |
+| event.setDirectionType(MotionEvent.Direction.Path) |
+| The spatial always faces in the direction of the path while moving.<br /> |
+| event.setDirectionType(MotionEvent.Direction.PathAndRotation) |
+| The spatial faces the direction of the path, plus an added rotation. Use together with the `setRotation()` method.<br /> |
+| event.setDirectionType(MotionEvent.Direction.Rotation) |
+| The spatial spins (rotates) while moving. You describe the spin by a custom quaternion. Use together with the `setRotation()` method.<br /> |
+| event.setLookAt(teapot.getWorldTranslation(), Vector3f.UNIT_Y) |
+| The spatial always faces towards this location. Use together with `MotionEvent.Direction.LookAt`.<br /> |
+| event.setRotation(quaternion) |
+| Sets the rotation. Use together with `MotionEvent.Direction.Rotation` or `MotionEvent.Direction.PathAndRotation`.<br /> |
 
 :::tip
 Most likely you remote-control more than one object in your scene. Give the events and paths useful names such as `dragonEvent`, `dragonPath`, `heroEvent`, `heroPath`, etc.

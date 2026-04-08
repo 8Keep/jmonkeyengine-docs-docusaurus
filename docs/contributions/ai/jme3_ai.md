@@ -780,7 +780,7 @@ There are other jME3 specific options available you can read about in the wiki u
 
 ## Further Reading
 
-- [A* path-finding for Beginners](&#123;attachmentsdir&#125;/Astar.pdf) by Patrick Lester
+- [A* path-finding for Beginners](/wiki-assets/docs/contributions/assets/attachments/Astar.pdf) by Patrick Lester
 - [The Nature of Code](http://natureofcode.com/book/) by Daniel Shiffman
 - [Steering Behaviors For Autonomous Characters](http://www.red3d.com/cwr/steer/gdc99/) by Craig W. Reynolds
 - [Study: Navigation Mesh Generation Java](http://www.critterai.org/projects/nmgen_study/) by Stephen Pratt

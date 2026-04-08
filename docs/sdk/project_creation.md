@@ -14,7 +14,7 @@ The jMonkeyEngine SDK makes it easy to get started with developing 3-D games bas
 
 ### Project Structure
 
-![jmonkeyplatform-docu-4.png](/wiki-assets/docs/sdk/assets/images/jmonkeyplatform-docu-4.png)
+![jmonkeyplatform-docu-4.png](/wiki-assets/docs/sdk/images/jmonkeyplatform-docu-4.png)
 
 Let's have a look at the abstract project structure in the Project Explorer. (`Ctrl`+`1`).
 
@@ -63,7 +63,7 @@ This is the recommended internal structure:
 
 ### Clean, Build and Run Cycle
 
-![jmonkeyplatform-docu-5.png](/wiki-assets/docs/sdk/assets/images/jmonkeyplatform-docu-5.png)
+![jmonkeyplatform-docu-5.png](/wiki-assets/docs/sdk/images/jmonkeyplatform-docu-5.png)
 
 :::important
 Pressing *`F6` builds & runs* the _main_ class of the _main project_. If there are several classes, or several projects, you have to specify which one you want `F6` to run. **RMB** select a project and choose `Set As Main Project`, then **RMB** select the project again and choose `"Properties &gt; Run"` and choose a Main Class.
@@ -144,7 +144,7 @@ The SDK contains [Sample Code](sample_code.md) (read more).
 
 Open the Source Packages node of the JmeTests project.
 
-- **RMB** select the `JME3Tests` project and choose Run. +
+- **RMB** select the `JME3Tests` project and choose Run.
 Choose samples from the TestChooser and try out the included demos.
 - Browse a demo's source code in the SDK's Project window to learn how a feature is implemented and used.
 - Feel free to modify the code samples and experiment! If you break something, you can always recreate the packaged samples from the `JME3 Tests` template.

@@ -147,7 +147,7 @@ Armatures::
 1. When ready click **Import FBX**.
 1. After Blender imports the file, both the armature and model are selected, in this order, select `"Object &gt; Apply &gt; Rotation"`. Repeat this for the `Location` and `Scale`. Alternatively, select the armature and model individually and repeat the process.
 1. Select the Armature.
-1. In the `Timeline`, determine the Length of the animation by **RMB** selecting the last keyframe in the timeline. +
+1. In the `Timeline`, determine the Length of the animation by **RMB** selecting the last keyframe in the timeline.
  Set `End:` to this value.
 1. Click the **|xref:** button to reset timeline back to the first frame.
 1. In the `Info` header, change the `Default` screen layout to `Animation`.
@@ -220,7 +220,7 @@ Texture Tab::
 If the action is not visible, navigate to the `Dope Sheet Editor` and from the `Action Editor` context, select the `Action`.
 :::
 
-1. Click the icon:angle-double-down[] button to push the action down into the stack.
+1. Click the `angle-double-down` button to push the action down into the stack.
 1. Beneath the TPose strip you will see a slider. Drag this slider to the right until your strip is nested up against the left margin of the window.
 1. Save your file.
 
@@ -245,7 +245,7 @@ Follow the directions for custom Mixamo Animations, Mixamo Download, Creating Bl
 1. Select the **F** button to save the action.
 1. From the `Info` header, change the layout from `Animation` to the `NLA Editing` layout we created in the Creating The Rigged Animation File section of this tutorial. You will see your append `Action` at the top of the list.
 1. From the `NLA Editor` header, select `"Add &gt; Add Tracks"`. A new track has now been added to the top of the list.
-1. Click the icon:angle-double-down[] button next to the `Action` to push it down into the stack.
+1. Click the `angle-double-down` button next to the `Action` to push it down into the stack.
 1. **LMB** select the strip to make it the only strip selected.
 1. **LMB** drag the selected strip to the right until there is at least a 4 keyframe gap between the furthest strip to the right in the list and the append strip you are dragging.
 

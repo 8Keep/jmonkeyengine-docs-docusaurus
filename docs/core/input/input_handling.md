@@ -57,21 +57,21 @@ The MouseAxis and JoyAxis triggers go along the X axis (right/left) or Y axis (u
       <td>Keyboard: Spacebar</td>
       <td>KeyTrigger(KeyInput.KEY_SPACE)<br /></td>
       <td>Keyboard: Shift</td>
-      <td>KeyTrigger(KeyInput.KEY_RSHIFT), +<br />KeyTrigger(KeyInput.KEY_LSHIFT)<br /></td>
+      <td>KeyTrigger(KeyInput.KEY_RSHIFT),<br />KeyTrigger(KeyInput.KEY_LSHIFT)<br /></td>
       <td>Keyboard: F1, F2, …</td>
       <td>KeyTrigger(KeyInput.KEY_F1) …<br /></td>
       <td>Keyboard: Return, Enter</td>
-      <td>KeyTrigger(KeyInput.KEY_RETURN), +<br />KeyTrigger(KeyInput.KEY_NUMPADENTER)<br /></td>
+      <td>KeyTrigger(KeyInput.KEY_RETURN),<br />KeyTrigger(KeyInput.KEY_NUMPADENTER)<br /></td>
       <td>Keyboard: PageUp, PageDown</td>
-      <td>KeyTrigger(KeyInput.KEY_PGUP), +<br />KeyTrigger(KeyInput.KEY_PGDN)<br /></td>
+      <td>KeyTrigger(KeyInput.KEY_PGUP),<br />KeyTrigger(KeyInput.KEY_PGDN)<br /></td>
       <td>Keyboard: Delete, Backspace</td>
-      <td>KeyTrigger(KeyInput.KEY_BACK), +<br />KeyTrigger(KeyInput.KEY_DELETE)<br /></td>
+      <td>KeyTrigger(KeyInput.KEY_BACK),<br />KeyTrigger(KeyInput.KEY_DELETE)<br /></td>
       <td>Keyboard: Escape</td>
       <td>KeyTrigger(KeyInput.KEY_ESCAPE)<br /></td>
       <td>Keyboard: Arrows</td>
-      <td>KeyTrigger(KeyInput.KEY_DOWN), +<br />KeyTrigger(KeyInput.KEY_UP) +<br />KeyTrigger(KeyInput.KEY_LEFT), KeyTrigger(KeyInput.KEY_RIGHT)<br /></td>
+      <td>KeyTrigger(KeyInput.KEY_DOWN),<br />KeyTrigger(KeyInput.KEY_UP)<br />KeyTrigger(KeyInput.KEY_LEFT), KeyTrigger(KeyInput.KEY_RIGHT)<br /></td>
       <td>Joystick Button:</td>
-      <td>JoyButtonTrigger(0, JoyInput.AXIS_POV_X), +<br />JoyButtonTrigger(0, JoyInput.AXIS_POV_Y) ?<br /></td>
+      <td>JoyButtonTrigger(0, JoyInput.AXIS_POV_X),<br />JoyButtonTrigger(0, JoyInput.AXIS_POV_Y) ?<br /></td>
       <td>Joystick Movement: Right</td>
       <td>JoyAxisTrigger(0, JoyInput.AXIS_POV_X, true)<br /></td>
       <td>Joystick Movement: Left</td>
@@ -92,37 +92,22 @@ In your IDE, use code completion to quickly look up Trigger literals. In the jMo
 inputManager.deleteMapping( SimpleApplication.INPUT_MAPPING_MEMORY );
 ```
 
-<table>
-  <thead>
-    <tr>
-      <th>Default Mapping</th>
-      <th>Key</th>
-      <th>Description<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>INPUT_MAPPING_HIDE_STATS</td>
-      <td>F5</td>
-      <td>Hides the statistics in the bottom left.<br /></td>
-    </tr>
-    <tr>
-      <td>INPUT_MAPPING_CAMERA_POS</td>
-      <td>KEY_C</td>
-      <td>Prints debug output about the camera.<br /></td>
-    </tr>
-    <tr>
-      <td>INPUT_MAPPING_MEMORY</td>
-      <td>KEY_M</td>
-      <td>Prints debug output for memory usage.<br /></td>
-    </tr>
-    <tr>
-      <td>INPUT_MAPPING_EXIT</td>
-      <td>KEY_ESCAPE</td>
-      <td>Closes the application by calling `stop();`. Typically you do not remove this, unless you replace it by another way of quitting gracefully.<br /></td>
-    </tr>
-  </tbody>
-</table>
+| Default Mapping |
+| --- |
+| Key |
+| Description<br /> |
+| INPUT_MAPPING_HIDE_STATS |
+| F5 |
+| Hides the statistics in the bottom left.<br /> |
+| INPUT_MAPPING_CAMERA_POS |
+| KEY_C |
+| Prints debug output about the camera.<br /> |
+| INPUT_MAPPING_MEMORY |
+| KEY_M |
+| Prints debug output for memory usage.<br /> |
+| INPUT_MAPPING_EXIT |
+| KEY_ESCAPE |
+| Closes the application by calling `stop();`. Typically you do not remove this, unless you replace it by another way of quitting gracefully.<br /> |
 
 ## 3. Add Custom Trigger Mapping
 

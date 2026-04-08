@@ -11,7 +11,7 @@ If you are not a member, you fork the repository into your GitHub account and is
 To fork the jMonkeyEngine repository into your GitHub Account:
 
 1. Navigate to [https://github.com/jMonkeyEngine/jmonkeyengine](https://github.com/jMonkeyEngine/jmonkeyengine).
-1. In the menu at the top of the page, select the icon:code-fork[]*Fork* button.
+1. In the menu at the top of the page, select the `code-fork`*Fork* button.
 
 :::note
 In the following, always replace `~` with the path to your home directory.
@@ -36,7 +36,7 @@ Use the &lt;abbr title="Uniform Resource Locator"&gt;URL&lt;/abbr&gt; to your re
 --
 
   1. You can leave user/pw blank for anonymous access unless you are going to `push` a `commit`.
-  1. Specify Destination Folder. +
+  1. Specify Destination Folder.
 Local Folder: `~/NetBeansProjects]/jmonkeyengine`
   1. Click **Next**.
 1. Select:

@@ -7,44 +7,23 @@ Assets are files that are not code. Your multi-media assets includes, for exampl
 - You create sounds in an audio editor, for example [Audacity](http://audacity.sourceforge.net), and export them as WAVE or OGG.
 
 ## Asset Pipeline
-<table>
-  <thead>
-    <tr>
-      <th>DO</th>
-      <th>DON'T<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Import original models plus textures into `assets/Textures`.</td>
-      <td>Don't leave textures or models in a folder outside your JME project: The game cannot load or reference them from there.<br /></td>
-    </tr>
-    <tr>
-      <td>Save sounds into `assets/Sounds`.</td>
-      <td>Don't leave audio files in a folder outside your JME project: The game cannot load or reference them from there.<br /></td>
-    </tr>
-    <tr>
-      <td>Create low-polygon models.</td>
-      <td>Don't create high-polygon models, they render too slow to be useful in games.<br /></td>
-    </tr>
-    <tr>
-      <td>Only use Diffuse Map, Normal Map, Glow Map, Specular Map in your models' materials.</td>
-      <td>Don't use unsupported material properties that are not listed in the [Materials Overview](../../core/material/materials_overview.md).<br /></td>
-    </tr>
-    <tr>
-      <td>Use UV texture / texture atlases / baking for each texture map.</td>
-      <td>Don't create models based on multiple separate textures, it will break the model into separate meshes.<br /></td>
-    </tr>
-    <tr>
-      <td>Convert original models to JME3's .j3o format. Move .j3o files into `assets/Models`.</td>
-      <td>Don't reference original GLTF/OBJ files in your load() code, because these unoptimized files are not automatically packaged into the final JAR when using the SDK.<br /></td>
-    </tr>
-    <tr>
-      <td>Agree on naming schemes and folder schemes with your artists early on to avoid confusion. E.g. keep naming schemes for bones and certain model parts. Try to keep your assets folder clean, its like your codes class structure.</td>
-      <td>Don't mindlessly import downloaded models and other assets into your project without keeping a structure and knowing the files work. You can reimport, delete junk.<br /></td>
-    </tr>
-  </tbody>
-</table>
+| DO |
+| --- |
+| DON'T<br /> |
+| Import original models plus textures into `assets/Textures`. |
+| Don't leave textures or models in a folder outside your JME project: The game cannot load or reference them from there.<br /> |
+| Save sounds into `assets/Sounds`. |
+| Don't leave audio files in a folder outside your JME project: The game cannot load or reference them from there.<br /> |
+| Create low-polygon models. |
+| Don't create high-polygon models, they render too slow to be useful in games.<br /> |
+| Only use Diffuse Map, Normal Map, Glow Map, Specular Map in your models' materials. |
+| Don't use unsupported material properties that are not listed in the [Materials Overview](../../core/material/materials_overview.md).<br /> |
+| Use UV texture / texture atlases / baking for each texture map. |
+| Don't create models based on multiple separate textures, it will break the model into separate meshes.<br /> |
+| Convert original models to JME3's .j3o format. Move .j3o files into `assets/Models`. |
+| Don't reference original GLTF/OBJ files in your load() code, because these unoptimized files are not automatically packaged into the final JAR when using the SDK.<br /> |
+| Agree on naming schemes and folder schemes with your artists early on to avoid confusion. E.g. keep naming schemes for bones and certain model parts. Try to keep your assets folder clean, its like your codes class structure. |
+| Don't mindlessly import downloaded models and other assets into your project without keeping a structure and knowing the files work. You can reimport, delete junk.<br /> |
 
 Read on for details.
 
@@ -69,7 +48,7 @@ Prepare the `asset` folder structure for your individual project:
 
 1. Agree on a directory structure with the graphic designers.
 1. Create subfolders of `assets` in any way that suits your project (see example above). Stick with one system.
-  - If different assets belong together, create a parallel subdirectory structure for them. +
+  - If different assets belong together, create a parallel subdirectory structure for them.
 Example: For car models, create `Textures/vehicles/car1/`, `Materials/vehicles/car1/`, `Models/vehicles/car1/`, , `Sounds/vehicles/car1/` (etc) directories now.
 
 1. Agree on a file naming and numbering scheme with the graphic designers.
@@ -109,9 +88,9 @@ Note that UV coords are part of the mesh and not part of the material, so if you
 
 1. Create 3D models in a mesh editor.
   1. Create efficient *low-polygon models*. High-polygon models may look pretty in static 3D art contests, but they slow down dynamic games!
-  1. [Create materials](../../core/material/j3m_material_files.md) for your models either in the 3D editor, or in the jME3 SDK. Only use the following material features: *Diffuse Map or Diffuse Color (minimum); plus optionally Normal Map, Glow Map, Specular Map.* +
+  1. [Create materials](../../core/material/j3m_material_files.md) for your models either in the 3D editor, or in the jME3 SDK. Only use the following material features: *Diffuse Map or Diffuse Color (minimum); plus optionally Normal Map, Glow Map, Specular Map.*
 Every material feature not listed in the [Materials Overview](../../core/material/materials_overview.md) is unsupported and ignored by JME3's renderer.
-  1. Unwrap the model in the 3D editor and generate a *UV texture* (i.e. one texture file that contains all the pieces of one model from different angles). +
+  1. Unwrap the model in the 3D editor and generate a *UV texture* (i.e. one texture file that contains all the pieces of one model from different angles).
 Don't use multiple separate texture files with one model, it will break the model into several meshes.
 
 1. Export the model mesh in one of the supported [Supported External File Types](../../getting-started/features.md).
@@ -121,7 +100,7 @@ Don't use multiple separate texture files with one model, it will break the mode
 See also: [Texture Atlases on gamasutra](http://www.gamasutra.com/view/feature/2530/practical_texture_atlases.php)
 
 :::important
-*When I load the model in JME3, why does it look different than in the 3D editor?* +
+*When I load the model in JME3, why does it look different than in the 3D editor?*
 3D models will never look identical in a game engine and in a mesh editor. Mesh editors are optimized for high-quality offline rendering, and many of the material and texture options simply do not work in a live rendering context such as games. Also, the shaders that render the materials in JME3 are different implementations than in your mesh editor's renderer. Remind your graphic designers to [focus on features that game engines support](../../core/material/materials_overview.md).
 :::
 
@@ -130,7 +109,7 @@ See also: [Texture Atlases on gamasutra](http://www.gamasutra.com/view/feature/2
 Convert all models and scenes to jME3's binary .j3o format to load() them. Use one of the conversion methods listed for the [Supported External File Type](../../getting-started/features.md#supported-external-file-types) you have chosen.
 
 1. Confirm that you exported the model into the `assets/Textures` directory (or subdirectories) together with all its textures.
-1. In the SDK, right-click the model and choose "`Convert to j3o Binary`". +
+1. In the SDK, right-click the model and choose "`Convert to j3o Binary`".
 The paths in the j3o now reference files with an absolute `assets/Textures/…` path.
 1. Now, move the .j3o into the corresponding `assets/Models/` or `assets/Scenes/` directory.
 1. Use the AssetManager to load() the .j3o files.
@@ -144,7 +123,7 @@ The .j3o file format is an optimized format to store parts of a jME3 scene graph
 - A .j3o file can contain one shape, one model, or a whole scene.
 - Only .j3o files can store all of jme3's material options and other features. Other formats can only be considered meshes with UV mapping data and always need extra work.
 - .j3o files work seamlessly across platforms and can also be automatically adapted for certain platforms on distribution.
-- (Optional) You can store the model's physical properties, materials, lights, particle emitters, and audio nodes, in the .j3o file. +
+- (Optional) You can store the model's physical properties, materials, lights, particle emitters, and audio nodes, in the .j3o file.
 Use Java commands, or use the [jMonkeyEngine SDK SceneComposer](../../sdk/scene_composer.md) as a user-friendly interface to add these properties.
 - The default Ant build script of the SDK copies .j3o files, .j3m files, sounds, and textures, into the distributable JAR automatically.
 

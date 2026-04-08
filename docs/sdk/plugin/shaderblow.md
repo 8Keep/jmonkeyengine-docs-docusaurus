@@ -1,6 +1,6 @@
 # ShaderBlow
 
-image:plugin/shaderblow_intro_01.jpg[shaderblow_intro_01.jpg,width="",height=""]
+![shaderblow_intro_01.jpg](/wiki-assets/docs/sdk/images/plugin/shaderblow_intro_01.jpg)
 
 Collections of effects for jMonkeyEngine 3. To install the ShaderBlow plugin into the jMonkeyEngine SDK, go to Tools→Plugins→Available Plugins.
 You can always get the source of ShaderBlow project here:
@@ -45,12 +45,16 @@ Features:
 <table>
   <tbody>
     <tr>
-      <td>image:plugin/colorfilter2.png[ColorScale Filter OFF,width="400",height=""]</td>
-      <td>image:plugin/colorfilter1.png[ColorScale filter ON,width="400",height=""]<br /></td>
+      <td><img alt="ColorScale Filter OFF" src="/wiki-assets/docs/sdk/images/plugin/colorfilter2.png" /></td>
     </tr>
     <tr>
-      <td>image:plugin/colorfilter3.png[ColorScale Filter ON,width="400",height=""]</td>
-      <td>image:plugin/colorfilter4.png[ColorScale Filter,width="400",height=""]<br /></td>
+      <td><img alt="ColorScale filter ON" src="/wiki-assets/docs/sdk/images/plugin/colorfilter1.png" /><br /></td>
+    </tr>
+    <tr>
+      <td><img alt="ColorScale Filter ON" src="/wiki-assets/docs/sdk/images/plugin/colorfilter3.png" /></td>
+    </tr>
+    <tr>
+      <td><img alt="ColorScale Filter" src="/wiki-assets/docs/sdk/images/plugin/colorfilter4.png" /><br /></td>
     </tr>
   </tbody>
 </table>
@@ -79,20 +83,11 @@ this.viewPort.addProcessor(this.fpp);
 
 The GrayScale filter converts the render image to grayscale.
 
-<table>
-  <thead>
-    <tr>
-      <th>*GrayScale Filter OFF*</th>
-      <th>*GrayScale Filter ON*<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>image:plugin/grayscalefilter-off.jpg[GrayScale Filter OFF,width="400",height=""]</td>
-      <td>image:plugin/grayscalefilter-on.png[GrayScale Filter ON,width="400",height=""]<br /></td>
-    </tr>
-  </tbody>
-</table>
+| *GrayScale Filter OFF* |
+| --- |
+| *GrayScale Filter ON*<br /> |
+| ![GrayScale Filter OFF](/wiki-assets/docs/sdk/images/plugin/grayscalefilter-off.jpg) |
+| ![GrayScale Filter ON](/wiki-assets/docs/sdk/images/plugin/grayscalefilter-on.png)<br /> |
 
 ### Usage
 
@@ -132,7 +127,7 @@ I chose to clamp this value inside the frag shader code instead of using java co
 <table>
   <tbody>
     <tr>
-      <td>.Old Film Effect<br />image:plugin/CgFzhkq-MKk.jpg[youtu.be/CgFzhkq-MKk,width="",height="",link="https://youtu.be/CgFzhkq-MKk"]</td>
+      <td>.Old Film Effect<br /><img alt="youtu.be/CgFzhkq-MKk" src="/wiki-assets/docs/sdk/images/plugin/CgFzhkq-MKk.jpg" /></td>
       <td><br /></td>
     </tr>
   </tbody>
@@ -179,8 +174,8 @@ Features:
  * Fog is added. Fog is used without post-processing!
  * Texture Blending: 4 diffuse, 4 normal textures can be blended (Like Terrain System).
 
-Software for NormalMaps? making: [https://shadermap.com/home/](https://shadermap.com/home/) +
-Software for CubeMaps? editing: [https://code.google.com/archive/p/cubemapgen/downloads](https://code.google.com/archive/p/cubemapgen/downloads) +
+Software for NormalMaps? making: [https://shadermap.com/home/](https://shadermap.com/home/)
+Software for CubeMaps? editing: [https://code.google.com/archive/p/cubemapgen/downloads](https://code.google.com/archive/p/cubemapgen/downloads)
 
 Watch following videos:
 
@@ -189,7 +184,7 @@ Watch following videos:
 <table>
   <tbody>
     <tr>
-      <td>.LightBlow Shader<br />image:plugin/knROh_3o2uo.jpg[youtube_https://youtu.be/knROh_3o2uo,width="",height="",link="https://youtu.be/knROh_3o2uo"]</td>
+      <td>.LightBlow Shader<br /><img alt="youtube_https://youtu.be/knROh_3o2uo" src="/wiki-assets/docs/sdk/images/plugin/knROh_3o2uo.jpg" /></td>
       <td><br /></td>
     </tr>
   </tbody>
@@ -210,8 +205,10 @@ In simple terms, in starts by only discarding the darkest parts of the texture m
 <table>
   <tbody>
     <tr>
-      <td>image:plugin/dissolver-screen.png[Dissolver screenshot,width="400",height=""]</td>
-      <td>image:plugin/dissolver-maps.png[Mask maps,width="400",height=""]<br /></td>
+      <td><img alt="Dissolver screenshot" src="/wiki-assets/docs/sdk/images/plugin/dissolver-screen.png" /></td>
+    </tr>
+    <tr>
+      <td><img alt="Mask maps" src="/wiki-assets/docs/sdk/images/plugin/dissolver-maps.png" /><br /></td>
     </tr>
   </tbody>
 </table>
@@ -237,8 +234,8 @@ Watch following videos:
 <table>
   <tbody>
     <tr>
-      <td>.GLSL Dissolve Shader<br />image:plugin/ry0r_qwFQLQ.jpg[youtube_ry0r_qwFQLQ,width="",height="",link="https://youtu.be/ry0r_qwFQLQ"]</td>
-      <td>.mTheoryGame<br />image:plugin/wUfMcN1Uv48.jpg[youtube_wUfMcN1Uv48,width="",height="",link="https://youtu.be/wUfMcN1Uv48"]<br /></td>
+      <td>.GLSL Dissolve Shader<br /><img alt="youtube_ry0r_qwFQLQ" src="/wiki-assets/docs/sdk/images/plugin/ry0r_qwFQLQ.jpg" /></td>
+      <td>.mTheoryGame<br /><img alt="youtube_wUfMcN1Uv48" src="/wiki-assets/docs/sdk/images/plugin/wUfMcN1Uv48.jpg" /><br /></td>
     </tr>
   </tbody>
 </table>
@@ -298,8 +295,10 @@ Features:
 <table>
   <tbody>
     <tr>
-      <td>image:plugin/fakeparticleblow.png[FakeParticleBlow,width="400",height=""]</td>
-      <td>.Fog applied to blue fire<br />image:plugin/fakeparticleblow3.png[FakeParticleBlow,width="400",height=""]<br /></td>
+      <td><img alt="FakeParticleBlow" src="/wiki-assets/docs/sdk/images/plugin/fakeparticleblow.png" /></td>
+    </tr>
+    <tr>
+      <td>.Fog applied to blue fire<br /><img alt="FakeParticleBlow" src="/wiki-assets/docs/sdk/images/plugin/fakeparticleblow3.png" /><br /></td>
     </tr>
   </tbody>
 </table>
@@ -309,7 +308,7 @@ Features:
 <table>
   <tbody>
     <tr>
-      <td>.FakeParticleBlow Shader<br />image:plugin/hdQop4yZ-lA.jpg[youtube_hdQop4yZ-lA,width="",height="",link="https://youtu.be/hdQop4yZ-lA"]</td>
+      <td>.FakeParticleBlow Shader<br /><img alt="youtube_hdQop4yZ-lA" src="/wiki-assets/docs/sdk/images/plugin/hdQop4yZ-lA.jpg" /></td>
       <td><br /></td>
     </tr>
   </tbody>
@@ -322,7 +321,7 @@ Set material's parameters and set the material to a spatial.
 
 Most of the cases the spatial will be 4 to 10 planes in the same location but rotated on Y axis using different angles for each plane. Something similar to this:
 
-image:plugin/fakeobject.png[fakeobject.png,width="100",height=""]
+![fakeobject.png](/wiki-assets/docs/sdk/images/plugin/fakeobject.png)
 
 :::important
 Remember to set the queue bucket to transparent for the spatial.
@@ -372,7 +371,7 @@ final ColorRGBA fogColor = ColorRGBA.Blue.clone();
 
 Several planes geometries will be required as there will be AlphaAdditive material.
 
-[TestCase 1](https://github.com/jMonkeyEngine-Contributions/shaderblowlib/blob/master/ShaderBlow/test-src/com/shaderblow/test/fakeparticleblow/TestFakeParticleBlow.java) +
+[TestCase 1](https://github.com/jMonkeyEngine-Contributions/shaderblowlib/blob/master/ShaderBlow/test-src/com/shaderblow/test/fakeparticleblow/TestFakeParticleBlow.java)
 [TestCase 2](https://github.com/jMonkeyEngine-Contributions/shaderblowlib/blob/master/ShaderBlow/test-src/com/shaderblow/test/fakeparticleblow/TestFakeParticleBlow2.java)
 
 [Forum thread](https://hub.jmonkeyengine.org/t/fakeparticleblow-shader/16443)
@@ -401,8 +400,8 @@ Features:
 <table>
   <tbody>
     <tr>
-      <td>.Forceshield Shader<br />image:plugin/uu2nbaBM9Pk.jpg[youtube_uu2nbaBM9Pk,width="",height="",link="https://youtu.be/uu2nbaBM9Pk"]</td>
-      <td>.Forceshield Cube Shader<br />image:plugin/urzMiUeHsCc.png[youtube_urzMiUeHsCc,width="",height="",link="https://youtu.be/urzMiUeHsCc"]<br /></td>
+      <td>.Forceshield Shader<br /><img alt="youtube_uu2nbaBM9Pk" src="/wiki-assets/docs/sdk/images/plugin/uu2nbaBM9Pk.jpg" /></td>
+      <td>.Forceshield Cube Shader<br /><img alt="youtube_urzMiUeHsCc" src="/wiki-assets/docs/sdk/images/plugin/urzMiUeHsCc.png" /><br /></td>
     </tr>
   </tbody>
 </table>
@@ -467,12 +466,16 @@ Features:
 <table>
   <tbody>
     <tr>
-      <td>image:plugin/shaderblow_matcap.jpg[MatCap shader,width="400",height=""]</td>
-      <td>image:plugin/matcap3.png[Multiply color,width="400",height=""]<br /></td>
+      <td><img alt="MatCap shader" src="/wiki-assets/docs/sdk/images/plugin/shaderblow_matcap.jpg" /></td>
     </tr>
     <tr>
-      <td>image:plugin/matcap1.png[Toon edge effect,width="400",height=""]</td>
-      <td>image:plugin/matcap2.png[Fog effect,width="400",height=""]<br /></td>
+      <td><img alt="Multiply color" src="/wiki-assets/docs/sdk/images/plugin/matcap3.png" /><br /></td>
+    </tr>
+    <tr>
+      <td><img alt="Toon edge effect" src="/wiki-assets/docs/sdk/images/plugin/matcap1.png" /></td>
+    </tr>
+    <tr>
+      <td><img alt="Fog effect" src="/wiki-assets/docs/sdk/images/plugin/matcap2.png" /><br /></td>
     </tr>
   </tbody>
 </table>
@@ -525,8 +528,10 @@ Features:
 <table>
   <tbody>
     <tr>
-      <td>image:plugin/glass-shader.png[Glass shader,width="400",height=""]</td>
-      <td>image:plugin/glass-shader2.png[Glass Shader and Fog Color effect,width="400",height=""]<br /></td>
+      <td><img alt="Glass shader" src="/wiki-assets/docs/sdk/images/plugin/glass-shader.png" /></td>
+    </tr>
+    <tr>
+      <td><img alt="Glass Shader and Fog Color effect" src="/wiki-assets/docs/sdk/images/plugin/glass-shader2.png" /><br /></td>
     </tr>
   </tbody>
 </table>
@@ -581,7 +586,7 @@ Features:
 <table>
   <tbody>
     <tr>
-      <td>.SimpleRefraction PostProcessor<br />image:plugin/EAUKCU5GRmc.jpg[youtube_EAUKCU5GRmc,width="",height="",link="https://youtu.be/EAUKCU5GRmc"]</td>
+      <td>.SimpleRefraction PostProcessor<br /><img alt="youtube_EAUKCU5GRmc" src="/wiki-assets/docs/sdk/images/plugin/EAUKCU5GRmc.jpg" /></td>
       <td><br /></td>
     </tr>
   </tbody>
@@ -604,7 +609,9 @@ Features:
 <table>
   <tbody>
     <tr>
-      <td>image:plugin/shaderblow_ssao.png[Glass shader,width="400",height=""]</td>
+      <td><img alt="Glass shader" src="/wiki-assets/docs/sdk/images/plugin/shaderblow_ssao.png" /></td>
+    </tr>
+    <tr>
       <td><br /></td>
     </tr>
   </tbody>
@@ -629,7 +636,7 @@ Features:
 <table>
   <tbody>
     <tr>
-      <td>.Electricity Shaders<br />image:plugin/JDTES95HnPE.jpg[youtube_JDTES95HnPE,width="",height="",link="https://youtu.be/JDTES95HnPE"]</td>
+      <td>.Electricity Shaders<br /><img alt="youtube_JDTES95HnPE" src="/wiki-assets/docs/sdk/images/plugin/JDTES95HnPE.jpg" /></td>
       <td><br /></td>
     </tr>
   </tbody>
@@ -648,7 +655,9 @@ Features:
 <table>
   <tbody>
     <tr>
-      <td>image:plugin/shaderblow_simplesprite_shader.png[Glass shader,width="400",height=""]</td>
+      <td><img alt="Glass shader" src="/wiki-assets/docs/sdk/images/plugin/shaderblow_simplesprite_shader.png" /></td>
+    </tr>
+    <tr>
       <td><br /></td>
     </tr>
   </tbody>
@@ -659,7 +668,7 @@ Features:
 <table>
   <tbody>
     <tr>
-      <td>.SimpleSprite Shader<br />image:plugin/7XFxbt-dw3I.jpg[youtube_7XFxbt-dw3I,width="",height="",link="https://youtu.be/7XFxbt-dw3I"]</td>
+      <td>.SimpleSprite Shader<br /><img alt="youtube_7XFxbt-dw3I" src="/wiki-assets/docs/sdk/images/plugin/7XFxbt-dw3I.jpg" /></td>
       <td><br /></td>
     </tr>
   </tbody>
@@ -680,7 +689,7 @@ Features:
 <table>
   <tbody>
     <tr>
-      <td>.Bubble Shader<br />image:plugin/rkFbLZ1EOhg.jpg[youtube_rkFbLZ1EOhg,width="",height="",link="https://youtu.be/rkFbLZ1EOhg"]</td>
+      <td>.Bubble Shader<br /><img alt="youtube_rkFbLZ1EOhg" src="/wiki-assets/docs/sdk/images/plugin/rkFbLZ1EOhg.jpg" /></td>
       <td><br /></td>
     </tr>
   </tbody>
@@ -696,7 +705,7 @@ Features:
 static sprite speed: can render 1500000 sprites at 149 fps ( 0% cpu load, speed limited only by graphics card ). As long as you don’t change them (add, move, delete, change image).
 FULL LIBRARY PLUGIN: [http://code.google.com/p/petomancer/downloads/detail?name=SpriteLibrary.zip&can=2&q=](https://code.google.com/archive/p/petomancer/downloads)
 
-image:plugin/shaderblow_simplespriteparticle_shader.png[shaderblow_simplespriteparticle_shader.png,width="400",height=""]
+![shaderblow_simplespriteparticle_shader.png](/wiki-assets/docs/sdk/images/plugin/shaderblow_simplespriteparticle_shader.png)
 
 [Forum thread](https://hub.jmonkeyengine.org/t/spritelibrary-efficient-render-of-sprites/20901)
 
@@ -713,7 +722,7 @@ Features:
 <table>
   <tbody>
     <tr>
-      <td>.GLSL Texture Bomb<br />image:plugin/3lBhu2c5V8o.jpg[youtube_3lBhu2c5V8o,width="",height="",link="https://youtu.be/3lBhu2c5V8o"]</td>
+      <td>.GLSL Texture Bomb<br /><img alt="youtube_3lBhu2c5V8o" src="/wiki-assets/docs/sdk/images/plugin/3lBhu2c5V8o.jpg" /></td>
       <td><br /></td>
     </tr>
   </tbody>
@@ -738,7 +747,7 @@ Features:
 <table>
   <tbody>
     <tr>
-      <td>.Night Vision Post Processor<br />image:plugin/mNsjAVUTDPs.jpg[youtube_mNsjAVUTDPs,width="",height="",link="https://youtu.be/mNsjAVUTDPs"]</td>
+      <td>.Night Vision Post Processor<br /><img alt="youtube_mNsjAVUTDPs" src="/wiki-assets/docs/sdk/images/plugin/mNsjAVUTDPs.jpg" /></td>
       <td><br /></td>
     </tr>
   </tbody>
@@ -763,7 +772,7 @@ Features:
 <table>
   <tbody>
     <tr>
-      <td>.Predator Thermal Vision<br />image:plugin/DqBwCWVwTFQ.jpg[youtube_DqBwCWVwTFQ,width="",height="",link="https://youtu.be/DqBwCWVwTFQ"]</td>
+      <td>.Predator Thermal Vision<br /><img alt="youtube_DqBwCWVwTFQ" src="/wiki-assets/docs/sdk/images/plugin/DqBwCWVwTFQ.jpg" /></td>
       <td><br /></td>
     </tr>
   </tbody>
@@ -788,7 +797,7 @@ Features:
 <table>
   <tbody>
     <tr>
-      <td>.Frosted Glass effect Filter<br />image:plugin/Bb0jVjqvURw.jpg[youtube_Bb0jVjqvURw,width="",height="",link="https://youtu.be/Bb0jVjqvURw"]</td>
+      <td>.Frosted Glass effect Filter<br /><img alt="youtube_Bb0jVjqvURw" src="/wiki-assets/docs/sdk/images/plugin/Bb0jVjqvURw.jpg" /></td>
       <td><br /></td>
     </tr>
   </tbody>

@@ -125,4 +125,4 @@ screen.addElement(slider);
 
 ```
 
-image:gui/tonegodgui/indicatorexample.png[indicatorexample.png,width="",height=""]
+![indicatorexample.png](/wiki-assets/docs/contributions/assets/images/gui/tonegodgui/indicatorexample.png)

@@ -141,9 +141,9 @@ The task code in the Callable should be self-contained! It should not write or r
 
 In reality, you might need access to the game state. If you must read or write a current state from the scene graph, you must have a clone of the data in your thread. There are only two ways:
 
-- Use the execution queue `application.enqueue()` to create a sub-thread that clones the info. Only disadvantage is, it may be slower. +
+- Use the execution queue `application.enqueue()` to create a sub-thread that clones the info. Only disadvantage is, it may be slower.
 The example below gets the `Vector3f location` from the scene object `mySpatial` using this way.
-- Create a separate World class that allows safe access to its data via synchronized methods to access the scene graph. Alternatively it can also internally use `application.enqueue()`. +
+- Create a separate World class that allows safe access to its data via synchronized methods to access the scene graph. Alternatively it can also internally use `application.enqueue()`.
 The following example gets the object `Data data = myWorld.getData();` using this way.
 
 These two ways are thread-safe, they don't mess up the game logic, and keep the Callable code readable.
@@ -175,9 +175,9 @@ private Callable<MyWayList> findWay = new Callable<MyWayList>(){
 
 ### Useful Links
 
-High level description which describes how to manage the game state and the rendering in different threads: +
-[Threading and your game loop](http://jahej.com/alt/2011_07_03_threading-and-your-game-loop.html). +
-A C++ example can be found at: +
+High level description which describes how to manage the game state and the rendering in different threads:
+[Threading and your game loop](http://jahej.com/alt/2011_07_03_threading-and-your-game-loop.html).
+A C++ example can be found at:
 [Multithreading-rendering in a game engine with CDouble buffer implementation](http://gamasutra.com/blogs/AndreaMagnorsky/20130527/193087/Multithreading_rendering_in_a_game_engine_with_CDouble_buffer_implementation.php).
 
 ### Conclusion

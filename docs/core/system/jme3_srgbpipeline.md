@@ -2,24 +2,24 @@
 
 ## Overview
 
-We consider color values to be linear when computing lighting. What does that means? That means that we assume that the color 0.5,0.5,0.5 is half way between black and white. +
-The problem is that it’s not the case, or at least not when you look at the color through a monitor. +
-CRT monitors had physical limitations that prevented them to have a linear way of representing colors. that means that 0.5,0.5,0.5 through a monitor is not half way between black and white (it’s darker). Note that black and white remains the same though. +
-If we do not take that into account, the rendered images are overly darken and feels dull. +
-LCD monitors still mimic this physical limitation (I guess for backward compatibility). +
-*Output correct colors* +
-Gamma Correction is the technique that tends to correct the issue. Gamma is an power factor applied to the color by the monitor when lighting a pixel on screen (or at least a simplification of the function applied). So when we output the color, we have to apply the inverse power of this factor to nullify the effect : finalColor = pow(computedColor, 1/gamma); +
+We consider color values to be linear when computing lighting. What does that means? That means that we assume that the color 0.5,0.5,0.5 is half way between black and white.
+The problem is that it’s not the case, or at least not when you look at the color through a monitor.
+CRT monitors had physical limitations that prevented them to have a linear way of representing colors. that means that 0.5,0.5,0.5 through a monitor is not half way between black and white (it’s darker). Note that black and white remains the same though.
+If we do not take that into account, the rendered images are overly darken and feels dull.
+LCD monitors still mimic this physical limitation (I guess for backward compatibility).
+*Output correct colors*
+Gamma Correction is the technique that tends to correct the issue. Gamma is an power factor applied to the color by the monitor when lighting a pixel on screen (or at least a simplification of the function applied). So when we output the color, we have to apply the inverse power of this factor to nullify the effect : finalColor = pow(computedColor, 1/gamma);
 
-*Knowing what colors we have as input* +
+*Knowing what colors we have as input*
 The other aspect of gamma correction is the colors we get as input in the rendering process that are stored in textures or in ColorRGBA material params. Almost all image editors are storing color data in images already gamma corrected (so that colors are correct when you display the picture in a viewer of in a browser). Also most hand picked colors (in a color picker) can be assumed as gamma corrected as you most probably chose this color through a monitor display.
 Such images or color are said to be in sRGB color space, meaning "`standard RGB`" (which is not the standard one would guess).
 That means that textures and colors that we use as input in our shaders are not in a linear space. The issue is that we need them in linear space when we compute the lighting, else the lighting is wrong.
 To avoid this we need to apply some gamma correction to the colors : (pow(color, gamma);
 This only apply to textures that will render colors on screen (basically diffuse map, specular, light maps). Normal maps, height maps don’t need the correction.
 
-This is the kind of difference you can have : +
-left is non corrected output, right is gamma corrected output. +
-image:[uNL7vw8.png,width="",height=""](http://i.imgur.com/uNL7vw8.png)
+This is the kind of difference you can have :
+left is non corrected output, right is gamma corrected output.
+![uNL7vw8.png](http://i.imgur.com/uNL7vw8.png)
 
 ### Implementation
 
@@ -46,11 +46,11 @@ app.setSettings(settings);
 
 ```
 
-This setting is also exposed in the Settings dialog displayed when you launch a jME application. +
-image:[Lya1ldH.png,width="400",height=""](http://i.imgur.com/Lya1ldH.png)
+This setting is also exposed in the Settings dialog displayed when you launch a jME application.
+![Lya1ldH.png](http://i.imgur.com/Lya1ldH.png)
 
 :::important
-This is a short hand to enable both linearization of input textures and Gamma correction of the rendered output on screen. +
+This is a short hand to enable both linearization of input textures and Gamma correction of the rendered output on screen.
 *Both can be enabled separately*.
 :::
 
@@ -68,7 +68,7 @@ This can be toggled at run time.
 This uses Opengl hardware gamma correction that uses an approximated Gamma value of 2.2 and uses the following formula : color = pow(color,1/gamma)
 
 :::note
-This will not yield exact results, as the real gamma can vary depending on the monitor. +
+This will not yield exact results, as the real gamma can vary depending on the monitor.
 If this is a problem, please refer to the "`handling gamma correction`" in a post process section.
 :::
 
@@ -87,7 +87,7 @@ Toggling this setting at runtime will produce unexpected behavior for now. A cha
 :::
 
 All images marked as in sRGB color space will be uploaded to the GPU using a sRGB image format.
-Opengl hardware texture linearization also uses an approximated Gamma value of 2.2 and linearize the fetched texel color using the following formula : color = pow(color, gamma) +
+Opengl hardware texture linearization also uses an approximated Gamma value of 2.2 and linearize the fetched texel color using the following formula : color = pow(color, gamma)
 As with output gamma correction this will not give exact result, but the error is less important since most image editor uses the same approximation to correct images and save them in sRGB color space.
 
 Not all image format have their sRGB equivalent, and only 8bit formats.
@@ -111,11 +111,11 @@ Conventionally only the rgb channels are gamma corrected, as the alpha channel d
 #### Excluding images from the sRGB pipeline
 
 :::important
-Only loaded images will be marked as in sRGB color space, when using assetManager.loadTexture or loadAsset. +
+Only loaded images will be marked as in sRGB color space, when using assetManager.loadTexture or loadAsset.
 The color space of an image created by code will have to be specified in the constructor or will be assumed as Linear if not specified.
 :::
 
-Not all images need to be linearized. Some images don't represent color information that will be displayed on screen, but more different sort of data packed in a texture. +
+Not all images need to be linearized. Some images don't represent color information that will be displayed on screen, but more different sort of data packed in a texture.
 The best example is a Normal map that will contains normal vectors for each pixel. Height maps will contain elevation values. These textures must not be linearized.
 
 There is no way to determine the real color space of an image when loading it, so we must deduce the color space from the usage it's loaded for. The usage is dictated by the material, those textures are used for, and by the material parameter they are assigned to.

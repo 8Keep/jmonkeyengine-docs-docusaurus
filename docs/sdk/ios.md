@@ -12,7 +12,7 @@ iOS deployment works via cross-compilation to native iOS ARM code, there is no v
 
 After creating a `Basic Game` project in the jMonkeyEngine SDK, add the iOS library by **RMB** selecting your project and navigating to `"Properties &gt; Libraries &gt; Add Library... &gt; jme3-ios"` and when ready **Add Library**.
 
-![xcode_add_ios_lib.jpg](/wiki-assets/docs/sdk/assets/images/xcode_add_ios_lib.jpg)
+![xcode_add_ios_lib.jpg](/wiki-assets/docs/sdk/images/xcode_add_ios_lib.jpg)
 
 :::tip
 To install the iOS deployment plugin, go to "Tools &gt; Plugins" and under "`Available Plugins`" select:
@@ -30,7 +30,7 @@ To enable iOS deployment, go to the project settings and under "Application &gt;
 
 If there is no number present then you need to install XCODE. In this example, my SDK version is 11.3 and I’m using XCODE version 9.3
 
-![xcode_enable_ios_deploy.jpg](/wiki-assets/docs/sdk/assets/images/xcode_enable_ios_deploy.jpg)
+![xcode_enable_ios_deploy.jpg](/wiki-assets/docs/sdk/images/xcode_enable_ios_deploy.jpg)
 
 Then adapt the application ID and press **OK**.
 
@@ -54,7 +54,7 @@ Run this command in terminal:
 
  xcode-select --install
 
-or set the header search path in the XCode project settings, in the default project that's +
+or set the header search path in the XCode project settings, in the default project that's
 
  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk/System/Library/Frameworks/JavaVM.framework/Headers/
 
@@ -68,31 +68,31 @@ You should also adapt the project settings like application name and registratio
 
 1. First change the selected "`TARGET`" at the top of the screen from `iPhone 7 Plus` to `Generic iOS Device`. This is so we can do a full build. If you want to run it in a simulator then you can change it back later.
 
-![xcode_generic_ios.jpg](/wiki-assets/docs/sdk/assets/images/xcode_generic_ios.jpg)
+![xcode_generic_ios.jpg](/wiki-assets/docs/sdk/images/xcode_generic_ios.jpg)
 
 1. From the "`PROJECT`" menu click **BUILD** and the build will fail. Click the **ISSUE NAVIGATOR** button to show the compilation errors.
 
 --
-![xcode_issue_nav.jpg](/wiki-assets/docs/sdk/assets/images/xcode_issue_nav.jpg)
+![xcode_issue_nav.jpg](/wiki-assets/docs/sdk/images/xcode_issue_nav.jpg)
 
 We can see here that the "`Developer`" account is missing, the project settings are out of date and there is a missing image for Retina 4-inch support.
 --
 
   1. Click **Validate Project Settings** followed by **PERFORM CHANGES** to accept all the suggested amendments.
 
-![xcode_perform_changes.jpg](/wiki-assets/docs/sdk/assets/images/xcode_perform_changes.jpg)
+![xcode_perform_changes.jpg](/wiki-assets/docs/sdk/images/xcode_perform_changes.jpg)
 
   1. Click on the Missing Image warning and XCODE will automatically add a placeholder for you.
 
-![xcode_add_placeholder.jpg](/wiki-assets/docs/sdk/assets/images/xcode_add_placeholder.jpg)
+![xcode_add_placeholder.jpg](/wiki-assets/docs/sdk/images/xcode_add_placeholder.jpg)
 
   1. Add your iOS developer account details by clicking on the target and then the Account Drop down.
 
-![xcode_add_account.jpg](/wiki-assets/docs/sdk/assets/images/xcode_add_account.jpg)
+![xcode_add_account.jpg](/wiki-assets/docs/sdk/images/xcode_add_account.jpg)
 
 1. Now click the "`PROJECT`" menu and "`BUILD`" again and it should compile now but fails at the linking stage.
 
-![xcode_build.jpg](/wiki-assets/docs/sdk/assets/images/xcode_build.jpg)
+![xcode_build.jpg](/wiki-assets/docs/sdk/images/xcode_build.jpg)
 
 1. We need to amend the linker search paths.
   1. Click on **PROJECT NAVIGATOR**.
@@ -103,10 +103,10 @@ If you have done it correct then you will only see "`INFO`" & "`BUILD SETTINGS`"
   1. Select **BUILD SETTINGS**.
   1. Scroll down to "`LINKING`" section.
 
-![xcode_linking.jpg](/wiki-assets/docs/sdk/assets/images/xcode_linking.jpg)
+![xcode_linking.jpg](/wiki-assets/docs/sdk/images/xcode_linking.jpg)
   1. Double click on **OTHER LINKER FLAGS**.
 
-![xcode_linker_flags.jpg](/wiki-assets/docs/sdk/assets/images/xcode_linker_flags.jpg)
+![xcode_linker_flags.jpg](/wiki-assets/docs/sdk/images/xcode_linker_flags.jpg)
   1. Double click on the line referencing "`i386`" and change it from:
 
 --
@@ -128,7 +128,7 @@ to
 --
 Your other linker flags should now look like this…
 
-![xcode_other_linker.png](/wiki-assets/docs/sdk/assets/images/xcode_other_linker.png)
+![xcode_other_linker.png](/wiki-assets/docs/sdk/images/xcode_other_linker.png)
 --
 1. Disable "`BITCODE`".
   1. Click on **PROJECT NAVIGATOR**.
@@ -139,7 +139,7 @@ If you have followed the directions correctly, then you will see General/Capabil
   1. Select **BUILD SETTINGS**.
   1. Scroll down to "`BUILD OPTIONS`" section and change "`ENABLE BITCODE`" to "`NO`".
 
-![xcode_disable_bitcode.jpg](/wiki-assets/docs/sdk/assets/images/xcode_disable_bitcode.jpg)
+![xcode_disable_bitcode.jpg](/wiki-assets/docs/sdk/images/xcode_disable_bitcode.jpg)
 
 1. From the "`PROJECT`" menu click "BUILD" and the project should build and link fully.
 
@@ -147,7 +147,7 @@ If you have followed the directions correctly, then you will see General/Capabil
 
 This will generate the App Store Archive and show in the organizer screen.
 
-![xcode_publish.png](/wiki-assets/docs/sdk/assets/images/xcode_publish.png)
+![xcode_publish.png](/wiki-assets/docs/sdk/images/xcode_publish.png)
 
 1. Click Upload to APP Store and away you go.
 
@@ -159,4 +159,4 @@ The JmeAppHarness.java class is initialized and called from native code through 
 
 Effectively native code can reside in both the Xcode project and in the `ios/src` folder. To keep the dependencies clean and make code reusable you should try to put generic native code that does not depend on the Xcode project in the `ios/src` folder. You can also mix and match ARC and non-ARC code through this by converting the main project to use ARC and putting code with manual memory management in the `ios/src` folder.
 
-Java code for iOS should be in the `ios/src` folder as well for clean separation, its also the only place where they will be compiled with a reference to the iOS specific jME classes. For information on how to connect your application code and device specific code, see the [Android](android.md#usingandroidspecificfunctions).
+Java code for iOS should be in the `ios/src` folder as well for clean separation, its also the only place where they will be compiled with a reference to the iOS specific jME classes. For information on how to connect your application code and device specific code, see the [Android](android.md#using-android-specific-functions).

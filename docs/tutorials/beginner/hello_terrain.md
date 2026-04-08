@@ -157,7 +157,7 @@ Here is how you create the heightmap object in your jME code:
 
 1. Create a Texture object.
 1. Load your prepared heightmap image into the texture object.
-1. Create an AbstractHeightMap object from an ImageBasedHeightMap. +
+1. Create an AbstractHeightMap object from an ImageBasedHeightMap.
 It requires an image from a JME Texture.
 1. Load the heightmap.
 
@@ -184,8 +184,8 @@ Splat textures are based on the `Terrain.j3md` material definition. If you open 
 
 Before you can start painting, you have to make a few decisions:
 
-1. Choose three textures. For example grass.jpg, dirt.jpg, and road.jpg. +
-image:beginner/grass.jpg[grass.jpg,64,64] image:beginner/dirt.jpg[dirt.jpg,64,64] image:beginner/road.jpg[road.jpg,64,64]
+1. Choose three textures. For example grass.jpg, dirt.jpg, and road.jpg.
+![grass.jpg](/wiki-assets/docs/tutorials/assets/images/beginner/grass.jpg) ![dirt.jpg](/wiki-assets/docs/tutorials/assets/images/beginner/dirt.jpg) ![road.jpg](/wiki-assets/docs/tutorials/assets/images/beginner/road.jpg)
 
 1. You '`paint`' three texture layers by using three colors: Red, blue and, green. You arbitrarily decide that…
   1. Red   is grass – red   is layer `Tex1`, so put the grass texture into Tex1.
@@ -200,8 +200,8 @@ Now you start painting the texture:
   1. Paint the black valleys red – this will be the grass.
   1. Paint the white hills green – this will be the dirt of the mountains.
   1. Paint blue lines where you want roads to criss-cross the landscape.
-1. The end result should look similar to this: +
-image:beginner/mountains512.png[mountains512.png,64,64] &#8658; image:beginner/alphamap.png[alphamap.png,64,64]
+1. The end result should look similar to this:
+![mountains512.png](/wiki-assets/docs/tutorials/assets/images/beginner/mountains512.png) &#8658; ![alphamap.png](/wiki-assets/docs/tutorials/assets/images/beginner/alphamap.png)
 
 ### Looking at the Texturing Code
 

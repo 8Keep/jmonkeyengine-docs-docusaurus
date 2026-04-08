@@ -75,36 +75,19 @@ Build and run the code sample. You should see two colored boxes tilted at the sa
 ## Understanding the Terminology
 
 In this tutorial, you learn some new terms:
-<table>
-  <thead>
-    <tr>
-      <th>What you want to do?</th>
-      <th>How you say it in JME3 terminology<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Lay out the 3D scene.</td>
-      <td>Populate the scene graph.<br /></td>
-    </tr>
-    <tr>
-      <td>Create scene objects.</td>
-      <td>Create Spatials. (e.g. create Geometries)<br /></td>
-    </tr>
-    <tr>
-      <td>Make an object appear in the scene.</td>
-      <td>Attach a Spatial to the rootNode.<br /></td>
-    </tr>
-    <tr>
-      <td>Make an object disappear from the scene.</td>
-      <td>Detach the Spatial from the rootNode.<br /></td>
-    </tr>
-    <tr>
-      <td>Position/move, turn, or resize an object.</td>
-      <td>Translate, or rotate, or scale an object = transform an object.<br /></td>
-    </tr>
-  </tbody>
-</table>
+| What you want to do? |
+| --- |
+| How you say it in JME3 terminology<br /> |
+| Lay out the 3D scene. |
+| Populate the scene graph.<br /> |
+| Create scene objects. |
+| Create Spatials. (e.g. create Geometries)<br /> |
+| Make an object appear in the scene. |
+| Attach a Spatial to the rootNode.<br /> |
+| Make an object disappear from the scene. |
+| Detach the Spatial from the rootNode.<br /> |
+| Position/move, turn, or resize an object. |
+| Translate, or rotate, or scale an object = transform an object.<br /> |
 
 Every JME3 application has a rootNode: Your game automatically inherits the `rootNode` object from SimpleApplication. Everything attached to the rootNode is part of the scene graph. The elements of the scene graph are Spatials.
 
@@ -112,26 +95,11 @@ Every JME3 application has a rootNode: Your game automatically inherits the `roo
 - A Spatial can be loaded, transformed, and saved.
 - There are two types of Spatials: Nodes and Geometries.
 
-<table>
-  <thead>
-    <tr>
-      <th></th>
-      <th>Geometry</th>
-      <th>Node<br /></th>
-      <th>Visibility:</th>
-      <th>A Geometry is a visible scene object.</th>
-      <th>A Node is an invisible "`handle`" for scene objects.<br /></th>
-      <th>Purpose:</th>
-      <th>A Geometry stores an object's looks.</th>
-      <th>A Node groups Geometries and other Nodes together.<br /></th>
-      <th>Examples:</th>
-      <th>A box, a sphere, a player, a building, a piece of terrain, a vehicle, missiles, NPCs, etc…</th>
-      <th>The `rootNode`, a floor node grouping several terrains, a custom vehicle-with-passengers node, a player-with-weapon node, an audio node, etc…<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-  </tbody>
-</table>
+|  | Geometry | Node<br /> |
+| --- | --- | --- |
+| Visibility: | A Geometry is a visible scene object. | A Node is an invisible "`handle`" for scene objects.<br /> |
+| Purpose: | A Geometry stores an object's looks. | A Node groups Geometries and other Nodes together.<br /> |
+| Examples: | A box, a sphere, a player, a building, a piece of terrain, a vehicle, missiles, NPCs, etc… | The `rootNode`, a floor node grouping several terrains, a custom vehicle-with-passengers node, a player-with-weapon node, an audio node, etc…<br /> |
 
 ## Understanding the Code
 
@@ -221,101 +189,38 @@ Contrast this case with the other option. If you don't create an extra pivot nod
 *Examples:* If you rotate each cube directly (using `red.rotate(0.1f , 0.2f , 0.3f);` and `blue.rotate(0.5f , 0.0f , 0.25f);`), then each cube is rotated individually around its center. This is similar to a planet rotating around its own center.
 
 ## How do I Populate the Scenegraph?
-<table>
-  <thead>
-    <tr>
-      <th>Task…?</th>
-      <th>Solution!<br /></th>
-      <th>Create a Spatial.</th>
-      <th>Create a Mesh shape, wrap it into a Geometry, and give it a Material. +<br />For example:<br />[source,java]<br />----<br />/** a cuboid default mesh */<br />Box mesh = new Box(Vector3f.ZERO, 1, 1, 1);<br />Geometry thing = new Geometry("thing", mesh);<br />Material mat = new Material(assetManager,<br />"Common/MatDefs/Misc/ShowNormals.j3md");<br />thing.setMaterial(mat);<br />----<br /><br /></th>
-      <th>Make an object appear in the scene.</th>
-      <th>Attach the Spatial to the `rootNode`, or to any node that is attached to the rootNode.<br />[source,java]<br />----<br />rootNode.attachChild(thing);<br />----<br /><br /></th>
-      <th>Remove objects from the scene.</th>
-      <th>Detach the Spatial from the `rootNode`, and from any node that is attached to the rootNode.<br />[source,java]<br />----<br />rootNode.detachChild(thing);<br />----<br /><br />[source,java]<br />----<br />rootNode.detachAllChildren();<br />----<br /><br /></th>
-      <th>Find a Spatial in the scene by the object's name, or ID, or by its position in the parent-child hierarchy.</th>
-      <th>Look at the node's children or parent:<br />[source,java]<br />----<br />Spatial thing = rootNode.getChild("thing");<br />----<br /><br />[source,java]<br />----<br />Spatial twentyThird = rootNode.getChild(22);<br />----<br /><br />[source,java]<br />----<br />Spatial parent = myNode.getParent();<br />----<br /><br /></th>
-      <th>Specify what should be loaded at the start.</th>
-      <th>Everything you initialize and attach to the `rootNode` in the `simpleInitApp()` method is part of the scene at the start of the game.<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-  </tbody>
-</table>
+| Task…? | Solution!<br /> |
+| --- | --- |
+| Create a Spatial. | Create a Mesh shape, wrap it into a Geometry, and give it a Material.<br />For example:<br />[source,java]<br />----<br />/** a cuboid default mesh */<br />Box mesh = new Box(Vector3f.ZERO, 1, 1, 1);<br />Geometry thing = new Geometry("thing", mesh);<br />Material mat = new Material(assetManager,<br />"Common/MatDefs/Misc/ShowNormals.j3md");<br />thing.setMaterial(mat);<br />----<br /><br /> |
+| Make an object appear in the scene. | Attach the Spatial to the `rootNode`, or to any node that is attached to the rootNode.<br />[source,java]<br />----<br />rootNode.attachChild(thing);<br />----<br /><br /> |
+| Remove objects from the scene. | Detach the Spatial from the `rootNode`, and from any node that is attached to the rootNode.<br />[source,java]<br />----<br />rootNode.detachChild(thing);<br />----<br /><br />[source,java]<br />----<br />rootNode.detachAllChildren();<br />----<br /><br /> |
+| Find a Spatial in the scene by the object's name, or ID, or by its position in the parent-child hierarchy. | Look at the node's children or parent:<br />[source,java]<br />----<br />Spatial thing = rootNode.getChild("thing");<br />----<br /><br />[source,java]<br />----<br />Spatial twentyThird = rootNode.getChild(22);<br />----<br /><br />[source,java]<br />----<br />Spatial parent = myNode.getParent();<br />----<br /><br /> |
+| Specify what should be loaded at the start. | Everything you initialize and attach to the `rootNode` in the `simpleInitApp()` method is part of the scene at the start of the game.<br /> |
 
 ## How do I Transform Spatials?
 
 There are three types of 3D transformation: Translation, Scaling, and Rotation.
 
-<table>
-  <thead>
-    <tr>
-      <th>Translation moves Spatials</th>
-      <th>X-axis</th>
-      <th>Y-axis</th>
-      <th>Z-axis<br /></th>
-      <th>Specify the new location in three dimensions: How far away is it from the origin going right-up-forward? +<br />To move a Spatial _to_ specific coordinates, such as (0,40.2f,-2), use:<br />[source,java]<br />----<br />thing.setLocalTranslation( new Vector3f( 0.0f, 40.2f, -2.0f ) );<br />----<br /><br />To move a Spatial _by_ a certain amount, e.g. higher up (y=40.2f) and further back (z=-2.0f):<br /><br />[source,java]<br />----<br />thing.move( 0.0f, 40.2f, -2.0f );<br />----<br /></th>
-      <th>+right +<br />-left</th>
-      <th>+up +<br />-down</th>
-      <th>+forward +<br />-backward<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-  </tbody>
-</table>
+| Translation moves Spatials | X-axis | Y-axis | Z-axis<br /> |
+| --- | --- | --- | --- |
+| Specify the new location in three dimensions: How far away is it from the origin going right-up-forward?<br />To move a Spatial _to_ specific coordinates, such as (0,40.2f,-2), use:<br />[source,java]<br />----<br />thing.setLocalTranslation( new Vector3f( 0.0f, 40.2f, -2.0f ) );<br />----<br /><br />To move a Spatial _by_ a certain amount, e.g. higher up (y=40.2f) and further back (z=-2.0f):<br /><br />[source,java]<br />----<br />thing.move( 0.0f, 40.2f, -2.0f );<br />----<br /> | +right<br />-left | +up<br />-down | +forward<br />-backward<br /> |
 
-<table>
-  <thead>
-    <tr>
-      <th>Scaling resizes Spatials</th>
-      <th>X-axis</th>
-      <th>Y-axis</th>
-      <th>Z-axis<br /></th>
-      <th>Specify the scaling factor in each dimension: length, height, width. +<br />A value between 0.0f and 1.0f shrinks the Spatial; bigger than 1.0f stretches it; 1.0f keeps it the same. +<br />Using the same value for each dimension scales proportionally, different values stretch it. +<br />To scale a Spatial 10 times longer, one tenth the height, and keep the same width:<br />[source,java]<br />----<br />thing.scale( 10.0f, 0.1f, 1.0f );<br />----<br /></th>
-      <th>length</th>
-      <th>height</th>
-      <th>width<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-  </tbody>
-</table>
+| Scaling resizes Spatials | X-axis | Y-axis | Z-axis<br /> |
+| --- | --- | --- | --- |
+| Specify the scaling factor in each dimension: length, height, width.<br />A value between 0.0f and 1.0f shrinks the Spatial; bigger than 1.0f stretches it; 1.0f keeps it the same.<br />Using the same value for each dimension scales proportionally, different values stretch it.<br />To scale a Spatial 10 times longer, one tenth the height, and keep the same width:<br />[source,java]<br />----<br />thing.scale( 10.0f, 0.1f, 1.0f );<br />----<br /> | length | height | width<br /> |
 
-<table>
-  <thead>
-    <tr>
-      <th>Rotation turns Spatials</th>
-      <th>X-axis (Pitch)</th>
-      <th>Y-axis (Yaw)</th>
-      <th>Z-axis (Roll)<br /></th>
-      <th>3-D rotation is a bit tricky ([learn details here](../concepts/rotate.md)). In short: You can rotate around three axes: Pitch, yaw, and roll. You can specify angles in degrees by multiplying the degrees value with `FastMath.DEG_TO_RAD`. +<br />To roll an object 180° around the z axis:<br />[source,java]<br />----<br />thing.rotate( 0f , 0f , 180*FastMath.DEG_TO_RAD );<br />----<br /><br />Tip: If your game idea calls for a serious amount of rotations, it is worth looking into [quaternions](../../core/math/quaternion.md), a data structure that can combine and store rotations efficiently.<br /><br />[source,java]<br />----<br />thing.setLocalRotation(  new Quaternion().<br />fromAngleAxis(180*FastMath.DEG_TO_RAD,<br />new Vector3f(1,0,0)));<br />----<br /></th>
-      <th>nodding your head</th>
-      <th>shaking your head</th>
-      <th>cocking your head<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-  </tbody>
-</table>
+| Rotation turns Spatials | X-axis (Pitch) | Y-axis (Yaw) | Z-axis (Roll)<br /> |
+| --- | --- | --- | --- |
+| 3-D rotation is a bit tricky ([learn details here](../concepts/rotate.md)). In short: You can rotate around three axes: Pitch, yaw, and roll. You can specify angles in degrees by multiplying the degrees value with `FastMath.DEG_TO_RAD`.<br />To roll an object 180° around the z axis:<br />[source,java]<br />----<br />thing.rotate( 0f , 0f , 180*FastMath.DEG_TO_RAD );<br />----<br /><br />Tip: If your game idea calls for a serious amount of rotations, it is worth looking into [quaternions](../../core/math/quaternion.md), a data structure that can combine and store rotations efficiently.<br /><br />[source,java]<br />----<br />thing.setLocalRotation(  new Quaternion().<br />fromAngleAxis(180*FastMath.DEG_TO_RAD,<br />new Vector3f(1,0,0)));<br />----<br /> | nodding your head | shaking your head | cocking your head<br /> |
 
 ## How do I Troubleshoot Spatials?
 
 If you get unexpected results, check whether you made the following common mistakes:
-<table>
-  <thead>
-    <tr>
-      <th>Problem?</th>
-      <th>Solution!<br /></th>
-      <th>A created Geometry does not appear in the scene.</th>
-      <th>Have you attached it to (a node that is attached to) the rootNode? +<br />Does it have a Material? +<br />What is its translation (position)? +<br />Is it behind the camera or covered up by another Geometry? +<br />Is it too tiny or too gigantic to see? +<br />Is it too far from the camera? (Try [cam.setFrustumFar(111111f);](https://javadoc.jmonkeyengine.org/com/jme3/renderer/Camera.html#setFrustumFar-float-) to see further)<br /></th>
-      <th>A Spatial rotates in unexpected ways.</th>
-      <th>Did you use radian values, and not degrees? (If you used degrees, multiply them with FastMath.DEG_TO_RAD to convert them to radians)  +<br />Did you create the Spatial at the origin (Vector.ZERO) before moving it? +<br />Did you rotate around the intended pivot node or around something else? +<br />Did you rotate around the right axis?<br /></th>
-      <th>A Geometry has an unexpected Color or Material.</th>
-      <th>Did you reuse a Material from another Geometry and have inadvertently changed its properties? (If so, consider cloning it: mat2 = mat.clone(); )<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-  </tbody>
-</table>
+| Problem? | Solution!<br /> |
+| --- | --- |
+| A created Geometry does not appear in the scene. | Have you attached it to (a node that is attached to) the rootNode?<br />Does it have a Material?<br />What is its translation (position)?<br />Is it behind the camera or covered up by another Geometry?<br />Is it too tiny or too gigantic to see?<br />Is it too far from the camera? (Try [cam.setFrustumFar(111111f);](https://javadoc.jmonkeyengine.org/com/jme3/renderer/Camera.html#setFrustumFar-float-) to see further)<br /> |
+| A Spatial rotates in unexpected ways. | Did you use radian values, and not degrees? (If you used degrees, multiply them with FastMath.DEG_TO_RAD to convert them to radians) <br />Did you create the Spatial at the origin (Vector.ZERO) before moving it?<br />Did you rotate around the intended pivot node or around something else?<br />Did you rotate around the right axis?<br /> |
+| A Geometry has an unexpected Color or Material. | Did you reuse a Material from another Geometry and have inadvertently changed its properties? (If so, consider cloning it: mat2 = mat.clone(); )<br /> |
 
 ## How do I Add Custom Data to Spatials?
 

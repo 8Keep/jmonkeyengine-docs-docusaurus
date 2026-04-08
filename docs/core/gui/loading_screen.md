@@ -5,9 +5,9 @@
 This example will use the existing hello terrain as an example.
 It will require these 2 images inside Assets/Interface/ (save them as border.png and inner.png respectively).
 
-image:gui/inner1.png[inner1.png,width="",height=""]
+![inner1.png](/wiki-assets/docs/core/assets/images/gui/inner1.png)
 
-image:gui/border1.png[border1.png,width="",height=""]
+![border1.png](/wiki-assets/docs/core/assets/images/gui/border1.png)
 
 You need to add the jme3-niftygui and jme3-test-data libraries.
 
@@ -15,7 +15,7 @@ You will need to set your projects source to JDK 8.
 
 This is the progress bar at 90%:
 
-image:gui/loadingscreen.png[loadingscreen.png,width="",height=""]
+![loadingscreen.png](/wiki-assets/docs/core/assets/images/gui/loadingscreen.png)
 
 nifty_loading.xml
 

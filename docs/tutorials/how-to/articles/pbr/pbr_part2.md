@@ -125,7 +125,7 @@ That’s where it gets complicated. For each of these terms, there are several m
 I’ve settled to use those models and approximations :
 
    * *D : Trowbridge-Reitz/GGX* normal Distribution function.
-   * *F : Fresnel term Schlick*’s [approximation](&#123;attachmentsdir&#125;/Schlick94.pdf)
+   * *F : Fresnel term Schlick*’s [approximation](/wiki-assets/docs/tutorials/assets/attachments/Schlick94.pdf)
    * *G : Schlick-GGX* approximation
 
 I won’t go into the details of all the alternatives I just want to expose an overview of the whole process first.  But I’ll dive into more technical details on the terms I use, in following posts. To have a neat overview of all alternatives you can see this [post](http://graphicrants.blogspot.fr/2013/08/specular-brdf-reference.html) on  Brian Karis’s blog.

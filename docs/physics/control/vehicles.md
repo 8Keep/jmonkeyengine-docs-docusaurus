@@ -6,7 +6,7 @@ Internally, each wheel casts a ray down, and using the ray's intersection point,
 
 This article shows how you use this vehicle implementation in a jME3 application.
 
-![physics-vehicle.png](/wiki-assets/docs/physics/assets/images/control/physics-vehicle.png)
+![physics-vehicle.png](/wiki-assets/docs/physics/images/control/physics-vehicle.png)
 
 ## Sample Code
 
@@ -102,7 +102,7 @@ The `addWheel()` method sets following properties:
 - Vector3f axle – Axle direction is typically a (-1,0,0) vector.
 - float suspensionRestLength – Suspension rest length in world units
 - float wheelRadius – Wheel radius in world units
-- boolean isFrontWheel – Whether this wheel is one of the steering wheels. +
+- boolean isFrontWheel – Whether this wheel is one of the steering wheels.
 Front wheels are the ones that rotate visibly when the vehicle turns.
 
 We initialize a few variables that we will reuse when we add the four wheels. yOff, etc, are the particular wheel offsets for our small vehicle model.
@@ -184,13 +184,13 @@ Not shown here is the standard way how we map the input keys to actions (see ful
 
 In the ActionListener, we implement the actions that control the vehicle's direction and speed. For the four directions (accelerate=up, brake=down, left, right), we specify how we want the vehicle to move.
 
-- The braking action is pretty straightforward: +
+- The braking action is pretty straightforward:
 `vehicle.brake(brakeForce)`
-- For left and right turns, we add a constant to `steeringValue` when the key is pressed, and subtract it when the key is released. +
+- For left and right turns, we add a constant to `steeringValue` when the key is pressed, and subtract it when the key is released.
 `vehicle.steer(steeringValue);`
-- For acceleration we add a constant to `accelerationValue` when the key is pressed, and subtract it when the key is released. +
+- For acceleration we add a constant to `accelerationValue` when the key is pressed, and subtract it when the key is released.
 `vehicle.accelerate(accelerationValue);`
-- Because we can and it's fun, we also add a turbo booster that makes the vehicle jump when you press the assigned key (spacebar). +
+- Because we can and it's fun, we also add a turbo booster that makes the vehicle jump when you press the assigned key (spacebar).
 `vehicle.applyImpulse(jumpForce, Vector3f.ZERO);`
 
 ```java

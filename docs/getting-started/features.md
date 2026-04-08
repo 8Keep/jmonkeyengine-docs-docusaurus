@@ -46,90 +46,32 @@ See also: [requirements](requirements.md).
 ## Supported Formats
 
 ### jMonkeyEngine3 File Formats
-<table>
-  <thead>
-    <tr>
-      <th>Suffix</th>
-      <th>Usage</th>
-      <th>Learn more<br /></th>
-      <th>.j3o</th>
-      <th>Binary 3D model or scene. At the latest from the Beta release of your game on, you should convert all models to .j3o format. +<br />During alpha and earlier development phases (when models still change a lot) you can alternatively load GLTF/OBJ models directly.</th>
-      <th>[Model Loader and Viewer](../sdk/model_loader_and_viewer.md)<br /></th>
-      <th>.j3m</th>
-      <th>A custom Material. You can create a .j3m file to store a Material configuration for a Geometry (e.g. 3D model).</th>
-      <th>[Materials Overview](../core/material/materials_overview.md) +<br />[Material Editing](../sdk/material_editing.md)<br /></th>
-      <th>.j3md</th>
-      <th>A Material definition. These are pre-defined templates for shader-based Materials. +<br />Each custom .j3m Material is based on a material definition. Advanced users can create their own material definitions.</th>
-      <th>[Materials Overview](../core/material/materials_overview.md)<br /></th>
-      <th>.j3f</th>
-      <th>A custom post-processor filter configuration. You can create a .j3f file to store a FilterPostProcessor with a set of preconfigured filters.</th>
-      <th>[Filters](../sdk/filters.md) +<br />[Effects Overview](../core/effect/effects_overview.md)<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-  </tbody>
-</table>
+| Suffix | Usage | Learn more<br /> |
+| --- | --- | --- |
+| .j3o | Binary 3D model or scene. At the latest from the Beta release of your game on, you should convert all models to .j3o format.<br />During alpha and earlier development phases (when models still change a lot) you can alternatively load GLTF/OBJ models directly. | [Model Loader and Viewer](../sdk/model_loader_and_viewer.md)<br /> |
+| .j3m | A custom Material. You can create a .j3m file to store a Material configuration for a Geometry (e.g. 3D model). | [Materials Overview](../core/material/materials_overview.md)<br />[Material Editing](../sdk/material_editing.md)<br /> |
+| .j3md | A Material definition. These are pre-defined templates for shader-based Materials.<br />Each custom .j3m Material is based on a material definition. Advanced users can create their own material definitions. | [Materials Overview](../core/material/materials_overview.md)<br /> |
+| .j3f | A custom post-processor filter configuration. You can create a .j3f file to store a FilterPostProcessor with a set of preconfigured filters. | [Filters](../sdk/filters.md)<br />[Effects Overview](../core/effect/effects_overview.md)<br /> |
 
 ### Supported External File Types
 
-<table>
-  <thead>
-    <tr>
-      <th>File Suffix</th>
-      <th>Type</th>
-      <th>Description<br /></th>
-      <th>.mesh.xml, .meshxml, .scene</th>
-      <th>3D model</th>
-      <th>Ogre Mesh XML *(soon to be discontinued)* +<br />see:<br /><br />* [Exporting Models as Ogre XML meshes from Blender](../tutorials/how-to/modeling/blender/blender_ogre_export.md)<br />* [Ogre Compatibility](../tutorials/how-to/modeling/blender/blender_ogre_compatibility.md)<br /><br />Converting to j3o:<br /><br />* [SDK convert](../sdk/model_loader_and_viewer.md)<br />* [BinaryExporter](https://javadoc.jmonkeyengine.org/com/jme3/export/binary/BinaryExporter.html)<br /></th>
-      <th>.obj, .mtl</th>
-      <th>3D model</th>
-      <th>Wavefront +<br />Converting to j3o:<br /><br />* [SDK convert](../sdk/model_loader_and_viewer.md)<br />* [BinaryExporter](https://javadoc.jmonkeyengine.org/com/jme3/export/binary/BinaryExporter.html)<br /></th>
-      <th>.xbuf</th>
-      <th>3D model</th>
-      <th>Blender version 2.74 +<br />See:<br /><br />* [.xbuf](https://hub.jmonkeyengine.org/t/xbuf-format-a-developer-friendly-game-exchange-format-for-3d-data/31130) forum post.<br /><br />Converting to j3o:<br /><br />* [SDK convert](../sdk/model_loader_and_viewer.md)<br />* [BinaryExporter](https://javadoc.jmonkeyengine.org/com/jme3/export/binary/BinaryExporter.html)<br /></th>
-      <th>.fbx</th>
-      <th>3D model</th>
-      <th>Filmbox +<br />See:<br /><br />* [Fbx importer](https://hub.jmonkeyengine.org/t/fbx-importer/30309) forum post.<br /><br />Converting to j3o:<br /><br />* [SDK convert](../sdk/model_loader_and_viewer.md)<br />* [BinaryExporter](https://javadoc.jmonkeyengine.org/com/jme3/export/binary/BinaryExporter.html)<br /></th>
-      <th>.gltf, .bin, .glb, custom extensions</th>
-      <th>3D model</th>
-      <th>Blender version 2.78c onward, +<br />See:<br /><br />* [gltf](https://hub.jmonkeyengine.org/t/jme-gltf-support/39174) forum post<br />* [Exporting Models as GlTF meshes from Blender](../tutorials/how-to/modeling/blender/blender_gltf.md)<br /><br />Converting to j3o:<br /><br />* [JmeConvert tool](https://hub.jmonkeyengine.org/t/jmeconvert-tool/41831)<br />* [SDK convert](../sdk/model_loader_and_viewer.md)<br />* [BinaryExporter](https://javadoc.jmonkeyengine.org/com/jme3/export/binary/BinaryExporter.html)<br /></th>
-      <th>.jpg, .png, .gif</th>
-      <th>image</th>
-      <th>Textures, icons<br /></th>
-      <th>.dds</th>
-      <th>image</th>
-      <th>Direct Draw Surface texture<br /></th>
-      <th>.hdr</th>
-      <th>image</th>
-      <th>High Dynamic Range texture<br /></th>
-      <th>.tga</th>
-      <th>image</th>
-      <th>Targa Image File texture<br /></th>
-      <th>.pfm</th>
-      <th>image</th>
-      <th>Portable Float Map texture<br /></th>
-      <th>.bmp</th>
-      <th>image</th>
-      <th>Bitmap texture<br /></th>
-      <th>.ani, .cur, .ico</th>
-      <th>image</th>
-      <th>Windows Cursor, static or animated.<br /></th>
-      <th>.fnt</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>bitmap font</td>
-      <td>AngelCode font for &lt;abbr title="Graphical User Interface"&gt;GUI&lt;/abbr&gt; and HUD<br /></td>
-      <td>.wav</td>
-      <td>audio</td>
-      <td>Wave music and sounds<br /></td>
-      <td>.ogg</td>
-      <td>audio</td>
-      <td>OGG Vorbis music and sounds<br /></td>
-    </tr>
-  </tbody>
-</table>
+| File Suffix | Type | Description<br /> |
+| --- | --- | --- |
+| .mesh.xml, .meshxml, .scene | 3D model | Ogre Mesh XML *(soon to be discontinued)*<br />see:<br /><br />* [Exporting Models as Ogre XML meshes from Blender](../tutorials/how-to/modeling/blender/blender_ogre_export.md)<br />* [Ogre Compatibility](../tutorials/how-to/modeling/blender/blender_ogre_compatibility.md)<br /><br />Converting to j3o:<br /><br />* [SDK convert](../sdk/model_loader_and_viewer.md)<br />* [BinaryExporter](https://javadoc.jmonkeyengine.org/com/jme3/export/binary/BinaryExporter.html)<br /> |
+| .obj, .mtl | 3D model | Wavefront<br />Converting to j3o:<br /><br />* [SDK convert](../sdk/model_loader_and_viewer.md)<br />* [BinaryExporter](https://javadoc.jmonkeyengine.org/com/jme3/export/binary/BinaryExporter.html)<br /> |
+| .xbuf | 3D model | Blender version 2.74<br />See:<br /><br />* [.xbuf](https://hub.jmonkeyengine.org/t/xbuf-format-a-developer-friendly-game-exchange-format-for-3d-data/31130) forum post.<br /><br />Converting to j3o:<br /><br />* [SDK convert](../sdk/model_loader_and_viewer.md)<br />* [BinaryExporter](https://javadoc.jmonkeyengine.org/com/jme3/export/binary/BinaryExporter.html)<br /> |
+| .fbx | 3D model | Filmbox<br />See:<br /><br />* [Fbx importer](https://hub.jmonkeyengine.org/t/fbx-importer/30309) forum post.<br /><br />Converting to j3o:<br /><br />* [SDK convert](../sdk/model_loader_and_viewer.md)<br />* [BinaryExporter](https://javadoc.jmonkeyengine.org/com/jme3/export/binary/BinaryExporter.html)<br /> |
+| .gltf, .bin, .glb, custom extensions | 3D model | Blender version 2.78c onward,<br />See:<br /><br />* [gltf](https://hub.jmonkeyengine.org/t/jme-gltf-support/39174) forum post<br />* [Exporting Models as GlTF meshes from Blender](../tutorials/how-to/modeling/blender/blender_gltf.md)<br /><br />Converting to j3o:<br /><br />* [JmeConvert tool](https://hub.jmonkeyengine.org/t/jmeconvert-tool/41831)<br />* [SDK convert](../sdk/model_loader_and_viewer.md)<br />* [BinaryExporter](https://javadoc.jmonkeyengine.org/com/jme3/export/binary/BinaryExporter.html)<br /> |
+| .jpg, .png, .gif | image | Textures, icons<br /> |
+| .dds | image | Direct Draw Surface texture<br /> |
+| .hdr | image | High Dynamic Range texture<br /> |
+| .tga | image | Targa Image File texture<br /> |
+| .pfm | image | Portable Float Map texture<br /> |
+| .bmp | image | Bitmap texture<br /> |
+| .ani, .cur, .ico | image | Windows Cursor, static or animated.<br /> |
+| .fnt | bitmap font | AngelCode font for &lt;abbr title="Graphical User Interface"&gt;GUI&lt;/abbr&gt; and HUD<br /> |
+| .wav | audio | Wave music and sounds<br /> |
+| .ogg | audio | OGG Vorbis music and sounds<br /> |
 
 ## Shaders
 

@@ -13,7 +13,7 @@ If you are a beginner, you should first [read some](http://www.hobbygamedev.com/
 As a quick overview, answer yourself the following questions:
 
 - Motivation
-  - Sum up your game idea in one catchy sentence. If you can't, it's too complicated. +
+  - Sum up your game idea in one catchy sentence. If you can't, it's too complicated.
 Example: "Craft by day, fight by night!"
   - Who's the target group? Are you making it for your friends or are you trying to attract the masses?
 
@@ -25,13 +25,13 @@ Example: "Craft by day, fight by night!"
 
 - Gameplay
   - What is the start state, what is the end state? (if applicable)
-  - What resources does the player manage? How are resources gained, transformed, spent? +
+  - What resources does the player manage? How are resources gained, transformed, spent?
 Example: points, health, speed, gold, xp, mana.
   - How does the player interact? Define rules, challenges, game mechanics.
   - What state is considered winning, and what losing, or is it an open world?
 
 - Multi-media assets
-  - Which media will you need? How will you get this content? +
+  - Which media will you need? How will you get this content?
 Example: models, terrains; materials, textures; noises, music, voices; video, cutscenes; spoken/written dialog; level maps, quests, story; AI scripts.
 
 - Interface
@@ -46,7 +46,7 @@ Use an [issue and bug tracker](http://en.wikipedia.org/wiki/Issue_tracking_syste
 1. Pre-Alpha Development
   - Artwork: Test asset loading and saving with mock-ups and stock art.
   - Lay out the overall application flow, i.e. switching between intro / options / game screen, etc.
-  - Get one typical level working before you can announce the Alpha Release. +
+  - Get one typical level working before you can announce the Alpha Release.
 Example: if the game is a "Jump'n'Run", jumping and running must work.
 
 1. Alpha Release
@@ -74,52 +74,33 @@ How you name or number these stages is fully up to your team. Development teams 
 Whether you work in a team or alone, keeping a version controlled repository of your code will help you roll-back buggy changes, or recover old code that someone deleted and that is now needed again.
 
 - Treat commit messages as messages to your future self. "Made some changes" is _not_ a commit message.
-- The jMonkeyEngine SDK supports Subversion, Mercurial, and Git. +
+- The jMonkeyEngine SDK supports Subversion, Mercurial, and Git.
 If you don't know which to choose, Subversion is a good choice for starters.
 - Set up your own local server, or get free remote hosting space from various open-source dev portals like [SourceForge](http://sourceforge.net/), [GitHub](https://github.com/), [BitBucket](https://bitbucket.org/) (supports private projects), [GitLab](https://about.gitlab.com/) (free private projects)…
 
 ## Multi-Media Asset Pipeline
-<table>
-  <thead>
-    <tr>
-      <th>DO</th>
-      <th>DON'T<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Save original models+textures into `assets/Textures`.</td>
-      <td>Don't reference textures or models outside your JME project.<br /></td>
-    </tr>
-    <tr>
-      <td>Save sounds into `assets/Sounds.`</td>
-      <td>Don't reference audio files outside your JME project.<br /></td>
-    </tr>
-    <tr>
-      <td>Create simple, low-polygon models.</td>
-      <td>Don't create high-polygon models, they render too slow to be useful in games.<br /></td>
-    </tr>
-    <tr>
-      <td>Only use Diffuse Map, Normal Map, Glow Map, Specular Map.</td>
-      <td>Don't use unsupported material properties that are not listed in the [Materials Overview](../../core/material/materials_overview.md).<br /></td>
-    </tr>
-    <tr>
-      <td>Use UV texture / texture atlases / baking for each texture map.</td>
-      <td>Don't create models based on multiple separate textures, it will break the model into separate meshes.<br /></td>
-    </tr>
-    <tr>
-      <td>Convert Models to j3o format. Move j3o files into `assets/Models`.</td>
-      <td>Don't reference GLTF/Ogre/OBJ files in your load() code, because these unoptimized files are not packaged into the JAR.<br /></td>
-    </tr>
-  </tbody>
-</table>
+| DO |
+| --- |
+| DON'T<br /> |
+| Save original models+textures into `assets/Textures`. |
+| Don't reference textures or models outside your JME project.<br /> |
+| Save sounds into `assets/Sounds.` |
+| Don't reference audio files outside your JME project.<br /> |
+| Create simple, low-polygon models. |
+| Don't create high-polygon models, they render too slow to be useful in games.<br /> |
+| Only use Diffuse Map, Normal Map, Glow Map, Specular Map. |
+| Don't use unsupported material properties that are not listed in the [Materials Overview](../../core/material/materials_overview.md).<br /> |
+| Use UV texture / texture atlases / baking for each texture map. |
+| Don't create models based on multiple separate textures, it will break the model into separate meshes.<br /> |
+| Convert Models to j3o format. Move j3o files into `assets/Models`. |
+| Don't reference GLTF/Ogre/OBJ files in your load() code, because these unoptimized files are not packaged into the JAR.<br /> |
 
 Learn details about the [Multi-Media Asset Pipeline](multi-media_asset_pipeline.md) here.
 
 ## Development Phase
 
 :::note
-Many game developers dream of creating their very own MMORPG with full-physics, AI, post-rendering effects, multi-player networking, procedurally generated maps, and customizable characters. So why aren't there tons of MMORPGs out there? +
+Many game developers dream of creating their very own MMORPG with full-physics, AI, post-rendering effects, multi-player networking, procedurally generated maps, and customizable characters. So why aren't there tons of MMORPGs out there?
 Even for large experienced game producers, the creation of such a complex game is time-intensive and failure-prone. How familiar are you with multi-threading, persistence, optimization, client-server synchronization, …? Unless your answer is "very!", then start with a single-player desktop game, and work your way up – just as the pros did when they started.
 :::
 
@@ -134,7 +115,7 @@ Note that although the "SimpleApplication" name might be misleading, all jME3 ap
 For your future game releases, you will want to rely on your own framework (based on jME): Your custom framework extends jME's SimpleApplication, and includes your custom methods for loading, saving, and arranging your scenes, your custom navigation methods, your inputs for pausing and switching your custom screens, your custom user interface (options screen, HUD, etc), your custom NPC factory, your custom physics properties, your custom networking synchronization, etc.
 
 :::tip
-Writing and reusing (extending) your own base framework saves you time. When you update your generic base classes, all your games that extend them benefit from improvements to the base (just as all jME-based games benefit of improvements to the jME framework). +
+Writing and reusing (extending) your own base framework saves you time. When you update your generic base classes, all your games that extend them benefit from improvements to the base (just as all jME-based games benefit of improvements to the jME framework).
 Also, your own framework gives all your games a common look and feel.
 :::
 
@@ -155,16 +136,16 @@ Acknowledge whether you want a feature because it is necessary for gameplay, or 
 ### The Smart Way to Add Custom Methods and Fields
 
 :::warning
-*Avoid the Anti-Pattern:* Don't design complex role-based classes using Java inheritance, it will result in an unmaintainable mess. +
-Example: You start extending `Node` –&gt; `MyMobileNode` –&gt; `MyNPC`. Then you extend `MyFighterNPC` (defends, attacks) and `MyShopKeeperNPC` (trades) from `MyNPC`. What if you need an NPC that trades and defends itself, but doesn't attack? Do you extend MyShopKeeperNPC and copy and paste the defensive methods from MyFighterNPC? Or do you extend MyFighterNPC and override the attacking methods of its parent? Neither is a clean solution. +
+*Avoid the Anti-Pattern:* Don't design complex role-based classes using Java inheritance, it will result in an unmaintainable mess.
+Example: You start extending `Node` –&gt; `MyMobileNode` –&gt; `MyNPC`. Then you extend `MyFighterNPC` (defends, attacks) and `MyShopKeeperNPC` (trades) from `MyNPC`. What if you need an NPC that trades and defends itself, but doesn't attack? Do you extend MyShopKeeperNPC and copy and paste the defensive methods from MyFighterNPC? Or do you extend MyFighterNPC and override the attacking methods of its parent? Neither is a clean solution.
 Wouldn't it be better if behaviours were a separate system, and attributes were separate components that you add to the entity that needs them?
 :::
 
 You write Java classes named `Controls` to implement your Game Entities, and define an Entity's visuals, attributes, and behaviours. In jME, `Spatial`s (`Nodes` or `Geometry`s) are the visual representation of the game entity in the scene graph.
 
-- Game entities have *attributes* – All Entities are neutral _things_, only their attributes define what an entity actually _is_ (a person or a brick). In jME, we call these class fields of Spatials "user data". +
+- Game entities have *attributes* – All Entities are neutral _things_, only their attributes define what an entity actually _is_ (a person or a brick). In jME, we call these class fields of Spatials "user data".
 Example: Players have *class fields* for `id, health, coins, inventory, equipment, profession`.
-- Game entities have *behaviours* – Behaviour systems communicate about the game state and modify attributes. In jME, these game mechanics are implemented in modular `update()` methods that all hook into the main update loop. +
+- Game entities have *behaviours* – Behaviour systems communicate about the game state and modify attributes. In jME, these game mechanics are implemented in modular `update()` methods that all hook into the main update loop.
 Example: Players have *methods* such as `walk(), addGold(), getHealth(), pickUpItem(), dropItem(), useItem(), attack()`.
 
 :::tip
@@ -174,7 +155,7 @@ Example: Players have *methods* such as `walk(), addGold(), getHealth(), pickUpI
 - Use [Controls](../../core/scene/control/custom_controls.md) and [Application States](../../core/app/state/application_states.md) to define custom behaviour systems.
 :::
 
-If your game is even more complex, you may want to learn about "real" Entity Systems, which form a quite different programming paradigm from object oriented coding but are scalable to very large proportions. Note however that this topic is very unintuitive to handle for an OOP programmer and you should really decide on a case basis if you really need this or not and gather some experiences before diving head first into a MMO project emoji:smiley[]
+If your game is even more complex, you may want to learn about "real" Entity Systems, which form a quite different programming paradigm from object oriented coding but are scalable to very large proportions. Note however that this topic is very unintuitive to handle for an OOP programmer and you should really decide on a case basis if you really need this or not and gather some experiences before diving head first into a MMO project `smiley`
 
 - [http://cowboyprogramming.com/2007/01/05/evolve-your-heirachy/](http://cowboyprogramming.com/2007/01/05/evolve-your-heirachy/)
 - [http://www.gamasutra.com/blogs/MeganFox/20101208/88590/Game_Engines_101_The_EntityComponent_Model.php](http://www.gamasutra.com/blogs/MeganFox/20101208/88590/Game_Engines_101_The_EntityComponent_Model.php)
@@ -279,32 +260,13 @@ Treat javadoc as messages to your future self. `genNextVal() generates the next 
 The [jMonkeyEngine SDK helps you with deployment](../../sdk/application_deployment.md): You specify your branding and deployment options in the Project Properties dialog, and then choose Clean and Build from the context menu. *If you use another IDE, consult this IDE's documentation.*
 
 Decide whether you want to release your game as WebStart, desktop JAR, mobile APK, or browser Applet – Each has its pros and cons.
-<table>
-  <thead>
-    <tr>
-      <th>Distribution</th>
-      <th>Pros</th>
-      <th>Cons<br /></th>
-      <th>Desktop Launcher +<br />(.EXE, .app, .jar+.sh)</th>
-      <th>This is the standard way of distributing desktop applications. The jMonkeyEngine SDK can be configured to automatically create zipped launchers for each operating system.</th>
-      <th>You need to offer three separate, platform-dependent downloads.<br /></th>
-      <th>Desktop Application +<br />(.JAR)</th>
-      <th>Platform independent desktop application.</th>
-      <th>User must have Java configured to run JARs when they are opened; or user must know how to run JARs from command line; or you must provide a custom JAR wrapper.<br /></th>
-      <th>Web Start +<br />(.JNLP)</th>
-      <th>The user accesses a &lt;abbr title="Uniform Resource Locator"&gt;URL&lt;/abbr&gt;, saves the game as one executable file. Easy process, no installer required. You can allow the game to be played offline.</th>
-      <th>Users need network connection to install the game. Downloading bigger games takes a while as opposed to running them from a CD.<br /></th>
-      <th>Browser Applet +<br />(.&lt;abbr title="HyperText Markup Language"&gt;HTML&lt;/abbr&gt;+.JAR)</th>
-      <th>Easy to access and play game via most web browsers. Userfriendly solution for quick small games.</th>
-      <th>Game only runs in the browser. Game or settings cannot be saved to disk. Some restrictions in default camera navigation (jME cannot capture mouse.)<br /></th>
-      <th>Android +<br />(.APK)</th>
-      <th>Game runs on Android devices.</th>
-      <th>Android devices do not support post-processor effects.<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-  </tbody>
-</table>
+| Distribution | Pros | Cons<br /> |
+| --- | --- | --- |
+| Desktop Launcher<br />(.EXE, .app, .jar+.sh) | This is the standard way of distributing desktop applications. The jMonkeyEngine SDK can be configured to automatically create zipped launchers for each operating system. | You need to offer three separate, platform-dependent downloads.<br /> |
+| Desktop Application<br />(.JAR) | Platform independent desktop application. | User must have Java configured to run JARs when they are opened; or user must know how to run JARs from command line; or you must provide a custom JAR wrapper.<br /> |
+| Web Start<br />(.JNLP) | The user accesses a &lt;abbr title="Uniform Resource Locator"&gt;URL&lt;/abbr&gt;, saves the game as one executable file. Easy process, no installer required. You can allow the game to be played offline. | Users need network connection to install the game. Downloading bigger games takes a while as opposed to running them from a CD.<br /> |
+| Browser Applet<br />(.&lt;abbr title="HyperText Markup Language"&gt;HTML&lt;/abbr&gt;+.JAR) | Easy to access and play game via most web browsers. Userfriendly solution for quick small games. | Game only runs in the browser. Game or settings cannot be saved to disk. Some restrictions in default camera navigation (jME cannot capture mouse.)<br /> |
+| Android<br />(.APK) | Game runs on Android devices. | Android devices do not support post-processor effects.<br /> |
 
 Which ever method you choose, a Java-Application works on the main operating systems: Windows, Mac &lt;abbr title="Operating System"&gt;OS&lt;/abbr&gt;, Linux, Android.
 

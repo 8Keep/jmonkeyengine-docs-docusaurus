@@ -64,7 +64,7 @@ What we call "`color`" is merely part of an object's light reflection. The onloo
 - Degree of shininess of a surface (1-128).
 - Shiny objects have small, clearly outlined specular highlights. (E.g. glass, water, silver)
 - Normal objects have wide, blurry specular highlights. (E.g. metal, plastic, stone, polished materials)
-- Uneven objects are not shiny and have no specular highlights. (E.g. cloth, paper, wood, snow) +
+- Uneven objects are not shiny and have no specular highlights. (E.g. cloth, paper, wood, snow)
 Set the Specular color to ColorRGBA.Black to switch off shininess.
 
 #### Specular Color
@@ -216,10 +216,10 @@ JME3, the game engine, only loads and plays your recorded animations. You must u
   - Bones follow a certain naming scheme so the 3D engines know what's what.
 
 1. *Skinning:* The association of individual bones with the corresponding skin sections.
-  - Each Bone is connected to a part of the Skin. Animating the (invisible) Bone pulls the (visible) Skin with it. +
+  - Each Bone is connected to a part of the Skin. Animating the (invisible) Bone pulls the (visible) Skin with it.
 E.g. the thigh Bone is connected to the upper leg Skin.
   - One part of the Skin can be affected by more than one bone (e.g. knee, elbow).
-  - The connection between bones and skin sections is gradual: You assign weights how much each skin polygon is affected by any bone's motion. +
+  - The connection between bones and skin sections is gradual: You assign weights how much each skin polygon is affected by any bone's motion.
 E.g. when the thigh bone moves, the leg is fully affected, the hips joints less so, and the head not at all.
   - jMonkeyEngine supports hardware skinning (on the GPU, not on the CPU).
 
@@ -252,11 +252,11 @@ Non-player (computer-controlled) characters (NPCs) are only fun in a game if the
 
 The domain of artificial intelligence deals, among other things, with:
 
-- *Knowledge* – Knowledge is _the data_ to which the AI agent has access, and on which the AI bases its decisions. Realistic agents only "`know`" what they "`see and hear`". This implies that information can be hidden from the AI to keep the game fair. You can have an all-knowing AI, or you can let only some AI agents share information, or you let only AI agents who are close know the current state. +
+- *Knowledge* – Knowledge is _the data_ to which the AI agent has access, and on which the AI bases its decisions. Realistic agents only "`know`" what they "`see and hear`". This implies that information can be hidden from the AI to keep the game fair. You can have an all-knowing AI, or you can let only some AI agents share information, or you let only AI agents who are close know the current state.
 Example: After the player trips the wire, only a few AI guards with two-way radios start moving towards the player's position, while many other guards don't suspect anything yet.
-- *Goal Planning* – Planning is about how an AI agent _takes action_. Each agent has the priority to achieve a specific goal, to reach a future state. When programming, you split the agent's goal into several subgoals. The agent consults its knowledge about the current state, chooses from available tactics and strategies, and prioritizes them. The agent repeatedly tests whether the current state is closer to its goal. If unsuccessful, the agent must discard the current tactics/strategy and try another one. +
+- *Goal Planning* – Planning is about how an AI agent _takes action_. Each agent has the priority to achieve a specific goal, to reach a future state. When programming, you split the agent's goal into several subgoals. The agent consults its knowledge about the current state, chooses from available tactics and strategies, and prioritizes them. The agent repeatedly tests whether the current state is closer to its goal. If unsuccessful, the agent must discard the current tactics/strategy and try another one.
 Example: An agent searches the best path to reach the player base in a changing environment, avoiding traps. An agent chases the player with the goal of eliminating him. An agent hides from the player with the goal of murdering a VIP.
-- *Problem Solving* – Problem solving is about how the agent _reacts to interruptions_, obstacles that stand between it and its goal. The agent uses a given set of facts and rules to deduct what state it is in – triggered by perceptions similar to pain, agony, boredom, or being trapped. In each state, only a specific subset of reactions makes sense. The actual reaction also depends on the agent's, goal since the agent's reaction must not block its own goal! +
+- *Problem Solving* – Problem solving is about how the agent _reacts to interruptions_, obstacles that stand between it and its goal. The agent uses a given set of facts and rules to deduct what state it is in – triggered by perceptions similar to pain, agony, boredom, or being trapped. In each state, only a specific subset of reactions makes sense. The actual reaction also depends on the agent's, goal since the agent's reaction must not block its own goal!
 Examples: If player approaches, does the agent attack or conceal himself or raise alarm? While agent is idle, does he lay traps or heal self or recharge magic runes? If danger to own life, does the agent try to escape or kamikaze?
 
 More advanced AIs can also learn, for example using neural networks.
@@ -323,7 +323,7 @@ You calculate the Surface Normal by calculating the cross product.
 The cross product is a calculation that you use to find a perpendicular vector (an orthogonal, a "`right`" angle at 90°).
 In 3D space, speaking of an orthogonal only makes sense with respect to a plane. You need two vectors to uniquely define a plane. The cross product of the two vectors, `v1 × v2`, is a new vector that is perpendicular to this plane. A vector perpendicular to a plane is a called _Surface Normal_.
 
-*Example:* The x unit vector and the y unit vector together define the x/y plane. The vector perpendicular to them is the z axis. JME can calculate that this equation is true: +
+*Example:* The x unit vector and the y unit vector together define the x/y plane. The vector perpendicular to them is the z axis. JME can calculate that this equation is true:
 `( Vector3f.UNIT_X.cross( Vector3f.UNIT_Y ) ).equals( Vector3f.UNIT_Z )` == true
 
 #### Transformation

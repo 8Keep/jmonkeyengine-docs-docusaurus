@@ -26,7 +26,7 @@ The difference of latitude between two places is the angular length of arc of an
 
 Similarly, the difference of longitude between two places is the shorter arc of the parallel or the smaller angle at the pole between the meridians of the two places. If both places are on the same side (i.e east or west) of Greenwich, then difference of longitude is the numerical difference of the longitudes of the two places; otherwise the difference of longitude is their numerical sum (unless of course this exceeds 180◦. In that case it is 360◦ minus the sum).
 
-image:tools/globe_lat_long.png[Figure 1: Illustrated latitude (φ) and longitude (λ). Photo courtesy of Wikimedia Inc.,width="",height=""]
+![Figure 1: Illustrated latitude (φ) and longitude (λ). Photo courtesy of Wikimedia Inc.](/wiki-assets/docs/contributions/assets/images/tools/globe_lat_long.png)
 
 *Meridional Parts*
 As described by Bowditch, Meridional parts are ”units of latitude that have been adjusted to compensate for the distortion that results from projecting a three-dimensional globe onto a two-dimensional Mercator chart”.

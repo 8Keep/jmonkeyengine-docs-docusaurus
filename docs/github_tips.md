@@ -22,12 +22,12 @@ Click the three dot tag and a option menu will appear.
 Select the `Copy permalink` option and now you can paste the URL into any forum post or wiki issue and the code display window will show your selection like so:
 
 .jMonkey forum
-image:github/github_jme_forum.png[github_jme_forum.png,align="left"]
+![github_jme_forum.png](/wiki-assets/docs/ROOT/assets/images/github/github_jme_forum.png)
 
 The same thing applies to github.
 
 .Github issue
-image:github/github_issue_write.png[github_issue_write.png,align="left"]
+![github_issue_write.png](/wiki-assets/docs/ROOT/assets/images/github/github_issue_write.png)
 
 ![github_issue_preview.png](/wiki-assets/docs/ROOT/assets/images/github/github_issue_preview.png)
 

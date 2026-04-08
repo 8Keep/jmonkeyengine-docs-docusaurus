@@ -6,7 +6,7 @@ This SDK plugin provides font support for jMonkeyEngine games. It creates AngelF
 
 If the plugin is installed, you see it under `Plugins → Installed`
 
-![install-font-plugin.png](/wiki-assets/docs/sdk/assets/images/plugin/install-font-plugin.png)
+![install-font-plugin.png](/wiki-assets/docs/sdk/images/plugin/install-font-plugin.png)
 
 (If you don't see it, go to `Tools → Plugins → Available Plugins` to install Font Creator.)
 
@@ -14,15 +14,15 @@ If the plugin is installed, you see it under `Plugins → Installed`
 
 The following example creates the custom font `Orbitron.fnt` in the `assets/Interface/Fonts` directory.
 
-![font-1.png](/wiki-assets/docs/sdk/assets/images/plugin/font-1.png)
+![font-1.png](/wiki-assets/docs/sdk/images/plugin/font-1.png)
 
-![font-2.png](/wiki-assets/docs/sdk/assets/images/plugin/font-2.png)
+![font-2.png](/wiki-assets/docs/sdk/images/plugin/font-2.png)
 
-![font-3.png](/wiki-assets/docs/sdk/assets/images/plugin/font-3.png)
+![font-3.png](/wiki-assets/docs/sdk/images/plugin/font-3.png)
 
-![font-4.png](/wiki-assets/docs/sdk/assets/images/plugin/font-4.png)
+![font-4.png](/wiki-assets/docs/sdk/images/plugin/font-4.png)
 
-![font-5.png](/wiki-assets/docs/sdk/assets/images/plugin/font-5.png)
+![font-5.png](/wiki-assets/docs/sdk/images/plugin/font-5.png)
 
 ## Use Font
 

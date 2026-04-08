@@ -1,6 +1,6 @@
 # Conversion Report
 
-Generated from `/home/davisro/dev/jmonkeyengine-wiki/wiki` on 2026-04-08T21:02:00.258Z.
+Generated from `/home/davisro/dev/jmonkeyengine-wiki/wiki` on 2026-04-08T21:36:53.182Z.
 
 ## Summary
 
@@ -8,6 +8,7 @@ Generated from `/home/davisro/dev/jmonkeyengine-wiki/wiki` on 2026-04-08T21:02:0
 - Unresolved xrefs: 30
 - Unresolved includes: 0
 - Unsupported lines: 0
+- Unresolved attributes: 3
 
 ## Unresolved Xrefs
 
@@ -49,3 +50,9 @@ Generated from `/home/davisro/dev/jmonkeyengine-wiki/wiki` on 2026-04-08T21:02:0
 ## Unsupported Lines
 
 - None
+
+## Unresolved Attributes
+
+- how-to/java/logging.adoc -> {0}
+- how-to/java/logging.adoc -> {1}
+- how-to/java/logging.adoc -> {2}

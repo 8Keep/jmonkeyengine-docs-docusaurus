@@ -5,7 +5,7 @@ By assets we mean multi-media files, such as 3D models, materials, textures, sce
 Advantages of the AssetManager:
 
 - The paths stay the same, no matter whether the game runs on Windows, Mac, Linux, etc!
-- The AssetManager automatically caches and optimizes the handling of OpenGL objects. +
+- The AssetManager automatically caches and optimizes the handling of OpenGL objects.
 For example, the same textures are not uploaded to the graphics card multiple times when multiple models use them.
 - The [default build script](../../sdk/default_build_script.md) automatically bundles the contents of the `assets` directory into the executable.
 
@@ -79,7 +79,7 @@ You can rename/delete/add (sub)directories inside the `assets` directory in any 
 *Examples:* You can rename `assets/Sounds` to `assets/Audio`, you can delete `assets/MatDefs` if you don't use it, you can create `assets/AIscripts`, etc. You can rename/move the `assets/Textures` directory or its subdirectories, but then you have to re-export all models, and re-convert them all to .j3o, so plan ahead!
 
 :::important
-Store textures in `assets/Textures/` before you work with them in a mesh editor! Export and save 3D model files (.mesh.xml+.material, .mtl+.obj, .gltf) into the `assets/Textures/` (!) before you convert the model to binary format (.j3o)! This ensures that texture paths correctly point to the `assets/Textures` directory. +
+Store textures in `assets/Textures/` before you work with them in a mesh editor! Export and save 3D model files (.mesh.xml+.material, .mtl+.obj, .gltf) into the `assets/Textures/` (!) before you convert the model to binary format (.j3o)! This ensures that texture paths correctly point to the `assets/Textures` directory.
 After the conversion, you move the .j3o file into the `assets/Models/` or `assets/Scenes/` directories. This way, you can reuse textures, your binaries consistently link the correct textures, and the `assets/Models` and `assets/Scenes` directories don't become cluttered.
 :::
 
@@ -148,22 +148,11 @@ The custom build script does not automatically include all ZIP files in the exec
 :::
 
 ### Common AssetManager Tasks
-<table>
-  <thead>
-    <tr>
-      <th>Task?</th>
-      <th>Solution!<br /></th>
-      <th>Load a model with materials</th>
-      <th>Use the asset manager's `loadModel()` method and attach the Spatial to the rootNode.<br />[source,java]<br />----<br />Spatial elephant = assetManager.loadModel("Models/Elephant/Elephant.mesh.xml");<br />rootNode.attachChild(elephant);<br />----<br /><br />[source,java]<br />----<br />Spatial elephant = assetManager.loadModel("Models/Elephant/Elephant.j3o");<br />rootNode.attachChild(elephant);<br />----<br /><br /></th>
-      <th>Load a model without materials</th>
-      <th>If you have a model without materials, you have to add a default material to make it visible.<br />[source,java]<br />----<br />Spatial teapot = assetManager.loadModel("Models/Teapot/Teapot.obj");<br />Material mat = new Material(assetManager, "Common/MatDefs/Misc/ShowNormals.j3md");<br />teapot.setMaterial(mat);<br />rootNode.attachChild(teapot);<br />----<br /><br /></th>
-      <th>Load a scene</th>
-      <th>You load scenes just like you load models:<br />[source,java]<br />----<br />Spatial scene = assetManager.loadModel("Scenes/house/main.scene");<br />rootNode.attachChild(scene);<br />----<br /><br /></th>
-    </tr>
-  </thead>
-  <tbody>
-  </tbody>
-</table>
+| Task? | Solution!<br /> |
+| --- | --- |
+| Load a model with materials | Use the asset manager's `loadModel()` method and attach the Spatial to the rootNode.<br />[source,java]<br />----<br />Spatial elephant = assetManager.loadModel("Models/Elephant/Elephant.mesh.xml");<br />rootNode.attachChild(elephant);<br />----<br /><br />[source,java]<br />----<br />Spatial elephant = assetManager.loadModel("Models/Elephant/Elephant.j3o");<br />rootNode.attachChild(elephant);<br />----<br /><br /> |
+| Load a model without materials | If you have a model without materials, you have to add a default material to make it visible.<br />[source,java]<br />----<br />Spatial teapot = assetManager.loadModel("Models/Teapot/Teapot.obj");<br />Material mat = new Material(assetManager, "Common/MatDefs/Misc/ShowNormals.j3md");<br />teapot.setMaterial(mat);<br />rootNode.attachChild(teapot);<br />----<br /><br /> |
+| Load a scene | You load scenes just like you load models:<br />[source,java]<br />----<br />Spatial scene = assetManager.loadModel("Scenes/house/main.scene");<br />rootNode.attachChild(scene);<br />----<br /><br /> |
 
 ### NullPointerException: Cannot locate resource?
 
@@ -182,7 +171,7 @@ java.lang.NullPointerException
 
 *Reason:*
 
-If you use the default build script, *original models and scenes (.mesh.xml, .obj, gltf, .zip), are excluded* from the distribution automatically. A stand-alone executable includes converted *.j3o files* (models and scenes) only. The default build script makes sure to bundle existing .j3o files in the distribution, but you need to remember to convert the models (from mesh.xmlicon:long-arrow-right[].j3o, or .objicon:long-arrow-right[].j3o, etc) yourself.
+If you use the default build script, *original models and scenes (.mesh.xml, .obj, gltf, .zip), are excluded* from the distribution automatically. A stand-alone executable includes converted *.j3o files* (models and scenes) only. The default build script makes sure to bundle existing .j3o files in the distribution, but you need to remember to convert the models (from mesh.xml`long-arrow-right`.j3o, or .obj`long-arrow-right`.j3o, etc) yourself.
 
 *Solution*
 
@@ -213,12 +202,12 @@ I use another IDE than jMonkeyEngine SDK for coding (Eclipse, IntelliJ, text edi
 You can code in any IDE, but you must create a so-called codeless project in the jMonkeyEngine SDK to maintain assets. *A code-less jMonkeyEngine project does not meddle with your sources or custom build scripts.* You merely use it to convert models to .j3o binaries.
 
 1. Create your (Eclipse or whatever) project as you like.
-1. Create a directory in your project folder and name it, for example, `assets`. +
+1. Create a directory in your project folder and name it, for example, `assets`.
 Store your assets there as described above.
 1. Download and install the jMonkeyEngine SDK.
 1. In the SDK, go to `"File &gt; Import Projects&gt;External Project Assets"`.
 1. Select your (Eclipse or whatever) project and your assets folder in the Import Wizard.
-1. You can now open this (Eclipse or whatever) project in the jMonkeyEngine SDK. +
+1. You can now open this (Eclipse or whatever) project in the jMonkeyEngine SDK.
 Convert assets as described above.
 
 :::important

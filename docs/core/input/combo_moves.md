@@ -65,66 +65,34 @@ ComboMoveExecution fireballExec = new ComboMoveExecution(fireball);
 ### ComboMove Class Methods
 
 Use the following ComboMove methods to specify the combo:
-<table>
-  <thead>
-    <tr>
-      <th>ComboMove Method</th>
-      <th>Description<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>press("`A`").done(); +press("`A`","`B`").done();</td>
-      <td>Combo step is recorded if A is entered. +Combo step is recorded if A and B are entered simultaneously.<br /></td>
-    </tr>
-    <tr>
-      <td>notPress("`A`").done(); +notPress("`A`","`B`").done();</td>
-      <td>Combo step is recorded if A is released. +Combo step is recorded if A and B are both released.<br /></td>
-    </tr>
-    <tr>
-      <td>press("`A`").notPress("`B`").done();</td>
-      <td>Combo step is recorded if A is entered, and not B<br /></td>
-    </tr>
-    <tr>
-      <td>press("`A`").notPress("`B`").timeElapsed(0.11f).done();</td>
-      <td>Combo step is recorded a certain time after A and not B is entered. +etc, etc …<br /></td>
-    </tr>
-    <tr>
-      <td>setPriority(0.5f);</td>
-      <td>If there is an ambiguity, a high-priority combo will trigger instead of a low-priority combo. This prevents that a similar looking combo step "`hijacks`" another Combo. Use only once per ComboMove.<br /></td>
-    </tr>
-    <tr>
-      <td>setUseFinalState(false); +setUseFinalState(true);</td>
-      <td>This is the final command of the series. +False: Do not wait on a final state, chain combo steps. (?) +True: This is the final state, do not chain combo steps. (?)<br /></td>
-    </tr>
-  </tbody>
-</table>
+| ComboMove Method |
+| --- |
+| Description<br /> |
+| press("`A`").done(); +press("`A`","`B`").done(); |
+| Combo step is recorded if A is entered. +Combo step is recorded if A and B are entered simultaneously.<br /> |
+| notPress("`A`").done(); +notPress("`A`","`B`").done(); |
+| Combo step is recorded if A is released. +Combo step is recorded if A and B are both released.<br /> |
+| press("`A`").notPress("`B`").done(); |
+| Combo step is recorded if A is entered, and not B<br /> |
+| press("`A`").notPress("`B`").timeElapsed(0.11f).done(); |
+| Combo step is recorded a certain time after A and not B is entered. +etc, etc …<br /> |
+| setPriority(0.5f); |
+| If there is an ambiguity, a high-priority combo will trigger instead of a low-priority combo. This prevents that a similar looking combo step "`hijacks`" another Combo. Use only once per ComboMove.<br /> |
+| setUseFinalState(false); +setUseFinalState(true); |
+| This is the final command of the series. +False: Do not wait on a final state, chain combo steps. (?) +True: This is the final state, do not chain combo steps. (?)<br /> |
 
 The `press()` and `notPress()` methods accept sets of Input Triggers, e.g. `fireball.press("`A`","`B`","`C`").done()`.
 
 The following getters give you more information about the game state:
-<table>
-  <thead>
-    <tr>
-      <th>ComboMove Method</th>
-      <th>Usage<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>getCastTime()</td>
-      <td>Returns the time since the last step has been recorded. (?)<br /></td>
-    </tr>
-    <tr>
-      <td>getMoveName()</td>
-      <td>Returns the string of the current combo<br /></td>
-    </tr>
-    <tr>
-      <td>getPriority()</td>
-      <td>Returns the priority of this move<br /></td>
-    </tr>
-  </tbody>
-</table>
+| ComboMove Method |
+| --- |
+| Usage<br /> |
+| getCastTime() |
+| Returns the time since the last step has been recorded. (?)<br /> |
+| getMoveName() |
+| Returns the string of the current combo<br /> |
+| getPriority() |
+| Returns the priority of this move<br /> |
 
 ## Detect Combos in ActionListener
 

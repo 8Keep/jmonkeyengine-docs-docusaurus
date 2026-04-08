@@ -109,7 +109,7 @@ And this is the basics for setting this up.
 `&lt;activity android:name="com.google.android.gms.ads.AdActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/&gt;`
 1. After the application tag, add the following tags:
 
-`&lt;uses-permission android:name="android.permission.INTERNET"/&gt; +
+`&lt;uses-permission android:name="android.permission.INTERNET"/&gt;
 &lt;uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/&gt;`
 1. In the onCreate method of your Main Activity, add the following snippet (configure however you like):
 

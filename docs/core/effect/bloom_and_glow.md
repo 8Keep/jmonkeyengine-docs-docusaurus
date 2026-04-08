@@ -3,8 +3,8 @@
 Bloom is a popular shader effect in 3D games industry. It usually consist in displaying a glowing halo around light sources or bright areas of a scene.
 In practice, the bright areas are extracted from the rendered scene, blurred and finally added up to the render.
 
-Those images gives an idea of what bloom does. The left image has no bloom effect, the right image does. +
-image:effect/nobloomsky.png[No bloom,width="",height=""]image:effect/blomsky.png[Bloom,width="",height=""]
+Those images gives an idea of what bloom does. The left image has no bloom effect, the right image does.
+![No bloom](/wiki-assets/docs/core/assets/images/effect/nobloomsky.png)![Bloom](/wiki-assets/docs/core/assets/images/effect/blomsky.png)
 
 ## Bloom Usage
 
@@ -23,42 +23,27 @@ image:effect/nobloomsky.png[No bloom,width="",height=""]image:effect/blomsky.png
 ```
 
 Here are the parameters that you can tweak :
-<table>
-  <thead>
-    <tr>
-      <th>Parameter</th>
-      <th>Method</th>
-      <th>Default</th>
-      <th>Description<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>blur scale</td>
-      <td>`setBlurScale(float)`</td>
-      <td>1.5f</td>
-      <td>the scale of the bloom effect, but be careful, high values does artifacts<br /></td>
-    </tr>
-    <tr>
-      <td>exposure Power</td>
-      <td>`setExposurePower(float)`</td>
-      <td>5.0f</td>
-      <td>the glowing channel color is raised to the value power<br /></td>
-    </tr>
-    <tr>
-      <td>exposure cut-off</td>
-      <td>`setExposureCutOff(float)`</td>
-      <td>0.0f</td>
-      <td>the threshold of color to bloom during extraction<br /></td>
-    </tr>
-    <tr>
-      <td>bloom intensity</td>
-      <td>`setBloomIntensity(float)`</td>
-      <td>2.0f</td>
-      <td>the resulting bloom value is multiplied by this intensity<br /></td>
-    </tr>
-  </tbody>
-</table>
+| Parameter |
+| --- |
+| Method |
+| Default |
+| Description<br /> |
+| blur scale |
+| `setBlurScale(float)` |
+| 1.5f |
+| the scale of the bloom effect, but be careful, high values does artifacts<br /> |
+| exposure Power |
+| `setExposurePower(float)` |
+| 5.0f |
+| the glowing channel color is raised to the value power<br /> |
+| exposure cut-off |
+| `setExposureCutOff(float)` |
+| 0.0f |
+| the threshold of color to bloom during extraction<br /> |
+| bloom intensity |
+| `setBloomIntensity(float)` |
+| 2.0f |
+| the resulting bloom value is multiplied by this intensity<br /> |
 
 You'll probably need to adjust those parameters depending on your scene.
 
@@ -69,10 +54,10 @@ The bloom filter supports a glow map or a glow color.
 
 ### Creating a glow-map
 
-Let's take the hover tank example bundled with JME3 test data. +
-Here you can see the diffuse map of the tank, and the associated glow map that only contains the parts of the texture that will glow and their glowing color: +
-image:effect/tank_diffuse_ss.png[Tank diffuse map,width="",height=""]
-image:effect/tank_glow_map_ss.png[Tank glow map,width="",height=""]
+Let's take the hover tank example bundled with JME3 test data.
+Here you can see the diffuse map of the tank, and the associated glow map that only contains the parts of the texture that will glow and their glowing color:
+![Tank diffuse map](/wiki-assets/docs/core/assets/images/effect/tank_diffuse_ss.png)
+![Tank glow map](/wiki-assets/docs/core/assets/images/effect/tank_glow_map_ss.png)
 
 Glow maps work with Lighting.j3md, Particles.j3md and Unshaded.j3md material definitions.
 The tank material looks like this :
@@ -113,8 +98,8 @@ The glow map is defined here : *GlowMap : Models/HoverTank/tank_glow_map_highres
 
 ```
 
-Here is the result : +
-image:effect/tanlglow1.png[Glowing hover tank,width="",height=""]
+Here is the result :
+![Glowing hover tank](/wiki-assets/docs/core/assets/images/effect/tanlglow1.png)
 
 ## Bloom with a glow color
 
@@ -141,16 +126,16 @@ In this case you'll need to use the glow color parameter.
 
 ```
 
-Here is the result on Oto's plasma ball (before and after) : +
+Here is the result on Oto's plasma ball (before and after) :
 
-image:effect/otonobloom.png[Oto's plasma ball is just a big pea,width="400",height="",align="left"]image:effect/otoglow.png[Oto's plasma ball radiates incredible power!!!,width="400",height="",align="left"]
+![Oto's plasma ball is just a big pea](/wiki-assets/docs/core/assets/images/effect/otonobloom.png)![Oto's plasma ball radiates incredible power!!!](/wiki-assets/docs/core/assets/images/effect/otoglow.png)
 
 ## Hints and tricks
 
 ### Increasing the blur range and reducing fps cost
 
 The glow render is sampled on a texture that has the same dimensions as the viewport.
-You can reduce the size of the bloom sampling just by using the setDownSamplingFactor method like this : +
+You can reduce the size of the bloom sampling just by using the setDownSamplingFactor method like this :
 
 ```java
 

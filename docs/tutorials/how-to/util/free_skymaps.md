@@ -7,8 +7,8 @@ There are a plethora of ways to create skymaps with varying levels of difficulty
 Using Blender you can create your skymaps for free. Once [Blender](https://www.blender.org/) is setup, your skymaps creation can be done easily. For this article I will go into detail on how to setup Blender to create Angular maps based off a video produced by jMonkey contributor glaucomardano and mentioned in this [forum post](https://hub.jmonkeyengine.org/t/jmonkeyengine-tutorial-how-to-create-skymaps-using-blender/19313). Contributor glaucomardano did a good job on the video but it requires previous knowledge of Blender to be able to easily follow along. As such, I will translate it to paper for you. You can view his video by following this [jMonkeyEngine Tutorial - How to create skymaps using blender]( link:https://youtu.be/z38Aikz5nE8).
 
 :::note
-This tutorial is an adaptation of contributor glaucomardanos production, not an exact duplicate. +
-These steps assume you're using the default blender setup and apply to vers 2.78c+. +
+This tutorial is an adaptation of contributor glaucomardanos production, not an exact duplicate.
+These steps assume you're using the default blender setup and apply to vers 2.78c+.
 The tutorial is in checklist format so you can mark items as you go to keep your place.
 :::
 

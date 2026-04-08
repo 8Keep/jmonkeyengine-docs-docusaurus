@@ -63,78 +63,78 @@ public class MyGame extends SimpleApplication {
 
 ## Water
 
-image:effect/water-post.png[water-post.png,width="150",height="100"]
-image:effect/water.png[water.png,width="150",height="100"]
-image:effect/water-reflection-muddy.png[water-reflection-muddy.png,width="150",height="100"]
-image:effect/underwater2.jpg[underwater2.jpg,width="150",height="100"]
+![water-post.png](/wiki-assets/docs/core/assets/images/effect/water-post.png)
+![water.png](/wiki-assets/docs/core/assets/images/effect/water.png)
+![water-reflection-muddy.png](/wiki-assets/docs/core/assets/images/effect/water-reflection-muddy.png)
+![underwater2.jpg](/wiki-assets/docs/core/assets/images/effect/underwater2.jpg)
 
-The jMonkeyEngine ["`SeaMonkey WaterFilter`"](water.md) simulates ocean waves, foam, including cool underwater caustics. +
+The jMonkeyEngine ["`SeaMonkey WaterFilter`"](water.md) simulates ocean waves, foam, including cool underwater caustics.
 Use the SimpleWaterProcessor (SceneProcessor) for small, limited bodies of water, such as puddles, drinking troughs, pools, fountains.
 
 See also:
 
-- [Rendering Water as Post-Process Effect](&#123;uri-forum&#125;t/monkeys-at-the-beach/15000) announcement with video.
-- [TestSceneWater.java](&#123;uri-jmonkeyengine&#125;jme3-examples/src/main/java/jme3test/water/TestSceneWater.java) – SimpleWaterProcessor. (SceneProcessor)
-- [TestSimpleWater.java](&#123;uri-jmonkeyengine&#125;jme3-examples/src/main/java/jme3test/water/TestSimpleWater.java) – SimpleWaterProcessor. (SceneProcessor)
-- [TestPostWater.java](&#123;uri-jmonkeyengine&#125;jme3-examples/src/main/java/jme3test/water/TestPostWater.java) – WaterFilter.
-- [TestPostWaterLake.java](&#123;uri-jmonkeyengine&#125;jme3-examples/src/main/java/jme3test/water/TestPostWaterLake.java) – WaterFilter.
+- [Rendering Water as Post-Process Effect](https://hub.jmonkeyengine.org/t/monkeys-at-the-beach/15000) announcement with video.
+- [TestSceneWater.java](https://github.com/jMonkeyEngine/jmonkeyengine/tree/master/jme3-examples/src/main/java/jme3test/water/TestSceneWater.java) – SimpleWaterProcessor. (SceneProcessor)
+- [TestSimpleWater.java](https://github.com/jMonkeyEngine/jmonkeyengine/tree/master/jme3-examples/src/main/java/jme3test/water/TestSimpleWater.java) – SimpleWaterProcessor. (SceneProcessor)
+- [TestPostWater.java](https://github.com/jMonkeyEngine/jmonkeyengine/tree/master/jme3-examples/src/main/java/jme3test/water/TestPostWater.java) – WaterFilter.
+- [TestPostWaterLake.java](https://github.com/jMonkeyEngine/jmonkeyengine/tree/master/jme3-examples/src/main/java/jme3test/water/TestPostWaterLake.java) – WaterFilter.
 
 ## Environment Effects
 
 ### Depth of Field Blur
 
-image:effect/dof-blur.png[dof-blur.png,width="150",height="100"]
-image:effect/light-scattering-filter.png[light-scattering-filter.png,width="150",height="100"]
+![dof-blur.png](/wiki-assets/docs/core/assets/images/effect/dof-blur.png)
+![light-scattering-filter.png](/wiki-assets/docs/core/assets/images/effect/light-scattering-filter.png)
 
-- [TestDepthOfField.java](&#123;uri-jmonkeyengine&#125;jme3-examples/src/main/java/jme3test/post/TestDepthOfField.java) – DepthOfFieldFilter.
+- [TestDepthOfField.java](https://github.com/jMonkeyEngine/jmonkeyengine/tree/master/jme3-examples/src/main/java/jme3test/post/TestDepthOfField.java) – DepthOfFieldFilter.
 
 ### Fog
 
-- [TestFog.java](&#123;uri-jmonkeyengine&#125;jme3-examples/src/main/java/jme3test/post/TestFog.java) – FogFilter.
+- [TestFog.java](https://github.com/jMonkeyEngine/jmonkeyengine/tree/master/jme3-examples/src/main/java/jme3test/post/TestFog.java) – FogFilter.
 
 ### Light Scattering
 
-- [TestLightScattering.java](&#123;uri-jmonkeyengine&#125;jme3-examples/src/main/java/jme3test/post/TestLightScattering.java) – LightScatteringFilter.
+- [TestLightScattering.java](https://github.com/jMonkeyEngine/jmonkeyengine/tree/master/jme3-examples/src/main/java/jme3test/post/TestLightScattering.java) – LightScatteringFilter.
 
 ### Vegetation
 
 - Contribution: [Grass System](../../contributions/lanscapes/vegetationsystem/grass.md)
-- Contribution: &#123;uri-forum&#125;t/generating-vegetation-paged-geometry-style/18928[Trees (WIP)]
+- Contribution: [Trees (WIP)](https://hub.jmonkeyengine.org/t/generating-vegetation-paged-geometry-style/18928)
 
 ## Light and Shadows
 
 ### Bloom and Glow
 
-image:effect/tanlglow1.png[tanlglow1.png,width="150",height="100"]
-image:effect/shadow-sponza-ssao.png[shadow-sponza-ssao.png,width="150",height="100"]
+![tanlglow1.png](/wiki-assets/docs/core/assets/images/effect/tanlglow1.png)
+![shadow-sponza-ssao.png](/wiki-assets/docs/core/assets/images/effect/shadow-sponza-ssao.png)
 
-- [TestBloom.java](&#123;uri-jmonkeyengine&#125;jme3-examples/src/main/java/jme3test/post/TestBloom.java)
+- [TestBloom.java](https://github.com/jMonkeyEngine/jmonkeyengine/tree/master/jme3-examples/src/main/java/jme3test/post/TestBloom.java)
 - More details: [Bloom and Glow](bloom_and_glow.md) – BloomFilter.
 
 ### Light
 
-- [TestSimpleLighting.java](&#123;uri-jmonkeyengine&#125;jme3-examples/src/main/java/jme3test/light/TestSimpleLighting.java) – DirectionalLight, PointLight.
-- [TestLightRadius.java](&#123;uri-jmonkeyengine&#125;jme3-examples/src/main/java/jme3test/light/TestLightRadius.java) – DirectionalLight, PointLight.
-- [TestManyLights.java](&#123;uri-jmonkeyengine&#125;jme3-examples/src/main/java/jme3test/light/TestManyLights.java) – .j3o scene.
+- [TestSimpleLighting.java](https://github.com/jMonkeyEngine/jmonkeyengine/tree/master/jme3-examples/src/main/java/jme3test/light/TestSimpleLighting.java) – DirectionalLight, PointLight.
+- [TestLightRadius.java](https://github.com/jMonkeyEngine/jmonkeyengine/tree/master/jme3-examples/src/main/java/jme3test/light/TestLightRadius.java) – DirectionalLight, PointLight.
+- [TestManyLights.java](https://github.com/jMonkeyEngine/jmonkeyengine/tree/master/jme3-examples/src/main/java/jme3test/light/TestManyLights.java) – .j3o scene.
 - More details: [Light and Shadow](../light/light_and_shadow.md)
 
 ### Shadow
 
-image:effect/shadow.png[shadow.png,width="150",height="100"]
-image:light/light-sources.png[light-sources.png,width="150",height="100"]
+![shadow.png](/wiki-assets/docs/core/assets/images/effect/shadow.png)
+![light-sources.png](/wiki-assets/docs/core/assets/images/light/light-sources.png)
 
-- [TestSSAO.java](&#123;uri-jmonkeyengine&#125;jme3-examples/src/main/java/jme3test/post/TestSSAO.java), [TestSSAO2.java](&#123;uri-jmonkeyengine&#125;jme3-examples/src/main/java/jme3test/post/TestSSAO2.java) – SSAOFilter, also known as Screen-Space Ambient Occlusion shadows (SSOA).
-- [TestTransparentSSAO.java](&#123;uri-jmonkeyengine&#125;jme3-examples/src/main/java/jme3test/post/TestTransparentSSAO.java) – SSAOFilter, also known as Screen-Space Ambient Occlusion shadows (SSOA), plus transparency.
+- [TestSSAO.java](https://github.com/jMonkeyEngine/jmonkeyengine/tree/master/jme3-examples/src/main/java/jme3test/post/TestSSAO.java), [TestSSAO2.java](https://github.com/jMonkeyEngine/jmonkeyengine/tree/master/jme3-examples/src/main/java/jme3test/post/TestSSAO2.java) – SSAOFilter, also known as Screen-Space Ambient Occlusion shadows (SSOA).
+- [TestTransparentSSAO.java](https://github.com/jMonkeyEngine/jmonkeyengine/tree/master/jme3-examples/src/main/java/jme3test/post/TestTransparentSSAO.java) – SSAOFilter, also known as Screen-Space Ambient Occlusion shadows (SSOA), plus transparency.
 - More details: [Light and Shadow](../light/light_and_shadow.md)
 
 ## Special: Glass, Metal, Dissolve, Toon
 
 ### Toon Effect
 
-image:effect/toon-dino.png[toon-dino.png,width="150",height="100"]
+![toon-dino.png](/wiki-assets/docs/core/assets/images/effect/toon-dino.png)
 
-- [TestCartoonEdge.java](&#123;uri-jmonkeyengine&#125;jme3-examples/src/main/java/jme3test/post/TestCartoonEdge.java) – CartoonEdgeFilter.
-- [TestTransparentCartoonEdge.java](&#123;uri-jmonkeyengine&#125;jme3-examples/src/main/java/jme3test/post/TestTransparentCartoonEdge.java) – CartoonEdgeFilter.
+- [TestCartoonEdge.java](https://github.com/jMonkeyEngine/jmonkeyengine/tree/master/jme3-examples/src/main/java/jme3test/post/TestCartoonEdge.java) – CartoonEdgeFilter.
+- [TestTransparentCartoonEdge.java](https://github.com/jMonkeyEngine/jmonkeyengine/tree/master/jme3-examples/src/main/java/jme3test/post/TestTransparentCartoonEdge.java) – CartoonEdgeFilter.
 
 ### Fade in / Fade out
 
@@ -142,10 +142,10 @@ image:effect/toon-dino.png[toon-dino.png,width="150",height="100"]
 
 ### User Contributed
 
-image:effect/shaderblow_light1.jpg[shaderblow_light1.jpg,width="78",height="150"]
-image:effect/shaderblow_glass.jpg[shaderblow_glass.jpg,width="80",height="150"]
-image:sdk:plugin/shaderblow_matcap.jpg[shaderblow_matcap.jpg,width="150",height="150"]
-image:effect/shaderblow_light2.jpg[shaderblow_light2.jpg,width="66",height="150"]
+![shaderblow_light1.jpg](/wiki-assets/docs/core/assets/images/effect/shaderblow_light1.jpg)
+![shaderblow_glass.jpg](/wiki-assets/docs/core/assets/images/effect/shaderblow_glass.jpg)
+![shaderblow_matcap.jpg](/wiki-assets/docs/sdk/images/plugin/shaderblow_matcap.jpg)
+![shaderblow_light2.jpg](/wiki-assets/docs/core/assets/images/effect/shaderblow_light2.jpg)
 
 [ShaderBlow - GLSL Shader Library](../../sdk/plugin/shaderblow.md)
 
@@ -166,18 +166,18 @@ Thanks for your awesome contributions! Keep them coming!
 
 ## Particle Emitters: Explosions, Fire, Smoke
 
-image:effect/explosion-5.png[explosion-5.png,width="150",height="100"]
-image:effect/particle.png[particle.png,width="150",height="100"]
+![explosion-5.png](/wiki-assets/docs/core/assets/images/effect/explosion-5.png)
+![particle.png](/wiki-assets/docs/core/assets/images/effect/particle.png)
 
 [Particle emitter effects](particle_emitters.md) are highly configurable and can have any texture. They can simulate smoke, dust, leaves, meteors, snowflakes, mosquitoes, fire, explosions, clusters, embers, sparks…
 
-- [TestExplosionEffect.java](&#123;uri-jmonkeyengine&#125;jme3-examples/src/main/java/jme3test/effect/TestExplosionEffect.java) – debris, flame, flash, shockwave, smoke, sparks.
-- [TestPointSprite.java](&#123;uri-jmonkeyengine&#125;jme3-examples/src/main/java/jme3test/effect/TestPointSprite.java) – cluster of points.
-- [TestMovingParticle.java](&#123;uri-jmonkeyengine&#125;jme3-examples/src/main/java/jme3test/effect/TestMovingParticle.java) – dust, smoke.
+- [TestExplosionEffect.java](https://github.com/jMonkeyEngine/jmonkeyengine/tree/master/jme3-examples/src/main/java/jme3test/effect/TestExplosionEffect.java) – debris, flame, flash, shockwave, smoke, sparks.
+- [TestPointSprite.java](https://github.com/jMonkeyEngine/jmonkeyengine/tree/master/jme3-examples/src/main/java/jme3test/effect/TestPointSprite.java) – cluster of points.
+- [TestMovingParticle.java](https://github.com/jMonkeyEngine/jmonkeyengine/tree/master/jme3-examples/src/main/java/jme3test/effect/TestMovingParticle.java) – dust, smoke.
 
 ### Creating your own Filters
 
-Here is an extract taken from @nehon in the forum thread ([http://hub.jmonkeyengine.org/forum/topic/how-exactly-do-filters-work/](&#123;uri-forum&#125;t/how-exactly-do-filters-work/26871))
+Here is an extract taken from @nehon in the forum thread ([http://hub.jmonkeyengine.org/forum/topic/how-exactly-do-filters-work/](https://hub.jmonkeyengine.org/t/how-exactly-do-filters-work/26871))
 
 The methods are called in this order (pretty much the same flow as processors):
 - initFilter() is called once when the FilterPostProcessor is initialized or when the filter is added to the processor and this one as already been initialized.

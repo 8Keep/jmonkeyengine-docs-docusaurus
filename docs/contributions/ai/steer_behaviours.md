@@ -7,7 +7,7 @@ Steer behaviors allows you to control the locomotion of "`characters`", this can
 <table>
   <tbody>
     <tr>
-      <td>.Steer behaviors in action<br />image:ai/steer/hqdefault.jpg[youtu.be/yyzTntsGV00,width="",height="",link=https://youtu.be/yyzTntsGV00]</td>
+      <td>.Steer behaviors in action<br /><img alt="youtu.be/yyzTntsGV00" src="/wiki-assets/docs/contributions/assets/images/ai/steer/hqdefault.jpg" /></td>
       <td><br /></td>
     </tr>
   </tbody>
@@ -62,24 +62,13 @@ If we want to add more than one steer behavior, we need to create a container:
 If you add more than one steer behavior to a `SimpleMainBehavior` it will cause problems in the rotation of the agents.
 :::
 
-<table>
-  <thead>
-    <tr>
-      <th>Container</th>
-      <th>Purpose<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>CompoundSteeringBehavior</td>
-      <td>Contains and merges several `AbstractSteeringBehavior` instances<br /></td>
-    </tr>
-    <tr>
-      <td>BalancedCompoundSteeringBehavior</td>
-      <td>Each force generated inside this container is reduced in relation with a proportion factor: "`Partial Force`" / "`Total`" container force<br /></td>
-    </tr>
-  </tbody>
-</table>
+| Container |
+| --- |
+| Purpose<br /> |
+| CompoundSteeringBehavior |
+| Contains and merges several `AbstractSteeringBehavior` instances<br /> |
+| BalancedCompoundSteeringBehavior |
+| Each force generated inside this container is reduced in relation with a proportion factor: "`Partial Force`" / "`Total`" container force<br /> |
 
 Once we know which container fits better for our agent, We create a new instance and add all the behaviors that we need:
 

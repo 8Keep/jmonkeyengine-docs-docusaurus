@@ -44,7 +44,7 @@ Examples: You can write
 - An IdleBehaviourControl that remote-controls NPC behaviour in neutral situations.
 - A DestructionControl that automatically replaces a structure with an appropriate piece of debris after collision with a projectile…
 
-The possibilities are endless. emoji:smile[]
+The possibilities are endless. `smile`
 
 ## Example Code
 

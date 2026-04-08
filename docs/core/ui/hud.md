@@ -12,32 +12,19 @@ HUDs are used to supply players with essential information about the game state.
 - Navigational aides: Crosshairs, mouse pointer or hand, …
 
 You have multiple options how to create HUDs.
-<table>
-  <thead>
-    <tr>
-      <th>Option</th>
-      <th>Pros</th>
-      <th>Cons<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Attach elements to default guiNode:</td>
-      <td>Easy to learn. jMonkeyEngine built-in &lt;abbr title="Application Programming Interface"&gt;API&lt;/abbr&gt; for attaching plain images and bitmap text.</td>
-      <td>Only basic features. +<br />You will have to write custom controls / buttons / effects if you need them.<br /></td>
-    </tr>
-    <tr>
-      <td>Use advanced [Nifty GUI](../gui/nifty_gui.md) integration:</td>
-      <td>Full-featured interactive user interface. +<br />Includes buttons, effects, controls. +<br />Supports XML and Java layouts.</td>
-      <td>Steeper learning curve.<br /></td>
-    </tr>
-    <tr>
-      <td>Use user contributed &lt;abbr title="Graphical User Interface"&gt;GUI&lt;/abbr&gt; libraries such as [tonegodgui](../../contributions/gui/tonegodgui/tonegodgui.md) or [Lemur](http://hub.jmonkeyengine.org/t/lemur-api-documentation/27209):</td>
-      <td>Both have many features that would be difficult to do with Nifty +<br />Includes buttons, effects, controls. +<br />New features are still being released</td>
-      <td>Are not necessarily guaranteed future updates, not as well documented<br /></td>
-    </tr>
-  </tbody>
-</table>
+| Option |
+| --- |
+| Pros |
+| Cons<br /> |
+| Attach elements to default guiNode: |
+| Easy to learn. jMonkeyEngine built-in &lt;abbr title="Application Programming Interface"&gt;API&lt;/abbr&gt; for attaching plain images and bitmap text. |
+| Only basic features.<br />You will have to write custom controls / buttons / effects if you need them.<br /> |
+| Use advanced [Nifty GUI](../gui/nifty_gui.md) integration: |
+| Full-featured interactive user interface.<br />Includes buttons, effects, controls.<br />Supports XML and Java layouts. |
+| Steeper learning curve.<br /> |
+| Use user contributed &lt;abbr title="Graphical User Interface"&gt;GUI&lt;/abbr&gt; libraries such as [tonegodgui](../../contributions/gui/tonegodgui/tonegodgui.md) or [Lemur](http://hub.jmonkeyengine.org/t/lemur-api-documentation/27209): |
+| Both have many features that would be difficult to do with Nifty<br />Includes buttons, effects, controls.<br />New features are still being released |
+| Are not necessarily guaranteed future updates, not as well documented<br /> |
 
 Using the &lt;abbr title="Graphical User Interface"&gt;GUI&lt;/abbr&gt; Node is the default approach in jme3 to create simple HUDs. If you just quickly want to display a line of text, or a simple icon on the screen, use the no-frills &lt;abbr title="Graphical User Interface"&gt;GUI&lt;/abbr&gt; Node, it's easier.
 

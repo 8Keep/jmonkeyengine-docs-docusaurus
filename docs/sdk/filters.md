@@ -4,7 +4,7 @@ Filters are used for scene-wide effects such as glow, fog, blur. The SDK lets yo
 
 ## Creating Filters
 
-![filterexplorer.png](/wiki-assets/docs/sdk/assets/images/filterexplorer.png)
+![filterexplorer.png](/wiki-assets/docs/sdk/images/filterexplorer.png)
 
 To create a new filter:
 
@@ -28,7 +28,7 @@ View the filter in the SceneComposer to see what you are doing:
 
 ## Viewing Filters
 
-![p3wuv.png](/wiki-assets/docs/sdk/assets/images/p3wuv.png)
+![p3wuv.png](/wiki-assets/docs/sdk/images/p3wuv.png)
 
 To see a loaded filter
 

@@ -59,13 +59,19 @@ We recommend to [create and edit Splat Textures for terrains visually in the jMo
   <tbody>
     <tr>
       <td>The Diffuse Map of one of the terrain textures depicts the colors of a paved surface.</td>
-      <td>image:tutorials:beginner/road.jpg[road.jpg,width="",height=""]<br /></td>
+      <td><img alt="road.jpg" src="/wiki-assets/docs/tutorials/assets/images/beginner/road.jpg" /><br /></td>
+    </tr>
+    <tr>
       <td>The Normal Map of one of the terrain textures depicts the bumpiness of a paved surface.</td>
-      <td>image:tutorials:beginner/road_normal.png[road_normal.png,width="",height=""]<br /></td>
+      <td><img alt="road_normal.png" src="/wiki-assets/docs/tutorials/assets/images/beginner/road_normal.png" /><br /></td>
+    </tr>
+    <tr>
       <td>A heightmap encodes the topological highs and lows of the terrain.</td>
-      <td>image:tutorials:beginner/mountains512.png[mountains512.png,width="128",height="128"]<br /></td>
+      <td><img alt="mountains512.png" src="/wiki-assets/docs/tutorials/assets/images/beginner/mountains512.png" /><br /></td>
+    </tr>
+    <tr>
       <td>An alpha map can describe where 4 textures are painted onto the terrain.</td>
-      <td>image:tutorials:beginner/alphamap.png[alphamap.png,width="128",height="128"]<br /></td>
+      <td><img alt="alphamap.png" src="/wiki-assets/docs/tutorials/assets/images/beginner/alphamap.png" /><br /></td>
     </tr>
   </tbody>
 </table>

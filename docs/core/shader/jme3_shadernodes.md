@@ -9,16 +9,16 @@ jME3 material system is entirely based on shaders. While it's pretty powerful, t
 - Adding new features to those shaders decrease the ease of maintenance a lot. This point made us reluctant to do so and some feature were never added (Fog to name it, but many more).
 - Users can't add their own feature to the shader unless they fork it, and fall back to the same issues explained in previous points.
 
-Shader Nodes were designed with this in mind and are the fruit of many long discussions in the core chat balancing the pros and cons of this or that pattern. +
-At first this system was referred to as "`Shader`" injection. The basic idea was to allow users to inject code into shaders with a tag replacement system. +
-We finally came with a different concept called Shader Nodes, that is inspired from blender nodes system for textures and post process. +
+Shader Nodes were designed with this in mind and are the fruit of many long discussions in the core chat balancing the pros and cons of this or that pattern.
+At first this system was referred to as "`Shader`" injection. The basic idea was to allow users to inject code into shaders with a tag replacement system.
+We finally came with a different concept called Shader Nodes, that is inspired from blender nodes system for textures and post process.
 *The final shader is generated at run time by the system by assembling shader nodes together.*
 
 ## What is a Shader Node?
 
-Conceptually, it's just a self sufficient piece of glsl code that accepts inputs and produce some outputs. +
-Inputs are glsl variables that may be fed by previous nodes output values. +
-Outputs are glsl variables fed with values computed in the shader node code. +
+Conceptually, it's just a self sufficient piece of glsl code that accepts inputs and produce some outputs.
+Inputs are glsl variables that may be fed by previous nodes output values.
+Outputs are glsl variables fed with values computed in the shader node code.
 
 In practice it's a bit more than that.A shader node is declined in several parts :
 
@@ -40,12 +40,12 @@ In practice it's a bit more than that.A shader node is declined in several parts
 
 ## Shader Node definition
 
-First ShaderNodes have to be defined either in a separate file (j3sn for jme3 shader node) or directly embed in the Technique block of the j3md file. +
+First ShaderNodes have to be defined either in a separate file (j3sn for jme3 shader node) or directly embed in the Technique block of the j3md file.
 Please refer to this documentation for global structure of a j3md file
 [jMonkeyEngine3 Material Specification](../material/material_specification.md)
 
-All is included in a *ShaderNodeDefinitions* bloc. This block can have several nodes defined (it's recommended to define nodes that have strong dependencies with each other in the same j3sn file). +
-A ShaderNode is declared in a *ShaderNodeDefinition* block. +
+All is included in a *ShaderNodeDefinitions* bloc. This block can have several nodes defined (it's recommended to define nodes that have strong dependencies with each other in the same j3sn file).
+A ShaderNode is declared in a *ShaderNodeDefinition* block.
 The global structure should look like this :
 
 ```java
@@ -138,9 +138,9 @@ ShaderNodeDefinitions{
 
 ### Declare an array
 
-To declare an array you have to specify its size between square brackets. +
-*Constant size* +
-The size can be an int constant. +
+To declare an array you have to specify its size between square brackets.
+*Constant size*
+The size can be an int constant.
 _Example_
 
 ```
@@ -152,8 +152,8 @@ _Example_
 This will declare a float array with 10 elements.
 Any material parameter mapped with this array should be of FloatArray type and it's size will be assumed as 10 when the shader is generated.
 
-*Material parameter driven size* +
-The size can be dynamic and driven by a material parameter. GLSL does not support non constant values for array declaration so this material parameter will be mapped to a define. +
+*Material parameter driven size*
+The size can be dynamic and driven by a material parameter. GLSL does not support non constant values for array declaration so this material parameter will be mapped to a define.
 _Example_
 
 ```
@@ -162,7 +162,7 @@ _Example_
 
 ```
 
-This declares a float array with the size depending on the value of the NumberOfElements material parameter. +
+This declares a float array with the size depending on the value of the NumberOfElements material parameter.
 NumberOfElements *HAS* to be declared in the material definition as a material parameter. It will be mapped to a define and used in the shader.
 
 :::note
@@ -171,10 +171,10 @@ If this value change the shader will have to be recompiled, due to the fact that
 
 ## Shader Node code
 
-The shader code associated with a Shader node is similar to any shader code. +
+The shader code associated with a Shader node is similar to any shader code.
 The code for a Vertex shader node should be in a .vert file and the code for a Fragment shader node should be in a .frag file.
-It has a declarative part containing variable declaration, function declaration and so on… And a main part that is embed in a "`void main()&#123;&#125;`" block. +
-Input and output variables declared in the shader node definition can be used *without* being declared in the shader code. ( they shouldn't even or you'll have issues). +
+It has a declarative part containing variable declaration, function declaration and so on… And a main part that is embed in a "`void main()&#123;&#125;`" block.
+Input and output variables declared in the shader node definition can be used *without* being declared in the shader code. ( they shouldn't even or you'll have issues).
 Here is a the code of the LightMap.frag shader.
 
 ```java
@@ -185,15 +185,15 @@ void main(){
 
 ```
 
-Very simple, it's just a texture fetch, but of course anything can be done. +
+Very simple, it's just a texture fetch, but of course anything can be done.
 *Do not declare uniforms, attributes or varyings in a shader node code*, the Generator will handle this, just use the inputs and outputs and optional local variables you may need.
 
 ## Shader Node declaration
 
 To create a shader we need to plug shader nodes to each other, but also interact with built in glsl inputs and outputs.
-Shader nodes are declared inside the Technique block. The vertex nodes are declared in the VertexShaderNodes block and the fragment nodes are declared in the FragmentShaderNodes block. +
+Shader nodes are declared inside the Technique block. The vertex nodes are declared in the VertexShaderNodes block and the fragment nodes are declared in the FragmentShaderNodes block.
 Note that if the j3md has ember shader nodes definition (in a ShaderNodesDefinitions block) it *must* be declared before the VertexShaderNodes and FragmentShaderNodes blocks.
-Of course there can be several ShaderNode declaration in those block. +
+Of course there can be several ShaderNode declaration in those block.
 Here is how a ShaderNode declaration should look :
 
 ```java
@@ -299,9 +299,9 @@ MaterialDef Simple {
 
 ```
 
-This Material definition has one Default technique with 2 node declarations. +
-*&lt;u&gt;CommonVert Definition&lt;/u&gt;* +
-CommonVert is a vertex shader node that has commonly used input and outputs of a vertex shader. It also computes the position of the vertex in projection space. +
+This Material definition has one Default technique with 2 node declarations.
+*&lt;u&gt;CommonVert Definition&lt;/u&gt;*
+CommonVert is a vertex shader node that has commonly used input and outputs of a vertex shader. It also computes the position of the vertex in projection space.
 Here is the definition content (Common/MatDefs/ShaderNodes/Common/CommonVert.j3sn) :
 
 ```java
@@ -357,7 +357,7 @@ void main(){
 
 As you can see all the inputs and outputs are not used. That's because most of them are attributes meant to be passed to the fragment shader as varyings. All the wiring will be handled by the generator only if those variables are used in an input or output mapping.
 
-*&lt;u&gt;CommonVert input mapping&lt;/u&gt;* +
+*&lt;u&gt;CommonVert input mapping&lt;/u&gt;*
 Here we have the most basic yet mandatory thing in a vertex shader, computing vertex position in projection space. For this we have 2 mappings :
 
 - *worldViewProjectionMatrix = WorldParam.WorldViewProjectionMatrix* : the input parameter worldViewProjectionMatrix is assigned with the WorldViewProjectionMatrix World parameter declared in the WorldParameters block of the technique.
@@ -375,7 +375,7 @@ modelPosition = Attr.inPosition.xyz
 Also note the swizzle of the Global.position variable. ModelPosition is a vec3 and GlobalPosition is a vec4 so we just take the first 3 components.
 :::
 
-*&lt;u&gt;CommonVert output mapping&lt;/u&gt;* +
+*&lt;u&gt;CommonVert output mapping&lt;/u&gt;*
 
 - *Global.position = projPosition* : The result of the multiplication of the worldViewProjectionMatrix and the modelPosition is assigned to the Global position.
 
@@ -383,7 +383,7 @@ Also note the swizzle of the Global.position variable. ModelPosition is a vec3 a
 The Global.position variable will be assigned to the gl_Position glsl built in output at the end of the shader.
 :::
 
-*&lt;u&gt;ColorMult Definition&lt;/u&gt;* +
+*&lt;u&gt;ColorMult Definition&lt;/u&gt;*
 ColorMult is a very basic Shader Node that takes two colors as input and multiply them.
 Here is the definition content (Common/MatDefs/ShaderNodes/Basic/ColorMult.j3sn) :
 
@@ -421,7 +421,7 @@ void main(){
 
 ```
 
-*&lt;u&gt;ColorMult input mapping&lt;/u&gt;* +
+*&lt;u&gt;ColorMult input mapping&lt;/u&gt;*
 All inputs are mapped here :
 
 - *color1 = MatParam.Color* : The first color is assigned to the Color Material parameter declared in the MaterialParameter block of the material definition.
@@ -431,7 +431,7 @@ All inputs are mapped here :
 In a very complex material def this variable could already have been assigned with a previous Shader Node output.
 :::
 
-*&lt;u&gt;ColorMult output mapping&lt;/u&gt;* +
+*&lt;u&gt;ColorMult output mapping&lt;/u&gt;*
 
 - *Global.color = outColor* : the resulting color is assigned to the Global color variable.
 
@@ -476,9 +476,9 @@ void main(){
 
 ```
 
-All materials parameter, world parameters, attributes varying are declared first. then for each shader node, the declarative part is appended. +
-For the main function, for each shader node, the input mappings are declared and assigned, the output are declared. +
-Then the variable names are replaced in the sahder node code with there complete name (NameSpace_varName), material parameters are replaced in the shader code as is. +
+All materials parameter, world parameters, attributes varying are declared first. then for each shader node, the declarative part is appended.
+For the main function, for each shader node, the input mappings are declared and assigned, the output are declared.
+Then the variable names are replaced in the sahder node code with there complete name (NameSpace_varName), material parameters are replaced in the shader code as is.
 Then, the output are mapped.
 
 As you can see texCoord1/2 and vertColor are declared but never used. That's because the generator is not aware of that. By default it will declare all inputs in case they are used in the shaderNode code.

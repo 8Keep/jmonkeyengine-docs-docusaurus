@@ -25,8 +25,8 @@ The wiki is an Antora documentation site. There are a few simple rules to follow
 
 1. It's not required but it's a good idea to give a heads up you made a P/R on the [jMonkeyEngine Forum](https://hub.jmonkeyengine.org/) under the `Documentation` topic.
 1. When adding documents, make sure to always complete the [header](https://docs.antora.org/antora/2.2/asciidoc/page-header/) of your document first.
-1. The docs are modular so you can create your own Antora site playbook and module and it can be included in the wiki and maintained by you. +
-See: [Antora Docs](https://docs.antora.org/antora/2.3/). +
+1. The docs are modular so you can create your own Antora site playbook and module and it can be included in the wiki and maintained by you.
+See: [Antora Docs](https://docs.antora.org/antora/2.3/).
 You can create modules and submit them here also.
 
 It is recommended that you read at least these paragraphs to inform yourself on how to build pages and submit them for review to the wiki.

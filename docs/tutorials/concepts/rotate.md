@@ -1,6 +1,6 @@
 # 3-D Rotation
 
-_Bad news: 3D rotation is done using matrix calculus. +
+_Bad news: 3D rotation is done using matrix calculus.
 Good news: If you do not understand calculus, there are two simple rules how you get it right._
 
 *3D rotation* is a crazy mathematical operation where you need to multiply all vertices in your object by four floating point numbers; the multiplication is referred to as concatenation, the array of four numbers &#123;x,y,z,w&#125; is referred to as [quaternions](../../core/math/quaternion.md). Don't worry, the 3D engine does the tough work for you. All you need to know is:
@@ -28,78 +28,46 @@ thingamajig.setLocalRotation( roll180 );
 
 So how to choose the right numbers for the Quaternion parameters? I'll give you my cheat-sheet:
 
-<table>
-  <thead>
-    <tr>
-      <th>*Rotation around Axis?*</th>
-      <th>*Use this Axis Vector!*</th>
-      <th>*Examples for this kind of rotation*<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>X axis</td>
-      <td>(1,0,0)</td>
-      <td>A plane pitches. Nodding your head.<br /></td>
-    </tr>
-    <tr>
-      <td>Y axis</td>
-      <td>(0,1,0)</td>
-      <td>A plane yaws. A vehicle turns. Shaking your head.<br /></td>
-    </tr>
-    <tr>
-      <td>Z axis</td>
-      <td>(0,0,1)</td>
-      <td>A plane rolls or banks. Cocking your head.<br /></td>
-    </tr>
-  </tbody>
-</table>
+| *Rotation around Axis?* |
+| --- |
+| *Use this Axis Vector!* |
+| *Examples for this kind of rotation*<br /> |
+| X axis |
+| (1,0,0) |
+| A plane pitches. Nodding your head.<br /> |
+| Y axis |
+| (0,1,0) |
+| A plane yaws. A vehicle turns. Shaking your head.<br /> |
+| Z axis |
+| (0,0,1) |
+| A plane rolls or banks. Cocking your head.<br /> |
 
 :::note
 These are the three most common examples – technically you can rotate around any axis expressed by a vector.
 :::
 
-<table>
-  <thead>
-    <tr>
-      <th>*Angle?*</th>
-      <th>*Use Radians!*</th>
-      <th>*Examples*<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>45 degrees</td>
-      <td>FastMath.PI / 4</td>
-      <td>eighth of a circle<br /></td>
-    </tr>
-    <tr>
-      <td>90 degrees</td>
-      <td>FastMath.PI / 2</td>
-      <td>quarter circle, 3 o'clock<br /></td>
-    </tr>
-    <tr>
-      <td>180 degrees</td>
-      <td>FastMath.PI</td>
-      <td>half circle, 6 o'clock<br /></td>
-    </tr>
-    <tr>
-      <td>270 degrees</td>
-      <td>FastMath.PI * 3 / 2</td>
-      <td>three quarter circle, 9 o'clock<br /></td>
-    </tr>
-    <tr>
-      <td>360 degrees</td>
-      <td>FastMath.PI * 2</td>
-      <td>full circle, 12  o'clock emoji:wink[]<br /></td>
-    </tr>
-    <tr>
-      <td>`g` degrees</td>
-      <td>FastMath.PI * g / 180</td>
-      <td>any angle `g`<br /></td>
-    </tr>
-  </tbody>
-</table>
+| *Angle?* |
+| --- |
+| *Use Radians!* |
+| *Examples*<br /> |
+| 45 degrees |
+| FastMath.PI / 4 |
+| eighth of a circle<br /> |
+| 90 degrees |
+| FastMath.PI / 2 |
+| quarter circle, 3 o'clock<br /> |
+| 180 degrees |
+| FastMath.PI |
+| half circle, 6 o'clock<br /> |
+| 270 degrees |
+| FastMath.PI * 3 / 2 |
+| three quarter circle, 9 o'clock<br /> |
+| 360 degrees |
+| FastMath.PI * 2 |
+| full circle, 12  o'clock `wink`<br /> |
+| `g` degrees |
+| FastMath.PI * g / 180 |
+| any angle `g`<br /> |
 
 :::important
 You must specify angles in [Radian](http://en.wikipedia.org/wiki/Radian)s (multiples or fractions of PI). If you use degrees, you will just get useless results.
@@ -143,7 +111,7 @@ You can specify two rotations, and then have jme calculate (interpolate) the ste
 
 ## Adding Rotations
 
-You can concatenate (add) rotations: This means you turn the object first around one axis, then around the other, in one step. +
+You can concatenate (add) rotations: This means you turn the object first around one axis, then around the other, in one step.
 `Quaternion myRotation =  pitch90.mult(roll45); /* pitch and roll */`
 
 ## Troubleshooting Rotations

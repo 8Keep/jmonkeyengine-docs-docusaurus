@@ -16,7 +16,7 @@ The main purpose of the Vertex shader is to compute the screen coordinate of a v
 
 This is a very simplified graphic to describe the call stack:
 
-image:shader/jme3andshaders.png[jme3andshaders.png,width="",height="", align="left]
+![jme3andshaders.png](/wiki-assets/docs/core/assets/images/shader/jme3andshaders.png)
 
 The main program sends mesh data to the vertex shader (vertex position in object space, normals, tangents, etc..). The vertex shader computes the screen position of the vertex and sends it to the Fragment shader. The fragment shader computes the color, and the result is displayed on screen or in a texture.
 
@@ -34,7 +34,7 @@ There is a large panel of variable types to be used, for more information about 
 
 To understand the coming example you must know about the different spaces in 3D computer graphics, and the matrices used to translate coordinate from one space to another.
 
-image:shader/jme3andshaders-1.png[jme3andshaders-1.png,width="",height="", align="left"]
+![jme3andshaders-1.png](/wiki-assets/docs/core/assets/images/shader/jme3andshaders-1.png)
 
 The engine passes the object space coordinates to the vertex shader. We need to compute its position in projection space. To do that we transform the object space position by the WorldViewProjectionMatrix, which is a combination of the World, View, Projection matrices (who would have guessed?).
 
@@ -81,7 +81,7 @@ For example applying this shader to a sphere would render a solid blue sphere on
 
 ## How to use shaders in JME3
 
-You probably heard that JME3 is "`shader oriented`", but what does that mean? +
+You probably heard that JME3 is "`shader oriented`", but what does that mean?
 Usually, to use shaders you must create a program. This program specifies the vertex shader and the fragment shader to use. JME3 encloses this in the material system. Every material in JME3 uses shaders.
 
 For example let’s have a look at the SolidColor.j3md file :
@@ -283,49 +283,26 @@ GLSL 1.0 to 1.2 comes with built in attributes and uniforms (ie, gl_Vertex, gl_M
 
 Here is a list of deprecated attributes and their equivalent in JME3.
 
-<table>
-  <thead>
-    <tr>
-      <th>GLSL 1.2 attributes</th>
-      <th>JME3 equivalent<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>gl_Vertex</td>
-      <td>inPosition<br /></td>
-    </tr>
-    <tr>
-      <td>gl_Normal</td>
-      <td>inNormal<br /></td>
-    </tr>
-    <tr>
-      <td>gl_Color</td>
-      <td>inColor<br /></td>
-    </tr>
-    <tr>
-      <td>gl_MultiTexCoord0</td>
-      <td>inTexCoord<br /></td>
-    </tr>
-    <tr>
-      <td>gl_ModelViewMatrix</td>
-      <td>g_WorldViewMatrix<br /></td>
-    </tr>
-    <tr>
-      <td>gl_ProjectionMatrix</td>
-      <td>g_ProjectionMatrix<br /></td>
-    </tr>
-    <tr>
-      <td>gl_ModelViewProjectionMatrix</td>
-      <td>g_WorldViewProjectionMatrix<br /></td>
-    </tr>
-    <tr>
-      <td>gl_NormalMatrix</td>
-      <td>g_NormalMatrix<br /></td>
-    </tr>
-  </tbody>
-</table>
+| GLSL 1.2 attributes |
+| --- |
+| JME3 equivalent<br /> |
+| gl_Vertex |
+| inPosition<br /> |
+| gl_Normal |
+| inNormal<br /> |
+| gl_Color |
+| inColor<br /> |
+| gl_MultiTexCoord0 |
+| inTexCoord<br /> |
+| gl_ModelViewMatrix |
+| g_WorldViewMatrix<br /> |
+| gl_ProjectionMatrix |
+| g_ProjectionMatrix<br /> |
+| gl_ModelViewProjectionMatrix |
+| g_WorldViewProjectionMatrix<br /> |
+| gl_NormalMatrix |
+| g_NormalMatrix<br /> |
 
 ### Useful links
 
-[GLSL-ATI-Intro.pdf](&#123;attachmentsdir&#125;/GLSL-ATI-Intro.pdf)
+[GLSL-ATI-Intro.pdf](/wiki-assets/docs/core/assets/attachments/GLSL-ATI-Intro.pdf)

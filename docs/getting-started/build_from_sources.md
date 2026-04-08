@@ -15,17 +15,17 @@ Here is the basic outline of our goal:
 
 Repeat steps 3 and 4 whenever any changes have been committed to the master branch.
 
-1. Install Git Client: +
+1. Install Git Client:
 website: [https://git-scm.com/downloads](https://git-scm.com/downloads)
 
 Now we need to get the engine source using the git client and build it locally. There are 3 batch files below provided for convenience (download, update, build) and can all be placed in the same directory and run without administrator privileges. For example, you can put all of these files into `D:\programming\` - and the scripts will create, download and update files in the `./jmonkeyengine/` sub-directory.
 
 [start=2]
-1. Download the Engine: `download.bat` +
+1. Download the Engine: `download.bat`
  This file downloads the engine into a dir called "`jmonkey`" using the git client.
-1. Update the Engine: `update.bat` +
+1. Update the Engine: `update.bat`
  This file downloads any changed files from github using the git client.
-1. Build the Engine: `build.bat` +
+1. Build the Engine: `build.bat`
  This file builds the engine using the gradle wrapper and places them in your local repository.
 
 --

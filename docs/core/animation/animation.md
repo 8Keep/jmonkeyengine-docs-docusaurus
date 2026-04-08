@@ -90,203 +90,98 @@ player.depthFirstTraversal(new SceneGraphVisitorAdapter() {
 ## Animation Control Properties
 
 The following information is available for an AnimControl.
-<table>
-  <thead>
-    <tr>
-      <th>AnimControl Property</th>
-      <th>Usage<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>createChannel()</td>
-      <td>Returns a new channel, controlling all bones by default.<br /></td>
-    </tr>
-    <tr>
-      <td>getNumChannels()</td>
-      <td>The number of channels registered to this Control.<br /></td>
-    </tr>
-    <tr>
-      <td>getChannel(0)</td>
-      <td>Gets individual channels by index number. At most `getNumChannels()`.<br /></td>
-    </tr>
-    <tr>
-      <td>clearChannels()</td>
-      <td>Clear all channels in this control.<br /></td>
-    </tr>
-    <tr>
-      <td>addListener(animEventListener) +<br />removeListener(animEventListener) +<br />clearListeners()</td>
-      <td>Adds or removes listeners to receive animation related events.<br /></td>
-    </tr>
-  </tbody>
-</table>
+| AnimControl Property |
+| --- |
+| Usage<br /> |
+| createChannel() |
+| Returns a new channel, controlling all bones by default.<br /> |
+| getNumChannels() |
+| The number of channels registered to this Control.<br /> |
+| getChannel(0) |
+| Gets individual channels by index number. At most `getNumChannels()`.<br /> |
+| clearChannels() |
+| Clear all channels in this control.<br /> |
+| addListener(animEventListener)<br />removeListener(animEventListener)<br />clearListeners() |
+| Adds or removes listeners to receive animation related events.<br /> |
 
-<table>
-  <thead>
-    <tr>
-      <th>AnimControl Property</th>
-      <th>Usage<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>setAnimations(aniHashMap)</td>
-      <td>Sets the animations that this AnimControl is capable of playing. The animations must be compatible with the skeleton given in the constructor.<br /></td>
-    </tr>
-    <tr>
-      <td>addAnim(boneAnim) +<br />removeAnim(boneAnim)</td>
-      <td>Adds or removes an animation from this Control.<br /></td>
-    </tr>
-    <tr>
-      <td>getAnimationNames()</td>
-      <td>A String Collection of names of all animations that this Control can play for this model.<br /></td>
-    </tr>
-    <tr>
-      <td>getAnim("`anim`")</td>
-      <td>Retrieve an animation from the list of animations.<br /></td>
-    </tr>
-    <tr>
-      <td>getAnimationLength("`anim`")</td>
-      <td>Returns the length of the given named animation in seconds<br /></td>
-    </tr>
-  </tbody>
-</table>
+| AnimControl Property |
+| --- |
+| Usage<br /> |
+| setAnimations(aniHashMap) |
+| Sets the animations that this AnimControl is capable of playing. The animations must be compatible with the skeleton given in the constructor.<br /> |
+| addAnim(boneAnim)<br />removeAnim(boneAnim) |
+| Adds or removes an animation from this Control.<br /> |
+| getAnimationNames() |
+| A String Collection of names of all animations that this Control can play for this model.<br /> |
+| getAnim("`anim`") |
+| Retrieve an animation from the list of animations.<br /> |
+| getAnimationLength("`anim`") |
+| Returns the length of the given named animation in seconds<br /> |
 
-<table>
-  <thead>
-    <tr>
-      <th>AnimControl Property</th>
-      <th>Usage<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>getSkeleton()</td>
-      <td>The Skeleton object controlled by this Control.<br /></td>
-    </tr>
-  </tbody>
-</table>
+| AnimControl Property |
+| --- |
+| Usage<br /> |
+| getSkeleton() |
+| The Skeleton object controlled by this Control.<br /> |
 
 ## Skeleton Control Properties
 
 The following information is available for an SkeletonControl.
 
-<table>
-  <thead>
-    <tr>
-      <th>SkeletonControl Property</th>
-      <th>Usage<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>getSkeleton()</td>
-      <td>The Skeleton object controlled by this Control.<br /></td>
-    </tr>
-    <tr>
-      <td>getTargets()</td>
-      <td>The Skin objects controlled by this Control, as Mesh array.<br /></td>
-    </tr>
-    <tr>
-      <td>getAttachmentsNode("`bone`")</td>
-      <td>Returns the attachment node of a bone. Attach models and effects to this node to make them follow this bone's motions.<br /></td>
-    </tr>
-  </tbody>
-</table>
+| SkeletonControl Property |
+| --- |
+| Usage<br /> |
+| getSkeleton() |
+| The Skeleton object controlled by this Control.<br /> |
+| getTargets() |
+| The Skin objects controlled by this Control, as Mesh array.<br /> |
+| getAttachmentsNode("`bone`") |
+| Returns the attachment node of a bone. Attach models and effects to this node to make them follow this bone's motions.<br /> |
 
 ## Animation Channel Properties
 
 The following properties are set per AnimChannel.
-<table>
-  <thead>
-    <tr>
-      <th>AnimChannel Property</th>
-      <th>Usage<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>setLoopMode(LoopMode.Loop);</td>
-      <td>From now on, the animation on this channel will repeat from the beginning when it ends.<br /></td>
-    </tr>
-    <tr>
-      <td>setLoopMode(LoopMode.DontLoop);</td>
-      <td>From now on, the animation on this channel will play once, and the freeze at the last keyframe.<br /></td>
-    </tr>
-    <tr>
-      <td>setLoopMode(LoopMode.Cycle);</td>
-      <td>From now on, the animation on this channel will play forward, then backward, then again forward, and so on.<br /></td>
-    </tr>
-    <tr>
-      <td>setSpeed(1f);</td>
-      <td>From now on, play this animation slower (&lt;1f) or faster (&gt;1f), or with default speed (1f).<br /></td>
-    </tr>
-    <tr>
-      <td>setTime(1.3f);</td>
-      <td>Fast-forward or rewind to a certain moment in time of this animation.<br /></td>
-    </tr>
-  </tbody>
-</table>
+| AnimChannel Property |
+| --- |
+| Usage<br /> |
+| setLoopMode(LoopMode.Loop); |
+| From now on, the animation on this channel will repeat from the beginning when it ends.<br /> |
+| setLoopMode(LoopMode.DontLoop); |
+| From now on, the animation on this channel will play once, and the freeze at the last keyframe.<br /> |
+| setLoopMode(LoopMode.Cycle); |
+| From now on, the animation on this channel will play forward, then backward, then again forward, and so on.<br /> |
+| setSpeed(1f); |
+| From now on, play this animation slower (&lt;1f) or faster (&gt;1f), or with default speed (1f).<br /> |
+| setTime(1.3f); |
+| Fast-forward or rewind to a certain moment in time of this animation.<br /> |
 
 The following information is available for a channel.
-<table>
-  <thead>
-    <tr>
-      <th>AnimChannel Property</th>
-      <th>Usage<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>getAnimationName()</td>
-      <td>The name of the animation playing on this channel. Returns `null` when no animation is playing.<br /></td>
-    </tr>
-    <tr>
-      <td>getLoopMode()</td>
-      <td>The current loop mode on this channel. The returned com.jme3.animation enum can be LoopMode.Loop, LoopMode.DontLoop, or LoopMode.Cycle.<br /></td>
-    </tr>
-    <tr>
-      <td>getAnimMaxTime()</td>
-      <td>The total length of the animation on this channel. Or `0f` if nothing is playing.<br /></td>
-    </tr>
-    <tr>
-      <td>getTime()</td>
-      <td>How long the animation on this channel has been playing. It returns `0f` if the channel has not started playing yet, or a value up to getAnimMaxTime().<br /></td>
-    </tr>
-    <tr>
-      <td>getControl()</td>
-      <td>The AnimControl that belongs to this AnimChannel.<br /></td>
-    </tr>
-  </tbody>
-</table>
+| AnimChannel Property |
+| --- |
+| Usage<br /> |
+| getAnimationName() |
+| The name of the animation playing on this channel. Returns `null` when no animation is playing.<br /> |
+| getLoopMode() |
+| The current loop mode on this channel. The returned com.jme3.animation enum can be LoopMode.Loop, LoopMode.DontLoop, or LoopMode.Cycle.<br /> |
+| getAnimMaxTime() |
+| The total length of the animation on this channel. Or `0f` if nothing is playing.<br /> |
+| getTime() |
+| How long the animation on this channel has been playing. It returns `0f` if the channel has not started playing yet, or a value up to getAnimMaxTime().<br /> |
+| getControl() |
+| The AnimControl that belongs to this AnimChannel.<br /> |
 
 Use the following methods to add or remove individual bones to an AnimChannel. This is useful when you play two animations in parallel on two channels, and each controls a subset of the bones (e.g. one the arms, and the other the legs).
-<table>
-  <thead>
-    <tr>
-      <th>AnimChannel Methods</th>
-      <th>Usage<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>addAllBones()</td>
-      <td>Add all the bones of the model's skeleton to be influenced by this animation channel. (default)<br /></td>
-    </tr>
-    <tr>
-      <td>addBone("`bone1`") +<br />addBone(bone1)</td>
-      <td>Add a single bone to be influenced by this animation channel.<br /></td>
-    </tr>
-    <tr>
-      <td>addToRootBone("`bone1`") +<br />addToRootBone(bone1)</td>
-      <td>Add a series of bones to be influenced by this animation channel: Add all bones, starting from the given bone, to the root bone.<br /></td>
-    </tr>
-    <tr>
-      <td>addFromRootBone("`bone1`") +<br />addFromRootBone(bone1)</td>
-      <td>Add a series of bones to be influenced by this animation channel: Add all bones, starting from the given root bone, going towards the children bones.<br /></td>
-    </tr>
-  </tbody>
-</table>
+| AnimChannel Methods |
+| --- |
+| Usage<br /> |
+| addAllBones() |
+| Add all the bones of the model's skeleton to be influenced by this animation channel. (default)<br /> |
+| addBone("`bone1`")<br />addBone(bone1) |
+| Add a single bone to be influenced by this animation channel.<br /> |
+| addToRootBone("`bone1`")<br />addToRootBone(bone1) |
+| Add a series of bones to be influenced by this animation channel: Add all bones, starting from the given bone, to the root bone.<br /> |
+| addFromRootBone("`bone1`")<br />addFromRootBone(bone1) |
+| Add a series of bones to be influenced by this animation channel: Add all bones, starting from the given root bone, going towards the children bones.<br /> |
 
 ## Playing Animations
 
@@ -296,20 +191,11 @@ Animations are played by channel.
 Whether the animation channel plays continuously or only once, depends on the Loop properties you have set.
 :::
 
-<table>
-  <thead>
-    <tr>
-      <th>Channel Method</th>
-      <th>Usage<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>channel_walk.setAnim("`Walk`",0.50f);</td>
-      <td>Start the animation named "`Walk`" on channel channel_walk. +<br />The float value specifies the time how long the animation should overlap with the previous one on this channel. If set to 0f, then no blending will occur and the new animation will be applied instantly.<br /></td>
-    </tr>
-  </tbody>
-</table>
+| Channel Method |
+| --- |
+| Usage<br /> |
+| channel_walk.setAnim("`Walk`",0.50f); |
+| Start the animation named "`Walk`" on channel channel_walk.<br />The float value specifies the time how long the animation should overlap with the previous one on this channel. If set to 0f, then no blending will occur and the new animation will be applied instantly.<br /> |
 
 :::tip
 Use the AnimEventLister below to react at the end or start of an animation cycle.

@@ -34,13 +34,13 @@ To see the build script and the predefined tasks
 1. Open the project node. You see `build.xml` listed.
   1. Double-click `build.xml` to see how the jme3-specify build targets were defined. You typically do not need to edit the existing ones, but you can.
   1. Click the triangle next to `build.xml` to see all targets.
-    1. Double-click a target in the Files window, or the Navigator, to see how the target was defined. +
+    1. Double-click a target in the Files window, or the Navigator, to see how the target was defined.
 You will notice that the file `nbproject/build-impl.xml` opens. It contains very generic targets that you typically will never need to edit. Note that `build.xml` includes `build-impl.xml`!
 
 ## Adding Custom Targets
 
 [.right.text-left]
-![build-impl.png](/wiki-assets/docs/sdk/assets/images/build-impl.png)
+![build-impl.png](/wiki-assets/docs/sdk/images/build-impl.png)
 
 The build script is a non-proprietary Apache Ant script. It will work out-of-the-box, but if necessary, you can extend and customize it.
 

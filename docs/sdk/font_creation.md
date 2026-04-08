@@ -12,21 +12,21 @@ To create a font right click on the asset folder where you want to create the fo
 
 Open the "`new`" sub menu and then select "`other`".
 
-image:newother.png[newother.png,width="",height=""]
+![newother.png](/wiki-assets/docs/sdk/images/newother.png)
 
 Within the window that pops up select &lt;abbr title="Graphical User Interface"&gt;GUI&lt;/abbr&gt; and then Font then click Next
 
-image:newothergui.png[newothergui.png,width="",height=""]
+![newothergui.png](/wiki-assets/docs/sdk/images/newothergui.png)
 
 A list of every standard font installed on your system is then displayed, select the font that you would like to use to create the Bitmap Font file from and then click Next.
 
 When selecting fonts you should check that this use does not breach the license of the font.
 
-image:selectfont.png[selectfont.png,width="",height=""]
+![selectfont.png](/wiki-assets/docs/sdk/images/selectfont.png)
 
 With your font selected you can move onto the final screen which looks as follows:
 
-image:configurefont.png[configurefont.png,width="",height=""]
+![configurefont.png](/wiki-assets/docs/sdk/images/configurefont.png)
 
 ## Font Settings
 

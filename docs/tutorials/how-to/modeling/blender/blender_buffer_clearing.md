@@ -18,7 +18,7 @@ The exception to this rule is the `Linked Action` buffer, for animations, locate
 1. Click the `Action to be linked` button and select the action you want cleared.
 1. Deselect the **F** button to prevent it from saving.
 1. Change the editor type from `Dope Sheet` to `NLA Editor`. You will see the action listed.
-1. Click the icon:angle-double-down[]  button next to the action to push it into the stack.
+1. Click the `angle-double-down`  button next to the action to push it into the stack.
 1. Click the small start next to the track name.
 1. With the mouse inside the `NLA Track List`,  press `X` to delete both the track and strip.
 1. Save your file.

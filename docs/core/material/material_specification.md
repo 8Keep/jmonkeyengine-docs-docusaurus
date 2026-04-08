@@ -206,44 +206,23 @@ MaterialParameters {
 }
 ```
 
-<table>
-  <thead>
-    <tr>
-      <th>Param type</th>
-      <th>Value example<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Int</td>
-      <td>123<br /></td>
-    </tr>
-    <tr>
-      <td>Boolean</td>
-      <td>true<br /></td>
-    </tr>
-    <tr>
-      <td>Float</td>
-      <td>0.1<br /></td>
-    </tr>
-    <tr>
-      <td>Vector2</td>
-      <td>0.1 5.6<br /></td>
-    </tr>
-    <tr>
-      <td>Vector3</td>
-      <td>0.1 5.6 2.99<br /></td>
-    </tr>
-    <tr>
-      <td>Vector4=Color</td>
-      <td>0.1 5.6 2.99 3<br /></td>
-    </tr>
-    <tr>
-      <td>Texture2D=TextureCubeMap</td>
-      <td>Textures/MyTex.jpg<br /></td>
-    </tr>
-  </tbody>
-</table>
+| Param type |
+| --- |
+| Value example<br /> |
+| Int |
+| 123<br /> |
+| Boolean |
+| true<br /> |
+| Float |
+| 0.1<br /> |
+| Vector2 |
+| 0.1 5.6<br /> |
+| Vector3 |
+| 0.1 5.6 2.99<br /> |
+| Vector4=Color |
+| 0.1 5.6 2.99 3<br /> |
+| Texture2D=TextureCubeMap |
+| Textures/MyTex.jpg<br /> |
 
 The formatting of the value, depends on the type of the value that was specified in the J3MD file being extended. Examples are provided for every parameter type:
 

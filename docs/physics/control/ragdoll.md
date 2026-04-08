@@ -2,7 +2,7 @@
 
 The jMonkeyEngine3 has built-in support for [jBullet physics](http://jbullet.advel.cz) via the `com.jme3.bullet` package. Physics are not only responsible for handing collisions, but they also make [hinges and joints](../joint/hinges_and_joints.md) possible. One special example of physical joints are ragdoll physics, shown here.
 
-![ragdoll.png](/wiki-assets/docs/physics/assets/images/control/ragdoll.png)
+![ragdoll.png](/wiki-assets/docs/physics/images/control/ragdoll.png)
 
 ## Sample Code
 
@@ -138,7 +138,7 @@ shoulders.applyContinuousForce(true, upforce);
 
 ```
 
-We can use the action to pick the doll up and put it back on its feet, or what ever. Read more about [Forces](../physics.md#orces-moving-dynamic-objects) here.
+We can use the action to pick the doll up and put it back on its feet, or what ever. Read more about [Forces](../physics.md#forces-moving-dynamic-objects) here.
 
 ## Detecting Collisions
 

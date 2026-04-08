@@ -16,44 +16,23 @@ Those in turn were based on the original jME3 particle system by Kirill Vainer
 The core of all Particle Emitters is a ParticleController. That is used to manage all of the particles, the behaviour of the particles themselves though is controlled though a number of other classes that are plugged in to the ParticleController to provide the required functionality. You can think of the ParticleController as providing the central hub into which you plug all the modules you need to get the desired behaviour.
 
 An easy way to see what you need is to create a new ParticleController and then look at the constructor, you can see what parameters need to be supplied there.
-<table>
-  <thead>
-    <tr>
-      <th>name</th>
-      <th>The name to use for the geometry in the scene graph<br /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>mesh</td>
-      <td>The mesh to use (Usually either PointMesh or QuadMesh)<br /></td>
-    </tr>
-    <tr>
-      <td>maxParticles</td>
-      <td>The maximum number of particles to allow active at any one time<br /></td>
-    </tr>
-    <tr>
-      <td>lifeMin</td>
-      <td>The minimum amount of time (in seconds) for which each particle lives<br /></td>
-    </tr>
-    <tr>
-      <td>lifeMax</td>
-      <td>The maximum amount of time (in seconds) for which each particle lives<br /></td>
-    </tr>
-    <tr>
-      <td>source</td>
-      <td>The source from which the particles are spawned<br /></td>
-    </tr>
-    <tr>
-      <td>emissionController</td>
-      <td>The frequency and timing with which particles are spawned. If null then no particles are automatically spawned and they must be triggered manually using emitNextParticle() or emitAllParticles()<br /></td>
-    </tr>
-    <tr>
-      <td>influencers</td>
-      <td>Zero or more ParticleInfluencers, each of which changes the behaviour of the particles.<br /></td>
-    </tr>
-  </tbody>
-</table>
+| name |
+| --- |
+| The name to use for the geometry in the scene graph<br /> |
+| mesh |
+| The mesh to use (Usually either PointMesh or QuadMesh)<br /> |
+| maxParticles |
+| The maximum number of particles to allow active at any one time<br /> |
+| lifeMin |
+| The minimum amount of time (in seconds) for which each particle lives<br /> |
+| lifeMax |
+| The maximum amount of time (in seconds) for which each particle lives<br /> |
+| source |
+| The source from which the particles are spawned<br /> |
+| emissionController |
+| The frequency and timing with which particles are spawned. If null then no particles are automatically spawned and they must be triggered manually using emitNextParticle() or emitAllParticles()<br /> |
+| influencers |
+| Zero or more ParticleInfluencers, each of which changes the behaviour of the particles.<br /> |
 
 By selecting the behaviour you desire for each option you can configure up a virtually infinite array of possible particle emitters.
 
@@ -112,7 +91,7 @@ public class HelloParticles1_SimpleFire extends SimpleApplication {
 
 Run that and the result should look something like:
 
-image:effect/particles/particles1.jpg[particles1.jpg,width="",height=""]
+![particles1.jpg](/wiki-assets/docs/contributions/assets/images/effect/particles/particles1.jpg)
 
 ## Simple Fire and Smoke
 
@@ -163,7 +142,7 @@ image:effect/particles/particles1.jpg[particles1.jpg,width="",height=""]
 
 You can see that the only change is to make the particles last a little longer and to change the ColorInfluencer for a MultiColorInfluencer, and yet the results look quite different:
 
-image:effect/particles/particles1.jpg[particles2.jpg,width="",height=""]
+![particles2.jpg](/wiki-assets/docs/contributions/assets/images/effect/particles/particles1.jpg)
 
 This isn't a very convincing fire yet, but it is very simple to get up and running. One problem with this approach is that particles are done using an alpha-additive material, they can only make things brighter but never darker. That is not ideal for smoke which should be able to make them darker too. We will look at this again later but for now we will move on to some different mesh types.
 
@@ -176,7 +155,7 @@ While PointMesh is recommended for basic particles for more advanced options the
 :::note
 The flame image from before is used for the second emitter, the first emitter uses this image which you can download and use:
 
-image:effect/particles/runecircle.png[runecircle.png,width="256",height=""]
+![runecircle.png](/wiki-assets/docs/contributions/assets/images/effect/particles/runecircle.png)
 :::
 
 ```java
@@ -279,7 +258,7 @@ There is a model of a monkeys head in the test data that is used in this example
 
 The result should look something like:
 
-image:effect/particles/particles1.jpg[particles3.jpg,width="",height=""]
+![particles3.jpg](/wiki-assets/docs/contributions/assets/images/effect/particles/particles1.jpg)
 
 Now lets set fire to the monkey! (No monkeys were harmed during the making of this particle system!).
 
