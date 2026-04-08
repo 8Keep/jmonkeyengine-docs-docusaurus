@@ -1,8 +1,8 @@
 :root {
   --jme-forum-header: #111111;
   --jme-forum-surface: #1e1e1e;
-  --jme-forum-surface-raised: #262626;
-  --jme-forum-border: #393939;
+  --jme-forum-surface-raised: #232323;
+  --jme-forum-border: #2b2b2b;
   --jme-forum-text: #aaaaaa;
   --jme-forum-heading: #f2ece1;
   --jme-forum-accent: #c07302;
@@ -15,22 +15,27 @@
   --ifm-color-primary-light: #d68002;
   --ifm-color-primary-lighter: #e58a03;
   --ifm-color-primary-lightest: #ffb23e;
-  --ifm-background-color: #f6f1e7;
-  --ifm-background-surface-color: #fffaf2;
-  --ifm-color-content: #322a1e;
-  --ifm-color-content-secondary: #675a49;
-  --ifm-heading-color: #1f170f;
+  --ifm-background-color: #ffffff;
+  --ifm-background-surface-color: #f7f7f7;
+  --ifm-color-content: #2b2b2b;
+  --ifm-color-content-secondary: #575757;
+  --ifm-heading-color: #191919;
   --ifm-link-color: #a35d00;
-  --ifm-menu-color-active: #7a4500;
-  --ifm-navbar-background-color: rgba(246, 241, 231, 0.92);
-  --ifm-navbar-link-color: #2e2418;
-  --ifm-footer-background-color: #17120f;
+  --ifm-menu-color: #494949;
+  --ifm-menu-color-active: #a35d00;
+  --ifm-navbar-background-color: #ffffff;
+  --ifm-navbar-link-color: #202020;
+  --ifm-navbar-link-hover-color: #c07302;
+  --ifm-footer-background-color: #191919;
   --ifm-font-family-base: "Verdana", "Trebuchet MS", sans-serif;
   --ifm-heading-font-family: "Trebuchet MS", "Verdana", sans-serif;
   --ifm-code-font-size: 92%;
-  --ifm-code-background: rgba(192, 115, 2, 0.1);
-  --ifm-toc-border-color: rgba(31, 23, 15, 0.12);
-  --ifm-global-shadow-lw: 0 16px 42px rgba(0, 0, 0, 0.08);
+  --ifm-code-background: rgba(192, 115, 2, 0.08);
+  --ifm-toc-border-color: #dddddd;
+  --ifm-dropdown-background-color: #ffffff;
+  --ifm-card-background-color: #ffffff;
+  --ifm-global-shadow-lw: 0 14px 34px rgba(0, 0, 0, 0.08);
+  --ifm-table-border-color: #e1e1e1;
 }
 
 [data-theme='dark'] {
@@ -47,28 +52,26 @@
   --ifm-color-content-secondary: #8f8f8f;
   --ifm-heading-color: #f2ece1;
   --ifm-link-color: #f6b44d;
-  --ifm-link-hover-color: #ffcb72;
   --ifm-menu-color: #a8a8a8;
   --ifm-menu-color-active: #ffb23e;
-  --ifm-navbar-background-color: rgba(17, 17, 17, 0.94);
+  --ifm-navbar-background-color: #111111;
   --ifm-navbar-link-color: #dfd7ca;
   --ifm-navbar-link-hover-color: #ffb23e;
-  --ifm-dropdown-background-color: #1b1b1b;
   --ifm-footer-background-color: #111111;
-  --ifm-card-background-color: #1f1f1f;
   --ifm-code-background: rgba(255, 178, 62, 0.1);
   --ifm-toc-border-color: #2f2f2f;
+  --ifm-dropdown-background-color: #1b1b1b;
+  --ifm-card-background-color: #1f1f1f;
   --ifm-global-shadow-lw: 0 18px 48px rgba(0, 0, 0, 0.34);
   --ifm-table-border-color: #353535;
 }
 
 html {
-  background:
-    radial-gradient(circle at top, rgba(255, 178, 62, 0.1), transparent 24rem),
-    linear-gradient(180deg, var(--ifm-background-color) 0%, var(--ifm-background-color) 100%);
+  background: var(--ifm-background-color);
 }
 
 body {
+  background: var(--ifm-background-color);
   color: var(--ifm-color-content);
 }
 
@@ -79,7 +82,7 @@ a {
 
 .navbar {
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--jme-forum-border);
+  border-bottom: 1px solid var(--ifm-toc-border-color);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
 }
 
@@ -90,12 +93,12 @@ a {
 }
 
 .footer {
-  border-top: 3px solid rgba(255, 178, 62, 0.5);
+  border-top: 1px solid var(--jme-forum-border);
 }
 
 .theme-doc-sidebar-container,
 .theme-doc-toc-desktop {
-  border-color: var(--jme-forum-border);
+  border-color: var(--ifm-toc-border-color);
 }
 
 .theme-doc-sidebar-item-link,
@@ -105,25 +108,16 @@ a {
 
 .menu__link:hover,
 .menu__caret:hover {
-  background: rgba(255, 178, 62, 0.08);
+  background: color-mix(in srgb, var(--ifm-color-primary) 10%, transparent);
 }
 
 .menu__link--active,
 .menu__list-item-collapsible--active {
-  background: rgba(255, 178, 62, 0.12);
+  background: color-mix(in srgb, var(--ifm-color-primary) 14%, transparent);
 }
 
 .main-wrapper {
-  background:
-    radial-gradient(circle at top left, rgba(255, 178, 62, 0.08), transparent 22rem),
-    linear-gradient(180deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
-}
-
-[data-theme='dark'] .main-wrapper {
-  background:
-    radial-gradient(circle at top left, rgba(255, 178, 62, 0.11), transparent 22rem),
-    radial-gradient(circle at top right, rgba(192, 115, 2, 0.08), transparent 18rem),
-    linear-gradient(180deg, #141414 0%, #111111 100%);
+  background: var(--ifm-background-color);
 }
 
 .theme-doc-markdown h1,
@@ -156,11 +150,11 @@ table {
 }
 
 table thead tr {
-  background: rgba(255, 178, 62, 0.12);
+  background: color-mix(in srgb, var(--ifm-color-primary) 10%, var(--ifm-background-surface-color));
 }
 
 table tbody tr:nth-child(even) {
-  background: rgba(255, 255, 255, 0.03);
+  background: color-mix(in srgb, var(--ifm-background-surface-color) 90%, #000 10%);
 }
 
 .theme-admonition {
@@ -174,8 +168,8 @@ table tbody tr:nth-child(even) {
 }
 
 .button--primary {
-  background: linear-gradient(135deg, #c07302 0%, #ffb23e 100%);
-  border: none;
+  background: #c07302;
+  border: 1px solid #c07302;
   color: #16120e;
 }
 
@@ -186,13 +180,13 @@ table tbody tr:nth-child(even) {
 
 .button--secondary {
   background: transparent;
-  border: 1px solid rgba(255, 178, 62, 0.36);
+  border: 1px solid color-mix(in srgb, var(--ifm-color-primary) 40%, transparent);
   color: var(--ifm-heading-color);
 }
 
 .button--secondary:hover {
-  background: rgba(255, 178, 62, 0.08);
-  border-color: rgba(255, 178, 62, 0.68);
+  background: color-mix(in srgb, var(--ifm-color-primary) 8%, transparent);
+  border-color: color-mix(in srgb, var(--ifm-color-primary) 70%, transparent);
 }
 
 .ui-token {
