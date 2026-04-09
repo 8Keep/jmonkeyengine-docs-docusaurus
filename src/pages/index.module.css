@@ -70,6 +70,35 @@
   padding: 0 1.5rem 4rem;
 }
 
+.subgrid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  margin: 0 auto;
+  max-width: 72rem;
+  padding: 0 1.5rem 1rem;
+}
+
+.updateCard {
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-toc-border-color);
+  border-radius: 1.2rem;
+  color: inherit;
+  padding: 1.3rem;
+  text-decoration: none;
+}
+
+.updateCard h2 {
+  color: var(--ifm-heading-color);
+  font-size: 1.05rem;
+  margin-bottom: 0.65rem;
+}
+
+.updateCard p {
+  color: var(--ifm-color-content);
+  margin: 0;
+}
+
 .card {
   background: var(--ifm-background-surface-color);
   border: 1px solid var(--ifm-toc-border-color);

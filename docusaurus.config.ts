@@ -3,8 +3,8 @@ import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
-  title: 'jMonkeyEngine Docs',
-  tagline: 'Experimental Docusaurus migration of the jMonkeyEngine wiki',
+  title: 'jMonkeyEngine',
+  tagline: 'Website and documentation migration in Docusaurus',
   favicon: 'img/favicon.ico',
 
   future: {
@@ -39,7 +39,15 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           editUrl: 'https://github.com/8Keep/jmonkeyengine-docs-docusaurus/tree/master/',
         },
-        blog: false,
+        blog: {
+          showReadingTime: true,
+          blogTitle: 'News',
+          blogDescription: 'Development updates, releases, and community news',
+          blogSidebarTitle: 'Recent Posts',
+          blogSidebarCount: 10,
+          onUntruncatedBlogPosts: 'ignore',
+          editUrl: 'https://github.com/8Keep/jmonkeyengine-docs-docusaurus/tree/master/',
+        },
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -55,25 +63,55 @@ const config: Config = {
       respectPrefersColorScheme: false,
     },
     navbar: {
-      title: 'jMonkeyEngine Docs',
+      title: 'jMonkeyEngine',
       logo: {
         alt: 'jMonkeyEngine',
-        src: 'img/logo.svg',
+        src: 'images/jme-logo.png',
       },
       items: [
+        {
+          to: '/',
+          label: 'Home',
+          position: 'left',
+        },
+        {
+          to: '/showcase',
+          label: 'Showcase',
+          position: 'left',
+        },
+        {
+          to: '/blog',
+          label: 'News',
+          position: 'left',
+        },
         {
           to: '/docs/documentation',
           label: 'Docs',
           position: 'left',
         },
         {
-          to: '/docs/wiki/wiki_contributor',
-          label: 'Contribute',
+          to: '/license',
+          label: 'License',
           position: 'left',
+        },
+        {
+          href: 'https://hub.jmonkeyengine.org',
+          label: 'Discussions',
+          position: 'right',
+        },
+        {
+          href: 'https://library.jmonkeyengine.org',
+          label: 'Library',
+          position: 'right',
         },
         {
           href: 'https://javadoc.jmonkeyengine.org',
           label: 'JavaDoc',
+          position: 'right',
+        },
+        {
+          href: 'https://github.com/jMonkeyEngine/jmonkeyengine',
+          label: 'Engine',
           position: 'right',
         },
         {
@@ -87,15 +125,19 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: 'Docs',
+          title: 'Site',
           items: [
             {
-              label: 'Documentation',
-              to: '/docs/documentation',
+              label: 'Quick Start',
+              to: '/start',
             },
             {
-              label: 'Contributing',
-              to: '/docs/wiki/wiki_contributor',
+              label: 'Features',
+              to: '/features',
+            },
+            {
+              label: 'Donate',
+              to: '/donate',
             },
           ],
         },
@@ -110,14 +152,22 @@ const config: Config = {
               label: 'Store',
               href: 'https://store.jmonkeyengine.org',
             },
+            {
+              label: 'Blog',
+              to: '/blog',
+            },
           ],
         },
         {
-          title: 'Source',
+          title: 'Docs',
           items: [
             {
-              label: 'Migration Repo',
-              href: 'https://github.com/8Keep/jmonkeyengine-docs-docusaurus',
+              label: 'Documentation',
+              to: '/docs/documentation',
+            },
+            {
+              label: 'Contributing',
+              to: '/contribute',
             },
             {
               label: 'Original Wiki',
