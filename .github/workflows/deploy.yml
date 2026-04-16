@@ -6,6 +6,9 @@ on:
       - master
   workflow_dispatch:
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
+
 permissions:
   contents: read
   pages: write
@@ -33,14 +36,6 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-
-      - name: Convert content
-        run: |
-          if [ -d ../jmonkeyengine-wiki/wiki ]; then
-            npm run convert:content
-          else
-            echo 'Skipping content conversion; committed docs are used in CI.'
-          fi
 
       - name: Build site
         run: npm run build

@@ -1,0 +1,61 @@
+name: Refresh Imported Docs
+
+on:
+  workflow_dispatch:
+    inputs:
+      source_ref:
+        description: Wiki ref to import from
+        required: true
+        default: master
+        type: string
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
+
+permissions:
+  contents: write
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Docusaurus repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Checkout wiki source
+        uses: actions/checkout@v4
+        with:
+          repository: 8Keep/wiki
+          ref: ${{ inputs.source_ref }}
+          path: antora-source
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Import content
+        run: npm run convert:content
+        env:
+          ANTORA_SOURCE: ${{ github.workspace }}/antora-source
+
+      - name: Validate build
+        run: npm run build
+
+      - name: Commit generated changes
+        run: |
+          if git diff --quiet -- docs static/wiki-assets planning/conversion-report.md sidebars.ts; then
+            echo 'No generated changes to commit.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs static/wiki-assets planning/conversion-report.md sidebars.ts
+          git commit -m "Refresh imported docs from wiki@${{ inputs.source_ref }}"
+          git push
