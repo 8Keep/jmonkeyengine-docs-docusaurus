@@ -26,7 +26,7 @@ const updates = [
   },
   {
     title: 'Community infrastructure updates',
-    body: 'Site and service changes from the old website are now being folded into the unified Docusaurus migration.',
+    body: 'Latest infrastructure, release, and community updates from across the jMonkeyEngine ecosystem.',
     href: '/blog/new-website',
   },
   {
@@ -40,16 +40,14 @@ export default function Home(): JSX.Element {
   return (
     <Layout
       title="jMonkeyEngine"
-      description="Integrated website and documentation migration for jMonkeyEngine">
+      description="Unified jMonkeyEngine website, docs, and community news">
       <main className={styles.page}>
         <section className={styles.hero}>
           <div className={styles.heroInner}>
             <p className={styles.eyebrow}>jMonkeyEngine</p>
             <h1>Developer-friendly 3D game development in Java.</h1>
             <p className={styles.lede}>
-              This integrated Docusaurus prototype combines the website, news, and
-              documentation into one navigable site while keeping the forum-aligned
-              visual language from hub.jmonkeyengine.org.
+              jMonkeyEngine documentation, project pages, and community news now live in one site, with a shared shell and the dark visual language of hub.jmonkeyengine.org.
             </p>
             <div className={styles.actions}>
               <Link className="button button--primary button--lg" to="/start">
