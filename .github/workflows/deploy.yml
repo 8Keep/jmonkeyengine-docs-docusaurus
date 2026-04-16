@@ -35,7 +35,12 @@ jobs:
         run: npm ci
 
       - name: Convert content
-        run: npm run convert:content
+        run: |
+          if [ -d ../jmonkeyengine-wiki/wiki ]; then
+            npm run convert:content
+          else
+            echo 'Skipping content conversion; committed docs are used in CI.'
+          fi
 
       - name: Build site
         run: npm run build
